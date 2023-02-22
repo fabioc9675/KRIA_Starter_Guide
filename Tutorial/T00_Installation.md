@@ -153,8 +153,68 @@ source /tools/Xilinx/Vitis/2021.2/settings64.sh
 vitis
 ```
 
+### Instalación del paquete para PYNQ
+
+Descargar la informacion del repositorio GitHub de al [PYNQ-Z1](https://github.com/cathalmccabe/pynq-z1_board_files), luego crear la carpeta `board_files` en `boards` y copiar el contenido de la PYNQ-Z1.
+
+```bash
+cd /tools/Xilinx/Vivado/2022.2/data/boards
+sudo mkdir board_files
+cd /home/<User Name>/Downloads/
+sudo cp -R pynq-z1_board_files-master/pynq-z1/ /tools/Xilinx/Vivado/2022.2/data/boards/board_files/
+```
+
 ## Instalacion de Petalinux
 
-Usar el instalador de Vivado para descargar la imagen de Petalinux:
+Usar el instalador de Vivado para descargar la imagen de Petalinux o descargar la imagen de [Petalinux](https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.2-10141622-installer.run) desde la pagina oficial de [Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html):
 
 ![Petalinux_download](./T00_Images/Petalinux.png)
+
+You can install the PetaLinux mostly wherever you prefer, but I like to keep all of the Xilinx tools in the same place so I create a PetaLinux directory in the same directory Vivado and Vitis installed to following the version format as well.
+
+Give the directory 755 permissions (making the folder globally read-execute):
+
+```bash
+sudo chmod -R 755 /tools/Xilinx/PetaLinux/2022.2/
+```
+
+Give the PetaLinux installer 777 permissions:
+
+```bash
+sudo chmod 777 ./tools/Xilinx/PetaLinux/2022.2/bin/petalinux-v2022.2-final-installer.run
+```
+
+Change ownership of the directory you’re installing PetaLinux in to the user:
+
+```bash
+sudo chown -R <user>:<user> /tools/Xilinx/PetaLinux/2022.2/
+```
+
+Run the PetaLinux installer:
+
+```bash
+cd /tools/Xilinx/PetaLinux/2022.2/bin/
+./petalinux-v2022.2-final-installer.run -d /tools/Xilinx/PetaLinux/2022.2
+```
+
+Then test the installation by turning Webtalk on/off:
+
+```bash
+source /tools/Xilinx/PetaLinux/2021.2/settings.sh
+petalinux-util --webtalk off
+petalinux-util --webtalk on
+```
+
+It's worth noting that a PetaLinux project can not be built offline without access to the internet unless specifically configured to do so. This involves downloading the proper repositories locally to your machine and pointing the PetaLinux project to it, which I'll cover in a different post. This is something that you'll have to do to each PetaLinux project individually that you want to be able to run a build on offline.
+
+### Descarga del soporte 'bsp' para SOM Kria y KR260
+
+Este soporte se puede descargar desde la pagina oficial de [Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html):
+
+- Kria K26 SOM BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-k26-som-v2022.2-10141622.bsp)
+- Kria KV260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kv260-starterkit-v2022.2-10141622.bsp)
+- Kria KR260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kr260-starterkit-v2022.2-10141622.bsp)
+
+### Nota
+
+tener especial cuidado en las versiones, si se instala el Vivado y el Vitis 2022.2, tambien se debe descargar la misma versión para Petalinux.
