@@ -135,7 +135,7 @@ sudo bash /Downloads/Xilinx_Unified_2022.2_1014_8888_Lin64.bin
 
 Seleccionar los paquetes necesarios para la instalación:
 
-![Vitis_Options](/T00_Images/Vitis_Selection.png)
+![Vitis_Options](./T00_Images/Vitis_Selection.png)
 
 Una vez instalados tanto Vitis como Vivado, ya pueden ser servidos y ejecutados
 
@@ -157,4 +157,4 @@ vitis
 
 Usar el instalador de Vivado para descargar la imagen de Petalinux:
 
-![Petalinux_download](/T00_Images/Petalinux.png)
+![Petalinux_download](./T00_Images/Petalinux.png)
