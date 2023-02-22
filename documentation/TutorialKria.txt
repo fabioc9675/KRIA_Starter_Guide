@@ -8,3 +8,8 @@ Petalinux: https://www.hackster.io/whitney-knitter/getting-started-with-the-kria
 Juan Enlace: https://www.hackster.io/LogicTronix/kria-kr260-petalinux-2022-2-gpio-tutorial-9b14bf?f=1
 
 Prender Leds: https://www.hackster.io/whitney-knitter/lego-land-rover-defender-robot-with-kria-kr260-f8974f
+            : https://www.hackster.io/LogicTronix/kria-kr260-rpi-sensehat-ledmatrix-integration-on-petalinux-d4c4e0
+
+Global repository: https://github.com/Xilinx/Vitis-Tutorials/tree/2021.1/Vitis_Platform_Creation/Design_Tutorials/01-Edge-KV260
+
+
