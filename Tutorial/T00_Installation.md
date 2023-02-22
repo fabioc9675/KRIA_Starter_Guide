@@ -1,6 +1,6 @@
 # Instalación de Vivado, Vitis y Petalinux
 
-### Instalación de máquina virtual de Linux
+## Instalación de máquina virtual de Linux
 
 Para este proceso seguir el siguiente [tutorial](https://www.hackster.io/whitney-knitter/installing-vivado-vitis-petalinux-2021-2-on-ubuntu-18-04-0d0fdf).
 
@@ -11,7 +11,7 @@ En este caso utilizaremos [VirtualBox 6](https://www.virtualbox.org/wiki/Downloa
 - Como instalar Ubuntu en la maquina virtual (https://youtu.be/x5MhydijWmc)
 - Como compartir archivos entre Ubuntu y Windows (https://youtu.be/Mzd5i48OAiU)
 
-### Instalación de Vivado, Vitis y Petalinux
+### Instalación de Paquetes
 
 primero es necesario ejecutar los siguientes comandos de Linux para garantizar la estabilidad en la instalacion delos software de Xilinx
 
@@ -123,3 +123,38 @@ Stop and restart the host machine's extended internet services for these changes
 ~$ sudo /etc/init.d/xinetd stop
 ~$ sudo /etc/init.d/xinetd start
 ```
+
+## Instalacion de Vivado y Vitis
+
+Descargar desde el centro de [descargas de Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html) el software [Xilinx Unified Installer 2022.2: Linux Self Extracting Web Installer](https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_Unified_2022.2_1014_8888_Lin64.bin), luego para correr el instalador se debe ejecutar en un terminal el siguiente comando:
+
+```bash
+sudo chmod 777 ./Downloads/Xilinx_Unified_2022.2_1014_8888_Lin64.bin
+sudo bash /Downloads/Xilinx_Unified_2022.2_1014_8888_Lin64.bin
+```
+
+Seleccionar los paquetes necesarios para la instalación:
+
+![Vitis_Options](/T00_Images/Vitis_Selection.png)
+
+Una vez instalados tanto Vitis como Vivado, ya pueden ser servidos y ejecutados
+
+Ejecución de Vivado:
+
+```bash
+source /tools/Xilinx/Vivado/2021.2/settings64.sh
+vivado
+```
+
+Ejecución de Vitis:
+
+```bash
+source /tools/Xilinx/Vitis/2021.2/settings64.sh
+vitis
+```
+
+## Instalacion de Petalinux
+
+Usar el instalador de Vivado para descargar la imagen de Petalinux:
+
+![Petalinux_download](/T00_Images/Petalinux.png)
