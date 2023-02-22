@@ -8,8 +8,8 @@ En nuestro proceso de instalación utilizaremos una maquina virtual de Ubunto co
 
 En este caso utilizaremos [VirtualBox 6](https://www.virtualbox.org/wiki/Download_Old_Builds_6_1), e instalaremos el [Ubuntu 20.04.5 LTS](https://releases.ubuntu.com/focal/) desde la pagina oficial de Linux, se deben seguir algunos tutoriales de Youtube para que quede bien configurada la maquina virtual:
 
-- Como instalar Ubuntu en la maquina virtual (https://youtu.be/x5MhydijWmc)
-- Como compartir archivos entre Ubuntu y Windows (https://youtu.be/Mzd5i48OAiU)
+- Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
+- Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
 
 ### Instalación de Paquetes
 
@@ -95,7 +95,7 @@ PetaLinux also requires a TFTP server service to support TFTP booting on a targe
 
 y configurar este como:
 
-```
+```txt
 service tftp
     {
     protocol = udp
