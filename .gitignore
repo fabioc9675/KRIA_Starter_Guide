@@ -26,8 +26,8 @@ meta-plnx-generated/
 *.vdi
 
 ## bitstream
-*.bit
-*.bin
+#*.bit
+#*.bin
 *.mcs
 *.svf
 *.image
