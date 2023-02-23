@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Wed Feb 22 22:55:06 2023
+--Date        : Thu Feb 23 17:00:32 2023
 --Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
@@ -572,8 +572,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity kria_bd is
+  port (
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=8,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of kria_bd : entity is "kria_bd.hwdef";
 end kria_bd;
@@ -621,8 +624,13 @@ architecture STRUCTURE of kria_bd is
     maxigp2_rready : out STD_LOGIC;
     maxigp2_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     maxigp2_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    emio_enet0_enet_tsu_timer_cnt : out STD_LOGIC_VECTOR ( 93 downto 0 );
+    emio_ttc0_wave_o : out STD_LOGIC_VECTOR ( 2 downto 0 );
     pl_ps_irq0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     pl_resetn0 : out STD_LOGIC;
+    pl_resetn1 : out STD_LOGIC;
+    pl_resetn2 : out STD_LOGIC;
+    pl_resetn3 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_clk1 : out STD_LOGIC
   );
@@ -689,6 +697,12 @@ architecture STRUCTURE of kria_bd is
     irq : out STD_LOGIC
   );
   end component kria_bd_axi_intc_0_0;
+  component kria_bd_xlslice_0_0 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component kria_bd_xlslice_0_0;
   signal axi_intc_0_irq : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
@@ -710,6 +724,7 @@ architecture STRUCTURE of kria_bd is
   signal ps8_0_axi_periph_M00_AXI_WREADY : STD_LOGIC;
   signal ps8_0_axi_periph_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps8_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
+  signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -760,9 +775,15 @@ architecture STRUCTURE of kria_bd is
   signal NLW_proc_sys_reset_2_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_2_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_zynq_ultra_ps_e_0_pl_clk1_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn1_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn2_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn3_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_emio_enet0_enet_tsu_timer_cnt_UNCONNECTED : STD_LOGIC_VECTOR ( 93 downto 0 );
+  signal NLW_zynq_ultra_ps_e_0_emio_ttc0_wave_o_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_aruser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_awuser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
 begin
+  fan_en_b(0) <= xlslice_0_Dout(0);
 axi_intc_0: component kria_bd_axi_intc_0_0
      port map (
       intr(0) => '0',
@@ -884,8 +905,17 @@ ps8_0_axi_periph: entity work.kria_bd_ps8_0_axi_periph_0
       S00_AXI_wstrb(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB(3 downto 0),
       S00_AXI_wvalid => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID
     );
+xlslice_0: component kria_bd_xlslice_0_0
+     port map (
+      Din(2) => zynq_ultra_ps_e_0_pl_resetn0,
+      Din(1) => zynq_ultra_ps_e_0_pl_resetn0,
+      Din(0) => zynq_ultra_ps_e_0_pl_resetn0,
+      Dout(0) => xlslice_0_Dout(0)
+    );
 zynq_ultra_ps_e_0: component kria_bd_zynq_ultra_ps_e_0_0
      port map (
+      emio_enet0_enet_tsu_timer_cnt(93 downto 0) => NLW_zynq_ultra_ps_e_0_emio_enet0_enet_tsu_timer_cnt_UNCONNECTED(93 downto 0),
+      emio_ttc0_wave_o(2 downto 0) => NLW_zynq_ultra_ps_e_0_emio_ttc0_wave_o_UNCONNECTED(2 downto 0),
       maxigp2_araddr(39 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR(39 downto 0),
       maxigp2_arburst(1 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST(1 downto 0),
       maxigp2_arcache(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE(3 downto 0),
@@ -929,6 +959,9 @@ zynq_ultra_ps_e_0: component kria_bd_zynq_ultra_ps_e_0_0
       pl_clk0 => zynq_ultra_ps_e_0_pl_clk0,
       pl_clk1 => NLW_zynq_ultra_ps_e_0_pl_clk1_UNCONNECTED,
       pl_ps_irq0(0) => axi_intc_0_irq,
-      pl_resetn0 => zynq_ultra_ps_e_0_pl_resetn0
+      pl_resetn0 => zynq_ultra_ps_e_0_pl_resetn0,
+      pl_resetn1 => NLW_zynq_ultra_ps_e_0_pl_resetn1_UNCONNECTED,
+      pl_resetn2 => NLW_zynq_ultra_ps_e_0_pl_resetn2_UNCONNECTED,
+      pl_resetn3 => NLW_zynq_ultra_ps_e_0_pl_resetn3_UNCONNECTED
     );
 end STRUCTURE;

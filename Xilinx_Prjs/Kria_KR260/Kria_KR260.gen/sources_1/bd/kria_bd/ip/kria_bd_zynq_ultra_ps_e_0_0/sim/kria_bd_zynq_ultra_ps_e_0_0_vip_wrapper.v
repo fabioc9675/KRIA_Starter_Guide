@@ -98,8 +98,13 @@ maxigp2_rvalid,
 maxigp2_rready, 
 maxigp2_awqos, 
 maxigp2_arqos, 
+emio_enet0_enet_tsu_timer_cnt, 
+emio_ttc0_wave_o, 
 pl_ps_irq0, 
 pl_resetn0, 
+pl_resetn1, 
+pl_resetn2, 
+pl_resetn3, 
 pl_clk0, 
 pl_clk1 
 );
@@ -143,8 +148,13 @@ input maxigp2_rvalid;
 output maxigp2_rready;
 output [3 : 0] maxigp2_awqos;
 output [3 : 0] maxigp2_arqos;
+output [93 : 0] emio_enet0_enet_tsu_timer_cnt;
+output [2 : 0] emio_ttc0_wave_o;
 input [0 : 0] pl_ps_irq0;
 output pl_resetn0;
+output pl_resetn1;
+output pl_resetn2;
+output pl_resetn3;
 output pl_clk0;
 output pl_clk1;
 wire pl_clk_t[3:0] ;
@@ -757,6 +767,9 @@ assign pl_clk0 = pl_clk_t[0] ;
 .PLPSIRQ0(pl_ps_irq0),
 
 .PL_RESETN0(pl_resetn0),
+.PL_RESETN1(pl_resetn1),
+.PL_RESETN2(pl_resetn2),
+.PL_RESETN3(pl_resetn3), 
 .PLCLK({pl_clk_t[3],pl_clk_t[2],pl_clk_t[1],pl_clk_t[0]})
   );
 

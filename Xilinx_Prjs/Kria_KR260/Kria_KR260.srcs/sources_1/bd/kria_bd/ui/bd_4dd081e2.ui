@@ -1,26 +1,29 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.577124",
-   "Default View_TopLeft":"0,-71",
+   "Default View_ScaleFactor":"0.483306",
+   "Default View_TopLeft":"0,-112",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 610 -y 100 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 130 -y 490 -defaultsOSRD
-preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -x 610 -y 320 -defaultsOSRD
-preplace inst proc_sys_reset_1 -pg 1 -lvl 2 -x 610 -y 510 -defaultsOSRD
-preplace inst axi_intc_0 -pg 1 -lvl 4 -x 1410 -y 160 -defaultsOSRD
-preplace inst ps8_0_axi_periph -pg 1 -lvl 3 -x 1150 -y 130 -defaultsOSRD
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 30 630 NJ 630 970
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 3 20 570 240 610 980
-preplace netloc clk_wiz_0_clk_out1 1 1 1 N 470
-preplace netloc clk_wiz_0_clk_out2 1 1 3 230 620 990 250 1300J
-preplace netloc proc_sys_reset_2_peripheral_aresetn 1 2 2 1000 260 1310J
-preplace netloc axi_intc_0_irq 1 1 4 250 640 NJ 640 NJ 640 1510
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 2 1 980 20n
+preplace portBus fan_en_b -pg 1 -lvl 5 -x 1680 -y 310 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 600 -y 130 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 120 -y 530 -defaultsOSRD
+preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -x 600 -y 390 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 2 -x 600 -y 570 -defaultsOSRD
+preplace inst axi_intc_0 -pg 1 -lvl 4 -x 1480 -y 160 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 3 -x 1140 -y 130 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 4 -x 1480 -y 310 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 10 270 NJ 270 960
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 4 20 610 240 290 970 310 N
+preplace netloc clk_wiz_0_clk_out1 1 1 1 230J 510n
+preplace netloc clk_wiz_0_clk_out2 1 1 3 220 280 980 10 1290J
+preplace netloc proc_sys_reset_2_peripheral_aresetn 1 2 2 990 250 1290J
+preplace netloc axi_intc_0_irq 1 1 4 240 -10 NJ -10 NJ -10 1580
+preplace netloc xlslice_0_Dout 1 4 1 NJ 310
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 2 1 990 50n
 preplace netloc ps8_0_axi_periph_M00_AXI 1 3 1 N 130
-levelinfo -pg 1 0 130 610 1150 1410 1530
-pagesize -pg 1 -db -bbox -sgen 0 -40 1530 650
+levelinfo -pg 1 -10 120 600 1140 1480 1680
+pagesize -pg 1 -db -bbox -sgen -10 -20 1830 670
 "
 }
 {

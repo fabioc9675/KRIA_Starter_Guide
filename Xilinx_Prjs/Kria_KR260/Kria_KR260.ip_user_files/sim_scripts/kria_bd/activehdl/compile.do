@@ -16,6 +16,7 @@ vlib activehdl/fifo_generator_v13_2_7
 vlib activehdl/axi_data_fifo_v2_1_26
 vlib activehdl/axi_register_slice_v2_1_27
 vlib activehdl/axi_protocol_converter_v2_1_27
+vlib activehdl/xlslice_v1_0_2
 
 vmap xilinx_vip activehdl/xilinx_vip
 vmap xpm activehdl/xpm
@@ -32,6 +33,7 @@ vmap fifo_generator_v13_2_7 activehdl/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 activehdl/axi_data_fifo_v2_1_26
 vmap axi_register_slice_v2_1_27 activehdl/axi_register_slice_v2_1_27
 vmap axi_protocol_converter_v2_1_27 activehdl/axi_protocol_converter_v2_1_27
+vmap xlslice_v1_0_2 activehdl/xlslice_v1_0_2
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -83,6 +85,7 @@ vcom -work axi_intc_v4_1_17 -93  \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/kria_bd/ip/kria_bd_axi_intc_0_0/sim/kria_bd_axi_intc_0_0.vhd" \
+"../../../bd/kria_bd/sim/kria_bd.vhd" \
 
 vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
@@ -108,8 +111,11 @@ vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Kria_KR260
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 
-vcom -work xil_defaultlib -93  \
-"../../../bd/kria_bd/sim/kria_bd.vhd" \
+vlog -work xlslice_v1_0_2  -v2k5 "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_KR260.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/kria_bd/ip/kria_bd_xlslice_0_0/sim/kria_bd_xlslice_0_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

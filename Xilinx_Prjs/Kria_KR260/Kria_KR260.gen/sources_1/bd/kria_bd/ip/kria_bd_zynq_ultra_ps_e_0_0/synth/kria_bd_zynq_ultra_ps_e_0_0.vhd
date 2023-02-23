@@ -95,8 +95,13 @@ ENTITY kria_bd_zynq_ultra_ps_e_0_0 IS
     maxigp2_rready : OUT STD_LOGIC;
     maxigp2_awqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     maxigp2_arqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    emio_enet0_enet_tsu_timer_cnt : OUT STD_LOGIC_VECTOR(93 DOWNTO 0);
+    emio_ttc0_wave_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     pl_ps_irq0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     pl_resetn0 : OUT STD_LOGIC;
+    pl_resetn1 : OUT STD_LOGIC;
+    pl_resetn2 : OUT STD_LOGIC;
+    pl_resetn3 : OUT STD_LOGIC;
     pl_clk0 : OUT STD_LOGIC;
     pl_clk1 : OUT STD_LOGIC
   );
@@ -1642,7 +1647,7 @@ ARCHITECTURE kria_bd_zynq_ultra_ps_e_0_0_arch OF kria_bd_zynq_ultra_ps_e_0_0 IS
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
   ATTRIBUTE CORE_GENERATION_INFO OF kria_bd_zynq_ultra_ps_e_0_0_arch: ARCHITECTURE IS "kria_bd_zynq_ultra_ps_e_0_0,zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=zynq_ultra_ps_e,x_ipVersion=3.4,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_DP_USE_AUDIO=0,C_DP_USE_VIDEO=0,C_MAXIGP0_DATA_WIDTH=128,C_MAXIGP1_DATA_WIDTH=128,C_MAXIGP2_DATA_WIDTH=32,C_SAXIGP0_DATA_WIDTH=128,C_SAXIGP1_DATA_WIDTH=128,C_SAXIGP2_DATA_WIDTH=128,C_SAXIGP3_DATA_WIDTH=128,C_SAXIGP4_DATA_WIDTH=128,C_SAXIGP5_DATA_WIDTH=128,C_SAXIGP6_D" & 
 "ATA_WIDTH=128,C_USE_DIFF_RW_CLK_GP0=0,C_USE_DIFF_RW_CLK_GP1=0,C_USE_DIFF_RW_CLK_GP2=0,C_USE_DIFF_RW_CLK_GP3=0,C_USE_DIFF_RW_CLK_GP4=0,C_USE_DIFF_RW_CLK_GP5=0,C_USE_DIFF_RW_CLK_GP6=0,C_EN_FIFO_ENET0=0,C_EN_FIFO_ENET1=0,C_EN_FIFO_ENET2=0,C_EN_FIFO_ENET3=0,C_PL_CLK0_BUF=TRUE,C_PL_CLK1_BUF=TRUE,C_PL_CLK2_BUF=FALSE,C_PL_CLK3_BUF=FALSE,C_TRACE_PIPELINE_WIDTH=8,C_EN_EMIO_TRACE=0,C_TRACE_DATA_WIDTH=32,C_USE_DEBUG_TEST=0,C_SD0_INTERNAL_BUS_WIDTH=5,C_SD1_INTERNAL_BUS_WIDTH=5,C_NUM_F2P_0_INTR_INPUTS=1,C_NU" & 
-"M_F2P_1_INTR_INPUTS=1,C_EMIO_GPIO_WIDTH=1,C_NUM_FABRIC_RESETS=1}";
+"M_F2P_1_INTR_INPUTS=1,C_EMIO_GPIO_WIDTH=1,C_NUM_FABRIC_RESETS=4}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF maxigp2_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 M_AXI_HPM0_LPD ARADDR";
@@ -1696,6 +1701,12 @@ ARCHITECTURE kria_bd_zynq_ultra_ps_e_0_0_arch OF kria_bd_zynq_ultra_ps_e_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF pl_ps_irq0: SIGNAL IS "xilinx.com:signal:interrupt:1.0 PL_PS_IRQ0 INTERRUPT";
   ATTRIBUTE X_INTERFACE_PARAMETER OF pl_resetn0: SIGNAL IS "XIL_INTERFACENAME PL_RESETN0, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF pl_resetn0: SIGNAL IS "xilinx.com:signal:reset:1.0 PL_RESETN0 RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF pl_resetn1: SIGNAL IS "XIL_INTERFACENAME PL_RESETN1, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF pl_resetn1: SIGNAL IS "xilinx.com:signal:reset:1.0 PL_RESETN1 RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF pl_resetn2: SIGNAL IS "XIL_INTERFACENAME PL_RESETN2, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF pl_resetn2: SIGNAL IS "xilinx.com:signal:reset:1.0 PL_RESETN2 RST";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF pl_resetn3: SIGNAL IS "XIL_INTERFACENAME PL_RESETN3, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF pl_resetn3: SIGNAL IS "xilinx.com:signal:reset:1.0 PL_RESETN3 RST";
 BEGIN
   U0 : zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e
     GENERIC MAP (
@@ -1735,7 +1746,7 @@ BEGIN
       C_NUM_F2P_0_INTR_INPUTS => 1,
       C_NUM_F2P_1_INTR_INPUTS => 1,
       C_EMIO_GPIO_WIDTH => 1,
-      C_NUM_FABRIC_RESETS => 1
+      C_NUM_FABRIC_RESETS => 4
     )
     PORT MAP (
       maxihpm0_fpd_aclk => '0',
@@ -2181,6 +2192,7 @@ BEGIN
       emio_enet3_tsu_inc_ctrl => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 2)),
       fmio_gem_tsu_clk_from_pl => '0',
       emio_enet_tsu_clk => '0',
+      emio_enet0_enet_tsu_timer_cnt => emio_enet0_enet_tsu_timer_cnt,
       emio_enet0_ext_int_in => '0',
       emio_enet1_ext_int_in => '0',
       emio_enet2_ext_int_in => '0',
@@ -2219,6 +2231,7 @@ BEGIN
       emio_spi1_s_i => '0',
       emio_spi1_ss_i_n => '1',
       pl_ps_trace_clk => '0',
+      emio_ttc0_wave_o => emio_ttc0_wave_o,
       emio_ttc0_clk_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
       emio_ttc1_clk_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
       emio_ttc2_clk_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 3)),
@@ -2277,6 +2290,9 @@ BEGIN
       pl_ps_irq0 => pl_ps_irq0,
       pl_ps_irq1 => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       pl_resetn0 => pl_resetn0,
+      pl_resetn1 => pl_resetn1,
+      pl_resetn2 => pl_resetn2,
+      pl_resetn3 => pl_resetn3,
       pl_pmu_gpi => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       aib_pmu_afifm_fpd_ack => '0',
       aib_pmu_afifm_lpd_ack => '0',

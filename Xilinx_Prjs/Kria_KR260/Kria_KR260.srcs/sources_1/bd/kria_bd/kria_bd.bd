@@ -1,14 +1,15 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0xCC24BA2ACC24BA2A",
       "device": "xck26-sfvc784-2LV-c",
       "gen_directory": "../../../../Kria_KR260.gen/sources_1/bd/kria_bd",
       "name": "kria_bd",
       "pfm_name": "vendor:lib:kria_base:1.0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "None",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -20,6 +21,14 @@
         "s00_couplers": {
           "auto_pc": ""
         }
+      },
+      "xlslice_0": ""
+    },
+    "ports": {
+      "fan_en_b": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
       }
     },
     "components": {
@@ -1705,6 +1714,23 @@
         "pfm_attributes": {
           "AXI_PORT": "M01_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M02_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M03_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M04_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M05_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M06_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M07_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M08_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"}"
         }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "kria_bd_xlslice_0_0",
+        "xci_path": "ip/kria_bd_xlslice_0_0/kria_bd_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "2"
+          },
+          "DIN_TO": {
+            "value": "2"
+          },
+          "DIN_WIDTH": {
+            "value": "3"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1754,6 +1780,12 @@
           "ps8_0_axi_periph/ARESETN"
         ]
       },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "fan_en_b"
+        ]
+      },
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
@@ -1765,7 +1797,8 @@
           "zynq_ultra_ps_e_0/pl_resetn0",
           "clk_wiz_0/resetn",
           "proc_sys_reset_1/ext_reset_in",
-          "proc_sys_reset_2/ext_reset_in"
+          "proc_sys_reset_2/ext_reset_in",
+          "xlslice_0/Din"
         ]
       }
     },
