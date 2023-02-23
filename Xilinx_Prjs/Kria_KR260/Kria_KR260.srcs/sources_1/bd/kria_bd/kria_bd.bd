@@ -11,7 +11,9 @@
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
-      "clk_wiz_0": ""
+      "clk_wiz_0": "",
+      "proc_sys_reset_2": "",
+      "proc_sys_reset_1": ""
     },
     "components": {
       "zynq_ultra_ps_e_0": {
@@ -1336,9 +1338,33 @@
             "value": "ACTIVE_LOW"
           }
         }
+      },
+      "proc_sys_reset_2": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "kria_bd_proc_sys_reset_0_0",
+        "xci_path": "ip/kria_bd_proc_sys_reset_0_0/kria_bd_proc_sys_reset_0_0.xci",
+        "inst_hier_path": "proc_sys_reset_2"
+      },
+      "proc_sys_reset_1": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "kria_bd_proc_sys_reset_1_0",
+        "xci_path": "ip/kria_bd_proc_sys_reset_1_0/kria_bd_proc_sys_reset_1_0.xci",
+        "inst_hier_path": "proc_sys_reset_1"
       }
     },
     "nets": {
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "proc_sys_reset_1/slowest_sync_clk"
+        ]
+      },
+      "clk_wiz_0_clk_out2": {
+        "ports": [
+          "clk_wiz_0/clk_out2",
+          "proc_sys_reset_2/slowest_sync_clk"
+        ]
+      },
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
@@ -1348,7 +1374,9 @@
       "zynq_ultra_ps_e_0_pl_resetn0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_resetn0",
-          "clk_wiz_0/resetn"
+          "clk_wiz_0/resetn",
+          "proc_sys_reset_1/ext_reset_in",
+          "proc_sys_reset_2/ext_reset_in"
         ]
       }
     }
