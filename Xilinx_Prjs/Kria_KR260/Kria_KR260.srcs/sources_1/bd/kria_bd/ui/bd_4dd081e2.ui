@@ -1,13 +1,16 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-243,-384",
+   "Default View_TopLeft":"-133,-461",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 320 -y -70 -defaultsOSRD
-levelinfo -pg 1 0 320 640
-pagesize -pg 1 -db -bbox -sgen 0 -170 640 180
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 530 -y -70 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y -250 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 10 -160 NJ -160 840
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 3 0 -170 NJ -170 850
+levelinfo -pg 1 -20 110 530 870
+pagesize -pg 1 -db -bbox -sgen -20 -470 870 180
 "
 }
 {
