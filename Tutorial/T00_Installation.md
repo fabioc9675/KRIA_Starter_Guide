@@ -8,10 +8,38 @@ En nuestro proceso de instalación utilizaremos una maquina virtual de Ubunto co
 
 En este caso utilizaremos [VirtualBox 6](https://www.virtualbox.org/wiki/Download_Old_Builds_6_1), e instalaremos el [Ubuntu 20.04.5 LTS](https://releases.ubuntu.com/focal/) desde la pagina oficial de Linux, se deben seguir algunos tutoriales de Youtube para que quede bien configurada la maquina virtual:
 
-- Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
-- Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
+-   Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
+-   Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
 
-### Instalación de Paquetes
+### Configuraciones necesarias para Ubuntu 22.04 LTS
+
+Basado en el siguiente [Tutorial](https://www.hackster.io/whitney-knitter/vitis-petalinux-2022-1-krs-1-0-install-on-ubuntu-22-04-145c1b)
+
+En el caso de Ubuntu 22.04 LTS es necesario realizar las siguientes configuraciones previas para preparar el sistema operativo para recibir Vivado y Vitis:
+
+Start by enabling the 32-bit architecture in the system, and set the shell to bash (by default it's configured to dash on a fresh install of Ubuntu):
+
+```bash
+~$ sudo dpkg --add-architecture i386
+~$ sudo dpkg-reconfigure dash
+```
+
+Next install the following package dependencies. I've put them in the most optimal copy+paste order here (you're welcome);
+
+```bash
+~$ sudo apt-get install iproute2 make libncurses5-dev tftpd libselinux1 wget diffstat chrpath socat tar unzip gzip tofrodos
+~$ sudo apt-get install debianutils iputils-ping libegl1-mesa libsdl1.2-dev pylint python3 python2 cpio tftpd gnupg zlib1g:i386 haveged perl
+~$ sudo apt-get install lib32stdc++6 libgtk2.0-0:i386 libfontconfig1:i386 libx11-6:i386 libxext6:i386 libxrender1:i386 libsm6:i386
+~$ sudo apt-get install xinetd gawk gcc net-tools ncurses-dev openssl libssl-dev flex bison xterm autoconf libtool texinfo zlib1g-dev
+~$ sudo apt-get install gcc-multilib build-essential automake screen putty pax g++ python3-pip xz-utils python3-git python3-jinja2 python3-pexpect
+~$ sudo apt-get install liberror-perl mtd-utils xtrans-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev
+~$ sudo apt-get install openssh-server util-linux sysvinit-utils google-perftools
+~$ sudo apt-get install libncurses5 libncurses5-dev libncursesw5-dev libncurses5:i386 libtinfo5
+~$ sudo apt-get install libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
+~$ ~$ sudo apt-get install ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
+```
+
+## Instalación de Paquetes
 
 primero es necesario ejecutar los siguientes comandos de Linux para garantizar la estabilidad en la instalacion delos software de Xilinx
 
@@ -164,6 +192,16 @@ cd /home/<User Name>/Downloads/
 sudo cp -R pynq-z1_board_files-master/pynq-z1/ /tools/Xilinx/Vivado/2022.2/data/boards/board_files/
 ```
 
+## Instalacion de drivers para las tarjetas (Cable drivers)
+
+Next, the various Xilinx programmer cable drivers need to be installed. Be sure to disconnect any that are currently connected to the host machine prior to running the installation script:
+
+```bash
+~$ cd /tools/Xilinx/Vivado/2022.2/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+
+sudo ./install_drivers
+```
+
 ## Instalacion de Petalinux
 
 Usar el instalador de Vivado para descargar la imagen de Petalinux o descargar la imagen de [Petalinux](https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.2-10141622-installer.run) desde la pagina oficial de [Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html):
@@ -211,9 +249,9 @@ It's worth noting that a PetaLinux project can not be built offline without acce
 
 Este soporte se puede descargar desde la pagina oficial de [Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html):
 
-- Kria K26 SOM BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-k26-som-v2022.2-10141622.bsp)
-- Kria KV260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kv260-starterkit-v2022.2-10141622.bsp)
-- Kria KR260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kr260-starterkit-v2022.2-10141622.bsp)
+-   Kria K26 SOM BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-k26-som-v2022.2-10141622.bsp)
+-   Kria KV260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kv260-starterkit-v2022.2-10141622.bsp)
+-   Kria KR260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kr260-starterkit-v2022.2-10141622.bsp)
 
 ### Nota
 
