@@ -5,9 +5,11 @@
       "device": "xck26-sfvc784-2LV-c",
       "gen_directory": "../../../../Kria_KR260.gen/sources_1/bd/kria_bd",
       "name": "kria_bd",
+      "pfm_name": "vendor:lib:kria_base:1.0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
@@ -16,7 +18,9 @@
       "proc_sys_reset_1": "",
       "axi_intc_0": "",
       "ps8_0_axi_periph": {
-        "s00_couplers": {}
+        "s00_couplers": {
+          "auto_pc": ""
+        }
       }
     },
     "components": {
@@ -1309,6 +1313,9 @@
               }
             }
           }
+        },
+        "pfm_attributes": {
+          "AXI_PORT": "M_AXI_HPM0_FPD {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M_AXI_HPM1_FPD {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} S_AXI_HPC0_FPD {memport \"S_AXI_HPC\" sptag \"HPC0\" memory \"\" is_range \"false\"} S_AXI_HPC1_FPD {memport \"S_AXI_HPC\" sptag \"HPC1\" memory \"\" is_range \"false\"} S_AXI_HP0_FPD {memport \"S_AXI_HP\" sptag \"HP0\" memory \"\" is_range \"false\"} S_AXI_HP1_FPD {memport \"S_AXI_HP\" sptag \"HP1\" memory \"\" is_range \"false\"} S_AXI_HP2_FPD {memport \"S_AXI_HP\" sptag \"HP2\" memory \"\" is_range \"false\"} S_AXI_HP3_FPD {memport \"S_AXI_HP\" sptag \"HP3\" memory \"\" is_range \"false\"}"
         }
       },
       "clk_wiz_0": {
@@ -1318,10 +1325,10 @@
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
           "CLKOUT2_JITTER": {
-            "value": "102.086"
+            "value": "102.087"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "87.180"
+            "value": "87.181"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "200.000"
@@ -1341,6 +1348,9 @@
           "RESET_TYPE": {
             "value": "ACTIVE_LOW"
           }
+        },
+        "pfm_attributes": {
+          "CLOCK": "clk_out1 {id \"0\" is_default \"false\" proc_sys_reset \"/proc_sys_reset_1\" status \"fixed\" freq_hz \"100000000\"} clk_out2 {id \"1\" is_default \"true\" proc_sys_reset \"/proc_sys_reset_2\" status \"fixed\" freq_hz \"200000000\"}"
         }
       },
       "proc_sys_reset_2": {
@@ -1364,6 +1374,9 @@
           "C_IRQ_CONNECTION": {
             "value": "1"
           }
+        },
+        "pfm_attributes": {
+          "IRQ": "intr { id 0 range 32 }"
         }
       },
       "ps8_0_axi_periph": {
@@ -1483,11 +1496,56 @@
                 "direction": "I"
               }
             },
+            "components": {
+              "auto_pc": {
+                "vlnv": "xilinx.com:ip:axi_protocol_converter:2.1",
+                "xci_name": "kria_bd_auto_pc_0",
+                "xci_path": "ip/kria_bd_auto_pc_0/kria_bd_auto_pc_0.xci",
+                "inst_hier_path": "ps8_0_axi_periph/s00_couplers/auto_pc",
+                "parameters": {
+                  "MI_PROTOCOL": {
+                    "value": "AXI4LITE"
+                  },
+                  "SI_PROTOCOL": {
+                    "value": "AXI4"
+                  }
+                },
+                "interface_ports": {
+                  "S_AXI": {
+                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+                    "mode": "Slave",
+                    "bridges": [
+                      "M_AXI"
+                    ]
+                  }
+                }
+              }
+            },
             "interface_nets": {
-              "s00_couplers_to_s00_couplers": {
+              "auto_pc_to_s00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
+                ]
+              },
+              "s00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
-                  "M_AXI"
+                  "auto_pc/S_AXI"
+                ]
+              }
+            },
+            "nets": {
+              "S_ACLK_1": {
+                "ports": [
+                  "S_ACLK",
+                  "auto_pc/aclk"
+                ]
+              },
+              "S_ARESETN_1": {
+                "ports": [
+                  "S_ARESETN",
+                  "auto_pc/aresetn"
                 ]
               }
             }
@@ -1532,6 +1590,9 @@
               "s00_couplers/M_ARESETN"
             ]
           }
+        },
+        "pfm_attributes": {
+          "AXI_PORT": "M01_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M02_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M03_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M04_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M05_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M06_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M07_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M08_AXI {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"}"
         }
       }
     },
