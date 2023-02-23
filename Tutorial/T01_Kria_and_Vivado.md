@@ -130,3 +130,101 @@ Finally, connect the `irq` output from the **AXI interrupt controller** IP to th
 ![ProcesorReset](./T01_Images/interrupt_irq.png)
 
 ## Configuracion de la plataforma
+
+As mentioned before, in order to make hardware resources available to the software in Vitis for hardware acceleration, they need to be enabled in the **Platform Setup** tab of the block design.
+
+The first section in the Platform setup tab is to select the AXI ports to make available to the software in Vitis. I selected everything but the low-power high performance AXI port on the Zynq UltraScale+ IP to enable, then 8 general purpose master AXI interfaces from the regular AXI interconnect as well. Make note of any names you set in the SP tag field, as that is the identifier you will call from the software in Vitis to target that specific AXI port.
+
+![ProcesorReset](./T01_Images/platform_Setup_1.png)
+![ProcesorReset](./T01_Images/platform_Setup_2.png)
+
+Next, select the clocks to make available to the software in Vitis. In this case, I'm only making the two output clocks from the clocking wizard available with the 200 MHz `clk_out2` set as the default clock.
+
+![ProcesorReset](./T01_Images/platform_Setup_3.png)
+
+Enable the `irq` output from the AXI interrupt controller in the Interrupt section.
+
+![ProcesorReset](./T01_Images/platform_Setup_4.png)
+
+Finally, give the platform the desired name, vendor name, and version number.
+
+![ProcesorReset](./T01_Images/platform_Setup_5.png)
+
+## Validar y guardar ek bloque de diseño
+
+Once the desired IP has been added/connected in the Diagram and the Platform Setup configuration completed, the overall block design needs to be validated and saved.
+
+In the Diagram tab of the block design, click the checkbox icon to run a design validation.
+
+One critical warning appears about the input interrupt not being connected on the AXI interrupt controller, which can safely be ignored in this case.
+
+![ProcesorReset](./T01_Images/warning.avif)
+
+After clicking OK to dismiss the critical warning, click the save icon in the menu bar to save the block design.
+
+## Deshabilitar la Incremental Synthesis
+
+I've found that the design checkpoint files created by the default incremental synthesis option in Vivado causes issues with the hardware acceleration workflow. So before launching any sort of synthesis run, I like to disable it.
+
+Select **Settings** in the **Flow Navigator** window then navigate to the Synthesis tab.
+
+![ProcesorReset](./T01_Images/disableIncremental.avif)
+
+Click the three dots next to the option for **incremental synthesis** and select the option to **Disable incremental synthesis** in the following pop up window.
+
+![ProcesorReset](./T01_Images/disableIncremental_2.avif)
+
+Click OK in both windows to apply the new settings and return to the Vivado project.
+
+![ProcesorReset](./T01_Images/disableIncremental_3.avif)
+
+## Generate Block Desing
+
+The next step in a Vivado project where it is also an extensible Vitis platform is to generate the block design in it's own initial run.
+
+Select **Generate Block Design** from the **Flow Navigator** window and change the **Synthesis Options** from Out of context per IP to **Global**.
+
+![ProcesorReset](./T01_Images/Gen_block_design.avif)
+
+Luego de clic en **Generate**
+
+### Create HDL Wrapper
+
+With the block design complete, validated, saved, and generated an HDL wrapper file needs to be created to instantiate it in the overall design. Luckily, Vivado can generate it automatically as well as update it automatically for us.
+
+In the **Sources** window, right-click on the block design file and select the option to **Create HDL Wrapper**...
+
+Then select the option to let Vivado manage the wrapper and auto-update it before clicking **OK** in the pop-up window.
+
+After a few moments, the HDL wrapper file will appear in the Sources window.
+
+![ProcesorReset](./T01_Images/hdl_wrapper.avif)
+
+### Generate the Bitstream
+
+It's finally time to generate a bitstream for the design. If you're not previously familiar with FPGA design, the overall flow is synthesis, implementation (place & route), and finally the generation of a bitstream. Synthesis is the initial conversion of HDL code to a transistor logic configuration, implementation (generally referred to place & route) is the deployment of the logic design on a specific FPGA chip, and the bitstream is the final output file that's used to program the FPGA with that specific logic configuration.
+
+You can step through and run each of these main steps manually, but Vivado will detect and run any previous steps that might be out-of-date or not yet ran.
+
+So in this case in a new project, when I select to generate a bitstream from the Flow Navigator window, Vivado will automatically determine it needs to run synthesis and implementation prior:
+
+Click OK to launch the runs for synthesis, implementation, and bitstream generation.
+
+## Exportar la plataforma para el SW development
+
+In order to use the hardware design in Vitis and/or PetaLinux to develop software, it needs to be packaged up into a platform file.
+
+Select the option to **Export Platform** from the **Flow Navigator** window.
+
+In the platform packaging windows, select **Hardware** for **Platform Type** (the Kria doesn't currently have emulation support) and be sure to check the option to **include the bitstream** in **Platform State**.
+
+![ProcesorReset](./T01_Images/export_1.avif)
+![ProcesorReset](./T01_Images/export_2.avif)
+![ProcesorReset](./T01_Images/export_3.avif)
+![ProcesorReset](./T01_Images/export_4.avif)
+![ProcesorReset](./T01_Images/export_5.avif)
+![ProcesorReset](./T01_Images/export_6.avif)
+
+Finally, give the platform the desired name, vendor/version info, description, and select the desired output directory for the exported platform.
+
+Since this post is already plenty long enough, I'll continue with the software development in Vitis in a follow up post.
