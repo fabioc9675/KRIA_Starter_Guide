@@ -7,7 +7,7 @@
       "name": "kria_bd",
       "pfm_name": "vendor:lib:kria_base:1.0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2022.2",
       "validated": "true"
     },
