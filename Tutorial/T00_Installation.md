@@ -36,7 +36,7 @@ Next install the following package dependencies. I've put them in the most optim
 ~$ sudo apt-get install openssh-server util-linux sysvinit-utils google-perftools
 ~$ sudo apt-get install libncurses5 libncurses5-dev libncursesw5-dev libncurses5:i386 libtinfo5
 ~$ sudo apt-get install libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
-~$ ~$ sudo apt-get install ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
+~$ sudo apt-get install ocl-icd-libopencl1 opencl-headers ocl-icd-opencl-dev
 ```
 
 ## Instalación de Paquetes
