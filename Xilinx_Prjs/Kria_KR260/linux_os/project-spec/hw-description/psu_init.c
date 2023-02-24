@@ -12652,7 +12652,7 @@ unsigned long psu_mio_init_data(void)
     * U GPI) 2= test_scan, Input, test_scan_in[32]- (Test Scan Port) = test_sc
     * an, Output, test_scan_out[32]- (Test Scan Port) 3= csu, Input, csu_ext_t
     * amper- (CSU Ext Tamper)
-    *  PSU_IOU_SLCR_MIO_PIN_32_L2_SEL                              0
+    *  PSU_IOU_SLCR_MIO_PIN_32_L2_SEL                              1
 
     * Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[6]- (GPIO bank 1) 0= g
     * pio1, Output, gpio_1_pin_out[6]- (GPIO bank 1) 1= can1, Output, can1_phy
@@ -12665,9 +12665,9 @@ unsigned long psu_mio_init_data(void)
     *  PSU_IOU_SLCR_MIO_PIN_32_L3_SEL                              0
 
     * Configures MIO Pin 32 peripheral interface mapping
-    * (OFFSET, MASK, VALUE)      (0XFF180080, 0x000000FEU ,0x00000000U)
+    * (OFFSET, MASK, VALUE)      (0XFF180080, 0x000000FEU ,0x00000008U)
     */
-	PSU_Mask_Write(IOU_SLCR_MIO_PIN_32_OFFSET, 0x000000FEU, 0x00000000U);
+	PSU_Mask_Write(IOU_SLCR_MIO_PIN_32_OFFSET, 0x000000FEU, 0x00000008U);
 /*##################################################################### */
 
     /*
@@ -12685,7 +12685,7 @@ unsigned long psu_mio_init_data(void)
     * U GPI) 2= test_scan, Input, test_scan_in[33]- (Test Scan Port) = test_sc
     * an, Output, test_scan_out[33]- (Test Scan Port) 3= csu, Input, csu_ext_t
     * amper- (CSU Ext Tamper)
-    *  PSU_IOU_SLCR_MIO_PIN_33_L2_SEL                              0
+    *  PSU_IOU_SLCR_MIO_PIN_33_L2_SEL                              1
 
     * Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[7]- (GPIO bank 1) 0= g
     * pio1, Output, gpio_1_pin_out[7]- (GPIO bank 1) 1= can1, Input, can1_phy_
@@ -12698,42 +12698,9 @@ unsigned long psu_mio_init_data(void)
     *  PSU_IOU_SLCR_MIO_PIN_33_L3_SEL                              0
 
     * Configures MIO Pin 33 peripheral interface mapping
-    * (OFFSET, MASK, VALUE)      (0XFF180084, 0x000000FEU ,0x00000000U)
+    * (OFFSET, MASK, VALUE)      (0XFF180084, 0x000000FEU ,0x00000008U)
     */
-	PSU_Mask_Write(IOU_SLCR_MIO_PIN_33_OFFSET, 0x000000FEU, 0x00000000U);
-/*##################################################################### */
-
-    /*
-    * Register : MIO_PIN_34 @ 0XFF180088
-
-    * Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rxd[
-    * 1]- (RX RGMII data)
-    *  PSU_IOU_SLCR_MIO_PIN_34_L0_SEL                              0
-
-    * Level 1 Mux Select 0= Level 2 Mux Output 1= pcie, Input, pcie_reset_n- (
-    * PCIE Reset signal)
-    *  PSU_IOU_SLCR_MIO_PIN_34_L1_SEL                              0
-
-    * Level 2 Mux Select 0= Level 3 Mux Output 1= pmu, Output, pmu_gpo[2]- (PM
-    * U GPI) 2= test_scan, Input, test_scan_in[34]- (Test Scan Port) = test_sc
-    * an, Output, test_scan_out[34]- (Test Scan Port) 3= dpaux, Input, dp_aux_
-    * data_in- (Dp Aux Data) = dpaux, Output, dp_aux_data_out- (Dp Aux Data)
-    *  PSU_IOU_SLCR_MIO_PIN_34_L2_SEL                              0
-
-    * Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[8]- (GPIO bank 1) 0= g
-    * pio1, Output, gpio_1_pin_out[8]- (GPIO bank 1) 1= can0, Input, can0_phy_
-    * rx- (Can RX signal) 2= i2c0, Input, i2c0_scl_input- (SCL signal) 2= i2c0
-    * , Output, i2c0_scl_out- (SCL signal) 3= swdt0, Input, swdt0_clk_in- (Wat
-    * ch Dog Timer Input clock) 4= spi1, Output, spi1_n_ss_out[1]- (SPI Master
-    *  Selects) 5= ttc2, Input, ttc2_clk_in- (TTC Clock) 6= ua0, Input, ua0_rx
-    * d- (UART receiver serial input) 7= trace, Output, tracedq[12]- (Trace Po
-    * rt Databus)
-    *  PSU_IOU_SLCR_MIO_PIN_34_L3_SEL                              0
-
-    * Configures MIO Pin 34 peripheral interface mapping
-    * (OFFSET, MASK, VALUE)      (0XFF180088, 0x000000FEU ,0x00000000U)
-    */
-	PSU_Mask_Write(IOU_SLCR_MIO_PIN_34_OFFSET, 0x000000FEU, 0x00000000U);
+	PSU_Mask_Write(IOU_SLCR_MIO_PIN_33_OFFSET, 0x000000FEU, 0x00000008U);
 /*##################################################################### */
 
     /*
@@ -15181,10 +15148,19 @@ unsigned long psu_mio_init_data(void)
     *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_18             1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
+    *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19             1
+
+    * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_20             1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
+    *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21             1
+
+    * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22             1
+
+    * Each bit applies to a single IO. Bit 0 for MIO[26].
+    *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23             1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_24             1
@@ -15194,10 +15170,10 @@ unsigned long psu_mio_init_data(void)
 
     * When mio_bank1_pull_enable is set, this selects pull up or pull down for
     *  MIO Bank 1 - control MIO[51:26]
-    * (OFFSET, MASK, VALUE)      (0XFF180160, 0x0357FFFFU ,0x0357FFFFU)
+    * (OFFSET, MASK, VALUE)      (0XFF180160, 0x03FFFFFFU ,0x03FFFFFFU)
     */
 	PSU_Mask_Write(IOU_SLCR_BANK1_CTRL4_OFFSET,
-		0x0357FFFFU, 0x0357FFFFU);
+		0x03FFFFFFU, 0x03FFFFFFU);
 /*##################################################################### */
 
     /*
@@ -15261,19 +15237,19 @@ unsigned long psu_mio_init_data(void)
     *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_18                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
-    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_19                 0
+    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_19                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_20                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
-    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_21                 0
+    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_21                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_22                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
-    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_23                 0
+    *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_23                 1
 
     * Each bit applies to a single IO. Bit 0 for MIO[26].
     *  PSU_IOU_SLCR_BANK1_CTRL5_PULL_ENABLE_BIT_24                 1
@@ -15283,10 +15259,10 @@ unsigned long psu_mio_init_data(void)
 
     * When set, this enables mio_bank1_pullupdown to selects pull up or pull d
     * own for MIO Bank 1 - control MIO[51:26]
-    * (OFFSET, MASK, VALUE)      (0XFF180164, 0x03FFFFFFU ,0x03FFF57FU)
+    * (OFFSET, MASK, VALUE)      (0XFF180164, 0x03FFFFFFU ,0x03FFFFFFU)
     */
 	PSU_Mask_Write(IOU_SLCR_BANK1_CTRL5_OFFSET,
-		0x03FFFFFFU, 0x03FFF57FU);
+		0x03FFFFFFU, 0x03FFFFFFU);
 /*##################################################################### */
 
     /*
@@ -18728,13 +18704,17 @@ unsigned long psu_serdes_init_data(void)
 
     * Sel of lane 0 ref clock local mux. Set to 1 to select lane 0 slicer outp
     * ut. Set to 0 to select lane0 ref clock mux output.
-    *  PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL             0x1
+    *  PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL             0x0
+
+    * Bit 1 of lane 0 ref clock mux one hot sel. Set to 1 to select lane 1 sli
+    * cer output from ref clock network
+    *  PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1               0x1
 
     * Lane0 Ref Clock Selection Register
-    * (OFFSET, MASK, VALUE)      (0XFD402860, 0x00000080U ,0x00000080U)
+    * (OFFSET, MASK, VALUE)      (0XFD402860, 0x00000082U ,0x00000002U)
     */
 	PSU_Mask_Write(SERDES_L0_L0_REF_CLK_SEL_OFFSET,
-		0x00000080U, 0x00000080U);
+		0x00000082U, 0x00000002U);
 /*##################################################################### */
 
     /*
@@ -18742,13 +18722,17 @@ unsigned long psu_serdes_init_data(void)
 
     * Sel of lane 1 ref clock local mux. Set to 1 to select lane 1 slicer outp
     * ut. Set to 0 to select lane1 ref clock mux output.
-    *  PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_LCL_SEL             0x1
+    *  PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_LCL_SEL             0x0
+
+    * Bit 2 of lane 1 ref clock mux one hot sel. Set to 1 to select lane 2 sli
+    * cer output from ref clock network
+    *  PSU_SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2               0x1
 
     * Lane1 Ref Clock Selection Register
-    * (OFFSET, MASK, VALUE)      (0XFD402864, 0x00000080U ,0x00000080U)
+    * (OFFSET, MASK, VALUE)      (0XFD402864, 0x00000084U ,0x00000004U)
     */
 	PSU_Mask_Write(SERDES_L0_L1_REF_CLK_SEL_OFFSET,
-		0x00000080U, 0x00000080U);
+		0x00000084U, 0x00000004U);
 /*##################################################################### */
 
     /*
@@ -18756,13 +18740,17 @@ unsigned long psu_serdes_init_data(void)
 
     * Sel of lane 2 ref clock local mux. Set to 1 to select lane 1 slicer outp
     * ut. Set to 0 to select lane2 ref clock mux output.
-    *  PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL             0x1
+    *  PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL             0x0
+
+    * Bit 3 of lane 2 ref clock mux one hot sel. Set to 1 to select lane 3 sli
+    * cer output from ref clock network
+    *  PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3               0x1
 
     * Lane2 Ref Clock Selection Register
-    * (OFFSET, MASK, VALUE)      (0XFD402868, 0x00000080U ,0x00000080U)
+    * (OFFSET, MASK, VALUE)      (0XFD402868, 0x00000088U ,0x00000008U)
     */
 	PSU_Mask_Write(SERDES_L0_L2_REF_CLK_SEL_OFFSET,
-		0x00000080U, 0x00000080U);
+		0x00000088U, 0x00000008U);
 /*##################################################################### */
 
     /*
@@ -21185,6 +21173,20 @@ unsigned long psu_afi_config(void)
     /*
     * AFIFM INTERFACE WIDTH
     */
+    /*
+    * Register : afi_fs @ 0XFF419000
+
+    * Select the 32/64/128-bit data width selection for the Slave 0 00: 32-bit
+    *  AXI data width (default) 01: 64-bit AXI data width 10: 128-bit AXI data
+    *  width 11: reserved
+    *  PSU_LPD_SLCR_AFI_FS_DW_SS2_SEL                              0x0
+
+    * afi fs SLCR control register. Do not change the bits durin
+    * (OFFSET, MASK, VALUE)      (0XFF419000, 0x00000300U ,0x00000000U)
+    */
+	PSU_Mask_Write(LPD_SLCR_AFI_FS_OFFSET, 0x00000300U, 0x00000000U);
+/*##################################################################### */
+
 
 	return 1;
 }

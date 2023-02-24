@@ -23597,8 +23597,6 @@
 #define IOU_SLCR_MIO_PIN_32_OFFSET                                                 0XFF180080
 #undef IOU_SLCR_MIO_PIN_33_OFFSET 
 #define IOU_SLCR_MIO_PIN_33_OFFSET                                                 0XFF180084
-#undef IOU_SLCR_MIO_PIN_34_OFFSET 
-#define IOU_SLCR_MIO_PIN_34_OFFSET                                                 0XFF180088
 #undef IOU_SLCR_MIO_PIN_36_OFFSET 
 #define IOU_SLCR_MIO_PIN_36_OFFSET                                                 0XFF180090
 #undef IOU_SLCR_MIO_PIN_37_OFFSET 
@@ -25461,58 +25459,6 @@
 #define IOU_SLCR_MIO_PIN_33_L3_SEL_DEFVAL                      0x00000000
 #define IOU_SLCR_MIO_PIN_33_L3_SEL_SHIFT                       5
 #define IOU_SLCR_MIO_PIN_33_L3_SEL_MASK                        0x000000E0U
-
-/*
-* Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rxd[
-    * 1]- (RX RGMII data)
-*/
-#undef IOU_SLCR_MIO_PIN_34_L0_SEL_DEFVAL 
-#undef IOU_SLCR_MIO_PIN_34_L0_SEL_SHIFT 
-#undef IOU_SLCR_MIO_PIN_34_L0_SEL_MASK 
-#define IOU_SLCR_MIO_PIN_34_L0_SEL_DEFVAL                      0x00000000
-#define IOU_SLCR_MIO_PIN_34_L0_SEL_SHIFT                       1
-#define IOU_SLCR_MIO_PIN_34_L0_SEL_MASK                        0x00000002U
-
-/*
-* Level 1 Mux Select 0= Level 2 Mux Output 1= pcie, Input, pcie_reset_n- (
-    * PCIE Reset signal)
-*/
-#undef IOU_SLCR_MIO_PIN_34_L1_SEL_DEFVAL 
-#undef IOU_SLCR_MIO_PIN_34_L1_SEL_SHIFT 
-#undef IOU_SLCR_MIO_PIN_34_L1_SEL_MASK 
-#define IOU_SLCR_MIO_PIN_34_L1_SEL_DEFVAL                      0x00000000
-#define IOU_SLCR_MIO_PIN_34_L1_SEL_SHIFT                       2
-#define IOU_SLCR_MIO_PIN_34_L1_SEL_MASK                        0x00000004U
-
-/*
-* Level 2 Mux Select 0= Level 3 Mux Output 1= pmu, Output, pmu_gpo[2]- (PM
-    * U GPI) 2= test_scan, Input, test_scan_in[34]- (Test Scan Port) = test_sc
-    * an, Output, test_scan_out[34]- (Test Scan Port) 3= dpaux, Input, dp_aux_
-    * data_in- (Dp Aux Data) = dpaux, Output, dp_aux_data_out- (Dp Aux Data)
-*/
-#undef IOU_SLCR_MIO_PIN_34_L2_SEL_DEFVAL 
-#undef IOU_SLCR_MIO_PIN_34_L2_SEL_SHIFT 
-#undef IOU_SLCR_MIO_PIN_34_L2_SEL_MASK 
-#define IOU_SLCR_MIO_PIN_34_L2_SEL_DEFVAL                      0x00000000
-#define IOU_SLCR_MIO_PIN_34_L2_SEL_SHIFT                       3
-#define IOU_SLCR_MIO_PIN_34_L2_SEL_MASK                        0x00000018U
-
-/*
-* Level 3 Mux Select 0= gpio1, Input, gpio_1_pin_in[8]- (GPIO bank 1) 0= g
-    * pio1, Output, gpio_1_pin_out[8]- (GPIO bank 1) 1= can0, Input, can0_phy_
-    * rx- (Can RX signal) 2= i2c0, Input, i2c0_scl_input- (SCL signal) 2= i2c0
-    * , Output, i2c0_scl_out- (SCL signal) 3= swdt0, Input, swdt0_clk_in- (Wat
-    * ch Dog Timer Input clock) 4= spi1, Output, spi1_n_ss_out[1]- (SPI Master
-    *  Selects) 5= ttc2, Input, ttc2_clk_in- (TTC Clock) 6= ua0, Input, ua0_rx
-    * d- (UART receiver serial input) 7= trace, Output, tracedq[12]- (Trace Po
-    * rt Databus)
-*/
-#undef IOU_SLCR_MIO_PIN_34_L3_SEL_DEFVAL 
-#undef IOU_SLCR_MIO_PIN_34_L3_SEL_SHIFT 
-#undef IOU_SLCR_MIO_PIN_34_L3_SEL_MASK 
-#define IOU_SLCR_MIO_PIN_34_L3_SEL_DEFVAL                      0x00000000
-#define IOU_SLCR_MIO_PIN_34_L3_SEL_SHIFT                       5
-#define IOU_SLCR_MIO_PIN_34_L3_SEL_MASK                        0x000000E0U
 
 /*
 * Level 0 Mux Select 0= Level 1 Mux Output 1= gem0, Input, gem0_rgmii_rxd[
@@ -30951,6 +30897,16 @@
 /*
 * Each bit applies to a single IO. Bit 0 for MIO[26].
 */
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_DEFVAL 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_SHIFT 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_MASK 
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_DEFVAL     
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_SHIFT      19
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_19_MASK       0x00080000U
+
+/*
+* Each bit applies to a single IO. Bit 0 for MIO[26].
+*/
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_20_DEFVAL 
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_20_SHIFT 
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_20_MASK 
@@ -30961,12 +30917,32 @@
 /*
 * Each bit applies to a single IO. Bit 0 for MIO[26].
 */
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_DEFVAL 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_SHIFT 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_MASK 
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_DEFVAL     
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_SHIFT      21
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_21_MASK       0x00200000U
+
+/*
+* Each bit applies to a single IO. Bit 0 for MIO[26].
+*/
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_DEFVAL 
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_SHIFT 
 #undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_MASK 
 #define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_DEFVAL     
 #define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_SHIFT      22
 #define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_22_MASK       0x00400000U
+
+/*
+* Each bit applies to a single IO. Bit 0 for MIO[26].
+*/
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_DEFVAL 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_SHIFT 
+#undef IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_MASK 
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_DEFVAL     
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_SHIFT      23
+#define IOU_SLCR_BANK1_CTRL4_PULL_HIGH_LOW_N_BIT_23_MASK       0x00800000U
 
 /*
 * Each bit applies to a single IO. Bit 0 for MIO[26].
@@ -34910,6 +34886,17 @@
 #define SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL_MASK       0x00000080U
 
 /*
+* Bit 1 of lane 0 ref clock mux one hot sel. Set to 1 to select lane 1 sli
+    * cer output from ref clock network
+*/
+#undef SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_DEFVAL 
+#undef SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_SHIFT 
+#undef SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_MASK 
+#define SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_DEFVAL       0x00000080
+#define SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_SHIFT        1
+#define SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_1_MASK         0x00000002U
+
+/*
 * Sel of lane 1 ref clock local mux. Set to 1 to select lane 1 slicer outp
     * ut. Set to 0 to select lane1 ref clock mux output.
 */
@@ -34921,6 +34908,17 @@
 #define SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_LCL_SEL_MASK       0x00000080U
 
 /*
+* Bit 2 of lane 1 ref clock mux one hot sel. Set to 1 to select lane 2 sli
+    * cer output from ref clock network
+*/
+#undef SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_DEFVAL 
+#undef SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_SHIFT 
+#undef SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_MASK 
+#define SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_DEFVAL       0x00000080
+#define SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_SHIFT        2
+#define SERDES_L0_L1_REF_CLK_SEL_L1_REF_CLK_SEL_2_MASK         0x00000004U
+
+/*
 * Sel of lane 2 ref clock local mux. Set to 1 to select lane 1 slicer outp
     * ut. Set to 0 to select lane2 ref clock mux output.
 */
@@ -34930,6 +34928,17 @@
 #define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL_DEFVAL     0x00000080
 #define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL_SHIFT      7
 #define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL_MASK       0x00000080U
+
+/*
+* Bit 3 of lane 2 ref clock mux one hot sel. Set to 1 to select lane 3 sli
+    * cer output from ref clock network
+*/
+#undef SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_DEFVAL 
+#undef SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_SHIFT 
+#undef SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_MASK 
+#define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_DEFVAL       0x00000080
+#define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_SHIFT        3
+#define SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_SEL_3_MASK         0x00000008U
 
 /*
 * Sel of lane 3 ref clock local mux. Set to 1 to select lane 3 slicer outp
@@ -37195,6 +37204,8 @@
 #define CRF_APB_RST_FPD_TOP_OFFSET                                                 0XFD1A0100
 #undef CRL_APB_RST_LPD_TOP_OFFSET 
 #define CRL_APB_RST_LPD_TOP_OFFSET                                                 0XFF5E023C
+#undef LPD_SLCR_AFI_FS_OFFSET 
+#define LPD_SLCR_AFI_FS_OFFSET                                                     0XFF419000
 
 /*
 * AF_FM0 block level reset
@@ -37265,6 +37276,18 @@
 #define CRL_APB_RST_LPD_TOP_AFI_FM6_RESET_DEFVAL               0x00188FDF
 #define CRL_APB_RST_LPD_TOP_AFI_FM6_RESET_SHIFT                19
 #define CRL_APB_RST_LPD_TOP_AFI_FM6_RESET_MASK                 0x00080000U
+
+/*
+* Select the 32/64/128-bit data width selection for the Slave 0 00: 32-bit
+    *  AXI data width (default) 01: 64-bit AXI data width 10: 128-bit AXI data
+    *  width 11: reserved
+*/
+#undef LPD_SLCR_AFI_FS_DW_SS2_SEL_DEFVAL 
+#undef LPD_SLCR_AFI_FS_DW_SS2_SEL_SHIFT 
+#undef LPD_SLCR_AFI_FS_DW_SS2_SEL_MASK 
+#define LPD_SLCR_AFI_FS_DW_SS2_SEL_DEFVAL                      0x00000200
+#define LPD_SLCR_AFI_FS_DW_SS2_SEL_SHIFT                       8
+#define LPD_SLCR_AFI_FS_DW_SS2_SEL_MASK                        0x00000300U
 #undef GPIO_MASK_DATA_5_MSW_OFFSET 
 #define GPIO_MASK_DATA_5_MSW_OFFSET                                                0XFF0A002C
 #undef GPIO_DIRM_5_OFFSET 
