@@ -4,7 +4,7 @@
 
 Para este proceso seguir el siguiente [tutorial](https://www.hackster.io/whitney-knitter/getting-started-with-the-kria-kr260-in-petalinux-2022-1-daec16).
 
-![Petalinux_download](./T03_Images/Portada.avif)
+![Petalinux_download](./T04_Images/Portada.avif)
 
 ### Resumen
 
@@ -38,6 +38,13 @@ Para realizar la compilacion de Petalinux es necesario hacer source de la carpet
 
 ## Creacion de un proyecto Petalinux para KR260 BSP
 
+Primero es necesario desactivar los proxy http y https, para que no presente problemas con la ejecucion de scripts de python en la construccion de PetaLinux.
+
+```bash
+~$ unset http_proxy
+~$ unset https_proxy
+```
+
 Change directories into the desired location to create the PetaLinux project in. I personally like to create my PetaLinux projects in the top level directory of the corresponding Vivado project I'm pulling the hardware design in from. Once in the desired directory location, create a PetaLinux project using the Kria KR260 BSP (download here), and change directories into it.
 
 ```bash
@@ -64,11 +71,11 @@ Image Packaging Configuration --> INITRAMFS/INITRD Image name --> petalinux-init
 Image Packaging Configuration --> Copy final images to tftpboot[]
 ```
 
-![Petalinux_download](./T03_Images/PetaConfig-1.avif)
+![Petalinux_download](./T04_Images/PetaConfig-1.avif)
 
 Changing the image name to `petalinux-initramfs-image` (default is **petalinux-image-minimal**) is super important or the ramdisk image to mount the root filesystem in the early steps of the boot process will not be generated which will cause the root filesystem to not be persistent between power cycles on the KR260.
 
-![Petalinux_download](./T03_Images/PetaConfig-2.avif)
+![Petalinux_download](./T04_Images/PetaConfig-2.avif)
 
 Exit the system configuration editor, opting to save the changes.
 
@@ -77,3 +84,17 @@ Then attempt to build the project for the first time.
 ```bash
 ~/Kria_KR260/linux_os$ petaliunx-build
 ```
+
+This first build took a little over two hours for me; this PetaLinux project for the KR260 is very large, and with all of the required libraries it's just a lot right now. I'm sure there will be an improvement in some future iterations.
+
+Which I why I recommend running that first build before customizing the root filesystem and/or kernel at all to add any packages. The subsequent build after that first one do execute within a few minutes since it's just adding on the extra packages.
+
+## Construir Sysroot (SDK) para el proyecto
+
+After the project has been built, build the SDK for the project to get a sysroot to use with Vitis to compile any custom accelerated applications later on:
+
+```bash
+~/Kria_KR260/linux_os$ petaliunx-build --sdk
+```
+
+## Empaquetas WIC file para SD Card
