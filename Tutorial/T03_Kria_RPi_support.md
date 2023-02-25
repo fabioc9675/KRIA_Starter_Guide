@@ -45,3 +45,228 @@ Create a new HDL wrapper by right-clicking on the block design file in the Hiera
 Select to either allow Vivado to auto-manage it or allow for user edits. I personally chose the latter so I could make the code a bit more readable since I don’t like the way that Vivado auto-generates the code for AXI GPIO that’s configured as inout signals, but this has zero impact on how the design actually functions and is just a personal choice to make it easier for myself to use with other custom code in the future.
 
 ## Agregar Constrains
+
+With the signal names pulled up to the top level HDL file, they need to be connected to specific package pins on the FPGA via constraints file(s).
+
+I added two new constraints files to the design (Add Sources > Add or create constraints > Create File), one for the PMODs and one for the RPi header. Everything could definitely be in the same constraints file, it complies the same way regardless. I personally find it easier to keep things organized by separating out the different type of connectors into separate constraints files.
+
+The tricky thing about the IO of the PMOD on the KR260 is that the PMOD IO numbering is different from the physical connector’s pin numbering is done, especially since pin 1 and pin 8 on the connector match up with PMOD IO1 and PMOD IO8, but the rest of the connector’s pin alternate sides while the PMOD IOs go across the connectors:
+
+![Petalinux_download](./T03_Images/const_1.avif)
+
+This is what prompted me to create a master pinout spreadsheet to keep track of everything (which I do for all of my more complex design anyways):
+
+![Petalinux_download](./T03_Images/const_2.avif)
+
+Since the PMOD IO signal names go across the connectors, that’s how I structured them in the constraints file with each broken up into the “upper” and “lower” IOs (also see constraints files attached below).
+
+![Petalinux_download](./T03_Images/const_3.avif)
+![Petalinux_download](./T03_Images/const_4.avif)
+
+I did the same to keep track of the RPi header IO numbers relative to the 40-pin connector’s pin numbers, and the FPGA package pins:
+
+![Petalinux_download](./T03_Images/const_5.avif)
+![Petalinux_download](./T03_Images/const_6.avif)
+
+You’ll notice I also went back and added the Sysfs GPIO numbers to the spreadsheet once they registered in the Linux system (explained in last section). I highly recommend some sort of overall documentation system as such for designs like this because this would be a nightmare to reverse engineer a few weeks/months later.
+
+A continuación se pone el file constrain tanto para los PMODs como para el RPi:
+
+```bash
+##################### PMOD 1 Upper ###################################
+set_property PACKAGE_PIN H12 [get_ports {pmod1_io_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[0]}]
+
+set_property PACKAGE_PIN E10 [get_ports {pmod1_io_tri_io[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[1]}]
+
+set_property PACKAGE_PIN D10 [get_ports {pmod1_io_tri_io[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[2]}]
+
+set_property PACKAGE_PIN C11 [get_ports {pmod1_io_tri_io[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[3]}]
+
+##################### PMOD 1 Lower ###################################
+set_property PACKAGE_PIN B10 [get_ports {pmod1_io_tri_io[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[4]}]
+
+set_property PACKAGE_PIN E12 [get_ports {pmod1_io_tri_io[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[5]}]
+
+set_property PACKAGE_PIN D11 [get_ports {pmod1_io_tri_io[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[6]}]
+
+set_property PACKAGE_PIN B11 [get_ports {pmod1_io_tri_io[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[7]}]
+
+
+##################### PMOD 2 Upper ###################################
+set_property PACKAGE_PIN J11 [get_ports {pmod2_io_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[0]}]
+
+set_property PACKAGE_PIN J10 [get_ports {pmod2_io_tri_io[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[1]}]
+
+set_property PACKAGE_PIN K13 [get_ports {pmod2_io_tri_io[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[2]}]
+
+set_property PACKAGE_PIN K12 [get_ports {pmod2_io_tri_io[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[3]}]
+
+##################### PMOD 2 Lower ###################################
+set_property PACKAGE_PIN H11 [get_ports {pmod2_io_tri_io[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[4]}]
+
+set_property PACKAGE_PIN G10 [get_ports {pmod2_io_tri_io[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[5]}]
+
+set_property PACKAGE_PIN F12 [get_ports {pmod2_io_tri_io[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[6]}]
+
+set_property PACKAGE_PIN F11 [get_ports {pmod2_io_tri_io[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod2_io_tri_io[7]}]
+
+
+##################### PMOD 3 Upper ###################################
+set_property PACKAGE_PIN AE12 [get_ports {pmod3_io_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[0]}]
+
+set_property PACKAGE_PIN AF12 [get_ports {pmod3_io_tri_io[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[1]}]
+
+set_property PACKAGE_PIN AG10 [get_ports {pmod3_io_tri_io[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[2]}]
+
+set_property PACKAGE_PIN AH10 [get_ports {pmod3_io_tri_io[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[3]}]
+
+##################### PMOD 3 Lower ###################################
+set_property PACKAGE_PIN AF11 [get_ports {pmod3_io_tri_io[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[4]}]
+
+set_property PACKAGE_PIN AG11 [get_ports {pmod3_io_tri_io[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[5]}]
+
+set_property PACKAGE_PIN AH12 [get_ports {pmod3_io_tri_io[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[6]}]
+
+set_property PACKAGE_PIN AH11 [get_ports {pmod3_io_tri_io[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod3_io_tri_io[7]}]
+
+
+##################### PMOD 4 Upper ###################################
+set_property PACKAGE_PIN AC12 [get_ports {pmod4_io_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[0]}]
+
+set_property PACKAGE_PIN AD12 [get_ports {pmod4_io_tri_io[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[1]}]
+
+set_property PACKAGE_PIN AE10 [get_ports {pmod4_io_tri_io[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[2]}]
+
+set_property PACKAGE_PIN AF10 [get_ports {pmod4_io_tri_io[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[3]}]
+
+##################### PMOD 3 Lower ###################################
+set_property PACKAGE_PIN AD11 [get_ports {pmod4_io_tri_io[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[4]}]
+
+set_property PACKAGE_PIN AD10 [get_ports {pmod4_io_tri_io[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[5]}]
+
+set_property PACKAGE_PIN AA11 [get_ports {pmod4_io_tri_io[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[6]}]
+
+set_property PACKAGE_PIN AA10 [get_ports {pmod4_io_tri_io[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[7]}]
+```
+
+- rpi.xdc
+
+```bash
+##################### Raspberry Pi GPIO Header #######################
+### AXI GPIO ###
+set_property PACKAGE_PIN AD15 [get_ports {rpi_gpio_tri_io[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[0]}]
+
+set_property PACKAGE_PIN AD14 [get_ports {rpi_gpio_tri_io[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[1]}]
+
+set_property PACKAGE_PIN AE15 [get_ports {rpi_gpio_tri_io[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[2]}]
+
+set_property PACKAGE_PIN AE14 [get_ports {rpi_gpio_tri_io[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[3]}]
+
+set_property PACKAGE_PIN AG14 [get_ports {rpi_gpio_tri_io[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[4]}]
+
+set_property PACKAGE_PIN AH14 [get_ports {rpi_gpio_tri_io[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[5]}]
+
+set_property PACKAGE_PIN AG13 [get_ports {rpi_gpio_tri_io[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[6]}]
+
+set_property PACKAGE_PIN AH13 [get_ports {rpi_gpio_tri_io[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[7]}]
+
+set_property PACKAGE_PIN AC14 [get_ports {rpi_gpio_tri_io[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[8]}]
+
+set_property PACKAGE_PIN AC13 [get_ports {rpi_gpio_tri_io[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[9]}]
+
+set_property PACKAGE_PIN AE13 [get_ports {rpi_gpio_tri_io[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[10]}]
+
+set_property PACKAGE_PIN AF13 [get_ports {rpi_gpio_tri_io[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[11]}]
+
+set_property PACKAGE_PIN AA13 [get_ports {rpi_gpio_tri_io[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[12]}]
+
+set_property PACKAGE_PIN AB13 [get_ports {rpi_gpio_tri_io[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[13]}]
+
+set_property PACKAGE_PIN W14 [get_ports {rpi_gpio_tri_io[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[14]}]
+
+set_property PACKAGE_PIN W13 [get_ports {rpi_gpio_tri_io[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[15]}]
+
+set_property PACKAGE_PIN AB15 [get_ports {rpi_gpio_tri_io[16]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[16]}]
+
+set_property PACKAGE_PIN AB14 [get_ports {rpi_gpio_tri_io[17]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[17]}]
+
+set_property PACKAGE_PIN Y14 [get_ports {rpi_gpio_tri_io[18]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[18]}]
+
+set_property PACKAGE_PIN Y13 [get_ports {rpi_gpio_tri_io[19]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[19]}]
+
+set_property PACKAGE_PIN W12 [get_ports {rpi_gpio_tri_io[20]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[20]}]
+
+set_property PACKAGE_PIN W11 [get_ports {rpi_gpio_tri_io[21]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[21]}]
+
+set_property PACKAGE_PIN Y12 [get_ports {rpi_gpio_tri_io[22]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[22]}]
+
+set_property PACKAGE_PIN AA12 [get_ports {rpi_gpio_tri_io[23]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[23]}]
+
+set_property PACKAGE_PIN Y9 [get_ports {rpi_gpio_tri_io[24]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[24]}]
+
+set_property PACKAGE_PIN AA8 [get_ports {rpi_gpio_tri_io[25]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[25]}]
+
+set_property PACKAGE_PIN AB10 [get_ports {rpi_gpio_tri_io[26]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[26]}]
+
+set_property PACKAGE_PIN AB9 [get_ports {rpi_gpio_tri_io[27]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[27]}]
+```
