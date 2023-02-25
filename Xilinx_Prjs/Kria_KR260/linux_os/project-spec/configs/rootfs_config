@@ -118,7 +118,7 @@ CONFIG_system-zynqmp=y
 #
 # dnf
 #
-# CONFIG_dnf is not set
+CONFIG_dnf=y
 
 #
 # e2fsprogs 
@@ -181,8 +181,8 @@ CONFIG_haveged=y
 #
 # i2c-tools 
 #
-# CONFIG_i2c-tools is not set
-# CONFIG_i2c-tools-dev is not set
+CONFIG_i2c-tools=y
+CONFIG_i2c-tools-dev=y
 # CONFIG_i2c-tools-misc is not set
 # CONFIG_i2c-tools-dbg is not set
 
@@ -715,7 +715,7 @@ CONFIG_nfs-utils=y
 #
 # git 
 #
-# CONFIG_git is not set
+CONFIG_git=y
 # CONFIG_git-bash-completion is not set
 # CONFIG_git-perltools is not set
 # CONFIG_gitweb is not set
@@ -2108,26 +2108,26 @@ CONFIG_libdfx=y
 #
 # xrt
 #
-# CONFIG_xrt is not set
-# CONFIG_xrt-dev is not set
+CONFIG_xrt=y
+CONFIG_xrt-dev=y
 # CONFIG_xrt-dbg is not set
 
 #
 # zocl
 #
-# CONFIG_zocl is not set
+CONFIG_zocl=y
 # CONFIG_zocl-dev is not set
 # CONFIG_zocl-dbg is not set
 
 #
 # opencl-clhpp
 #
-# CONFIG_opencl-clhpp-dev is not set
+CONFIG_opencl-clhpp-dev=y
 
 #
 # opencl-headers
 #
-# CONFIG_opencl-headers is not set
+CONFIG_opencl-headers=y
 
 #
 # protobuf
@@ -3599,15 +3599,15 @@ CONFIG_u-boot-tools=y
 #
 # libdrm 
 #
-# CONFIG_libdrm is not set
-# CONFIG_libdrm-tests is not set
+CONFIG_libdrm=y
+CONFIG_libdrm-tests=y
 # CONFIG_libdrm-drivers is not set
 # CONFIG_libdrm-amdgpu is not set
 # CONFIG_libdrm-nouveau is not set
 # CONFIG_libdrm-dev is not set
 # CONFIG_libdrm-freedreno is not set
 # CONFIG_libdrm-radeon is not set
-# CONFIG_libdrm-kms is not set
+CONFIG_libdrm-kms=y
 # CONFIG_libdrm-dbg is not set
 # CONFIG_libdrm-omap is not set
 
@@ -3936,7 +3936,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux 
 #
-# CONFIG_packagegroup-petalinux is not set
+CONFIG_packagegroup-petalinux=y
 # CONFIG_packagegroup-petalinux-dbg is not set
 # CONFIG_packagegroup-petalinux-dev is not set
 
@@ -3964,7 +3964,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-gstreamer 
 #
-# CONFIG_packagegroup-petalinux-gstreamer is not set
+CONFIG_packagegroup-petalinux-gstreamer=y
 # CONFIG_packagegroup-petalinux-gstreamer-dev is not set
 # CONFIG_packagegroup-petalinux-gstreamer-dbg is not set
 
@@ -4027,7 +4027,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-opencv 
 #
-# CONFIG_packagegroup-petalinux-opencv is not set
+CONFIG_packagegroup-petalinux-opencv=y
 # CONFIG_packagegroup-petalinux-opencv-dev is not set
 # CONFIG_packagegroup-petalinux-opencv-dbg is not set
 
@@ -4070,7 +4070,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-v4lutils 
 #
-# CONFIG_packagegroup-petalinux-v4lutils is not set
+CONFIG_packagegroup-petalinux-v4lutils=y
 # CONFIG_packagegroup-petalinux-v4lutils-dbg is not set
 # CONFIG_packagegroup-petalinux-v4lutils-dev is not set
 
@@ -4091,7 +4091,7 @@ CONFIG_u-boot-tools=y
 #
 # packagegroup-petalinux-x11 
 #
-# CONFIG_packagegroup-petalinux-x11 is not set
+CONFIG_packagegroup-petalinux-x11=y
 # CONFIG_packagegroup-petalinux-x11-dev is not set
 # CONFIG_packagegroup-petalinux-x11-dbg is not set
 
