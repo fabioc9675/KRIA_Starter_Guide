@@ -181,7 +181,7 @@ set_property PACKAGE_PIN AA10 [get_ports {pmod4_io_tri_io[7]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {pmod4_io_tri_io[7]}]
 ```
 
-- rpi.xdc
+-   rpi.xdc
 
 ```bash
 ##################### Raspberry Pi GPIO Header #######################
@@ -270,3 +270,15 @@ set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[26]}]
 set_property PACKAGE_PIN AB9 [get_ports {rpi_gpio_tri_io[27]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {rpi_gpio_tri_io[27]}]
 ```
+
+## Generación de Bitstream con Binary file incluido
+
+Since I’m just using standard AXI GPIO to interface with the PMODs and RPi header, I’m going to just use the Sysfs drivers straight from the KR260’s command line to drive them in my initial testing (since my main goal at the moment is to make sure I just have everything mapped out right).
+
+This means I can generate the bitstream’s `.bin` file straight from Vivado and skip Vitis (recall that the `.bin` file is created in Vitis for accelerated applications). I can also write a basic (not accelerated) Linux application any time later and still utilize the.bin generated from Vivado as well.
+
+By default, Vivado generates only a `.bit` file for the bitstream, which contains extra configuration info that’s not needed in this case since the ARM processor is already booted when the bitstream is being flashed onto the PL. So the option for Vivado to also generate a `.bin` file for the bitstream needs to be enabled. Open Settings from the **Flow Navigator** window, then in the **Bitstream** tab, enable the option for **-bin_file** (this will cause a `<design_name>.bin` file to be generated and output into `/<Vivado project>/<Vivado project>.runs/impl_1/`):
+
+![Petalinux_download](./T03_Images/binary.avif)
+
+Click **Apply**, then **OK** to close the Setting window. Run synthesis, implementation, and generate bitstream for the design, as well as export the platform the same way as before.

@@ -79,7 +79,9 @@ Changing the image name to `petalinux-initramfs-image` (default is **petalinux-i
 
 Exit the system configuration editor, opting to save the changes.
 
-Then attempt to build the project for the first time.
+### Construccion de PetaLinux
+
+Then attempt to build the project for the first time. Esta es una primera iteracion de la construccion del proyecto.
 
 ```bash
 ~/Kria_KR260/linux_os$ petaliunx-build
@@ -88,6 +90,66 @@ Then attempt to build the project for the first time.
 This first build took a little over two hours for me; this PetaLinux project for the KR260 is very large, and with all of the required libraries it's just a lot right now. I'm sure there will be an improvement in some future iterations.
 
 Which I why I recommend running that first build before customizing the root filesystem and/or kernel at all to add any packages. The subsequent build after that first one do execute within a few minutes since it's just adding on the extra packages.
+
+## Customize & Add XRT Support
+
+If there are any kernel packages you would like to add, launch the kernel configuration editor and select accordingly:
+
+### Configuracion del Kernel
+
+There aren't any extra things I'm adding to the KR260 kernel outside of what the BSP enables by default so I skipped straight to the root filesystem configuration editor to add support for acceleration and XRT.
+
+para configurar el kernel se utiliza el siguiente comando:
+
+```bash
+~/Kria_KR260/linux_os$ petalinux-config -c kernel
+```
+
+en este menu se debe ir a Drivers y habilitar los drivers necesarios
+
+-   Device Drivers > I2C support > I2C Hardware Bus support, habilitar
+    -   Cadence I2C Controller
+    -   Xilinx I2C Controller
+
+### Configuracion del root file system
+
+To add the XRT support and the general packages accelerated applications will need in the root filesystem, enable the following packages if they aren't already by the KR260 BSP:
+
+Para configurar el root file system se utiliza el siguiente comando:
+
+```bash
+~/Kria_KR260/linux_os$ petalinux-config -c rootfs
+```
+
+en este menu se deben configurar los paquetes del filesystem:
+
+-   Filesystem Package > base > i2c-tools, habilitar
+    -   i2c-tools
+    -   i2c-tools-dev
+
+```bash
+Filesystem Packages --> console --> utils --> git --> [*] git
+Filesystem Packages --> base --> dnf --> [*] dnf
+Filesystem Packages --> x11 --> base --> libdrm --> [*] libdrm
+Filesystem Packages --> x11 --> base --> libdrm --> [*] libdrm-tests
+Filesystem Packages --> x11 --> base --> libdrm --> [*] libdrm-kms
+Filesystem Packages --> libs --> xrt --> [*] xrt
+Filesystem Packages --> libs --> xrt --> [*] xrt-dev
+Filesystem Packages --> libs --> zocl --> [*] zocl
+Filesystem Packages --> libs --> opencl-headers --> [*] opencl-headers
+Filesystem Packages --> libs --> opencl-clhpp --> [*] opencl-clhpp-dev
+Petaliunx Package Groups --> packagegroup-petalinux --> [*] packagegroup-petalinux
+Petaliunx Package Groups --> packagegroup-petalinux-gstreamer --> [*] packagegroup-petalinux-gstreamer
+Petaliunx Package Groups --> packagegroup-petalinux-opencv --> [*] packagegroup-petalinux-gstreamer
+Petaliunx Package Groups --> packagegroup-petalinux-v4lutils --> [*] packagegroup-petalinux-gstreamer
+Petaliunx Package Groups --> packagegroup-petalinux-x11 --> [*] packagegroup-petalinux-gstreamer
+```
+
+Rebuild the project after adding the packages to the root filesystem (and kernel if you choose):
+
+```bash
+~/Kria_KR260/linux_os$ petaliunx-build
+```
 
 ## Construir Sysroot (SDK) para el proyecto
 
