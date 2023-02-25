@@ -383,6 +383,10 @@ After testing LEDs on the other PMOD connectors, I did discover that the grounds
 
 ## usar Script de Python para prender y apagar los LEDs
 
+Esta parte del tutorial esta basado en el siguiente [link](https://www.hackster.io/whitney-knitter/lego-land-rover-defender-robot-with-kria-kr260-f8974f)
+
+![Petalinux_download](./T04_Images/portada_2.avif)
+
 primero se debe otorgar en petalinux los permisos necesarios para que ejecute los comandos desde un Script de python, para esto se debe hacer el cambio de owner:
 
 ```bash
