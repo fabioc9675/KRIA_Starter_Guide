@@ -422,9 +422,9 @@ xilinx-kr260-starterkit-20222:~$ echo 0 > /sys/class/gpio/gpio480/value
 Ahora podemos crear un script de Python en nuestro sistema linux como sigue:
 
 ```bash
-~/Kria_KR260$ mkdir Python_test
-~/Kria_KR260$ cd Python_test
-~/Kria_KR260/Python_test$ nano gpio_test.py
+~/Kria_KR260$ mkdir python_test
+~/Kria_KR260$ cd python_test
+~/Kria_KR260/python_test$ nano gpio_test.py
 ```
 
 en el archivo copimaos el siguiente codigo:
