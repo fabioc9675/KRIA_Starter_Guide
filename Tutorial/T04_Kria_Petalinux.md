@@ -169,6 +169,8 @@ Rebuild the project after adding the packages to the root filesystem (and kernel
 ~/Kria_KR260/linux_os$ petaliunx-build
 ```
 
+![Petalinux_download](./T04_Images/Petalinux_build.png)
+
 ---
 
 ## Construir Sysroot (SDK) para el proyecto
@@ -179,7 +181,7 @@ After the project has been built, build the SDK for the project to get a sysroot
 ~/Kria_KR260/linux_os$ petaliunx-build --sdk
 ```
 
----
+## ![Petalinux_download](./T04_Images/Petalinux_sdk.png)
 
 ## Empaquetar Imagen WIC para SD Card
 
@@ -189,11 +191,15 @@ Once the project has been built, package the boot binary for the custom image:
 ~/Kria_KR260/linux_os$ petalinux-package --boot --u-boot --force
 ```
 
+![Petalinux_download](./T04_Images/Petalinux_package.png)
+
 Then package the WIC image for the SD card:
 
 ```bash
 ~/Kria_KR260/linux_os$ petalinux-package --wic --images-dir images/linux/ --bootfiles "ramdisk.cpio.gz.u-boot,boot.scr,Image,system.dtb,system-zynqmp-sck-kr-g-revB.dtb" --disk-name "sda"
 ```
+
+![Petalinux_download](./T04_Images/Image_WIC.png)
 
 Note that since the KR260 has the SD card connected to the Zynq FPGA via the USB controller on the KR260 carrier board, that's why we need to specify the disk name as sda.
 
@@ -219,12 +225,15 @@ The device tree blob containing the overlay nodes needs to be compiled for the d
 Open the exported XSA from Vivado and use the `createdts` command to create the device tree source files for the PL design:
 
 ```bash
-xsct% hsi::open_hw_design ../kria_base.xsa
+xsct% hsi::open_hw_design kria_base.xsa
 
-xsct% createdts -hw ../kria_base.xsa -zocl -platform-name kria_kr260 -git-branch xlnx_rel_v2022.1 -overlay -compile -out ./dtg_kr260_v0
+xsct% createdts -hw kria_base.xsa -zocl -platform-name kria_kr260 -git-branch xlnx_rel_v2022.2 -overlay -compile -out ./dtg_kr260_v0
 
 xsct% exit
 ```
+
+![Petalinux_download](./T04_Images/xcst_01.png)
+![Petalinux_download](./T04_Images/xcst_02.png)
 
 After exiting **XSCT**, use the standard Linux device tree compiler (dtc) to compile the source files into the needed device tree blob:
 
@@ -243,7 +252,7 @@ I like to create a folder to copy all of the necessary design files to that need
 ~/Kria_KR260$ cd ./gpio_file_transfer/
 ```
 
-It’s here I’ll create the description file, shell.json, for the design:
+It’s here I’ll create the description file, `shell.json`, for the design:
 
 ```bash
 ~/Kria_KR260/gpio_file_transfer$ nano shell.json
@@ -262,13 +271,13 @@ Then copy the generated device tree blob and .bin file into the folder:
 
 ```bash
 ~/Kria_KR260/gpio_file_transfer$ cp ../dtg_kr260_v0/dtg_kr260_v0/kria_kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtbo ./
-~/Kria_KR260/gpio_file_transfer$ cp ../Kria_KR260.runs/impl_1/kr260_top.bin ./
+~/Kria_KR260/gpio_file_transfer$ cp ../Kria_KR260.runs/impl_1/kria_bd_wrapper.bin ./
 ```
 
 Rename the device tree blob and .bin file to the same thing (the only difference should be their respect file extensions (also change the.bin extension to `.bit.bin`):
 
 ```bash
-~/Kria_KR260/gpio_file_transfer$ mv kr260_top.bin kr260_gpio.bit.bin
+~/Kria_KR260/gpio_file_transfer$ mv kria_bd_wrapper.bin kr260_gpio.bit.bin
 ~/Kria_KR260/gpio_file_transfer$ mv pl.dtbo kr260_gpio.dtbo
 ```
 
@@ -413,7 +422,8 @@ xilinx-kr260-starterkit-20222:~$ echo 0 > /sys/class/gpio/gpio480/value
 Ahora podemos crear un script de Python en nuestro sistema linux como sigue:
 
 ```bash
-~/Kria_KR260$ mkdir Python_test & cd Python_test
+~/Kria_KR260$ mkdir Python_test
+~/Kria_KR260$ cd Python_test
 ~/Kria_KR260/Python_test$ nano gpio_test.py
 ```
 
