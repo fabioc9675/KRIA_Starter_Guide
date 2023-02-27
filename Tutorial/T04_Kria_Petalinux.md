@@ -119,9 +119,9 @@ para configurar el kernel se utiliza el siguiente comando:
 
 en este menu se debe ir a Drivers y habilitar los drivers necesarios
 
--   Device Drivers > I2C support > I2C Hardware Bus support, habilitar
-    -   Cadence I2C Controller
-    -   Xilinx I2C Controller
+- Device Drivers > I2C support > I2C Hardware Bus support, habilitar
+  - Cadence I2C Controller
+  - Xilinx I2C Controller
 
 ---
 
@@ -137,9 +137,9 @@ Para configurar el root file system se utiliza el siguiente comando:
 
 en este menu se deben configurar los paquetes del filesystem:
 
--   Filesystem Package > base > i2c-tools, habilitar
-    -   i2c-tools
-    -   i2c-tools-dev
+- Filesystem Package > base > i2c-tools, habilitar
+  - i2c-tools
+  - i2c-tools-dev
 
 ```bash
 Filesystem Packages --> console --> utils --> git --> [*] git
@@ -262,8 +262,8 @@ And copy+paste the following to `shell.json`:
 
 ```json
 {
-    "shell_type": "XRT_FLAT",
-    "num_slots": "1"
+  "shell_type": "XRT_FLAT",
+  "num_slots": "1"
 }
 ```
 
@@ -355,7 +355,7 @@ I attached 8 LEDs to the 8 I/O of PMOD4 which is gpiochip476 and exported each I
 
 ```bash
 xilinx-kr260-starterkit-20222:~$ echo 476 | sudo tee /sys/class/gpio/export
-xilinx-kr260-starterkit-20222:~$ echo out | sudo tee /sys/class/gpio/gpio 476/direction
+xilinx-kr260-starterkit-20222:~$ echo out | sudo tee /sys/class/gpio/gpio476/direction
 xilinx-kr260-starterkit-20222:~$ echo 477 | sudo tee /sys/class/gpio/export
 xilinx-kr260-starterkit-20222:~$ echo out | sudo tee /sys/class/gpio/gpio477/direction
 xilinx-kr260-starterkit-20222:~$ echo 478 | sudo tee /sys/class/gpio/export
@@ -439,20 +439,20 @@ import subprocess
 import multiprocessing
 
 for i in range(0,10):
-    os.system('echo 1 > /sys/class/gpio/gpio480/value') # Turn on the led
+    os.system('echo 1 > /sys/class/gpio/gpio492/value') # Turn on the led
     time.sleep(1)
-    os.system('echo 0 > /sys/class/gpio/gpio480/value') # Turn off the led
+    os.system('echo 0 > /sys/class/gpio/gpio492/value') # Turn off the led
     time.sleep(1)
 
     # also we can to read the state of a pin in case it is an input
-    gpio_in_pin = open('/sys/class/gpio/gpio320/value', 'r')
+    gpio_in_pin = open('/sys/class/gpio/gpio493/value', 'r')
     gpio_in = gpio_in_pin.read()
     print('entrada = ', gpio_in)
 
-    if gpio_in == 1:
-        os.system('echo 1 > /sys/class/gpio/gpio481/value')
+    if int(gpio_in) == 1:
+        os.system('echo 1 > /sys/class/gpio/gpio494/value')
     else:
-        os.system('echo 0 > /sys/class/gpio/gpio481/value')
+        os.system('echo 0 > /sys/class/gpio/gpio494/value')
 
 ```
 
