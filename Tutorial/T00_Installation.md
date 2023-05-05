@@ -11,6 +11,13 @@ En este caso utilizaremos [VirtualBox 6](https://www.virtualbox.org/wiki/Downloa
 -   Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
 -   Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
 
+Usar el script de comandos que esta en `documentation/commands.sh`
+
+```bash
+~$ sed -i -e 's/\r$//' commands.sh 
+~$ ./commands.sh
+```
+
 ### Configuraciones necesarias para Ubuntu 22.04 LTS
 
 Basado en el siguiente [Tutorial](https://www.hackster.io/whitney-knitter/vitis-petalinux-2022-1-krs-1-0-install-on-ubuntu-22-04-145c1b)
