@@ -26,8 +26,8 @@ meta-plnx-generated/
 *.vdi
 
 ## bitstream
-*.bit
-*.bin
+#*.bit
+#*.bin
 *.mcs
 *.svf
 *.image
@@ -255,7 +255,7 @@ cython_debug/
 
 llvm3
 llvm10
-*.json
+#*.json
 
 
 ## Eclipse
@@ -489,7 +489,7 @@ cython_debug/
 
 llvm3
 llvm10
-*.json
+#*.json
 
 # test vector files
 tests/vectors
