@@ -469,3 +469,31 @@ xilinx-kr260-starterkit-20222:~$ python gpio_test.py
 ```
 
 Con esto observaremos comoe el LED realizara un blinking por 20 segundos
+
+## Code Automation
+
+Es posible ejecutar una secuencia de comandos de forma automatica desde petalinux usando un archivo .bash, a continuacion se presenta un bloque de codigo que debe almacenarce en un archivo `config.sh` para ser ejecutado con el comando `bash config.sh`
+
+```bash
+echo "################################################"
+echo " ------ Configuracion de salidas -----"
+echo "################################################"
+
+echo petalinux | sudo -S xmutil unloadapp  # despues del echo va el password para el "sudo" y el comando>
+echo petalinux | sudo -S xmutil loadapp kr260_gpio
+echo petalinux | sudo -S chown petalinux:petalinux -R /sys/class/gpio/*
+echo 439 > /sys/class/gpio/export
+echo petalinux | sudo -S chown petalinux:petalinux -R /sys/class/gpio/gpio439/*
+
+echo out > /sys/class/gpio/gpio439/direction
+
+echo "################################################"
+echo " ------ Inicio de prueba python ------ "
+echo "################################################"
+
+python gpio_test.py
+
+echo "################################################"
+echo " ------ Finalizacion de prueba ------ "
+echo "################################################"
+```
