@@ -23,6 +23,8 @@ vlib riviera/lib_pkg_v1_0_2
 vlib riviera/lib_srl_fifo_v1_0_2
 vlib riviera/axi_uartlite_v2_0_31
 vlib riviera/axi_protocol_converter_v2_1_27
+vlib riviera/xlconcat_v2_1_4
+vlib riviera/util_reduced_logic_v2_0_4
 
 vmap xilinx_vip riviera/xilinx_vip
 vmap xpm riviera/xpm
@@ -46,6 +48,8 @@ vmap lib_pkg_v1_0_2 riviera/lib_pkg_v1_0_2
 vmap lib_srl_fifo_v1_0_2 riviera/lib_srl_fifo_v1_0_2
 vmap axi_uartlite_v2_0_31 riviera/axi_uartlite_v2_0_31
 vmap axi_protocol_converter_v2_1_27 riviera/axi_protocol_converter_v2_1_27
+vmap xlconcat_v2_1_4 riviera/xlconcat_v2_1_4
+vmap util_reduced_logic_v2_0_4 riviera/util_reduced_logic_v2_0_4
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -141,9 +145,6 @@ vlog -work xlslice_v1_0_2  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/kria_bd/ip/kria_bd_xlslice_0_1/sim/kria_bd_xlslice_0_1.v" \
 
-vcom -work xil_defaultlib -93  \
-"../../../bd/kria_bd/sim/kria_bd.vhd" \
-
 vcom -work lib_pkg_v1_0_2 -93  \
 "../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/0513/hdl/lib_pkg_v1_0_rfs.vhd" \
 
@@ -155,12 +156,25 @@ vcom -work axi_uartlite_v2_0_31 -93  \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/kria_bd/ip/kria_bd_axi_uartlite_0_0/sim/kria_bd_axi_uartlite_0_0.vhd" \
+"../../../bd/kria_bd/sim/kria_bd.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
+
+vlog -work xlconcat_v2_1_4  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/kria_bd/ip/kria_bd_xlconcat_0_0/sim/kria_bd_xlconcat_0_0.v" \
+
+vlog -work util_reduced_logic_v2_0_4  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/4c94/hdl/util_reduced_logic_v2_0_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/kria_bd/ip/kria_bd_util_reduced_logic_0_0/sim/kria_bd_util_reduced_logic_0_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

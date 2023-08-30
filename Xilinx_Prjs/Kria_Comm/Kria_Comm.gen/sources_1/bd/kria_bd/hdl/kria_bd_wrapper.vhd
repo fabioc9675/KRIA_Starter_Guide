@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Mon Aug 28 22:25:11 2023
---Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
+--Date        : Tue Aug 29 18:03:32 2023
+--Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 --Command     : generate_target kria_bd_wrapper.bd
 --Design      : kria_bd_wrapper
 --Purpose     : IP block netlist
@@ -42,9 +42,9 @@ architecture STRUCTURE of kria_bd_wrapper is
     uf_leds_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 );
     uf_leds_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
     uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
     kria_uart_rxd : in STD_LOGIC;
-    kria_uart_txd : out STD_LOGIC
+    kria_uart_txd : out STD_LOGIC;
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component kria_bd;
   component IOBUF is
