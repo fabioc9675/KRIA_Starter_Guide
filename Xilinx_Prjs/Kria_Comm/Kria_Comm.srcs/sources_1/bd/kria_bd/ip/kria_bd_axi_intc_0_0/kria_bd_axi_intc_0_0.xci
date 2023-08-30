@@ -15,7 +15,7 @@
         "C_HAS_ILR": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_IRQ_ACTIVE": [ { "value": "0x1", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
         "C_KIND_OF_INTR": [ { "value": "0xFFFFFFFF", "value_permission": "bd_and_user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "C_NUM_INTR_INPUTS": [ { "value": "1", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "C_NUM_INTR_INPUTS": [ { "value": "1", "value_src": "propagated", "value_permission": "bd", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_NUM_SW_INTR": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_KIND_OF_LVL": [ { "value": "0xFFFFFFFF", "value_permission": "bd_and_user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
         "C_ASYNC_INTR": [ { "value": "0xFFFFFFFF", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
@@ -222,7 +222,7 @@
           "mode": "slave",
           "parameters": {
             "SENSITIVITY": [ { "value": "LEVEL_HIGH", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
-            "PortWidth": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ]
+            "PortWidth": [ { "value": "1", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ]
           },
           "port_maps": {
             "INTERRUPT": [ { "physical_name": "intr" } ]

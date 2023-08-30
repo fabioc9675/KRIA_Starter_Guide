@@ -103,13 +103,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_axi_uartlite_0_0/sim/kria_bd_axi_uartlite_0_0.vhd" \
-  "../../../bd/kria_bd/sim/kria_bd.vhd" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
-  "../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 -endlib
 -makelib xcelium_lib/xlconcat_v2_1_4 \
   "../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v" \
@@ -122,6 +115,15 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_util_reduced_logic_0_0/sim/kria_bd_util_reduced_logic_0_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/sim/kria_bd.vhd" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
+  "../../../../Kria_Comm.gen/sources_1/bd/kria_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Tue Aug 29 18:03:31 2023
+--Date        : Wed Aug 30 12:22:16 2023
 --Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
@@ -2522,13 +2522,12 @@ architecture STRUCTURE of kria_bd is
   component kria_bd_xlconcat_0_0 is
   port (
     In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component kria_bd_xlconcat_0_0;
   component kria_bd_util_reduced_logic_0_0 is
   port (
-    Op1 : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    Op1 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     Res : out STD_LOGIC
   );
   end component kria_bd_util_reduced_logic_0_0;
@@ -2674,7 +2673,7 @@ architecture STRUCTURE of kria_bd is
   signal rpi_gpio_GPIO_TRI_O : STD_LOGIC_VECTOR ( 27 downto 0 );
   signal rpi_gpio_GPIO_TRI_T : STD_LOGIC_VECTOR ( 27 downto 0 );
   signal util_reduced_logic_0_Res : STD_LOGIC;
-  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2772,7 +2771,7 @@ begin
   uf_leds_tri_t(1 downto 0) <= axi_gpio_0_GPIO_TRI_T(1 downto 0);
 axi_intc_0: component kria_bd_axi_intc_0_0
      port map (
-      intr(0) => '0',
+      intr(0) => util_reduced_logic_0_Res,
       irq => axi_intc_0_irq,
       s_axi_aclk => clk_wiz_0_clk_out2,
       s_axi_araddr(8 downto 0) => ps8_0_axi_periph_M00_AXI_ARADDR(8 downto 0),
@@ -3157,15 +3156,14 @@ uf_leds: component kria_bd_axi_gpio_0_5
     );
 util_reduced_logic_0: component kria_bd_util_reduced_logic_0_0
      port map (
-      Op1(7 downto 2) => B"000000",
-      Op1(1 downto 0) => xlconcat_0_dout(1 downto 0),
+      Op1(1) => '0',
+      Op1(0) => xlconcat_0_dout(0),
       Res => util_reduced_logic_0_Res
     );
 xlconcat_0: component kria_bd_xlconcat_0_0
      port map (
-      In0(0) => axi_intc_0_irq,
-      In1(0) => axi_uartlite_0_interrupt,
-      dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
+      In0(0) => axi_uartlite_0_interrupt,
+      dout(0) => xlconcat_0_dout(0)
     );
 xlslice_0: component kria_bd_xlslice_0_1
      port map (
@@ -3218,7 +3216,7 @@ zynq_ultra_ps_e_0: component kria_bd_zynq_ultra_ps_e_0_0
       maxihpm0_lpd_aclk => clk_wiz_0_clk_out2,
       pl_clk0 => zynq_ultra_ps_e_0_pl_clk0,
       pl_clk1 => NLW_zynq_ultra_ps_e_0_pl_clk1_UNCONNECTED,
-      pl_ps_irq0(0) => util_reduced_logic_0_Res,
+      pl_ps_irq0(0) => axi_intc_0_irq,
       pl_resetn0 => zynq_ultra_ps_e_0_pl_resetn0,
       pl_resetn1 => NLW_zynq_ultra_ps_e_0_pl_resetn1_UNCONNECTED,
       pl_resetn2 => NLW_zynq_ultra_ps_e_0_pl_resetn2_UNCONNECTED,

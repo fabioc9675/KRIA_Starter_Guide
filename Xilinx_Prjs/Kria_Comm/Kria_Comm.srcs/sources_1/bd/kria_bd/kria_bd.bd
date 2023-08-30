@@ -1652,9 +1652,6 @@
           "C_IRQ_CONNECTION": {
             "value": "1"
           }
-        },
-        "pfm_attributes": {
-          "IRQ": "intr { id 0 range 32 }"
         }
       },
       "ps8_0_axi_periph": {
@@ -2614,7 +2611,12 @@
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
         "xci_name": "kria_bd_xlconcat_0_0",
         "xci_path": "ip/kria_bd_xlconcat_0_0/kria_bd_xlconcat_0_0.xci",
-        "inst_hier_path": "xlconcat_0"
+        "inst_hier_path": "xlconcat_0",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "1"
+          }
+        }
       },
       "util_reduced_logic_0": {
         "vlnv": "xilinx.com:ip:util_reduced_logic:2.0",
@@ -2624,6 +2626,9 @@
         "parameters": {
           "C_OPERATION": {
             "value": "or"
+          },
+          "C_SIZE": {
+            "value": "2"
           }
         }
       }
@@ -2718,13 +2723,13 @@
       "axi_intc_0_irq": {
         "ports": [
           "axi_intc_0/irq",
-          "xlconcat_0/In0"
+          "zynq_ultra_ps_e_0/pl_ps_irq0"
         ]
       },
       "axi_uartlite_0_interrupt": {
         "ports": [
           "axi_uartlite_0/interrupt",
-          "xlconcat_0/In1"
+          "xlconcat_0/In0"
         ]
       },
       "clk_wiz_0_clk_out1": {
@@ -2780,7 +2785,7 @@
       "util_reduced_logic_0_Res": {
         "ports": [
           "util_reduced_logic_0/Res",
-          "zynq_ultra_ps_e_0/pl_ps_irq0"
+          "axi_intc_0/intr"
         ]
       },
       "xlconcat_0_dout": {

@@ -87,8 +87,8 @@
 				current-speed = <0x1c200>;
 				device_type = "serial";
 				interrupt-names = "interrupt";
-				interrupt-parent = <0xffffffff>;
-				interrupts = <0x00 0x5a 0x01>;
+				interrupt-parent = <0x02>;
+				interrupts = <0x00 0x00>;
 				port-number = <0x00>;
 				reg = <0x00 0x80010000 0x00 0x10000>;
 				xlnx,baudrate = <0x1c200>;
@@ -238,7 +238,7 @@
 		zynqmp_reset = "/fragment@0/__overlay__:resets:0\0/fragment@0/__overlay__:resets:8\0/fragment@0/__overlay__:resets:16\0/fragment@0/__overlay__:resets:24";
 		amba = "/fragment@1:target:0\0/fragment@2:target:0";
 		zynqmp_clk = "/fragment@1/__overlay__/clocking0:assigned-clocks:0\0/fragment@1/__overlay__/clocking0:clocks:0\0/fragment@1/__overlay__/clocking1:assigned-clocks:0\0/fragment@1/__overlay__/clocking1:clocks:0";
-		gic = "/fragment@2/__overlay__/interrupt-controller@80000000:interrupt-parent:0\0/fragment@2/__overlay__/serial@80010000:interrupt-parent:0";
+		gic = "/fragment@2/__overlay__/interrupt-controller@80000000:interrupt-parent:0";
 	};
 
 	__local_fixups__ {
@@ -253,6 +253,7 @@
 
 				serial@80010000 {
 					clocks = <0x00>;
+					interrupt-parent = <0x00>;
 				};
 
 				gpio@80020000 {
