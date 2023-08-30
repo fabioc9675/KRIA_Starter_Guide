@@ -241,6 +241,13 @@ After exiting **XSCT**, use the standard Linux device tree compiler (dtc) to com
 ~/Kria_KR260$ dtc -@ -O dtb -o ./dtg_kr260_v0/dtg_kr260_v0/kria_kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtbo ./dtg_kr260_v0/dtg_kr260_v0/kria_kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtsi
 ```
 
+To visualize the Device Tree file you need to create a copy of `dtbo` file and change the extension for `dtb`, and create a readable file using the follow command
+
+```bash
+~/$ dtc -I dtb -O dts pl.dtb > pl.dts
+
+```
+
 ---
 
 ## Transferir los archivos del PL Design a KR260
