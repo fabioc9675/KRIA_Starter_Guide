@@ -19,3 +19,17 @@ This post is a follow on to it (using that same Vivado 2022.1 project created in
 
 ## Implementación de periferico soporte UART
 
+
+
+
+![Petalinux_download](./T05_Images/uartlite_select.png)
+
+![Petalinux_download](./T05_Images/block_diagram.png)
+
+![Petalinux_download](./T05_Images/blockSelected.png)
+
+![Petalinux_download](./T05_Images/Uartlite_axi_config.png)
+
+![Petalinux_download](./T05_Images/Uart_constrains.png)
+
+![Petalinux_download](./T05_Images/Uart_Address.png)
