@@ -239,7 +239,7 @@ ser.flush()  # clean the buffer
 
 # Send data to Uartlite
 n = ser.write('Hi, this is a KRIA test'.encode())
-dato = ser.read(n)  # read data from serial
+dato = ser.read(n).decode()  # read data from serial
 print(dato)
 
 ser.close()  # close the serial port
