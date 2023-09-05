@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Wed Aug 30 12:22:17 2023
---Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
+--Date        : Mon Sep  4 21:57:18 2023
+--Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target kria_bd_wrapper.bd
 --Design      : kria_bd_wrapper
 --Purpose     : IP block netlist
@@ -14,6 +14,8 @@ use UNISIM.VCOMPONENTS.ALL;
 entity kria_bd_wrapper is
   port (
     fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
+    kria_i2c_scl_io : inout STD_LOGIC;
+    kria_i2c_sda_io : inout STD_LOGIC;
     kria_uart_rxd : in STD_LOGIC;
     kria_uart_txd : out STD_LOGIC;
     pmod2_io_tri_io : inout STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -44,7 +46,13 @@ architecture STRUCTURE of kria_bd_wrapper is
     uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 );
     kria_uart_rxd : in STD_LOGIC;
     kria_uart_txd : out STD_LOGIC;
-    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
+    kria_i2c_scl_i : in STD_LOGIC;
+    kria_i2c_scl_o : out STD_LOGIC;
+    kria_i2c_scl_t : out STD_LOGIC;
+    kria_i2c_sda_i : in STD_LOGIC;
+    kria_i2c_sda_o : out STD_LOGIC;
+    kria_i2c_sda_t : out STD_LOGIC
   );
   end component kria_bd;
   component IOBUF is
@@ -55,6 +63,12 @@ architecture STRUCTURE of kria_bd_wrapper is
     IO : inout STD_LOGIC
   );
   end component IOBUF;
+  signal kria_i2c_scl_i : STD_LOGIC;
+  signal kria_i2c_scl_o : STD_LOGIC;
+  signal kria_i2c_scl_t : STD_LOGIC;
+  signal kria_i2c_sda_i : STD_LOGIC;
+  signal kria_i2c_sda_o : STD_LOGIC;
+  signal kria_i2c_sda_t : STD_LOGIC;
   signal pmod2_io_tri_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal pmod2_io_tri_i_1 : STD_LOGIC_VECTOR ( 1 to 1 );
   signal pmod2_io_tri_i_2 : STD_LOGIC_VECTOR ( 2 to 2 );
@@ -275,6 +289,12 @@ begin
 kria_bd_i: component kria_bd
      port map (
       fan_en_b(0) => fan_en_b(0),
+      kria_i2c_scl_i => kria_i2c_scl_i,
+      kria_i2c_scl_o => kria_i2c_scl_o,
+      kria_i2c_scl_t => kria_i2c_scl_t,
+      kria_i2c_sda_i => kria_i2c_sda_i,
+      kria_i2c_sda_o => kria_i2c_sda_o,
+      kria_i2c_sda_t => kria_i2c_sda_t,
       kria_uart_rxd => kria_uart_rxd,
       kria_uart_txd => kria_uart_txd,
       pmod2_io_tri_i(7) => pmod2_io_tri_i_7(7),
@@ -439,6 +459,20 @@ kria_bd_i: component kria_bd
       uf_leds_tri_o(0) => uf_leds_tri_o_0(0),
       uf_leds_tri_t(1) => uf_leds_tri_t_1(1),
       uf_leds_tri_t(0) => uf_leds_tri_t_0(0)
+    );
+kria_i2c_scl_iobuf: component IOBUF
+     port map (
+      I => kria_i2c_scl_o,
+      IO => kria_i2c_scl_io,
+      O => kria_i2c_scl_i,
+      T => kria_i2c_scl_t
+    );
+kria_i2c_sda_iobuf: component IOBUF
+     port map (
+      I => kria_i2c_sda_o,
+      IO => kria_i2c_sda_io,
+      O => kria_i2c_sda_i,
+      T => kria_i2c_sda_t
     );
 pmod2_io_tri_iobuf_0: component IOBUF
      port map (

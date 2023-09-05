@@ -9,5 +9,6 @@ vhdl xil_defaultlib  \
 "../../../bd/kria_bd/ip/kria_bd_axi_gpio_0_5/sim/kria_bd_axi_gpio_0_5.vhd" \
 "../../../bd/kria_bd/ip/kria_bd_axi_uartlite_0_0/sim/kria_bd_axi_uartlite_0_0.vhd" \
 "../../../bd/kria_bd/sim/kria_bd.vhd" \
+"../../../bd/kria_bd/ip/kria_bd_axi_iic_0_0/sim/kria_bd_axi_iic_0_0.vhd" \
 
 nosort
