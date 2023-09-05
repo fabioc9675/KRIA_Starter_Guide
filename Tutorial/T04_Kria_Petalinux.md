@@ -213,6 +213,12 @@ You can manually load the wic onto the SD card from the command line, but I go t
 
 ---
 
+### Instalacion de utilidades
+
+Para instalar `nano` seguir el siguiente [tutorial](https://www.hackster.io/sasha-falkovich/kria-kv260-petalinux-build-nano-from-source-on-the-mpsoc-8118f1)
+
+---
+
 ## Generar el Device Tree Overlay para el PL Design
 
 The device tree blob containing the overlay nodes needs to be compiled for the design, which is easily done by using the Xilinx Software Command Line Tools (**XSCT**):
