@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Mon Sep  4 21:57:18 2023
+--Date        : Tue Sep  5 17:20:36 2023
 --Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
@@ -2471,7 +2471,7 @@ entity kria_bd is
     uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=8,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_board_cnt=8,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of kria_bd : entity is "kria_bd.hwdef";
 end kria_bd;
@@ -2588,7 +2588,7 @@ architecture STRUCTURE of kria_bd is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    intr : in STD_LOGIC_VECTOR ( 0 to 0 );
+    intr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     irq : out STD_LOGIC
   );
   end component kria_bd_axi_intc_0_0;
@@ -2761,12 +2761,6 @@ architecture STRUCTURE of kria_bd is
     dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component kria_bd_xlconcat_0_0;
-  component kria_bd_util_reduced_logic_0_0 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    Res : out STD_LOGIC
-  );
-  end component kria_bd_util_reduced_logic_0_0;
   component kria_bd_axi_iic_0_0 is
   port (
     s_axi_aclk : in STD_LOGIC;
@@ -2963,7 +2957,6 @@ architecture STRUCTURE of kria_bd is
   signal rpi_gpio_GPIO_TRI_I : STD_LOGIC_VECTOR ( 27 downto 0 );
   signal rpi_gpio_GPIO_TRI_O : STD_LOGIC_VECTOR ( 27 downto 0 );
   signal rpi_gpio_GPIO_TRI_T : STD_LOGIC_VECTOR ( 27 downto 0 );
-  signal util_reduced_logic_0_Res : STD_LOGIC;
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
@@ -3025,12 +3018,12 @@ architecture STRUCTURE of kria_bd is
   signal NLW_zynq_ultra_ps_e_0_maxigp2_aruser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_awuser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of kria_i2c_scl_i : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
-  attribute X_INTERFACE_INFO of kria_i2c_scl_o : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
-  attribute X_INTERFACE_INFO of kria_i2c_scl_t : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
-  attribute X_INTERFACE_INFO of kria_i2c_sda_i : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
-  attribute X_INTERFACE_INFO of kria_i2c_sda_o : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
-  attribute X_INTERFACE_INFO of kria_i2c_sda_t : signal is "xilinx.com:interface:iic:1.0 kria_i2c ";
+  attribute X_INTERFACE_INFO of kria_i2c_scl_i : signal is "xilinx.com:interface:iic:1.0 kria_i2c SCL_I";
+  attribute X_INTERFACE_INFO of kria_i2c_scl_o : signal is "xilinx.com:interface:iic:1.0 kria_i2c SCL_O";
+  attribute X_INTERFACE_INFO of kria_i2c_scl_t : signal is "xilinx.com:interface:iic:1.0 kria_i2c SCL_T";
+  attribute X_INTERFACE_INFO of kria_i2c_sda_i : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_I";
+  attribute X_INTERFACE_INFO of kria_i2c_sda_o : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_O";
+  attribute X_INTERFACE_INFO of kria_i2c_sda_t : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_T";
   attribute X_INTERFACE_INFO of kria_uart_rxd : signal is "xilinx.com:interface:uart:1.0 kria_uart RxD";
   attribute X_INTERFACE_INFO of kria_uart_txd : signal is "xilinx.com:interface:uart:1.0 kria_uart TxD";
   attribute X_INTERFACE_INFO of pmod2_io_tri_i : signal is "xilinx.com:interface:gpio:1.0 pmod2_io TRI_I";
@@ -3105,7 +3098,7 @@ axi_iic_0: component kria_bd_axi_iic_0_0
     );
 axi_intc_0: component kria_bd_axi_intc_0_0
      port map (
-      intr(0) => util_reduced_logic_0_Res,
+      intr(1 downto 0) => xlconcat_0_dout(1 downto 0),
       irq => axi_intc_0_irq,
       s_axi_aclk => clk_wiz_0_clk_out2,
       s_axi_araddr(8 downto 0) => ps8_0_axi_periph_M00_AXI_ARADDR(8 downto 0),
@@ -3507,15 +3500,10 @@ uf_leds: component kria_bd_axi_gpio_0_5
       s_axi_wstrb(3 downto 0) => ps8_0_axi_periph_M06_AXI_WSTRB(3 downto 0),
       s_axi_wvalid => ps8_0_axi_periph_M06_AXI_WVALID
     );
-util_reduced_logic_0: component kria_bd_util_reduced_logic_0_0
-     port map (
-      Op1(1 downto 0) => xlconcat_0_dout(1 downto 0),
-      Res => util_reduced_logic_0_Res
-    );
 xlconcat_0: component kria_bd_xlconcat_0_0
      port map (
-      In0(0) => axi_uartlite_0_interrupt,
-      In1(0) => axi_iic_0_iic2intc_irpt,
+      In0(0) => axi_iic_0_iic2intc_irpt,
+      In1(0) => axi_uartlite_0_interrupt,
       dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
     );
 xlslice_0: component kria_bd_xlslice_0_1
