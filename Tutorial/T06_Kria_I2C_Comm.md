@@ -18,7 +18,7 @@ This post is a follow on to it (using that same Vivado 2022.2 project created in
 
 ## Implementación de periferico soporte IIC
 
-Para implementar el UART usando la tarjeta Kria Robotics agregaremos el IPCORE `AXI IIC`. Lo buscamos en el buscador de IPCORE y lo agregamos al proyecto.
+Para implementar el IIC usando la tarjeta Kria Robotics agregaremos el IPCORE `AXI IIC`. Lo buscamos en el buscador de IPCORE y lo agregamos al proyecto.
 
 Configuramos el IPCORE dando doble clic en el bloque, en esta seleccion solo modificaremos el `SCL Clock` a `400 kHz` o la velocidad que se requiera para realizar la comunicación, ademas el `Address mode` en `7 bits`.
 
@@ -42,32 +42,32 @@ Luego se crea el archivo de constrains `comm_iic.xdc` usando los siguientes pine
 
 ```bash
 ##################### PMOD 1 Upper ################################
-set_property PACKAGE_PIN H12 [get_ports {kria_uart_rxd}]     
-set_property IOSTANDARD LVCMOS33 [get_ports {kria_uart_rxd}] 
-                                                                   
-set_property PACKAGE_PIN E10 [get_ports {kria_i2c_sda_io}]     
-set_property IOSTANDARD LVCMOS33 [get_ports {kria_i2c_sda_io}] 
+set_property PACKAGE_PIN H12 [get_ports {kria_uart_rxd}]
+set_property IOSTANDARD LVCMOS33 [get_ports {kria_uart_rxd}]
+
+set_property PACKAGE_PIN E10 [get_ports {kria_i2c_sda_io}]
+set_property IOSTANDARD LVCMOS33 [get_ports {kria_i2c_sda_io}]
 set_property PULLUP TRUE [get_ports {kria_i2c_sda_io}]
-                                                                   
-#set_property PACKAGE_PIN D10 [get_ports {pmod1_io_tri_io[2]}]     
-#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[2]}] 
-                                                                   
-#set_property PACKAGE_PIN C11 [get_ports {pmod1_io_tri_io[3]}]     
-#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[3]}] 
-                                                                   
+
+#set_property PACKAGE_PIN D10 [get_ports {pmod1_io_tri_io[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[2]}]
+
+#set_property PACKAGE_PIN C11 [get_ports {pmod1_io_tri_io[3]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[3]}]
+
 ##################### PMOD 1 Lower ################################
-set_property PACKAGE_PIN B10 [get_ports {kria_uart_txd}]     
-set_property IOSTANDARD LVCMOS33 [get_ports {kria_uart_txd}] 
-                                                                   
-set_property PACKAGE_PIN E12 [get_ports {kria_i2c_scl_io}]     
-set_property IOSTANDARD LVCMOS33 [get_ports {kria_i2c_scl_io}] 
+set_property PACKAGE_PIN B10 [get_ports {kria_uart_txd}]
+set_property IOSTANDARD LVCMOS33 [get_ports {kria_uart_txd}]
+
+set_property PACKAGE_PIN E12 [get_ports {kria_i2c_scl_io}]
+set_property IOSTANDARD LVCMOS33 [get_ports {kria_i2c_scl_io}]
 set_property PULLUP TRUE [get_ports {kria_i2c_scl_io}]
-                                                                   
-#set_property PACKAGE_PIN D11 [get_ports {pmod1_io_tri_io[6]}]     
-#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[6]}] 
-                                                                   
-#set_property PACKAGE_PIN B11 [get_ports {pmod1_io_tri_io[7]}]     
-#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[7]}] 
+
+#set_property PACKAGE_PIN D11 [get_ports {pmod1_io_tri_io[6]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[6]}]
+
+#set_property PACKAGE_PIN B11 [get_ports {pmod1_io_tri_io[7]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {pmod1_io_tri_io[7]}]
 
 ```
 
@@ -86,8 +86,8 @@ En la carpeta raiz del proyecto agregaremos los siguientes archivos:
 - `xsct_config.tcl`
 
 ```bash
-hsi::open_hw_design kria_i2c_base.xsa 
-createdts -hw kria_i2c_base.xsa -zocl -platform-name kr260_i2c -git-branch xlnx_rel_v2022.2 -overlay -compile -out ./dtg_kr260_v0  
+hsi::open_hw_design kria_i2c_base.xsa
+createdts -hw kria_i2c_base.xsa -zocl -platform-name kr260_i2c -git-branch xlnx_rel_v2022.2 -overlay -compile -out ./dtg_kr260_v0
 exit
 ```
 
@@ -134,7 +134,6 @@ echo petalinux | scp kr260_i2c.bit.bin kr260_i2c.dtbo shell.json petalinux@192.1
 ```
 
 Este script permite cargar el device tree a la Kria.
-
 
 ---
 
@@ -191,6 +190,7 @@ Para verificar los dispositivos conectados utilizamos el siguiente comando:
 ```bash
 i2cdetect -y -r 7
 ```
+
 Y obtenemos la siguiente respuesta, en este caso tenemos un dispositivo conectado en la direccion `23`.
 
 ```bash
@@ -312,7 +312,7 @@ class BH1750():
         self.power_down()
 
     def get_result(self):
-        """ Return current measurement result in lx. """   
+        """ Return current measurement result in lx. """
         data = self.bus.read_word_data(self.addr, self.mode)
         count = data >> 8 | (data&0xff)<<8
         mode2coeff =  2 if (self.mode & 0x03) == 0x01 else 1
@@ -324,7 +324,7 @@ class BH1750():
         time.sleep(basetime * (self.mtreg/69.0) + additional)
 
     def do_measurement(self, mode, additional_delay=0):
-        """ 
+        """
         Perform complete measurement using command
         specified by parameter mode with additional
         delay specified in parameter additional_delay.
@@ -351,7 +351,7 @@ def main():
     bus = smbus.SMBus(7)  # Rev 2 Pi uses 1
     sensor = BH1750(bus)
 
-    
+
     print("Sensitivity: {:d}".format(sensor.mtreg))
     for measurefunc, name in [(sensor.measure_low_res, "Low Res "),
                               (sensor.measure_high_res, "HighRes "),
