@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep  5 17:20:37 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Sep  8 18:51:59 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:kr260_som:part0:1.1" DEVICE="xck26" NAME="kria_bd" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -124,6 +124,66 @@
         <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="kria_spi_io0_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io0_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_io0_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io0_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_io0_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io0_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="kria_spi_io1_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io1_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_io1_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io1_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_io1_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="io1_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="kria_spi_sck_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="sck_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_sck_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="sck_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_sck_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="sck_t"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="0" NAME="kria_spi_ss_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ss_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="0" NAME="kria_spi_ss_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ss_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="kria_spi_ss_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_t">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ss_t"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -176,6 +236,22 @@
         <PORTMAP LOGICAL="SDA_I" PHYSICAL="kria_i2c_sda_i"/>
         <PORTMAP LOGICAL="SDA_O" PHYSICAL="kria_i2c_sda_o"/>
         <PORTMAP LOGICAL="SDA_T" PHYSICAL="kria_i2c_sda_t"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="axi_quad_spi_0_SPI_0" NAME="kria_spi" TYPE="INITIATOR">
+      <PORTMAPS>
+        <PORTMAP LOGICAL="IO0_I" PHYSICAL="kria_spi_io0_i"/>
+        <PORTMAP LOGICAL="IO0_O" PHYSICAL="kria_spi_io0_o"/>
+        <PORTMAP LOGICAL="IO0_T" PHYSICAL="kria_spi_io0_t"/>
+        <PORTMAP LOGICAL="IO1_I" PHYSICAL="kria_spi_io1_i"/>
+        <PORTMAP LOGICAL="IO1_O" PHYSICAL="kria_spi_io1_o"/>
+        <PORTMAP LOGICAL="IO1_T" PHYSICAL="kria_spi_io1_t"/>
+        <PORTMAP LOGICAL="SCK_I" PHYSICAL="kria_spi_sck_i"/>
+        <PORTMAP LOGICAL="SCK_O" PHYSICAL="kria_spi_sck_o"/>
+        <PORTMAP LOGICAL="SCK_T" PHYSICAL="kria_spi_sck_t"/>
+        <PORTMAP LOGICAL="SS_I" PHYSICAL="kria_spi_ss_i"/>
+        <PORTMAP LOGICAL="SS_O" PHYSICAL="kria_spi_ss_o"/>
+        <PORTMAP LOGICAL="SS_T" PHYSICAL="kria_spi_ss_t"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
@@ -1155,7 +1231,7 @@
             <REGISTER NAME="ISR">
               <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Status Register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x0"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1168,14 +1244,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="IPR">
               <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Pending Register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x4"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-only"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1188,14 +1264,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="IER">
               <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Enable Register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x8"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1208,14 +1284,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="IAR">
               <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Acknowledge Register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0xC"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="write-only"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1228,14 +1304,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="SIE">
               <PROPERTY NAME="DESCRIPTION" VALUE="Set Interrupt Enables"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x10"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1248,14 +1324,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="CIE">
               <PROPERTY NAME="DESCRIPTION" VALUE="Clear Interrupt Enables"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x14"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1268,7 +1344,7 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
@@ -1325,7 +1401,7 @@
             <REGISTER NAME="IMR">
               <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Mode Register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x20"/>
-              <PROPERTY NAME="SIZE" VALUE="2"/>
+              <PROPERTY NAME="SIZE" VALUE="3"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1338,7 +1414,7 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="3"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
@@ -2650,7 +2726,7 @@
         <PARAMETER NAME="C_INSTANCE" VALUE="kria_bd_axi_intc_0_0"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_NUM_INTR_INPUTS" VALUE="2"/>
+        <PARAMETER NAME="C_NUM_INTR_INPUTS" VALUE="3"/>
         <PARAMETER NAME="C_NUM_SW_INTR" VALUE="0"/>
         <PARAMETER NAME="C_KIND_OF_INTR" VALUE="0xfffffffe"/>
         <PARAMETER NAME="C_KIND_OF_EDGE" VALUE="0xFFFFFFFF"/>
@@ -2779,7 +2855,7 @@
             <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="intr" RIGHT="0" SENSITIVITY="EDGE_RISING:LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="xlconcat_0_dout">
+        <PORT DIR="I" LEFT="2" NAME="intr" RIGHT="0" SENSITIVITY="EDGE_RISING:EDGE_RISING:LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="xlconcat_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconcat_0" PORT="dout"/>
           </CONNECTIONS>
@@ -2815,6 +2891,1056 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="kria_bd_clk_wiz_0_0_clk_out1"/>
+          <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
+          <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
+          <PARAMETER NAME="WUSER_BITS_PER_BYTE" VALUE="0"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="s_axi_araddr"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="s_axi_arready"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="s_axi_arvalid"/>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="s_axi_awaddr"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="s_axi_awready"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="s_axi_awvalid"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="s_axi_bready"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="s_axi_bresp"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="s_axi_bvalid"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="s_axi_rdata"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="s_axi_rready"/>
+            <PORTMAP LOGICAL="RRESP" PHYSICAL="s_axi_rresp"/>
+            <PORTMAP LOGICAL="RVALID" PHYSICAL="s_axi_rvalid"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="s_axi_wdata"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="s_axi_wready"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="s_axi_wstrb"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="26" FULLNAME="/axi_quad_spi_0" HWVERSION="3.2" INSTANCE="axi_quad_spi_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="MEMORY_CNTLR" MODTYPE="axi_quad_spi" VLNV="xilinx.com:ip:axi_quad_spi:3.2">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=axi_quad_spi;v=v3_2;d=pg153-axi-quad-spi.pdf"/>
+      </DOCUMENTS>
+      <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="read-write" INTERFACE="AXI_LITE" NAME="Reg" RANGE="4096" USAGE="register">
+          <REGISTERS>
+            <REGISTER NAME="XIP_Config_Reg">
+              <PROPERTY NAME="DESCRIPTION" VALUE="XIP Configuration Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x60"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="CPHA">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPHA&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPOL&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="XIP_Status_Reg">
+              <PROPERTY NAME="DESCRIPTION" VALUE="XIP Status Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x64"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x1"/>
+              <FIELDS>
+                <FIELD NAME="RX_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receiver Empty.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="RX_Full">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receiver Full.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Master_MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Master mode fault. This bit is set to 1 if the spisel line is deasserted.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL_CPHA_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPOL_CPHA Error.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="AXI_Transaction_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="AXI Transaction Error.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SRR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Software Reset Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x40"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="Reset">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="The only allowed operation on this register is a write of 0x0000000a, which resets the AXI Quad SPI core.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPICR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Control Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x60"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x180"/>
+              <FIELDS>
+                <FIELD NAME="LOOP">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Local loopback mode&#xA;Enables local loopback operation and is functional only in standard SPI master mode.&#xA;When set to:   0 - Normal operation.   1 - Loopback mode. The transmitter output is internally connected to the receiver input. The receiver and transmitter operate normally, except that received data (from remote slave) is ignored.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="SPE">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="SPI system enable&#xA;When set to:&#xA;  0 - SPI system disabled. Both master and slave outputs are in 3-state and slave inputs are ignored.&#xA;  1 - SPI system enabled. Master outputs active (for example, IO0 (MOSI) and SCK in idle state) and slave outputs become active if SS becomes asserted. The master starts transferring when transmit data is available.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Master">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Master (SPI master mode)&#xA;Setting this bit configures the SPI device as a master or a slave.&#xA;When set to:&#xA;  0 - Slave configuration.&#xA;  1 - Master configuration.&#xA;In dual/quad SPI mode only the master mode of the core is allowed.&#xA;Standard Slave mode is not supported for SCK ratio = 2&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Clock polarity&#xA;Setting this bit defines clock polarity.&#xA;When set to:&#xA;  0 - Active-High clock; SCK idles Low.&#xA;  1 - Active-Low clock; SCK idles High.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPHA">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Clock phase&#xA;Setting this bit selects one of two fundamentally different transfer formats.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="TX_FIFO_Reset">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Transmit FIFO reset&#xA;When written to 1, this bit forces a reset of the transmit FIFO to the empty condition. One AXI clock cycle after reset, this bit is again set to 0.&#xA;When set to:   0 - Transmit FIFO normal operation.   1 - Reset transmit FIFO pointer&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="RX_FIFO_Reset">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receive FIFO reset&#xA;When written to 1, this bit forces a reset of the receive FIFO to the empty condition. One AXI clock cycle after reset, this bit is again set to 0.&#xA;When set to:   0 - Receive FIFO normal operation.   1 - Reset receive FIFO pointer.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Manual_Slave_Select_Assertion_Enable">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Manual slave select assertion enable&#xA;This bit forces the data in the slave select register to be asserted on the slave select output anytime the device is configured as a master and the device is enabled (SPE asserted).&#xA;This bit has no effect on slave operation.&#xA;When set to:   0 - Slave select output asserted by master core logic.   1 - Slave select output follows data in slave select register. The manual slave assertion mode is supported in standard SPI mode only.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Master_Transaction_Inhibit">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Master transaction inhibit&#xA;This bit inhibits master transactions.&#xA;This bit has no effect on slave operation.&#xA;When set to:   0 - Master transactions enabled.   1 - Master transactions disabled. This bit immediately inhibits the transaction. Setting this bit while transfer is in progress would result in unpredictable outcome&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="LSB_First">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="LSB first&#xA;This bit selects LSB first data transfer format.&#xA;The default transfer format is MSB first.&#xA;When set to:&#xA;  0 - MSB first transfer format.&#xA;  1 - LSB first transfer format.&#xA;In Dual/Quad SPI mode, only the MSB first mode of the core is allowed.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPISR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Status Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x64"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0A5"/>
+              <FIELDS>
+                <FIELD NAME="RX_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receive Empty.&#xA;When a receive FIFO exists, this bit is set High when the receive FIFO is empty. The occupancy of the FIFO is decremented with each FIFO read operation.&#xA;Note: When FIFOs do not exist, this bit is set High when the receive register has been read (this option is available only in standard SPI mode). This bit is cleared at the end of a successful SPI transfer. For dual/quad SPI mode, the FIFO is always present in the core.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="RX_Full">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receive full.&#xA;When a receive FIFO exists, this bit is set High when the receive FIFO is full. The occupancy of the FIFO is incremented with the completion of each SPI transaction.&#xA;Note: When FIFOs do not exist, this bit is set High when an SPI transfer has completed (this option is available only in standard SPI mode). Rx_Empty and Rx_Full are complements in this case&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="TX_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Transmit empty.&#xA;When a transmit FIFO exists, this bit is set to High when the transmit FIFO is empty. This bit goes High as soon as the TX FIFO becomes empty. While this bit is High, the last byte of the data that is to be transmitted would still be in the pipeline.&#xA;The occupancy of the FIFO is decremented with the completion of each SPI transfer.&#xA;Note: When FIFOs do not exist, this bit is set with the completion of an SPI transfer (this option is available only in standard SPI mode). Either with or without FIFOs, this bit is cleared on an AXI write to the FIFO or transmit register. For Dual/Quad SPI mode, the FIFO is always present in the core.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="TX_Full">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Transmit full.&#xA;When a transmit FIFO exists, this bit is set High when the transmit FIFO is full.&#xA;Note: When FIFOs do not exist, this bit is set High when an AXI write to the transmit register has been made (this option is available only in standard SPI mode). This bit is cleared when the SPI transfer is completed&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Mode-fault error flag.&#xA;This flag is set if the SS signal goes active while the SPI device is configured as a master. MODF is automatically cleared by reading the SPISR. &#xA;A Low-to-High MODF transition generates a single-cycle strobe interrupt.   0 - No error.   1 - Error condition detected&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_Mode_Select">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave_Mode_Select flag.&#xA;This flag is asserted when the core is configured in slave mode. Slave_Mode_Select is activated as soon as the master SPI core asserts the chip select pin for the core.&#xA;1 - Default in standard mode.&#xA;0 - Asserted when core configured in slave mode and selected by external SPI master.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL_CPHA_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPOL_CPHA_Error flag.&#xA;When set to:   0 - Default.   1 - The CPOL and CPHA are set to 01 or 10. When the SPI memory is chosen as either Winbond, Micron or Spansion, and CPOL and CPHA are configured as 01 or 10, this bit is set.&#xA;These memories support CPOL=CPHA mode in 00 or in 11 mode. CPOL_CPHA_Error flag is only applicable when the core is configured either in dual or quad mode in legacy or enhanced mode AXI4 interface&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_mode_error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave mode error flag.&#xA;When set to:   1 - This bit is set when the core is configured with dual or quad SPI mode and the master is set to 0 in the control register (SPICR).   0 - Master mode is set in the control register (SPICR). Note: Quad SPI mode, only the master mode of the core is allowed. Slave mode error flag is only applicable when the core is configured either in dual or qu ad mode in legacy or enhanced AXI4 mode interface&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="MSB_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="MSB error flag.&#xA;When set to:   0 - Default.   1 - This bit is set when the core is configured to transfer the SPI transactions in either dual or quad SPI mode and LSB first bit is set in the control register (SPICR). Note: In dual/quad SPI mode, only the MSB first mode of the core is allowed. MSB error flag is only applicable when the core is configured either in dual or quad mode in legacy or enhanced mode AXI4 interface&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Loopback_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Loopback error flag.&#xA;When set to:   0 - Default. The loopback bit in the control register is at default state.   1 - When the SPI command, address, and data bits are set to be transferred in other than standard SPI protocol mode and this bit is set in control register (SPICR). Note: Loopback is only allowed when the core is configured in standard mode. Other modes setting of the bit causes an error and the interrupt bit is set in legacy or enhanced mode AXI4 interface&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Command_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Command error flag.&#xA;When set to:   0 - Default.   1 - When the core is configured in dual/quad SPI mode and the first entry in the SPI DTR FIFO (after reset) do not match with the supported command list for the particular memory, this bit is set. Note: Command error is only applicable when the core is configured either in dual or quad mode in legacy or enhanced mode AXI4 interface.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPI_SSR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Slave Select Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x70"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0xFFFF"/>
+              <FIELDS>
+                <FIELD NAME="Selected_Slave">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Active-Low, one-hot encoded slave select&#xA;The slaves are numbered right to left starting at zero with the LSB. The slave numbers correspond to the indexes of signal SS&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPI_TXFIFO_OR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Transmit FIFO Occupancy Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x74"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="Occupancy_Value">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="The binary value plus 1 yields the occupancy.&#xA;Bit width is log(FIFO Depth). &#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPI_RXFIFO_OR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Receive FIFO Occupancy Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x78"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="Occupancy_Value">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="The binary value plus 1 yields the occupancy. &#xA;Bit width is log(FIFO Depth). &#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="DGIER">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Device Global Interrupt Enable Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x1C"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="GIE">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Global Interrupt Enable.&#xA;Allows passing all individually enabled interrupts to the interrupt controller.&#xA;When set to:   0 - Disabled.   1 - Enabled. &#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="31"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="31"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPI_DTR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Data Transmit Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x68"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="TX_Data">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="SPI Transmit Data.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="SPI_DRR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="SPI Data Receive Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x6C"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="RX_Data">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="SPI Receive Data&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="IPISR">
+              <PROPERTY NAME="DESCRIPTION" VALUE="IP Interrupt Status Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x20"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Mode-fault error.&#xA;This interrupt is generated if the SS signal goes active while the SPI device is configured as a master. This bit is set immediately on SS going active.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave mode-fault error.&#xA;This interrupt is generated if the SS signal goes active while the SPI device is configured as a slave, but is not enabled.&#xA;This bit is set immediately on SS going active and continually set if SS is active and the device is not enabled&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DTR_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data transmit register/FIFO empty.&#xA;It is set when the last byte of data has been transferred out to the external flash memory.&#xA;In the context of the M68HC11 reference manual, when configured without FIFOs, this interrupt is equivalent in information content to the complement of the SPI transfer complete flag (SPIF ) interrupt bit.&#xA;In master mode if this bit is set to 1, no more SPI transfers are permitted&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DTR_Underrun">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data transmit register/FIFO underrun.&#xA;This bit is set at the end of a SPI element transfer by a one-clock period strobe to the interrupt register when data is requested from an empty transmit register/FIFO by the SPI core logic to perform a SPI transfer.&#xA;This can occur only when the SPI device is configured as a slave in standard SPI configuration and is enabled by the SPE bit as set. All zeros are loaded in the shift register and transmitted by the slave in an under-run condition&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Full">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data receive register/FIFO full.&#xA;Without FIFOs, this bit is set at the end of a SPI element transfer by a one-clock period strobe to the interrupt register (An element can be a byte, half-word, or word depending on the value of Transfer Width).&#xA;With FIFOs, this bit is set at the end of the SPI element transfer, when the receive FIFO has been completely filled by a one-clock period strobe to the interrupt register.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Overrun">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data receive register/FIFO overrun.&#xA;This bit is set by a one-clock period strobe to the interrupt register when an attempt to write data to a full receive register or FIFO is made by the SPI core logic to complete a SPI transfer.&#xA;This can occur when the SPI device is in either master or slave mode (in standard SPI mode) or if the IP is configured in SPI master mode (dual or quad SPI mode).&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="TXFIFO_Half_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Transmit FIFO half empty.&#xA;In standard SPI configuration, IPISR Bit[6] is the transmit FIFO half-empty interrupt. &#xA;In dual or quad SPI configuration, based on the FIFO depth, this bit is set at half-empty condition.&#xA;Note: This interrupt exists only if the AXI Quad SPI core is configured with FIFOs (In standard, dual or quad SPI mode).&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_Select_Mode">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave select mode.&#xA;The assertion of this bit is applicable only when the core is configured in slave mode in standard SPI configuration. &#xA;This bit is set when the other SPI master core selects the core by asserting the slave select line. This bit is set by a one-clock period strobe to the interrupt register.&#xA;Note: This bit is applicable only in standard SPI slave mode&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Not_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="DRR not empty.&#xA;The assertion of this bit is applicable only in the case where FIFO Depth is 16 or 256 and the core is configured in slave mode and standard SPI mode. This bit is set when the DRR FIFO receives the first data value during the SPI transaction.&#xA;This bit is set by a one-clock period strobe to the interrupt register when the core receives the first data beat.&#xA;Note: The assertion of this bit is applicable only when the FIFO Depth parameter is 16 or 256 and the core is configured in slave mode in standard SPI mode. When FIFO Depth is set to 0, this bit always returns 0. This bit has no significance in dual/quad mode&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL_CPHA_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPOL_CPHA error.&#xA;This flag is asserted when:&#xA;  The core is configured in either dual or quad SPI mode and&#xA;  The CPOL - CPHA control register bits are set to 01 or 10.&#xA;In standard SPI mode, this bit is always in default state.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_Mode_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="I/O mode instruction error.&#xA;This flag is asserted when:&#xA;  The core is configured in either dual or quad SPI mode and&#xA;  The core is configured in master = 0 in control register (SPICR(2)).&#xA;In standard SPI mode, this bit is always in default state.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="MSB_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="MSB error.&#xA;This flag is asserted when:&#xA;  The core is configured in either dual or quad SPI mode and&#xA;  The LSB First bit in the control register (SPICR) is set to 1.&#xA;In standard SPI mode, this bit is always in default state.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="11"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="11"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Loopback_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Loopback error.&#xA;This flag is asserted when:&#xA;  The core is configured in dual or quad SPI transfer mode and&#xA;  The LOOP bit is set in control register (SPICR(0)).&#xA;In standard SPI mode, this bit is always in default state.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Command_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Command error.&#xA;This flag is asserted when:   The core is configured in dual/quad SPI mode and   The first entry in the SPI DTR FIFO (after reset) does not match with the supported command list for particular memory. When the SPI command in DTR FIFO does not match with the internal supported command list, the core completes the SPI transactions in standard SPI format. This bit is set to show this behavior of the core.&#xA;In standard SPI mode this bit is always in default state.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToToggle"/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="IPIER">
+              <PROPERTY NAME="DESCRIPTION" VALUE="IP Interrupt Enable Register"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x28"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
+              <FIELDS>
+                <FIELD NAME="MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Mode-fault error flag.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_MODF">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave mode-fault error flag.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DTR_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data transmit register/FIFO empty.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DTR_Underrun">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data transmit FIFO underrun.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Full">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Data receive register/FIFO full.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Overrun">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Receive FIFO overrun.&#xA;  0 - Disabled.&#xA;  1 - Enabled.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="TX_FIFO_Half_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Transmit FIFO half empty.   0 - Disabled.   1 - Enabled. Note: This bit is meaningful only if the AXI Quad SPI core is configured with FIFOs.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_Select_Mode">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Slave_Select_Mode.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in slave mode by selecting the active-Low status on spisel.&#xA;In master mode, setting this bit has no effect.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="7"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="DRR_Not_Empty">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="DRR_Not_Empty.   0 - Disabled.   1 - Enabled. Note: The setting of this bit is applicable only when FIFO Depth is set to 1 and the core is configured in slave mode of standard SPI mode.&#xA;If FIFO Depth is set to 0, the setting of this bit has no effect. This is allowed only in standard SPI configuration. It means this bit is not set in the IPIER register. Therefore, this bit should only be used when FIFO Depth is set to 1 and when the core is configured in slave mode.&#xA;This bit has no significance in dual or quad mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="CPOL_CPHA_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="CPOL_CPHA error.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in dual or quad SPI mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Slave_Mode_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="I/O mode instruction error.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in dual or quad SPI mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="10"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="MSB_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="MSB_Error.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in dual or quad SPI mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="11"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="11"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Loopback_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Loopback Error.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in dual or quad SPI mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+                <FIELD NAME="Command_Error">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Command_Error.   0 - Disabled.   1 - Enabled. This bit is applicable only when the core is configured in dual or quad SPI mode.&#xA;"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
+                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+          </REGISTERS>
+        </ADDRESSBLOCK>
+      </ADDRESSBLOCKS>
+      <PARAMETERS>
+        <PARAMETER NAME="Async_Clk" VALUE="1"/>
+        <PARAMETER NAME="C_FAMILY" VALUE="zynquplus"/>
+        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
+        <PARAMETER NAME="C_SUB_FAMILY" VALUE="zynquplus"/>
+        <PARAMETER NAME="C_INSTANCE" VALUE="axi_quad_spi_inst"/>
+        <PARAMETER NAME="C_SPI_MEM_ADDR_BITS" VALUE="24"/>
+        <PARAMETER NAME="C_TYPE_OF_AXI4_INTERFACE" VALUE="0"/>
+        <PARAMETER NAME="C_XIP_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_XIP_PERF_MODE" VALUE="1"/>
+        <PARAMETER NAME="C_BYTE_LEVEL_INTERRUPT_EN" VALUE="0"/>
+        <PARAMETER NAME="C_UC_FAMILY" VALUE="1"/>
+        <PARAMETER NAME="C_FIFO_DEPTH" VALUE="16"/>
+        <PARAMETER NAME="C_SCK_RATIO" VALUE="16"/>
+        <PARAMETER NAME="C_DUAL_QUAD_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_SS_BITS" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_TRANSFER_BITS" VALUE="8"/>
+        <PARAMETER NAME="C_NEW_SEQ_EN" VALUE="1"/>
+        <PARAMETER NAME="C_SPI_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_USE_STARTUP" VALUE="0"/>
+        <PARAMETER NAME="C_USE_STARTUP_EXT" VALUE="0"/>
+        <PARAMETER NAME="C_SPI_MEMORY" VALUE="1"/>
+        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_S_AXI4_ADDR_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="C_S_AXI4_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_S_AXI4_ID_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHARED_STARTUP" VALUE="0"/>
+        <PARAMETER NAME="C_LSB_STUP" VALUE="0"/>
+        <PARAMETER NAME="C_USE_STARTUP_INT" VALUE="0"/>
+        <PARAMETER NAME="UC_FAMILY" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="kria_bd_axi_quad_spi_0_0"/>
+        <PARAMETER NAME="Master_mode" VALUE="1"/>
+        <PARAMETER NAME="FIFO_INCLUDED" VALUE="1"/>
+        <PARAMETER NAME="Multiples16" VALUE="1"/>
+        <PARAMETER NAME="C_SCK_RATIO1" VALUE="1"/>
+        <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
+        <PARAMETER NAME="QSPI_BOARD_INTERFACE" VALUE="Custom"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+        <PARAMETER NAME="C_BASEADDR" VALUE="0x80080000"/>
+        <PARAMETER NAME="C_HIGHADDR" VALUE="0x8008FFFF"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="99999001" DIR="I" NAME="ext_spi_clk" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="pl_clk0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="199998000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_2_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_2" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="6" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="6" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_AXI_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="io0_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io0_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="io0_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io0_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="io0_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_io0_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io0_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="io1_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io1_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="io1_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io1_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="io1_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_io1_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_io1_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sck_i" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_sck_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sck_o" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_sck_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sck_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_sck_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_sck_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="ss_i" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_ss_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="ss_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_ss_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ss_t" SIGIS="undef" SIGNAME="axi_quad_spi_0_ss_t">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="kria_bd_imp" PORT="kria_spi_ss_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="EDGE_RISING" SIGIS="INTERRUPT" SIGNAME="axi_quad_spi_0_ip2intc_irpt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axi_quad_spi_0_SPI_0" NAME="SPI_0" TYPE="INITIATOR" VLNV="xilinx.com:interface:spi:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="IO0_I" PHYSICAL="io0_i"/>
+            <PORTMAP LOGICAL="IO0_O" PHYSICAL="io0_o"/>
+            <PORTMAP LOGICAL="IO0_T" PHYSICAL="io0_t"/>
+            <PORTMAP LOGICAL="IO1_I" PHYSICAL="io1_i"/>
+            <PORTMAP LOGICAL="IO1_O" PHYSICAL="io1_o"/>
+            <PORTMAP LOGICAL="IO1_T" PHYSICAL="io1_t"/>
+            <PORTMAP LOGICAL="SCK_I" PHYSICAL="sck_i"/>
+            <PORTMAP LOGICAL="SCK_O" PHYSICAL="sck_o"/>
+            <PORTMAP LOGICAL="SCK_T" PHYSICAL="sck_t"/>
+            <PORTMAP LOGICAL="SS_I" PHYSICAL="ss_i"/>
+            <PORTMAP LOGICAL="SS_O" PHYSICAL="ss_o"/>
+            <PORTMAP LOGICAL="SS_T" PHYSICAL="ss_t"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="ps8_0_axi_periph_M08_AXI" DATAWIDTH="32" NAME="AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="199998000"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="7"/>
+          <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="RUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
+          <PARAMETER NAME="HAS_BURST" VALUE="0"/>
+          <PARAMETER NAME="HAS_LOCK" VALUE="0"/>
+          <PARAMETER NAME="HAS_PROT" VALUE="0"/>
+          <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
+          <PARAMETER NAME="HAS_QOS" VALUE="0"/>
+          <PARAMETER NAME="HAS_REGION" VALUE="0"/>
+          <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
+          <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
+          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="kria_bd_clk_wiz_0_0_clk_out1"/>
@@ -3833,6 +4959,8 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M07_ACLK"/>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aclk"/>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_ACLK"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef"/>
@@ -5041,6 +6169,8 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M07_ARESETN"/>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="M08_ARESETN"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5052,7 +6182,7 @@
       </DOCUMENTS>
       <PARAMETERS>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="NUM_MI" VALUE="8"/>
+        <PARAMETER NAME="NUM_MI" VALUE="9"/>
         <PARAMETER NAME="STRATEGY" VALUE="0"/>
         <PARAMETER NAME="ENABLE_ADVANCED_OPTIONS" VALUE="0"/>
         <PARAMETER NAME="ENABLE_PROTOCOL_CHECKERS" VALUE="0"/>
@@ -6352,6 +7482,103 @@
             <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="M08_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_ARESETN" SIGIS="rst" SIGNAME="proc_sys_reset_2_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_2" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="39" NAME="M08_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M08_AXI_awprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M08_AXI_awvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_AXI_awready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M08_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M08_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M08_AXI_wvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_AXI_wready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M08_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_AXI_bvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M08_AXI_bready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="39" NAME="M08_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M08_AXI_arprot" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M08_AXI_arvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_AXI_arready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M08_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M08_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M08_AXI_rvalid" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M08_AXI_rready" SIGIS="undef" SIGNAME="axi_quad_spi_0_s_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="s_axi_rready"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="zynq_ultra_ps_e_0_M_AXI_HPM0_LPD" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -6579,6 +7806,29 @@
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M07_AXI_rresp"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M07_AXI_rvalid"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M07_AXI_rready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="ps8_0_axi_periph_M08_AXI" DATAWIDTH="32" NAME="M08_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="M08_AXI_awaddr"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M08_AXI_awprot"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="M08_AXI_awvalid"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="M08_AXI_awready"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="M08_AXI_wdata"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M08_AXI_wstrb"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="M08_AXI_wvalid"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="M08_AXI_wready"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="M08_AXI_bresp"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="M08_AXI_bvalid"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="M08_AXI_bready"/>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="M08_AXI_araddr"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M08_AXI_arprot"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="M08_AXI_arvalid"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="M08_AXI_arready"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="M08_AXI_rdata"/>
+            <PORTMAP LOGICAL="RRESP" PHYSICAL="M08_AXI_rresp"/>
+            <PORTMAP LOGICAL="RVALID" PHYSICAL="M08_AXI_rvalid"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="M08_AXI_rready"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -7450,8 +8700,8 @@
         <PARAMETER NAME="IN125_WIDTH" VALUE="1"/>
         <PARAMETER NAME="IN126_WIDTH" VALUE="1"/>
         <PARAMETER NAME="IN127_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="dout_width" VALUE="2"/>
-        <PARAMETER NAME="NUM_PORTS" VALUE="2"/>
+        <PARAMETER NAME="dout_width" VALUE="3"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="3"/>
         <PARAMETER NAME="Component_Name" VALUE="kria_bd_xlconcat_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -7466,7 +8716,12 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="interrupt"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="axi_quad_spi_0_ip2intc_irpt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ip2intc_irpt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_intc_0" PORT="intr"/>
           </CONNECTIONS>
@@ -9449,6 +10704,7 @@
         <PORT CLKFREQUENCY="99999001" DIR="O" NAME="pl_clk0" SIGIS="clk" SIGNAME="zynq_ultra_ps_e_0_pl_clk0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_in1"/>
+            <CONNECTION INSTANCE="axi_quad_spi_0" PORT="ext_spi_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="99999001" DIR="O" NAME="pl_clk1" SIGIS="clk"/>
@@ -9538,6 +10794,7 @@
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80050000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8005FFFF" INSTANCE="rpi_gpio" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80060000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8006FFFF" INSTANCE="uf_leds" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80070000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8007FFFF" INSTANCE="axi_iic_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80080000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8008FFFF" INSTANCE="axi_quad_spi_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="AXI_LITE"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="axi_intc_0"/>
@@ -9548,6 +10805,7 @@
         <PERIPHERAL INSTANCE="rpi_gpio"/>
         <PERIPHERAL INSTANCE="uf_leds"/>
         <PERIPHERAL INSTANCE="axi_iic_0"/>
+        <PERIPHERAL INSTANCE="axi_quad_spi_0"/>
       </PERIPHERALS>
     </MODULE>
   </MODULES>

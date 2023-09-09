@@ -1,4 +1,4 @@
-verilog xil_defaultlib --include "/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Kria_I2C.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" --include "../../../../Kria_I2C.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" --include "../../../../Kria_I2C.gen/sources_1/bd/kria_bd/ipshared/7698" \
+verilog xil_defaultlib --include "/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" --include "../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" --include "../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/7698" \
 "../../../bd/kria_bd/ip/kria_bd_zynq_ultra_ps_e_0_0/sim/kria_bd_zynq_ultra_ps_e_0_0_vip_wrapper.v" \
 "../../../bd/kria_bd/ip/kria_bd_clk_wiz_0_0/kria_bd_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/kria_bd/ip/kria_bd_clk_wiz_0_0/kria_bd_clk_wiz_0_0.v" \

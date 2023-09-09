@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Tue Sep  5 17:20:37 2023
---Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
+--Date        : Fri Sep  8 18:51:57 2023
+--Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
 --Command     : generate_target kria_bd_wrapper.bd
 --Design      : kria_bd_wrapper
 --Purpose     : IP block netlist
@@ -16,6 +16,10 @@ entity kria_bd_wrapper is
     fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
     kria_i2c_scl_io : inout STD_LOGIC;
     kria_i2c_sda_io : inout STD_LOGIC;
+    kria_spi_io0_io : inout STD_LOGIC;
+    kria_spi_io1_io : inout STD_LOGIC;
+    kria_spi_sck_io : inout STD_LOGIC;
+    kria_spi_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
     kria_uart_rxd : in STD_LOGIC;
     kria_uart_txd : out STD_LOGIC;
     pmod2_io_tri_io : inout STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -52,7 +56,19 @@ architecture STRUCTURE of kria_bd_wrapper is
     kria_i2c_sda_i : in STD_LOGIC;
     kria_i2c_sda_o : out STD_LOGIC;
     kria_i2c_sda_t : out STD_LOGIC;
-    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
+    kria_spi_io0_i : in STD_LOGIC;
+    kria_spi_io0_o : out STD_LOGIC;
+    kria_spi_io0_t : out STD_LOGIC;
+    kria_spi_io1_i : in STD_LOGIC;
+    kria_spi_io1_o : out STD_LOGIC;
+    kria_spi_io1_t : out STD_LOGIC;
+    kria_spi_sck_i : in STD_LOGIC;
+    kria_spi_sck_o : out STD_LOGIC;
+    kria_spi_sck_t : out STD_LOGIC;
+    kria_spi_ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
+    kria_spi_ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
+    kria_spi_ss_t : out STD_LOGIC
   );
   end component kria_bd;
   component IOBUF is
@@ -69,6 +85,19 @@ architecture STRUCTURE of kria_bd_wrapper is
   signal kria_i2c_sda_i : STD_LOGIC;
   signal kria_i2c_sda_o : STD_LOGIC;
   signal kria_i2c_sda_t : STD_LOGIC;
+  signal kria_spi_io0_i : STD_LOGIC;
+  signal kria_spi_io0_o : STD_LOGIC;
+  signal kria_spi_io0_t : STD_LOGIC;
+  signal kria_spi_io1_i : STD_LOGIC;
+  signal kria_spi_io1_o : STD_LOGIC;
+  signal kria_spi_io1_t : STD_LOGIC;
+  signal kria_spi_sck_i : STD_LOGIC;
+  signal kria_spi_sck_o : STD_LOGIC;
+  signal kria_spi_sck_t : STD_LOGIC;
+  signal kria_spi_ss_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal kria_spi_ss_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal kria_spi_ss_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal kria_spi_ss_t : STD_LOGIC;
   signal pmod2_io_tri_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal pmod2_io_tri_i_1 : STD_LOGIC_VECTOR ( 1 to 1 );
   signal pmod2_io_tri_i_2 : STD_LOGIC_VECTOR ( 2 to 2 );
@@ -295,6 +324,18 @@ kria_bd_i: component kria_bd
       kria_i2c_sda_i => kria_i2c_sda_i,
       kria_i2c_sda_o => kria_i2c_sda_o,
       kria_i2c_sda_t => kria_i2c_sda_t,
+      kria_spi_io0_i => kria_spi_io0_i,
+      kria_spi_io0_o => kria_spi_io0_o,
+      kria_spi_io0_t => kria_spi_io0_t,
+      kria_spi_io1_i => kria_spi_io1_i,
+      kria_spi_io1_o => kria_spi_io1_o,
+      kria_spi_io1_t => kria_spi_io1_t,
+      kria_spi_sck_i => kria_spi_sck_i,
+      kria_spi_sck_o => kria_spi_sck_o,
+      kria_spi_sck_t => kria_spi_sck_t,
+      kria_spi_ss_i(0) => kria_spi_ss_i_0(0),
+      kria_spi_ss_o(0) => kria_spi_ss_o_0(0),
+      kria_spi_ss_t => kria_spi_ss_t,
       kria_uart_rxd => kria_uart_rxd,
       kria_uart_txd => kria_uart_txd,
       pmod2_io_tri_i(7) => pmod2_io_tri_i_7(7),
@@ -473,6 +514,34 @@ kria_i2c_sda_iobuf: component IOBUF
       IO => kria_i2c_sda_io,
       O => kria_i2c_sda_i,
       T => kria_i2c_sda_t
+    );
+kria_spi_io0_iobuf: component IOBUF
+     port map (
+      I => kria_spi_io0_o,
+      IO => kria_spi_io0_io,
+      O => kria_spi_io0_i,
+      T => kria_spi_io0_t
+    );
+kria_spi_io1_iobuf: component IOBUF
+     port map (
+      I => kria_spi_io1_o,
+      IO => kria_spi_io1_io,
+      O => kria_spi_io1_i,
+      T => kria_spi_io1_t
+    );
+kria_spi_sck_iobuf: component IOBUF
+     port map (
+      I => kria_spi_sck_o,
+      IO => kria_spi_sck_io,
+      O => kria_spi_sck_i,
+      T => kria_spi_sck_t
+    );
+kria_spi_ss_iobuf_0: component IOBUF
+     port map (
+      I => kria_spi_ss_o_0(0),
+      IO => kria_spi_ss_io(0),
+      O => kria_spi_ss_i_0(0),
+      T => kria_spi_ss_t
     );
 pmod2_io_tri_iobuf_0: component IOBUF
      port map (
