@@ -152,8 +152,15 @@ Filesystem Packages --> x11 --> base --> libdrm --> [*] libdrm-kms
 Filesystem Packages --> libs --> xrt --> [*] xrt
 Filesystem Packages --> libs --> xrt --> [*] xrt-dev
 Filesystem Packages --> libs --> zocl --> [*] zocl
+Filesystem Packages --> libs --> libgcc --> [*] libgcc
+Filesystem Packages --> libs --> libgcc --> [*] libgcc-dbg
+Filesystem Packages --> libs --> libgcc --> [*] libgcc-dev
 Filesystem Packages --> libs --> opencl-headers --> [*] opencl-headers
 Filesystem Packages --> libs --> opencl-clhpp --> [*] opencl-clhpp-dev
+Filesystem Packages --> misc --> packagegroup-core-buildessential --> [*] packagegroup-core-buildessential
+Filesystem Packages --> misc --> packagegroup-core-buildessential --> [*] packagegroup-core-buildessential-dev
+Filesystem Packages --> misc --> python3 --> [*] python3
+Filesystem Packages --> misc --> python3 --> [*] <all-others>
 Petaliunx Package Groups --> packagegroup-petalinux --> [*] packagegroup-petalinux
 Petaliunx Package Groups --> packagegroup-petalinux-gstreamer --> [*] packagegroup-petalinux-gstreamer
 Petaliunx Package Groups --> packagegroup-petalinux-opencv --> [*] packagegroup-petalinux-opencv
