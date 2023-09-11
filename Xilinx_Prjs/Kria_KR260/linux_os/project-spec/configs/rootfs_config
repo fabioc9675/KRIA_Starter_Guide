@@ -775,7 +775,7 @@ CONFIG_git=y
 #
 # man 
 #
-# CONFIG_man is not set
+CONFIG_man=y
 
 #
 # man-pages 
@@ -1447,9 +1447,9 @@ CONFIG_libdfx=y
 #
 # libgcc 
 #
-# CONFIG_libgcc is not set
-# CONFIG_libgcc-dbg is not set
-# CONFIG_libgcc-dev is not set
+CONFIG_libgcc=y
+CONFIG_libgcc-dbg=y
+CONFIG_libgcc-dev=y
 
 #
 # libgpg-error 
@@ -2618,9 +2618,9 @@ CONFIG_packagegroup-core-boot=y
 #
 # packagegroup-core-buildessential 
 #
-# CONFIG_packagegroup-core-buildessential is not set
+CONFIG_packagegroup-core-buildessential=y
 # CONFIG_packagegroup-core-buildessential-dbg is not set
-# CONFIG_packagegroup-core-buildessential-dev is not set
+CONFIG_packagegroup-core-buildessential-dev=y
 
 #
 # packagegroup-core-sdk 
@@ -2743,64 +2743,64 @@ CONFIG_packagegroup-core-ssh-dropbear=y
 #
 # python3 
 #
-# CONFIG_python3 is not set
-# CONFIG_python3-crypt is not set
-# CONFIG_python3-unixadmin is not set
-# CONFIG_python3-io is not set
-# CONFIG_python3-pydoc is not set
-# CONFIG_python3-codecs is not set
-# CONFIG_python3-pprint is not set
-# CONFIG_python3-datetime is not set
-# CONFIG_python3-2to3 is not set
-# CONFIG_python3-modules is not set
-# CONFIG_python3-xml is not set
-# CONFIG_python3-numbers is not set
-# CONFIG_python3-pyvenv is not set
-# CONFIG_python3-tests is not set
-# CONFIG_python3-netclient is not set
-# CONFIG_python3-netserver is not set
-# CONFIG_python3-math is not set
-# CONFIG_python3-asyncio is not set
-# CONFIG_python3-tkinter is not set
-# CONFIG_python3-compression is not set
-# CONFIG_python3-gdbm is not set
-# CONFIG_python3-idle is not set
-# CONFIG_python3-core is not set
-# CONFIG_python3-smtpd is not set
-# CONFIG_python3-resource is not set
-# CONFIG_python3-terminal is not set
-# CONFIG_python3-shell is not set
-# CONFIG_python3-db is not set
-# CONFIG_python3-threading is not set
-# CONFIG_python3-email is not set
-# CONFIG_python3-stringold is not set
-# CONFIG_python3-unittest is not set
-# CONFIG_python3-misc is not set
-# CONFIG_python3-mailbox is not set
-# CONFIG_python3-pkgutil is not set
-# CONFIG_python3-mmap is not set
-# CONFIG_python3-json is not set
-# CONFIG_python3-audio is not set
-# CONFIG_python3-distutils is not set
-# CONFIG_python3-mime is not set
-# CONFIG_python3-multiprocessing is not set
-# CONFIG_python3-html is not set
-# CONFIG_python3-image is not set
-# CONFIG_python3-difflib is not set
-# CONFIG_python3-dev is not set
-# CONFIG_python3-syslog is not set
-# CONFIG_python3-curses is not set
-# CONFIG_libpython3 is not set
-# CONFIG_python3-logging is not set
-# CONFIG_python3-profile is not set
-# CONFIG_python3-xmlrpc is not set
-# CONFIG_python3-ctypes is not set
-# CONFIG_python3-sqlite3 is not set
-# CONFIG_python3-fcntl is not set
-# CONFIG_python3-compile is not set
-# CONFIG_python3-pickle is not set
-# CONFIG_python3-dbg is not set
-# CONFIG_python3-debugger is not set
+CONFIG_python3=y
+CONFIG_python3-crypt=y
+CONFIG_python3-unixadmin=y
+CONFIG_python3-io=y
+CONFIG_python3-pydoc=y
+CONFIG_python3-codecs=y
+CONFIG_python3-pprint=y
+CONFIG_python3-datetime=y
+CONFIG_python3-2to3=y
+CONFIG_python3-modules=y
+CONFIG_python3-xml=y
+CONFIG_python3-numbers=y
+CONFIG_python3-pyvenv=y
+CONFIG_python3-tests=y
+CONFIG_python3-netclient=y
+CONFIG_python3-netserver=y
+CONFIG_python3-math=y
+CONFIG_python3-asyncio=y
+CONFIG_python3-tkinter=y
+CONFIG_python3-compression=y
+CONFIG_python3-gdbm=y
+CONFIG_python3-idle=y
+CONFIG_python3-core=y
+CONFIG_python3-smtpd=y
+CONFIG_python3-resource=y
+CONFIG_python3-terminal=y
+CONFIG_python3-shell=y
+CONFIG_python3-db=y
+CONFIG_python3-threading=y
+CONFIG_python3-email=y
+CONFIG_python3-stringold=y
+CONFIG_python3-unittest=y
+CONFIG_python3-misc=y
+CONFIG_python3-mailbox=y
+CONFIG_python3-pkgutil=y
+CONFIG_python3-mmap=y
+CONFIG_python3-json=y
+CONFIG_python3-audio=y
+CONFIG_python3-distutils=y
+CONFIG_python3-mime=y
+CONFIG_python3-multiprocessing=y
+CONFIG_python3-html=y
+CONFIG_python3-image=y
+CONFIG_python3-difflib=y
+CONFIG_python3-dev=y
+CONFIG_python3-syslog=y
+CONFIG_python3-curses=y
+CONFIG_libpython3=y
+CONFIG_python3-logging=y
+CONFIG_python3-profile=y
+CONFIG_python3-xmlrpc=y
+CONFIG_python3-ctypes=y
+CONFIG_python3-sqlite3=y
+CONFIG_python3-fcntl=y
+CONFIG_python3-compile=y
+CONFIG_python3-pickle=y
+CONFIG_python3-dbg=y
+CONFIG_python3-debugger=y
 
 #
 # python3-async 
@@ -4034,7 +4034,7 @@ CONFIG_packagegroup-petalinux-opencv=y
 #
 # packagegroup-petalinux-python-modules 
 #
-# CONFIG_packagegroup-petalinux-python-modules is not set
+CONFIG_packagegroup-petalinux-python-modules=y
 # CONFIG_packagegroup-petalinux-python-modules-dbg is not set
 # CONFIG_packagegroup-petalinux-python-modules-dev is not set
 
@@ -4126,7 +4126,7 @@ CONFIG_packagegroup-petalinux-som=y
 #
 # PetaLinux RootFS Settings
 #
-CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;"
+CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;petalinux:petalinux;"
 CONFIG_CREATE_NEW_GROUPS="aie;"
 CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie;"
 CONFIG_ADD_USERS_TO_SUDOERS="petalinux"
