@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Fri Sep  8 18:51:57 2023
---Host        : fabiancastano-VirtualBox running 64-bit Ubuntu 20.04.5 LTS
+--Date        : Sat Sep 16 21:19:23 2023
+--Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
 --Purpose     : IP block netlist
@@ -3333,20 +3333,20 @@ architecture STRUCTURE of kria_bd is
   attribute X_INTERFACE_INFO of kria_i2c_sda_i : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_I";
   attribute X_INTERFACE_INFO of kria_i2c_sda_o : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_O";
   attribute X_INTERFACE_INFO of kria_i2c_sda_t : signal is "xilinx.com:interface:iic:1.0 kria_i2c SDA_T";
-  attribute X_INTERFACE_INFO of kria_spi_io0_i : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_io0_o : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_io0_t : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_io1_i : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_io1_o : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_io1_t : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_sck_i : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_sck_o : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_sck_t : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_ss_t : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
+  attribute X_INTERFACE_INFO of kria_spi_io0_i : signal is "xilinx.com:interface:spi:1.0 kria_spi IO0_I";
+  attribute X_INTERFACE_INFO of kria_spi_io0_o : signal is "xilinx.com:interface:spi:1.0 kria_spi IO0_O";
+  attribute X_INTERFACE_INFO of kria_spi_io0_t : signal is "xilinx.com:interface:spi:1.0 kria_spi IO0_T";
+  attribute X_INTERFACE_INFO of kria_spi_io1_i : signal is "xilinx.com:interface:spi:1.0 kria_spi IO1_I";
+  attribute X_INTERFACE_INFO of kria_spi_io1_o : signal is "xilinx.com:interface:spi:1.0 kria_spi IO1_O";
+  attribute X_INTERFACE_INFO of kria_spi_io1_t : signal is "xilinx.com:interface:spi:1.0 kria_spi IO1_T";
+  attribute X_INTERFACE_INFO of kria_spi_sck_i : signal is "xilinx.com:interface:spi:1.0 kria_spi SCK_I";
+  attribute X_INTERFACE_INFO of kria_spi_sck_o : signal is "xilinx.com:interface:spi:1.0 kria_spi SCK_O";
+  attribute X_INTERFACE_INFO of kria_spi_sck_t : signal is "xilinx.com:interface:spi:1.0 kria_spi SCK_T";
+  attribute X_INTERFACE_INFO of kria_spi_ss_t : signal is "xilinx.com:interface:spi:1.0 kria_spi SS_T";
   attribute X_INTERFACE_INFO of kria_uart_rxd : signal is "xilinx.com:interface:uart:1.0 kria_uart RxD";
   attribute X_INTERFACE_INFO of kria_uart_txd : signal is "xilinx.com:interface:uart:1.0 kria_uart TxD";
-  attribute X_INTERFACE_INFO of kria_spi_ss_i : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
-  attribute X_INTERFACE_INFO of kria_spi_ss_o : signal is "xilinx.com:interface:spi:1.0 kria_spi ";
+  attribute X_INTERFACE_INFO of kria_spi_ss_i : signal is "xilinx.com:interface:spi:1.0 kria_spi SS_I";
+  attribute X_INTERFACE_INFO of kria_spi_ss_o : signal is "xilinx.com:interface:spi:1.0 kria_spi SS_O";
   attribute X_INTERFACE_INFO of pmod2_io_tri_i : signal is "xilinx.com:interface:gpio:1.0 pmod2_io TRI_I";
   attribute X_INTERFACE_INFO of pmod2_io_tri_o : signal is "xilinx.com:interface:gpio:1.0 pmod2_io TRI_O";
   attribute X_INTERFACE_INFO of pmod2_io_tri_t : signal is "xilinx.com:interface:gpio:1.0 pmod2_io TRI_T";
@@ -3890,9 +3890,9 @@ uf_leds: component kria_bd_axi_gpio_0_5
     );
 xlconcat_0: component kria_bd_xlconcat_0_0
      port map (
-      In0(0) => axi_iic_0_iic2intc_irpt,
-      In1(0) => axi_uartlite_0_interrupt,
-      In2(0) => axi_quad_spi_0_ip2intc_irpt,
+      In0(0) => axi_quad_spi_0_ip2intc_irpt,
+      In1(0) => axi_iic_0_iic2intc_irpt,
+      In2(0) => axi_uartlite_0_interrupt,
       dout(2 downto 0) => xlconcat_0_dout(2 downto 0)
     );
 xlslice_0: component kria_bd_xlslice_0_1

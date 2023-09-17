@@ -9,8 +9,8 @@ set_property PULLUP TRUE [get_ports {kria_i2c_sda_io}]
 set_property PACKAGE_PIN D10 [get_ports {kria_spi_io0_io}]     
 set_property IOSTANDARD LVCMOS33 [get_ports {kria_spi_io0_io}] 
                                                                    
-set_property PACKAGE_PIN C11 [get_ports {kria_spi_ss_io}]     
-set_property IOSTANDARD LVCMOS33 [get_ports {kria_spi_ss_io}] 
+set_property PACKAGE_PIN C11 [get_ports {kria_spi_ss_io[0]}]     
+set_property IOSTANDARD LVCMOS33 [get_ports {kria_spi_ss_io[0]}] 
                                                                    
 ##################### PMOD 1 Lower ################################
 set_property PACKAGE_PIN B10 [get_ports {kria_uart_txd}]     

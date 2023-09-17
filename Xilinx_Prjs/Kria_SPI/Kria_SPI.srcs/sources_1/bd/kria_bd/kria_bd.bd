@@ -3028,7 +3028,7 @@
       "axi_iic_0_iic2intc_irpt": {
         "ports": [
           "axi_iic_0/iic2intc_irpt",
-          "xlconcat_0/In0"
+          "xlconcat_0/In1"
         ]
       },
       "axi_intc_0_irq": {
@@ -3040,13 +3040,13 @@
       "axi_quad_spi_0_ip2intc_irpt": {
         "ports": [
           "axi_quad_spi_0/ip2intc_irpt",
-          "xlconcat_0/In2"
+          "xlconcat_0/In0"
         ]
       },
       "axi_uartlite_0_interrupt": {
         "ports": [
           "axi_uartlite_0/interrupt",
-          "xlconcat_0/In1"
+          "xlconcat_0/In2"
         ]
       },
       "clk_wiz_0_clk_out1": {
