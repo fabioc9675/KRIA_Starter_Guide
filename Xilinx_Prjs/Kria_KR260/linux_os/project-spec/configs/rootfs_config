@@ -331,8 +331,8 @@ CONFIG_mtd-utils=y
 #
 # tar 
 #
-# CONFIG_tar is not set
-# CONFIG_tar-dev is not set
+CONFIG_tar=y
+CONFIG_tar-dev=y
 # CONFIG_tar-dbg is not set
 # CONFIG_tar-rmt is not set
 
@@ -725,7 +725,7 @@ CONFIG_git=y
 #
 # grep 
 #
-# CONFIG_grep is not set
+CONFIG_grep=y
 # CONFIG_grep-dbg is not set
 # CONFIG_grep-dev is not set
 
@@ -739,7 +739,7 @@ CONFIG_git=y
 #
 # gzip 
 #
-# CONFIG_gzip is not set
+CONFIG_gzip=y
 # CONFIG_gzip-dev is not set
 # CONFIG_gzip-dbg is not set
 
@@ -775,7 +775,7 @@ CONFIG_git=y
 #
 # man 
 #
-CONFIG_man=y
+# CONFIG_man is not set
 
 #
 # man-pages 
@@ -863,7 +863,7 @@ CONFIG_pciutils=y
 #
 # unzip 
 #
-# CONFIG_unzip is not set
+CONFIG_unzip=y
 # CONFIG_unzip-dbg is not set
 # CONFIG_unzip-dev is not set
 
@@ -883,7 +883,7 @@ CONFIG_vim=y
 #
 # zip 
 #
-# CONFIG_zip is not set
+CONFIG_zip=y
 # CONFIG_zip-dev is not set
 # CONFIG_zip-dbg is not set
 
@@ -4063,7 +4063,7 @@ CONFIG_packagegroup-petalinux-python-modules=y
 #
 # packagegroup-petalinux-utils 
 #
-# CONFIG_packagegroup-petalinux-utils is not set
+CONFIG_packagegroup-petalinux-utils=y
 # CONFIG_packagegroup-petalinux-utils-dbg is not set
 # CONFIG_packagegroup-petalinux-utils-dev is not set
 
@@ -4126,7 +4126,7 @@ CONFIG_packagegroup-petalinux-som=y
 #
 # PetaLinux RootFS Settings
 #
-CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;petalinux:petalinux;"
+CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;"
 CONFIG_CREATE_NEW_GROUPS="aie;"
 CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie;"
 CONFIG_ADD_USERS_TO_SUDOERS="petalinux"

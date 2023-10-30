@@ -71,6 +71,29 @@ CONFIG_SUBSYSTEM_SERIAL_ATF_IP_NAME="cadence1"
 CONFIG_SUBSYSTEM_SERIAL_IP_NAME="psu_uart_1"
 
 #
+# SPI Settings
+#
+CONFIG_SPI=y
+CONFIG_SPIDEV=y
+CONFIG_SPI_SPIDEV=y
+CONFIG_SPI_MASTER=y
+# CONFIG_SPI_ALTERA is not set
+# CONFIG_SPI_BITBANG=y
+CONFIG_SPI_CADENCE=y
+CONFIG_SPI_GPIO=y
+# CONFIG_SPI_FSL_SPI is not set
+# CONFIG_SPI_OC_TINY is not set
+# CONFIG_SPI_PL022 is not set
+# CONFIG_SPI_PXA2XX_PCI is not set
+# CONFIG_SPI_ROCKCHIP is not set
+# CONFIG_SPI_SC18IS602 is not set
+# CONFIG_SPI_XCOMM is not set
+CONFIG_SPI_XILINX=y
+CONFIG_SPI_ZYNQ_QSPI=y
+# CONFIG_SPI_ZYNQ_QSPI_DUAL_STACKED is not set
+# CONFIG_SPI_DESIGNWARE is not set
+
+#
 # Ethernet Settings
 #
 CONFIG_SUBSYSTEM_ETHERNET_PSU_ETHERNET_1_SELECT=y
@@ -113,7 +136,7 @@ CONFIG_SUBSYSTEM_EXTRA_DT_FILES="${PROOT}/project-spec/dts_dir/zynqmp-sck-kr-g-r
 #
 CONFIG_SUBSYSTEM_BOOTARGS_AUTO=y
 CONFIG_SUBSYSTEM_BOOTARGS_EARLYPRINTK=y
-
+CONFIG_SUBSYSTEM_BOOTARGS_GENERATED=" earlycon console=ttyPS1,115200 clk_ignore_unused root=/dev/ram0 rw init_fatal_sh=1 xilinx_tsn_ep.st_pcp=4 cma=900M "
 CONFIG_SUBSYSTEM_EXTRA_BOOTARGS="xilinx_tsn_ep.st_pcp=4 cma=900M "
 CONFIG_SUBSYSTEM_DEVICETREE_COMPILER_FLAGS="-@"
 # CONFIG_SUBSYSTEM_DTB_OVERLAY is not set
@@ -260,4 +283,3 @@ CONFIG_YOCTO_NETWORK_SSTATE_FEEDS_URL="http://petalinux.xilinx.com/sswreleases/r
 # User Layers
 #
 CONFIG_USER_LAYER_0=""
-CONFIG_SUBSYSTEM_BOOTARGS_GENERATED=" earlycon console=ttyPS1,115200 clk_ignore_unused root=/dev/ram0 rw init_fatal_sh=1 xilinx_tsn_ep.st_pcp=4 cma=900M "
