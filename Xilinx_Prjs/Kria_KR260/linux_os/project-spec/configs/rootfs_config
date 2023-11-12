@@ -87,7 +87,7 @@ CONFIG_system-zynqmp=y
 #
 # dbus 
 #
-# CONFIG_dbus is not set
+CONFIG_dbus=y
 # CONFIG_dbus-dbg is not set
 # CONFIG_dbus-lib is not set
 # CONFIG_dbus-dev is not set
@@ -332,7 +332,7 @@ CONFIG_mtd-utils=y
 # tar 
 #
 CONFIG_tar=y
-CONFIG_tar-dev=y
+# CONFIG_tar-dev is not set
 # CONFIG_tar-dbg is not set
 # CONFIG_tar-rmt is not set
 
@@ -505,7 +505,7 @@ CONFIG_can-utils=y
 #
 # curl 
 #
-# CONFIG_curl is not set
+CONFIG_curl=y
 # CONFIG_curl-dbg is not set
 # CONFIG_libcurl is not set
 # CONFIG_curl-dev is not set
@@ -622,7 +622,7 @@ CONFIG_nfs-utils=y
 #
 # wget 
 #
-# CONFIG_wget is not set
+CONFIG_wget=y
 # CONFIG_wget-dev is not set
 # CONFIG_wget-dbg is not set
 
@@ -739,7 +739,7 @@ CONFIG_grep=y
 #
 # gzip 
 #
-CONFIG_gzip=y
+# CONFIG_gzip is not set
 # CONFIG_gzip-dev is not set
 # CONFIG_gzip-dbg is not set
 
@@ -775,7 +775,7 @@ CONFIG_gzip=y
 #
 # man 
 #
-# CONFIG_man is not set
+CONFIG_man=y
 
 #
 # man-pages 
@@ -863,7 +863,7 @@ CONFIG_pciutils=y
 #
 # unzip 
 #
-CONFIG_unzip=y
+# CONFIG_unzip is not set
 # CONFIG_unzip-dbg is not set
 # CONFIG_unzip-dev is not set
 
@@ -4034,7 +4034,7 @@ CONFIG_packagegroup-petalinux-opencv=y
 #
 # packagegroup-petalinux-python-modules 
 #
-CONFIG_packagegroup-petalinux-python-modules=y
+# CONFIG_packagegroup-petalinux-python-modules is not set
 # CONFIG_packagegroup-petalinux-python-modules-dbg is not set
 # CONFIG_packagegroup-petalinux-python-modules-dev is not set
 
