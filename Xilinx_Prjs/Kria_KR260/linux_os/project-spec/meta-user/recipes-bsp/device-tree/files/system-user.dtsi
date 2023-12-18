@@ -5,9 +5,10 @@
     status = "okay";
     spidev@0x00 {
         status = "okay";
+        // compatible = "xlnx,axi-quad-spi-1.00.a";
         // compatible = "spidev";
-        // compatible = "rohm, dh2228fv";
-        compatible = "lwn,bk4";
+        compatible = "rohm,dh2228fv";
+        // compatible = "lwn,bk4";
         spi-max-frequency = <25000000>;
         reg = <0>;
     };
@@ -17,5 +18,14 @@
     spi-slave;
     slave {
         compatible = "spi-slave-time";
+    };
+    spidev@0x01 {
+        status = "okay";
+        // compatible = "xlnx,axi-quad-spi-1.00.a";
+        // compatible = "spidev";
+        compatible = "rohm,dh2228fv";
+        // compatible = "lwn,bk4";
+        spi-max-frequency = <25000000>;
+        reg = <0>;
     };
 };
