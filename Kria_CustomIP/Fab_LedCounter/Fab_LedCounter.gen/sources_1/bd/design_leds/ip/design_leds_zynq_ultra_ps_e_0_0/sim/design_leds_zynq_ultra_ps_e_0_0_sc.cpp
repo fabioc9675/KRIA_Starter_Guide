@@ -89,7 +89,7 @@ design_leds_zynq_ultra_ps_e_0_0_sc::design_leds_zynq_ultra_ps_e_0_0_sc(const sc_
     model_param_props.addLong("C_NUM_F2P_0_INTR_INPUTS", "1");
     model_param_props.addLong("C_NUM_F2P_1_INTR_INPUTS", "1");
     model_param_props.addLong("C_EMIO_GPIO_WIDTH", "1");
-    model_param_props.addLong("C_NUM_FABRIC_RESETS", "1");
+    model_param_props.addLong("C_NUM_FABRIC_RESETS", "4");
     model_param_props.addString("C_EN_FIFO_ENET0", "0");
     model_param_props.addString("C_EN_FIFO_ENET1", "0");
     model_param_props.addString("C_EN_FIFO_ENET2", "0");

@@ -106,8 +106,13 @@ module design_leds_zynq_ultra_ps_e_0_0 (
   output bit_as_bool maxigp2_rready,
   output bit [3 : 0] maxigp2_awqos,
   output bit [3 : 0] maxigp2_arqos,
+  output bit [93 : 0] emio_enet0_enet_tsu_timer_cnt,
+  output bit [2 : 0] emio_ttc0_wave_o,
   input bit [0 : 0] pl_ps_irq0,
   output bit_as_bool pl_resetn0,
+  output bit_as_bool pl_resetn1,
+  output bit_as_bool pl_resetn2,
+  output bit_as_bool pl_resetn3,
   output bit_as_bool pl_clk0,
   output bit_as_bool pl_clk1
 );
@@ -116,7 +121,7 @@ endmodule
 
 `ifdef XCELIUM
 (* XMSC_MODULE_EXPORT *)
-module design_leds_zynq_ultra_ps_e_0_0 (maxihpm0_lpd_aclk,maxigp2_awid,maxigp2_awaddr,maxigp2_awlen,maxigp2_awsize,maxigp2_awburst,maxigp2_awlock,maxigp2_awcache,maxigp2_awprot,maxigp2_awvalid,maxigp2_awuser,maxigp2_awready,maxigp2_wdata,maxigp2_wstrb,maxigp2_wlast,maxigp2_wvalid,maxigp2_wready,maxigp2_bid,maxigp2_bresp,maxigp2_bvalid,maxigp2_bready,maxigp2_arid,maxigp2_araddr,maxigp2_arlen,maxigp2_arsize,maxigp2_arburst,maxigp2_arlock,maxigp2_arcache,maxigp2_arprot,maxigp2_arvalid,maxigp2_aruser,maxigp2_arready,maxigp2_rid,maxigp2_rdata,maxigp2_rresp,maxigp2_rlast,maxigp2_rvalid,maxigp2_rready,maxigp2_awqos,maxigp2_arqos,pl_ps_irq0,pl_resetn0,pl_clk0,pl_clk1)
+module design_leds_zynq_ultra_ps_e_0_0 (maxihpm0_lpd_aclk,maxigp2_awid,maxigp2_awaddr,maxigp2_awlen,maxigp2_awsize,maxigp2_awburst,maxigp2_awlock,maxigp2_awcache,maxigp2_awprot,maxigp2_awvalid,maxigp2_awuser,maxigp2_awready,maxigp2_wdata,maxigp2_wstrb,maxigp2_wlast,maxigp2_wvalid,maxigp2_wready,maxigp2_bid,maxigp2_bresp,maxigp2_bvalid,maxigp2_bready,maxigp2_arid,maxigp2_araddr,maxigp2_arlen,maxigp2_arsize,maxigp2_arburst,maxigp2_arlock,maxigp2_arcache,maxigp2_arprot,maxigp2_arvalid,maxigp2_aruser,maxigp2_arready,maxigp2_rid,maxigp2_rdata,maxigp2_rresp,maxigp2_rlast,maxigp2_rvalid,maxigp2_rready,maxigp2_awqos,maxigp2_arqos,emio_enet0_enet_tsu_timer_cnt,emio_ttc0_wave_o,pl_ps_irq0,pl_resetn0,pl_resetn1,pl_resetn2,pl_resetn3,pl_clk0,pl_clk1)
 (* integer foreign = "SystemC";
 *);
   input bit maxihpm0_lpd_aclk;
@@ -159,8 +164,13 @@ module design_leds_zynq_ultra_ps_e_0_0 (maxihpm0_lpd_aclk,maxigp2_awid,maxigp2_a
   output wire maxigp2_rready;
   output wire [3 : 0] maxigp2_awqos;
   output wire [3 : 0] maxigp2_arqos;
+  output wire [93 : 0] emio_enet0_enet_tsu_timer_cnt;
+  output wire [2 : 0] emio_ttc0_wave_o;
   input bit [0 : 0] pl_ps_irq0;
   output wire pl_resetn0;
+  output wire pl_resetn1;
+  output wire pl_resetn2;
+  output wire pl_resetn3;
   output wire pl_clk0;
   output wire pl_clk1;
 endmodule

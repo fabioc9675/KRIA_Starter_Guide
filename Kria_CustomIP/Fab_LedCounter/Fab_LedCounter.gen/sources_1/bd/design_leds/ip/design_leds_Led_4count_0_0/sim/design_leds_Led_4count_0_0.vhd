@@ -53,38 +53,33 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY design_leds_Led_4count_0_1 IS
+ENTITY design_leds_Led_4count_0_0 IS
   PORT (
     CLK : IN STD_LOGIC;
-    RST : IN STD_LOGIC;
     PUL : IN STD_LOGIC;
-    LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    LED : OUT STD_LOGIC
   );
-END design_leds_Led_4count_0_1;
+END design_leds_Led_4count_0_0;
 
-ARCHITECTURE design_leds_Led_4count_0_1_arch OF design_leds_Led_4count_0_1 IS
+ARCHITECTURE design_leds_Led_4count_0_0_arch OF design_leds_Led_4count_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_leds_Led_4count_0_1_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_leds_Led_4count_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT Led_4count IS
     PORT (
       CLK : IN STD_LOGIC;
-      RST : IN STD_LOGIC;
       PUL : IN STD_LOGIC;
-      LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      LED : OUT STD_LOGIC
     );
   END COMPONENT Led_4count;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME CLK, ASSOCIATED_RESET RST, FREQ_HZ 199998000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_leds_clk_wiz_0_0_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME CLK, FREQ_HZ 199998000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_leds_clk_wiz_0_0_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 CLK CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF RST: SIGNAL IS "XIL_INTERFACENAME RST, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF RST: SIGNAL IS "xilinx.com:signal:reset:1.0 RST RST";
 BEGIN
   U0 : Led_4count
     PORT MAP (
       CLK => CLK,
-      RST => RST,
       PUL => PUL,
       LED => LED
     );
-END design_leds_Led_4count_0_1_arch;
+END design_leds_Led_4count_0_0_arch;

@@ -10,9 +10,8 @@ use IEEE.std_logic_unsigned.all;
 
 entity Led_4count is
     Port ( CLK: in  std_logic;
-           RST: in  std_logic;
            PUL: in  std_logic;
-           LED: out std_logic_vector (3 downto 0));
+           LED: out std_logic);
 end Led_4count;
 
 architecture Behavioral of Led_4count is
@@ -23,17 +22,13 @@ architecture Behavioral of Led_4count is
 
 begin
 
-     LED_Process: process(CLK, PUL, RST)
+     LED_Process: process(CLK, PUL)
      begin
-        if PUL = '0' then -- Initialization of state machine
-            state <= LED_1;
-            counter <= 0;
+        if PUL = '0' then
+             state <= LED_1;
+             counter <= 0;
         end if;
-        
-        if RST = '0' then -- Reset of the state machine
-            state <= L_WAIT;
-            counter <= 0;
-        elsif rising_edge(CLK) then
+        if rising_edge(CLK) then
             if counter = MAX_COUNT - 1 then 
                 counter <= 0;
                 state <=  next_state;
@@ -45,23 +40,25 @@ begin
      
      State_Transition: process(state)
      begin
+
          case state is
             when LED_1 =>
-                LED <= "0001";
+                LED <= '1';
                 next_state <= LED_2;
             when LED_2 =>
-                LED <= "0010";
+                LED <= '0';
                 next_state <= LED_3;
             when LED_3 =>
-                LED <= "0100";
+                LED <= '1';
                 next_state <= LED_4;
             when LED_4 =>
-                LED <= "1000";
+                LED <= '0';
                 next_state <= L_WAIT;
             when L_WAIT =>
-                LED <= "0000";
+                LED <= '0';
                 --next_state <= LED_1;
          end case;
+        
      end process;
 
 end Behavioral;

@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Thu Dec 21 21:33:01 2023
---Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.3 LTS
+--Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+--Date        : Fri Dec 22 17:37:48 2023
+--Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target design_leds.bd
 --Design      : design_leds
 --Purpose     : IP block netlist
@@ -573,11 +573,14 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_leds is
   port (
-    LED : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    PUL_IN : in STD_LOGIC
+    LED_OUT_0 : out STD_LOGIC;
+    LED_OUT_1 : out STD_LOGIC;
+    PUL_IN_0 : in STD_LOGIC;
+    PUL_IN_1 : in STD_LOGIC;
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_leds : entity is "design_leds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_leds,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=3,da_clkrst_cnt=3,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of design_leds : entity is "design_leds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_leds,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=15,da_clkrst_cnt=4,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_leds : entity is "design_leds.hwdef";
 end design_leds;
@@ -625,8 +628,13 @@ architecture STRUCTURE of design_leds is
     maxigp2_rready : out STD_LOGIC;
     maxigp2_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     maxigp2_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    emio_enet0_enet_tsu_timer_cnt : out STD_LOGIC_VECTOR ( 93 downto 0 );
+    emio_ttc0_wave_o : out STD_LOGIC_VECTOR ( 2 downto 0 );
     pl_ps_irq0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     pl_resetn0 : out STD_LOGIC;
+    pl_resetn1 : out STD_LOGIC;
+    pl_resetn2 : out STD_LOGIC;
+    pl_resetn3 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_clk1 : out STD_LOGIC
   );
@@ -693,16 +701,30 @@ architecture STRUCTURE of design_leds is
     irq : out STD_LOGIC
   );
   end component design_leds_axi_intc_0_1;
-  component design_leds_Led_4count_0_1 is
+  component design_leds_xlslice_0_0 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component design_leds_xlslice_0_0;
+  component design_leds_Led_4count_0_0 is
   port (
     CLK : in STD_LOGIC;
-    RST : in STD_LOGIC;
     PUL : in STD_LOGIC;
-    LED : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    LED : out STD_LOGIC
   );
-  end component design_leds_Led_4count_0_1;
-  signal Led_4count_0_LED : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal RST_IN_1 : STD_LOGIC;
+  end component design_leds_Led_4count_0_0;
+  component design_leds_Led_Bouncing_0_0 is
+  port (
+    CLK : in STD_LOGIC;
+    PUL : in STD_LOGIC;
+    LED : out STD_LOGIC
+  );
+  end component design_leds_Led_Bouncing_0_0;
+  signal Led_4count_0_LED : STD_LOGIC;
+  signal Led_Bouncing_0_LED : STD_LOGIC;
+  signal PUL_0_1 : STD_LOGIC;
+  signal PUL_0_2 : STD_LOGIC;
   signal axi_intc_0_irq : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
@@ -724,6 +746,7 @@ architecture STRUCTURE of design_leds is
   signal ps8_0_axi_periph_M00_AXI_WREADY : STD_LOGIC;
   signal ps8_0_axi_periph_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps8_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
+  signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -761,6 +784,7 @@ architecture STRUCTURE of design_leds is
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY : STD_LOGIC;
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID : STD_LOGIC;
+  signal zynq_ultra_ps_e_0_emio_ttc0_wave_o : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal zynq_ultra_ps_e_0_pl_clk0 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_resetn0 : STD_LOGIC;
   signal NLW_clk_wiz_0_locked_UNCONNECTED : STD_LOGIC;
@@ -774,21 +798,29 @@ architecture STRUCTURE of design_leds is
   signal NLW_proc_sys_reset_1_peripheral_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_1_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_zynq_ultra_ps_e_0_pl_clk1_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn1_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn2_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_pl_resetn3_UNCONNECTED : STD_LOGIC;
+  signal NLW_zynq_ultra_ps_e_0_emio_enet0_enet_tsu_timer_cnt_UNCONNECTED : STD_LOGIC_VECTOR ( 93 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_aruser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_awuser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of PUL_IN : signal is "xilinx.com:signal:reset:1.0 RST.PUL_IN RST";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of PUL_IN : signal is "XIL_INTERFACENAME RST.PUL_IN, INSERT_VIP 0, POLARITY ACTIVE_LOW";
 begin
-  LED(3 downto 0) <= Led_4count_0_LED(3 downto 0);
-  RST_IN_1 <= PUL_IN;
-Led_4count_0: component design_leds_Led_4count_0_1
+  LED_OUT_0 <= Led_4count_0_LED;
+  LED_OUT_1 <= Led_Bouncing_0_LED;
+  PUL_0_1 <= PUL_IN_0;
+  PUL_0_2 <= PUL_IN_1;
+  fan_en_b(0) <= xlslice_0_Dout(0);
+Led_4count_0: component design_leds_Led_4count_0_0
      port map (
       CLK => clk_wiz_0_clk_out2,
-      LED(3 downto 0) => Led_4count_0_LED(3 downto 0),
-      PUL => RST_IN_1,
-      RST => zynq_ultra_ps_e_0_pl_resetn0
+      LED => Led_4count_0_LED,
+      PUL => PUL_0_1
+    );
+Led_Bouncing_0: component design_leds_Led_Bouncing_0_0
+     port map (
+      CLK => clk_wiz_0_clk_out2,
+      LED => Led_Bouncing_0_LED,
+      PUL => PUL_0_2
     );
 axi_intc_0: component design_leds_axi_intc_0_1
      port map (
@@ -911,8 +943,15 @@ ps8_0_axi_periph: entity work.design_leds_ps8_0_axi_periph_0
       S00_AXI_wstrb(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB(3 downto 0),
       S00_AXI_wvalid => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID
     );
+xlslice_0: component design_leds_xlslice_0_0
+     port map (
+      Din(2 downto 0) => zynq_ultra_ps_e_0_emio_ttc0_wave_o(2 downto 0),
+      Dout(0) => xlslice_0_Dout(0)
+    );
 zynq_ultra_ps_e_0: component design_leds_zynq_ultra_ps_e_0_0
      port map (
+      emio_enet0_enet_tsu_timer_cnt(93 downto 0) => NLW_zynq_ultra_ps_e_0_emio_enet0_enet_tsu_timer_cnt_UNCONNECTED(93 downto 0),
+      emio_ttc0_wave_o(2 downto 0) => zynq_ultra_ps_e_0_emio_ttc0_wave_o(2 downto 0),
       maxigp2_araddr(39 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR(39 downto 0),
       maxigp2_arburst(1 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST(1 downto 0),
       maxigp2_arcache(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARCACHE(3 downto 0),
@@ -956,6 +995,9 @@ zynq_ultra_ps_e_0: component design_leds_zynq_ultra_ps_e_0_0
       pl_clk0 => zynq_ultra_ps_e_0_pl_clk0,
       pl_clk1 => NLW_zynq_ultra_ps_e_0_pl_clk1_UNCONNECTED,
       pl_ps_irq0(0) => axi_intc_0_irq,
-      pl_resetn0 => zynq_ultra_ps_e_0_pl_resetn0
+      pl_resetn0 => zynq_ultra_ps_e_0_pl_resetn0,
+      pl_resetn1 => NLW_zynq_ultra_ps_e_0_pl_resetn1_UNCONNECTED,
+      pl_resetn2 => NLW_zynq_ultra_ps_e_0_pl_resetn2_UNCONNECTED,
+      pl_resetn3 => NLW_zynq_ultra_ps_e_0_pl_resetn3_UNCONNECTED
     );
 end STRUCTURE;

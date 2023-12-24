@@ -143,8 +143,13 @@ void add_extensions_to_tlm(const xtlm::aximm_payload* xtlm_pay, tlm::tlm_generic
     zynq_ultra_ps_e_tlm :: zynq_ultra_ps_e_tlm (sc_core::sc_module_name name,
     xsc::common_cpp::properties&): sc_module(name)//registering module name with parent
         ,maxihpm0_lpd_aclk("maxihpm0_lpd_aclk")
+        ,emio_enet0_enet_tsu_timer_cnt("emio_enet0_enet_tsu_timer_cnt")
+        ,emio_ttc0_wave_o("emio_ttc0_wave_o")
         ,pl_ps_irq0("pl_ps_irq0")
         ,pl_resetn0("pl_resetn0")
+        ,pl_resetn1("pl_resetn1")
+        ,pl_resetn2("pl_resetn2")
+        ,pl_resetn3("pl_resetn3")
         ,pl_clk0("pl_clk0")
         ,pl_clk1("pl_clk1")
     ,m_rp_bridge_M_AXI_HPM0_LPD("m_rp_bridge_M_AXI_HPM0_LPD")
@@ -235,12 +240,30 @@ void add_extensions_to_tlm(const xtlm::aximm_payload* xtlm_pay, tlm::tlm_generic
     void zynq_ultra_ps_e_tlm ::pl_resetn0_trigger()   {
         pl_resetn0.write(m_zynqmp_tlm_model->emio[2]->out[31].read());
     }
+    //pl_resetn1 output reset pin get toggle when emio bank 2's 30th signal gets toggled
+    //EMIO[2] bank 30th(GPIO[94] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void zynq_ultra_ps_e_tlm ::pl_resetn1_trigger()   {
+        pl_resetn1.write(m_zynqmp_tlm_model->emio[2]->out[30].read());
+    }
+    //pl_resetn2 output reset pin get toggle when emio bank 2's 29th signal gets toggled
+    //EMIO[2] bank 29th(GPIO[93] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void zynq_ultra_ps_e_tlm ::pl_resetn2_trigger()   {
+        pl_resetn2.write(m_zynqmp_tlm_model->emio[2]->out[29].read());
+    }
+    //pl_resetn3 output reset pin get toggle when emio bank 2's 29th signal gets toggled
+    //EMIO[2] bank 28th(GPIO[92] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void zynq_ultra_ps_e_tlm ::pl_resetn3_trigger()   {
+        pl_resetn3.write(m_zynqmp_tlm_model->emio[2]->out[28].read());
+    }
 
     sc_signal<bool> qemu_rst;
     void zynq_ultra_ps_e_tlm ::start_of_simulation()
     {
     //temporary fix to drive the enabled reset pin 
         pl_resetn0.write(true);
+        pl_resetn1.write(true);
+        pl_resetn2.write(true);
+        pl_resetn3.write(true);
         qemu_rst.write(false);
     }
 
