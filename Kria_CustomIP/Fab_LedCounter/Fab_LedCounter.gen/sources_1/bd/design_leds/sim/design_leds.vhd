@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Fri Dec 22 17:37:48 2023
+--Date        : Mon Dec 25 11:05:00 2023
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target design_leds.bd
 --Design      : design_leds
@@ -573,14 +573,12 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_leds is
   port (
-    LED_OUT_0 : out STD_LOGIC;
-    LED_OUT_1 : out STD_LOGIC;
-    PUL_IN_0 : in STD_LOGIC;
-    PUL_IN_1 : in STD_LOGIC;
+    LED_OUT : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    PUL_IN : in STD_LOGIC_VECTOR ( 3 downto 0 );
     fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_leds : entity is "design_leds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_leds,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=15,da_clkrst_cnt=4,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of design_leds : entity is "design_leds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_leds,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=10,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=15,da_clkrst_cnt=4,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_leds : entity is "design_leds.hwdef";
 end design_leds;
@@ -707,24 +705,15 @@ architecture STRUCTURE of design_leds is
     Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_leds_xlslice_0_0;
-  component design_leds_Led_4count_0_0 is
+  component design_leds_Led_Full_0_0 is
   port (
     CLK : in STD_LOGIC;
-    PUL : in STD_LOGIC;
-    LED : out STD_LOGIC
+    PUL : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    LED : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  end component design_leds_Led_4count_0_0;
-  component design_leds_Led_Bouncing_0_0 is
-  port (
-    CLK : in STD_LOGIC;
-    PUL : in STD_LOGIC;
-    LED : out STD_LOGIC
-  );
-  end component design_leds_Led_Bouncing_0_0;
-  signal Led_4count_0_LED : STD_LOGIC;
-  signal Led_Bouncing_0_LED : STD_LOGIC;
-  signal PUL_0_1 : STD_LOGIC;
-  signal PUL_0_2 : STD_LOGIC;
+  end component design_leds_Led_Full_0_0;
+  signal Led_Full_0_LED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal PUL_0_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_intc_0_irq : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
@@ -805,22 +794,14 @@ architecture STRUCTURE of design_leds is
   signal NLW_zynq_ultra_ps_e_0_maxigp2_aruser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_zynq_ultra_ps_e_0_maxigp2_awuser_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
 begin
-  LED_OUT_0 <= Led_4count_0_LED;
-  LED_OUT_1 <= Led_Bouncing_0_LED;
-  PUL_0_1 <= PUL_IN_0;
-  PUL_0_2 <= PUL_IN_1;
+  LED_OUT(3 downto 0) <= Led_Full_0_LED(3 downto 0);
+  PUL_0_1(3 downto 0) <= PUL_IN(3 downto 0);
   fan_en_b(0) <= xlslice_0_Dout(0);
-Led_4count_0: component design_leds_Led_4count_0_0
+Led_Full_0: component design_leds_Led_Full_0_0
      port map (
       CLK => clk_wiz_0_clk_out2,
-      LED => Led_4count_0_LED,
-      PUL => PUL_0_1
-    );
-Led_Bouncing_0: component design_leds_Led_Bouncing_0_0
-     port map (
-      CLK => clk_wiz_0_clk_out2,
-      LED => Led_Bouncing_0_LED,
-      PUL => PUL_0_2
+      LED(3 downto 0) => Led_Full_0_LED(3 downto 0),
+      PUL(3 downto 0) => PUL_0_1(3 downto 0)
     );
 axi_intc_0: component design_leds_axi_intc_0_1
      port map (

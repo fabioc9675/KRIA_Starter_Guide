@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x83174DA883174DA8",
+      "boundary_crc": "0x649AC77D649AC77D",
       "device": "xck26-sfvc784-2LV-c",
       "gen_directory": "../../../../Fab_LedCounter.gen/sources_1/bd/design_leds",
       "name": "design_leds",
@@ -23,25 +23,22 @@
       },
       "axi_intc_0": "",
       "xlslice_0": "",
-      "Led_4count_0": "",
-      "Led_Bouncing_0": ""
+      "Led_Full_0": ""
     },
     "ports": {
-      "PUL_IN_0": {
-        "direction": "I"
-      },
-      "LED_OUT_0": {
-        "direction": "O"
-      },
-      "PUL_IN_1": {
-        "direction": "I"
-      },
-      "LED_OUT_1": {
-        "direction": "O"
-      },
       "fan_en_b": {
         "direction": "O",
         "left": "0",
+        "right": "0"
+      },
+      "LED_OUT": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "PUL_IN": {
+        "direction": "I",
+        "left": "3",
         "right": "0"
       }
     },
@@ -1746,14 +1743,14 @@
           }
         }
       },
-      "Led_4count_0": {
-        "vlnv": "xilinx.com:module_ref:Led_4count:1.0",
-        "xci_name": "design_leds_Led_4count_0_0",
-        "xci_path": "ip\\design_leds_Led_4count_0_0\\design_leds_Led_4count_0_0.xci",
-        "inst_hier_path": "Led_4count_0",
+      "Led_Full_0": {
+        "vlnv": "xilinx.com:module_ref:Led_Full:1.0",
+        "xci_name": "design_leds_Led_Full_0_0",
+        "xci_path": "ip\\design_leds_Led_Full_0_0\\design_leds_Led_Full_0_0.xci",
+        "inst_hier_path": "Led_Full_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "Led_4count",
+          "ref_name": "Led_Full",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -1776,47 +1773,14 @@
             }
           },
           "PUL": {
-            "direction": "I"
-          },
-          "LED": {
-            "direction": "O"
-          }
-        }
-      },
-      "Led_Bouncing_0": {
-        "vlnv": "xilinx.com:module_ref:Led_Bouncing:1.0",
-        "xci_name": "design_leds_Led_Bouncing_0_0",
-        "xci_path": "ip\\design_leds_Led_Bouncing_0_0\\design_leds_Led_Bouncing_0_0.xci",
-        "inst_hier_path": "Led_Bouncing_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Led_Bouncing",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "CLK": {
-            "type": "clk",
             "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "199998000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "design_leds_clk_wiz_0_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "PUL": {
-            "direction": "I"
+            "left": "3",
+            "right": "0"
           },
           "LED": {
-            "direction": "O"
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           }
         }
       }
@@ -1836,28 +1800,16 @@
       }
     },
     "nets": {
-      "Led_4count_0_LED": {
+      "Led_Full_0_LED": {
         "ports": [
-          "Led_4count_0/LED",
-          "LED_OUT_0"
-        ]
-      },
-      "Led_Bouncing_0_LED": {
-        "ports": [
-          "Led_Bouncing_0/LED",
-          "LED_OUT_1"
+          "Led_Full_0/LED",
+          "LED_OUT"
         ]
       },
       "PUL_0_1": {
         "ports": [
-          "PUL_IN_0",
-          "Led_4count_0/PUL"
-        ]
-      },
-      "PUL_0_2": {
-        "ports": [
-          "PUL_IN_1",
-          "Led_Bouncing_0/PUL"
+          "PUL_IN",
+          "Led_Full_0/PUL"
         ]
       },
       "axi_intc_0_irq": {
@@ -1881,8 +1833,7 @@
           "axi_intc_0/s_axi_aclk",
           "zynq_ultra_ps_e_0/maxihpm0_lpd_aclk",
           "ps8_0_axi_periph/S00_ACLK",
-          "Led_4count_0/CLK",
-          "Led_Bouncing_0/CLK"
+          "Led_Full_0/CLK"
         ]
       },
       "proc_sys_reset_0_peripheral_aresetn": {

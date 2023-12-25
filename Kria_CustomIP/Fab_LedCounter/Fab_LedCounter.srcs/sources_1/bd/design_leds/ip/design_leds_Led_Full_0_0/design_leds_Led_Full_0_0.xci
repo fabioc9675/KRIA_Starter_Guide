@@ -1,14 +1,14 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "design_leds_Led_Bouncing_0_0",
-    "cell_name": "Led_Bouncing_0",
-    "component_reference": "xilinx.com:module_ref:Led_Bouncing:1.0",
+    "xci_name": "design_leds_Led_Full_0_0",
+    "cell_name": "Led_Full_0",
+    "component_reference": "xilinx.com:module_ref:Led_Full:1.0",
     "ip_revision": "1",
-    "gen_directory": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Led_Bouncing_0_0",
+    "gen_directory": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Led_Full_0_0",
     "parameters": {
       "component_parameters": {
-        "Component_Name": [ { "value": "design_leds_Led_Bouncing_0_0", "resolve_type": "user", "usage": "all" } ]
+        "Component_Name": [ { "value": "design_leds_Led_Full_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynquplus" } ],
@@ -29,7 +29,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "1" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Led_Bouncing_0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Led_Full_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2022.2" } ],
@@ -39,8 +39,8 @@
     "boundary": {
       "ports": {
         "CLK": [ { "direction": "in" } ],
-        "PUL": [ { "direction": "in" } ],
-        "LED": [ { "direction": "out" } ]
+        "PUL": [ { "direction": "in", "size_left": "3", "size_right": "0" } ],
+        "LED": [ { "direction": "out", "size_left": "3", "size_right": "0" } ]
       },
       "interfaces": {
         "CLK": {

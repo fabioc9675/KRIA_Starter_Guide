@@ -17,7 +17,7 @@ end Led_4count;
 architecture Behavioral of Led_4count is
     type     state_type is (LED_1, LED_2, LED_3, LED_4, L_WAIT);
     signal   state, next_state : state_type;
-    signal   counter           : integer range 0 to 999999999 := 0;
+    signal   counter           : integer range 0 to 160000000 := 0;
     constant MAX_COUNT         : integer := 160000000;  -- 200 ms with 200 MHz clock
 
 begin

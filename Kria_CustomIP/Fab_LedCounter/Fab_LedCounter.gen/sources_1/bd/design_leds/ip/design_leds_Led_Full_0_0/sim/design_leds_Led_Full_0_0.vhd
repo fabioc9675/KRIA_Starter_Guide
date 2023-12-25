@@ -46,48 +46,40 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:Led_4count:1.0
+-- IP VLNV: xilinx.com:module_ref:Led_Full:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY design_leds_Led_4count_0_0 IS
+ENTITY design_leds_Led_Full_0_0 IS
   PORT (
     CLK : IN STD_LOGIC;
-    PUL : IN STD_LOGIC;
-    LED : OUT STD_LOGIC
+    PUL : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
-END design_leds_Led_4count_0_0;
+END design_leds_Led_Full_0_0;
 
-ARCHITECTURE design_leds_Led_4count_0_0_arch OF design_leds_Led_4count_0_0 IS
+ARCHITECTURE design_leds_Led_Full_0_0_arch OF design_leds_Led_Full_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_leds_Led_4count_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT Led_4count IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_leds_Led_Full_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT Led_Full IS
     PORT (
       CLK : IN STD_LOGIC;
-      PUL : IN STD_LOGIC;
-      LED : OUT STD_LOGIC
+      PUL : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
-  END COMPONENT Led_4count;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF design_leds_Led_4count_0_0_arch: ARCHITECTURE IS "Led_4count,Vivado 2022.2";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF design_leds_Led_4count_0_0_arch : ARCHITECTURE IS "design_leds_Led_4count_0_0,Led_4count,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_leds_Led_4count_0_0_arch: ARCHITECTURE IS "design_leds_Led_4count_0_0,Led_4count,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Led_4count,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
-  ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF design_leds_Led_4count_0_0_arch: ARCHITECTURE IS "module_ref";
+  END COMPONENT Led_Full;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME CLK, FREQ_HZ 199998000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_leds_clk_wiz_0_0_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 CLK CLK";
 BEGIN
-  U0 : Led_4count
+  U0 : Led_Full
     PORT MAP (
       CLK => CLK,
       PUL => PUL,
       LED => LED
     );
-END design_leds_Led_4count_0_0_arch;
+END design_leds_Led_Full_0_0_arch;

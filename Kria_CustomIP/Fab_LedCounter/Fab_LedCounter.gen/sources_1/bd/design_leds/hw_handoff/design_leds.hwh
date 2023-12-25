@@ -1,32 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 22 17:37:48 2023" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Dec 25 11:05:01 2023" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:kr260_som:part0:1.1" DEVICE="xck26" NAME="design_leds" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="I" NAME="PUL_IN_0" SIGIS="undef" SIGNAME="External_Ports_PUL_IN_0">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Led_4count_0" PORT="PUL"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LED_OUT_0" SIGIS="undef" SIGNAME="Led_4count_0_LED">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Led_4count_0" PORT="LED"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="PUL_IN_1" SIGIS="undef" SIGNAME="External_Ports_PUL_IN_1">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Led_Bouncing_0" PORT="PUL"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="LED_OUT_1" SIGIS="undef" SIGNAME="Led_Bouncing_0_LED">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Led_Bouncing_0" PORT="LED"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" LEFT="0" NAME="fan_en_b" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="LED_OUT" RIGHT="0" SIGIS="undef" SIGNAME="Led_Full_0_LED">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Led_Full_0" PORT="LED"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="PUL_IN" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_PUL_IN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Led_Full_0" PORT="PUL"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -34,10 +24,10 @@
   <EXTERNALINTERFACES/>
 
   <MODULES>
-    <MODULE COREREVISION="1" FULLNAME="/Led_4count_0" HWVERSION="1.0" INSTANCE="Led_4count_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Led_4count" VLNV="xilinx.com:module_ref:Led_4count:1.0">
+    <MODULE COREREVISION="1" FULLNAME="/Led_Full_0" HWVERSION="1.0" INSTANCE="Led_Full_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Led_Full" VLNV="xilinx.com:module_ref:Led_Full:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="design_leds_Led_4count_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_leds_Led_Full_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -46,39 +36,14 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="PUL" SIGIS="undef" SIGNAME="External_Ports_PUL_IN_0">
+        <PORT DIR="I" LEFT="3" NAME="PUL" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_PUL_IN">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="PUL_IN_0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="PUL_IN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="LED" SIGIS="undef" SIGNAME="Led_4count_0_LED">
+        <PORT DIR="O" LEFT="3" NAME="LED" RIGHT="0" SIGIS="undef" SIGNAME="Led_Full_0_LED">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED_OUT_0"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/Led_Bouncing_0" HWVERSION="1.0" INSTANCE="Led_Bouncing_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Led_Bouncing" VLNV="xilinx.com:module_ref:Led_Bouncing:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="design_leds_Led_Bouncing_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="199998000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out2"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="PUL" SIGIS="undef" SIGNAME="External_Ports_PUL_IN_1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="PUL_IN_1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="LED" SIGIS="undef" SIGNAME="Led_Bouncing_0_LED">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED_OUT_1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED_OUT"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2379,8 +2344,7 @@
             <CONNECTION INSTANCE="axi_intc_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="zynq_ultra_ps_e_0" PORT="maxihpm0_lpd_aclk"/>
             <CONNECTION INSTANCE="ps8_0_axi_periph" PORT="S00_ACLK"/>
-            <CONNECTION INSTANCE="Led_4count_0" PORT="CLK"/>
-            <CONNECTION INSTANCE="Led_Bouncing_0" PORT="CLK"/>
+            <CONNECTION INSTANCE="Led_Full_0" PORT="CLK"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef"/>
