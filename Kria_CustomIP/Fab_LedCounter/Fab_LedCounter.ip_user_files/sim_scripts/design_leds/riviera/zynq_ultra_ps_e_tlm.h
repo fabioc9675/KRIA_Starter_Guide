@@ -133,8 +133,13 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     public:
     // Non-AXI ports are declared here
     sc_core::sc_in<bool> maxihpm0_lpd_aclk;
+    sc_core::sc_out<sc_dt::sc_bv<94> >  emio_enet0_enet_tsu_timer_cnt;
+    sc_core::sc_out<sc_dt::sc_bv<3> >  emio_ttc0_wave_o;
     sc_core::sc_in<sc_dt::sc_bv<1> >  pl_ps_irq0;
     sc_core::sc_out<bool> pl_resetn0;
+    sc_core::sc_out<bool> pl_resetn1;
+    sc_core::sc_out<bool> pl_resetn2;
+    sc_core::sc_out<bool> pl_resetn3;
     sc_core::sc_out<bool> pl_clk0;
     sc_core::sc_out<bool> pl_clk1;
      
@@ -196,6 +201,15 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     //pl_resetn0 output reset pin get toggle when emio bank 2's 31th signal gets toggled
     //EMIO[2] bank 31th(GPIO[95] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
     void pl_resetn0_trigger();
+    //pl_resetn1 output reset pin get toggle when emio bank 2's 30th signal gets toggled
+    //EMIO[2] bank 30th(GPIO[94] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void pl_resetn1_trigger();
+    //pl_resetn2 output reset pin get toggle when emio bank 2's 29th signal gets toggled
+    //EMIO[2] bank 29th(GPIO[93] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void pl_resetn2_trigger();
+    //pl_resetn3 output reset pin get toggle when emio bank 2's 29th signal gets toggled
+    //EMIO[2] bank 28th(GPIO[92] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
+    void pl_resetn3_trigger();
 
     sc_signal<bool> qemu_rst;
     void start_of_simulation();
