@@ -1179,3 +1179,9 @@ en este, la distribucion de memoria es la siguiente
 ![1703612332385](image/T07_Kria_Custom_IP/1703612332385.png)
 
 ---
+
+Tambien se le puede agregar un reloj externo a partir de un clock wizar, 
+
+> Importante: No es posible hacer que el clock sea el mismo del AXI, empieza a presentar mal funcionamiento
+
+![1703615382492](image/T07_Kria_Custom_IP/1703615382492.png)
