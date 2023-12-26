@@ -4,14 +4,14 @@
     "xci_name": "design_leds_Fab_Led_IP_0_6",
     "cell_name": "Fab_Led_IP_0",
     "component_reference": "xilinx.com:user:Fab_Led_IP:1.2",
-    "ip_revision": "1",
+    "ip_revision": "3",
     "gen_directory": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Fab_Led_IP_0_6",
     "parameters": {
       "component_parameters": {
         "C_S00_AXI_DATA_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C_S00_AXI_ADDR_WIDTH": [ { "value": "4", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C_S00_AXI_BASEADDR": [ { "value": "0xFFFFFFFF", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
-        "C_S00_AXI_HIGHADDR": [ { "value": "0x00000000", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
+        "C_S00_AXI_HIGHADDR": [ { "value": "0xFFFFFFFF", "value_src": "user", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
         "Component_Name": [ { "value": "design_leds_Fab_Led_IP_0_6", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
@@ -35,7 +35,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "1" } ],
+        "IPREVISION": [ { "value": "3" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ip/design_leds_Fab_Led_IP_0_6" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

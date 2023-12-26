@@ -2,12 +2,12 @@ vhdl xil_defaultlib  \
 "../../../bd/design_leds/ip/design_leds_proc_sys_reset_0_0/sim/design_leds_proc_sys_reset_0_0.vhd" \
 "../../../bd/design_leds/ip/design_leds_proc_sys_reset_1_0/sim/design_leds_proc_sys_reset_1_0.vhd" \
 "../../../bd/design_leds/ip/design_leds_axi_intc_0_1/sim/design_leds_axi_intc_0_1.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/src/Led_4count.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/src/Led_Bouncing.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/src/Led_Full.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/src/Led_Logic.vhd" \
-"../../../bd/design_leds/ipshared/d9fd/hdl/Fab_Led_IP_v1_0.vhd" \
+"../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
+"../../../bd/design_leds/ipshared/be8f/src/Led_4count.vhd" \
+"../../../bd/design_leds/ipshared/be8f/src/Led_Bouncing.vhd" \
+"../../../bd/design_leds/ipshared/be8f/src/Led_Full.vhd" \
+"../../../bd/design_leds/ipshared/be8f/src/Led_Logic.vhd" \
+"../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0.vhd" \
 "../../../bd/design_leds/ip/design_leds_Fab_Led_IP_0_6/sim/design_leds_Fab_Led_IP_0_6.vhd" \
 "../../../bd/design_leds/sim/design_leds.vhd" \
 
