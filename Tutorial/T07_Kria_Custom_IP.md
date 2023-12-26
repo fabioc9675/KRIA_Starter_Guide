@@ -231,16 +231,16 @@ begin
         if rising_edge(CLK) then
             if counter = MAX_REL_COUNT - 1 then
                 counter <= 0;
-          
+        
                 if state = GO_UP then
-                    counter_rel <= counter_rel + 1;        
+                    counter_rel <= counter_rel + 1;      
                     -- Restarting counter
                     if counter_rel = MAX_COUNT - 1 then
                         -- counter_rel <= 0;
                         state <= GO_DOWN;
                     end if;
                 elsif state = GO_DOWN then
-                    counter_rel <= counter_rel - 1;        
+                    counter_rel <= counter_rel - 1;      
                     -- Restarting counter
                     if counter_rel = 0 then
                         -- counter_rel <= 0;
@@ -308,7 +308,7 @@ end Behavioral;
 
 ---
 
-## Creacion de un contenedor para los tres modulos 
+## Creacion de un contenedor para los tres modulos
 
 Ahora creamos un contenedor para los tres modulos, este contendra la logica para usar los tres modulos y encapsularlos en un unico diseño.
 
@@ -789,7 +789,7 @@ begin
 	        axi_awaddr <= S_AXI_AWADDR;
 	      end if;
 	    end if;
-	  end if;                 
+	  end if;               
 	end process; 
 
 	-- Implement axi_wready generation
@@ -807,7 +807,7 @@ begin
 	          -- slave is ready to accept write data when 
 	          -- there is a valid write address and write data
 	          -- on the write address and data bus. This design 
-	          -- expects no outstanding transactions.         
+	          -- expects no outstanding transactions.       
 	          axi_wready <= '1';
 	      else
 	        axi_wready <= '0';
@@ -841,7 +841,7 @@ begin
 	          when b"00" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes                 
+	                -- Respective byte enables are asserted as per write strobes               
 	                -- slave registor 0
 	                slv_reg0(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -849,7 +849,7 @@ begin
 	          when b"01" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes                 
+	                -- Respective byte enables are asserted as per write strobes               
 	                -- slave registor 1
 	                slv_reg1(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -857,7 +857,7 @@ begin
 	          when b"10" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes                 
+	                -- Respective byte enables are asserted as per write strobes               
 	                -- slave registor 2
 	                slv_reg2(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -865,7 +865,7 @@ begin
 	          when b"11" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes                 
+	                -- Respective byte enables are asserted as per write strobes               
 	                -- slave registor 3
 	                slv_reg3(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -878,7 +878,7 @@ begin
 	        end case;
 	      end if;
 	    end if;
-	  end if;                 
+	  end if;               
 	end process; 
 
 	-- Implement write response logic generation
@@ -901,7 +901,7 @@ begin
 	        axi_bvalid <= '0';                                 -- (there is a possibility that bready is always asserted high)
 	      end if;
 	    end if;
-	  end if;                 
+	  end if;               
 	end process; 
 
 	-- Implement axi_arready generation
@@ -922,12 +922,12 @@ begin
 	        -- indicates that the slave has acceped the valid read address
 	        axi_arready <= '1';
 	        -- Read Address latching 
-	        axi_araddr  <= S_AXI_ARADDR;         
+	        axi_araddr  <= S_AXI_ARADDR;       
 	      else
 	        axi_arready <= '0';
 	      end if;
 	    end if;
-	  end if;                 
+	  end if;               
 	end process; 
 
 	-- Implement axi_arvalid generation
@@ -952,7 +952,7 @@ begin
 	      elsif (axi_rvalid = '1' and S_AXI_RREADY = '1') then
 	        -- Read data is accepted by the master
 	        axi_rvalid <= '0';
-	      end if;          
+	      end if;        
 	    end if;
 	  end if;
 	end process;
@@ -1084,7 +1084,6 @@ createdts -hw design_leds_wrapper.xsa -zocl -platform-name kr260_leds -git-branc
 exit
 ```
 
-
 ### Creacion del overlay en la KRIA
 
 Finalmente en la KRIA se debe crear el overlay, para esto se utiliza el script `compile.sh` dentro de la kria
@@ -1121,5 +1120,62 @@ echo ""
 echo ""
 
 ```
+
+---
+
+## Modificacion en el IP Core
+
+Se ajustó el IP para que cada evento de pulsador correspondiera a una direccion diferente del `slv_regX`, asi en el archivo `Fab_Led_IP_v1_0_S00_AXI.vhd`:
+
+```vhdl
+
+--**************************************************
+---- Parte agregada por Fabian
+--**************************************************
+Led_Full_comp: component Led_Full
+port map (
+   CLK => clk_led,
+   LED => out_led,
+   PUL(0) => slv_reg0(0),
+   PUL(1) => slv_reg1(0),
+   PUL(2) => slv_reg2(0),
+   PUL(3) => slv_reg3(0) 
+);
+--**************************************************
+---- Final Parte agregada por Fabian
+--**************************************************
+```
+
+Luego de compilar y regenerar el device tree, se puede utlizar el device tree como sigue
+
+```bash
+sudo devmem 0x80010000 64 0x0000000100000001
+sudo devmem 0x80010000 64 0x0000000000000000
+sudo devmem 0x80010008 64 0x0000000100000001
+sudo devmem 0x80010008 64 0x0000000000000000
+```
+
+en este, la distribucion de memoria es la siguiente
+
+| Linux Address    | Width  | Value                  | => | IP Address                |
+| ---------------- | ------ | ---------------------- | -- | ------------------------- |
+| `0x80010000`  | `64` | `0x000000000000000X` |    | `slv_reg0 (4 downto 0)` |
+| `0x80010000`   | `64` | `0x0000000X00000000` |    | `slv_reg1 (4 downto 0)` |
+| `0x80010008`   | `64` | `0x000000000000000X` |    | `slv_reg2 (4 downto 0)` |
+| `0x80010008`   | `64` | `0x0000000X00000000` |    | `slv_reg3 (4 downto 0)` |
+
+#### Prueba de funcionamiento
+
+- Estado IDLE `sudo devmem 0x80010000 64 0x0000000000000000` y `sudo devmem 0x80010008 64 0x0000000000000000`
+
+![1703612298655](image/T07_Kria_Custom_IP/1703612298655.png)
+
+- Estado LED_0 y LED_1 activos `sudo devmem 0x80010000 64 0x0000000100000001`
+
+![1703612306235](image/T07_Kria_Custom_IP/1703612306235.png)
+
+- Estado LED_2 y LED_3 activos `sudo devmem 0x80010008 64 0x0000000100000001`
+
+![1703612332385](image/T07_Kria_Custom_IP/1703612332385.png)
 
 ---
