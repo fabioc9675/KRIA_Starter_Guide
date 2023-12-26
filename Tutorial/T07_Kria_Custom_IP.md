@@ -1028,3 +1028,98 @@ Asi debe quedar al final luego de empaquetar
 Asi queda la implementacion del IP Custom
 
 ![1703560682752](image/T07_Kria_Custom_IP/1703560682752.png)
+
+# Compilacion del device tree
+
+Para realizar esta compilacion es necesario correr los el script `generateDT.sh` en la maquina virtual con linux, este depende del archivo `xsct_script.tcl`, este proceso necesita que los archivos `design_leds_wrapper.bit`, `design_leds_wrapper.bin` y `design_leds_wrapper.xsa` se encuentren en la carpeta con los scripts, luego se generaran automaticamente los archivos que se exportaran a la KRIA Robotics.
+
+##### Archivo generateDT.sh
+
+```bash
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Creacion del device tree"
+echo "#############################################################################"
+echo ""
+echo ""
+
+source /tools/Xilinx/Vitis/2022.2/settings64.sh
+cd /home/fabian/Documents/Leds_platform/
+xsct xsct_script.tcl
+
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Compilacion del device tree"
+echo "#############################################################################"
+echo ""
+echo ""
+
+dtc -@ -O dtb -o ./dtg_kr260_v0/dtg_kr260_v0/kr260_leds/psu_cortexa53_0/device_tree_domain/bsp/pl.dtbo ./dtg_kr260_v0/dtg_kr260_v0/kr260_leds/psu_cortexa53_0/device_tree_domain/bsp/pl.dtsi
+cd /home/fabian/Documents/Leds_platform/file_transfer/
+cp ../dtg_kr260_v0/dtg_kr260_v0/kr260_leds/psu_cortexa53_0/device_tree_domain/bsp/pl.dtbo ./ & cp ../design_leds_wrapper.bin ./
+mv design_leds_wrapper.bin kr260_leds.bit.bin
+mv pl.dtbo kr260_leds.dtbo
+
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Envio de archivos a la Kria"
+echo "#############################################################################"
+echo ""
+echo ""
+
+echo petalinux | scp kr260_leds.bit.bin kr260_leds.dtbo shell.json petalinux@192.168.1.9:/home/petalinux
+
+```
+
+## Archivo xsct_script.tcl
+
+```bash
+hsi::open_hw_design design_leds_wrapper.xsa 
+
+createdts -hw design_leds_wrapper.xsa -zocl -platform-name kr260_leds -git-branch xlnx_rel_v2022.2 -overlay -compile -out ./dtg_kr260_v0  
+
+exit
+```
+
+
+### Creacion del overlay en la KRIA
+
+Finalmente en la KRIA se debe crear el overlay, para esto se utiliza el script `compile.sh` dentro de la kria
+
+```bash
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Creacion de la carpeta device tree"
+echo "#############################################################################"
+echo ""
+echo ""
+
+mkdir /lib/firmware/xilinx/kr260_leds/
+mv kr260_leds.bit.bin kr260_leds.dtbo shell.json /lib/firmware/xilinx/kr260_leds/
+
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Cargar el device tree overlay"
+echo "#############################################################################"
+echo ""
+echo ""
+
+xmutil unloadapp
+xmutil loadapp kr260_leds
+
+echo ""
+echo ""
+echo "#############################################################################"
+echo "Final del proceso"
+echo "#############################################################################"
+echo ""
+echo ""
+
+```
+
+---
