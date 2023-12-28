@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="Leds_Control"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+Leds_Control
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="Leds_Control">
+        <sdx:configuration sdx:name="Leds_Control"
+                           sdx:displayName="Leds_Control"
+                           sdx:defaultProcessorGroup="device_tree_domain"
+                           sdx:runtimes="cpp">
+            <sdx:description>Leds_Control</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif=""
+                            sdx:imageData=""
+                            sdx:readme="Leds_Control/boot/generic.readme"
+                            sdx:qemuArguments="Leds_Control/qemu/pmu_args.txt:Leds_Control/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="device_tree_domain"
+                            sdx:bif="Leds_Control/boot/Leds_Control.bif"
+                            sdx:readme="Leds_Control/boot/generic.readme"
+                            sdx:qemuArguments="Leds_Control/device_tree_domain/qemu/pmu_args.txt:Leds_Control/device_tree_domain/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="device_tree_domain"
+                                sdx:displayName="device_tree on psu_cortexa53_0"
+                                sdx:cpuType="cortex-a53"
+                                sdx:cpuInstance="psu_cortexa53_0">
+                <sdx:os sdx:name="device_tree"
+                        sdx:displayName="device_tree"
+                        sdx:bspLibraryPaths="Leds_Control/device_tree_domain/bsplib/lib"
+                        sdx:bspIncludePaths="Leds_Control/device_tree_domain/bspinclude/include"
+                        sdx:bspConfig="Leds_Control/device_tree_domain/system.mss"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>
