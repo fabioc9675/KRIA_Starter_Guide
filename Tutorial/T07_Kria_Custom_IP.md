@@ -231,16 +231,16 @@ begin
         if rising_edge(CLK) then
             if counter = MAX_REL_COUNT - 1 then
                 counter <= 0;
-        
+      
                 if state = GO_UP then
-                    counter_rel <= counter_rel + 1;      
+                    counter_rel <= counter_rel + 1;    
                     -- Restarting counter
                     if counter_rel = MAX_COUNT - 1 then
                         -- counter_rel <= 0;
                         state <= GO_DOWN;
                     end if;
                 elsif state = GO_DOWN then
-                    counter_rel <= counter_rel - 1;      
+                    counter_rel <= counter_rel - 1;    
                     -- Restarting counter
                     if counter_rel = 0 then
                         -- counter_rel <= 0;
@@ -789,7 +789,7 @@ begin
 	        axi_awaddr <= S_AXI_AWADDR;
 	      end if;
 	    end if;
-	  end if;               
+	  end if;             
 	end process; 
 
 	-- Implement axi_wready generation
@@ -807,7 +807,7 @@ begin
 	          -- slave is ready to accept write data when 
 	          -- there is a valid write address and write data
 	          -- on the write address and data bus. This design 
-	          -- expects no outstanding transactions.       
+	          -- expects no outstanding transactions.     
 	          axi_wready <= '1';
 	      else
 	        axi_wready <= '0';
@@ -841,7 +841,7 @@ begin
 	          when b"00" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes               
+	                -- Respective byte enables are asserted as per write strobes             
 	                -- slave registor 0
 	                slv_reg0(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -849,7 +849,7 @@ begin
 	          when b"01" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes               
+	                -- Respective byte enables are asserted as per write strobes             
 	                -- slave registor 1
 	                slv_reg1(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -857,7 +857,7 @@ begin
 	          when b"10" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes               
+	                -- Respective byte enables are asserted as per write strobes             
 	                -- slave registor 2
 	                slv_reg2(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -865,7 +865,7 @@ begin
 	          when b"11" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes               
+	                -- Respective byte enables are asserted as per write strobes             
 	                -- slave registor 3
 	                slv_reg3(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -878,7 +878,7 @@ begin
 	        end case;
 	      end if;
 	    end if;
-	  end if;               
+	  end if;             
 	end process; 
 
 	-- Implement write response logic generation
@@ -901,7 +901,7 @@ begin
 	        axi_bvalid <= '0';                                 -- (there is a possibility that bready is always asserted high)
 	      end if;
 	    end if;
-	  end if;               
+	  end if;             
 	end process; 
 
 	-- Implement axi_arready generation
@@ -922,12 +922,12 @@ begin
 	        -- indicates that the slave has acceped the valid read address
 	        axi_arready <= '1';
 	        -- Read Address latching 
-	        axi_araddr  <= S_AXI_ARADDR;       
+	        axi_araddr  <= S_AXI_ARADDR;     
 	      else
 	        axi_arready <= '0';
 	      end if;
 	    end if;
-	  end if;               
+	  end if;             
 	end process; 
 
 	-- Implement axi_arvalid generation
@@ -952,7 +952,7 @@ begin
 	      elsif (axi_rvalid = '1' and S_AXI_RREADY = '1') then
 	        -- Read data is accepted by the master
 	        axi_rvalid <= '0';
-	      end if;        
+	      end if;      
 	    end if;
 	  end if;
 	end process;
@@ -1180,8 +1180,189 @@ en este, la distribucion de memoria es la siguiente
 
 ---
 
-Tambien se le puede agregar un reloj externo a partir de un clock wizar, 
+Tambien se le puede agregar un reloj externo a partir de un clock wizar,
 
 > Importante: No es posible hacer que el clock sea el mismo del AXI, empieza a presentar mal funcionamiento
 
 ![1703615382492](image/T07_Kria_Custom_IP/1703615382492.png)
+
+---
+
+## Implementacion de codigo en C para el control del IPCore custom
+
+Para controlar el IP Core con un codigo en C podemos implementar el siguiente codigo al cual nombraremos `ip_control.c`
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <unistd.h> // Para la función sleep()
+
+#define IP_BASE_ADDRESS 0x80010000 // Dirección base del IP personalizado
+#define REGISTER_SIZE 4            // Tamaño del registro en bytes (32 bits = 4 bytes)
+
+int main()
+{
+    int fd;
+    void *mapped_base, *mapped_dev_base;
+
+    // Abrir el dispositivo para acceder a su espacio de memoria
+    if ((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1)
+    {
+        perror("Error abriendo /dev/mem");
+        return -1;
+    }
+
+    // Mapear la memoria física en el espacio de memoria virtual del proceso
+    mapped_base = mmap(0, REGISTER_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, IP_BASE_ADDRESS);
+    if (mapped_base == (void *)-1)
+    {
+        perror("Error mapeando la dirección base");
+        return -1;
+    }
+
+    // Calcular la dirección de memoria virtual del IP
+    mapped_dev_base = mapped_base;
+
+    // Acceder a registros del IP personalizado
+    // Ejemplo de lectura de un registro
+    int reg_value = *((volatile unsigned int *)mapped_dev_base);
+    printf("Valor del registro: 0x%08x\n", reg_value);
+
+    for (int i = 0; i < 10; i++)
+    {
+
+        // Ejemplo de escritura en un registro
+        *((volatile unsigned int *)mapped_dev_base) = i;
+
+        sleep(1);
+
+        // Acceder a registros del IP personalizado
+        // Ejemplo de lectura de un registro
+        reg_value = *((volatile unsigned int *)mapped_dev_base);
+        printf("Valor del registro: 0x%08x\n", reg_value);
+
+        // Ejemplo de escritura en un registro
+        *((volatile unsigned int *)mapped_dev_base) = 0x00;
+
+        // Ejemplo de escritura en un registro
+        *((volatile unsigned int *)mapped_dev_base) = 0xFF;
+
+        // Acceder a registros del IP personalizado
+        // Ejemplo de lectura de un registro
+        reg_value = *((volatile unsigned int *)mapped_dev_base);
+        printf("Valor del registro: 0x%08x\n", reg_value);
+
+        // Agregar un retraso de 5 segundos antes de finalizar
+        sleep(4);
+    }
+
+    // Liberar el mapeo de memoria
+    if (munmap(mapped_base, REGISTER_SIZE) == -1)
+    {
+        perror("Error al liberar el mapeo de memoria");
+        return -1;
+    }
+
+    // Cerrar el dispositivo
+    close(fd);
+
+    return 0;
+}
+
+```
+
+Luego para compilarlo debemos utilizar la siguiente linea de codigo la cual genera el ejecutable a partir del codigo en C
+
+```bash
+gcc -o ip_control ip_control.c
+```
+
+Tambien podemos cambiar los permisos de ejecucion del archivo para ejecutarlo como usuario local o tambien podemos ejecutarlo como super usuario usando `sudo`
+
+```bash
+sudo chown root:root ip_control
+sudo chmod u+s ip_control
+```
+
+Luego para ejecutarlo sismplemente usamos `./ip_control` y el codigo se ejecutarà sin problemas
+
+### Crear una funcion en C y ejecutarla con python
+
+Primero crearemos la funcion en C usando el siguiente codigo del archivo `IP_Custom_Func.c`
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+
+#define IP_BASE_ADDRESS 0x80010000 // Dirección base del IP personalizado
+#define REGISTER_SIZE    4        // Tamaño del registro en bytes (32 bits = 4 bytes)
+
+void Fab_Led_IP_writeReg(int value_to_write) {
+    int fd;
+    void *mapped_base, *mapped_dev_base;
+
+    // Abrir el dispositivo para acceder a su espacio de memoria
+    if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) {
+        perror("Error abriendo /dev/mem");
+        exit(-1);
+    }
+
+    // Mapear la memoria física en el espacio de memoria virtual del proceso
+    mapped_base = mmap(0, REGISTER_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, IP_BASE_ADDRESS);
+    if(mapped_base == (void *) -1) {
+        perror("Error mapeando la dirección base");
+        exit(-1);
+    }
+
+    // Calcular la dirección de memoria virtual del IP
+    mapped_dev_base = mapped_base;
+
+    // Escribir en el registro
+    *((volatile unsigned int *) mapped_dev_base) = value_to_write;
+
+    // Liberar el mapeo de memoria
+    if (munmap(mapped_base, REGISTER_SIZE) == -1) {
+        perror("Error al liberar el mapeo de memoria");
+        exit(-1);
+    }
+
+    // Cerrar el dispositivo
+    close(fd);
+}
+```
+
+Luego, como en el paso anterior compilamos el archivo pero ahora como una funcion compartida
+
+```bash
+gcc -shared -o IP_Custom_Func.so -fPIC IP_Custom_Func.c
+```
+
+Ahora creamos el script de python que nos permitirá ejecutar la funcion desde el archivo precompilado de C:
+
+```python
+# my_python_script.py
+import ctypes
+import time
+
+# Cargar la biblioteca compartida
+my_c_function = ctypes.CDLL('./IP_Custom_Func.so')
+
+# Definir el tipo de argumento y valor a escribir en el registro
+value = ctypes.c_uint(0x00)  # Cambia este valor según sea necesario
+# Llamar a la función C desde Python
+my_c_function.Fab_Led_IP_writeReg(value)
+time.sleep(2)
+
+value = ctypes.c_uint(0xFF)  # Cambia este valor según sea necesario
+# Llamar a la función C desde Python
+my_c_function.Fab_Led_IP_writeReg(value)
+time.sleep(2)
+```
+
+es de anotar que tambien se pueden cambiar los permisos de los archivos ejecutables de cada IP_Core
+
+---
