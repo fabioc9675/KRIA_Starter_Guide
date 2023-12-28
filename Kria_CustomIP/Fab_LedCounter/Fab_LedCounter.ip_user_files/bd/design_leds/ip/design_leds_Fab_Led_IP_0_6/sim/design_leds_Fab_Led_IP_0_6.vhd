@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:Fab_Led_IP:1.2
--- IP Revision: 3
+-- IP Revision: 5
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -55,7 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY design_leds_Fab_Led_IP_0_6 IS
   PORT (
-    out_l : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    clk_ext : IN STD_LOGIC;
+    out_ext : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     s00_axi_aclk : IN STD_LOGIC;
     s00_axi_aresetn : IN STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -89,7 +90,8 @@ ARCHITECTURE design_leds_Fab_Led_IP_0_6_arch OF design_leds_Fab_Led_IP_0_6 IS
       C_S00_AXI_ADDR_WIDTH : INTEGER
     );
     PORT (
-      out_l : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      clk_ext : IN STD_LOGIC;
+      out_ext : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       s00_axi_aclk : IN STD_LOGIC;
       s00_axi_aresetn : IN STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -147,7 +149,8 @@ BEGIN
       C_S00_AXI_ADDR_WIDTH => 4
     )
     PORT MAP (
-      out_l => out_l,
+      clk_ext => clk_ext,
+      out_ext => out_ext,
       s00_axi_aclk => s00_axi_aclk,
       s00_axi_aresetn => s00_axi_aresetn,
       s00_axi_awaddr => s00_axi_awaddr,

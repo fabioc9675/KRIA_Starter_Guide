@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:Fab_Led_IP:1.2
--- IP Revision: 3
+-- IP Revision: 5
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -55,7 +55,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY design_leds_Fab_Led_IP_0_6 IS
   PORT (
-    out_l : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    clk_ext : IN STD_LOGIC;
+    out_ext : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     s00_axi_aclk : IN STD_LOGIC;
     s00_axi_aresetn : IN STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -89,7 +90,8 @@ ARCHITECTURE design_leds_Fab_Led_IP_0_6_arch OF design_leds_Fab_Led_IP_0_6 IS
       C_S00_AXI_ADDR_WIDTH : INTEGER
     );
     PORT (
-      out_l : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      clk_ext : IN STD_LOGIC;
+      out_ext : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       s00_axi_aclk : IN STD_LOGIC;
       s00_axi_aresetn : IN STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -118,7 +120,7 @@ ARCHITECTURE design_leds_Fab_Led_IP_0_6_arch OF design_leds_Fab_Led_IP_0_6 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_leds_Fab_Led_IP_0_6_arch : ARCHITECTURE IS "design_leds_Fab_Led_IP_0_6,Fab_Led_IP_v1_0,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_leds_Fab_Led_IP_0_6_arch: ARCHITECTURE IS "design_leds_Fab_Led_IP_0_6,Fab_Led_IP_v1_0,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Fab_Led_IP,x_ipVersion=1.2,x_ipCoreRevision=3,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_leds_Fab_Led_IP_0_6_arch: ARCHITECTURE IS "design_leds_Fab_Led_IP_0_6,Fab_Led_IP_v1_0,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=Fab_Led_IP,x_ipVersion=1.2,x_ipCoreRevision=5,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF s00_axi_aclk: SIGNAL IS "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 199998000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_leds_clk_wiz_0_0_clk_out1, INSERT_VIP 0";
@@ -153,7 +155,8 @@ BEGIN
       C_S00_AXI_ADDR_WIDTH => 4
     )
     PORT MAP (
-      out_l => out_l,
+      clk_ext => clk_ext,
+      out_ext => out_ext,
       s00_axi_aclk => s00_axi_aclk,
       s00_axi_aresetn => s00_axi_aresetn,
       s00_axi_awaddr => s00_axi_awaddr,

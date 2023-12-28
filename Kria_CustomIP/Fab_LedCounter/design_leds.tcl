@@ -37,13 +37,6 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # To test this script, run the following commands from Vivado Tcl console:
 # source design_leds_script.tcl
 
-
-# The design that will be created by this Tcl script contains the following 
-# module references:
-# Led_Full
-
-# Please add the sources of those modules before sourcing this Tcl script.
-
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
 # <./myproj/project_1.xpr> in the current working folder.
@@ -131,6 +124,7 @@ set bCheckIPsPassed 1
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
+xilinx.com:user:Fab_Led_IP:1.2\
 xilinx.com:ip:axi_intc:4.1\
 xilinx.com:ip:clk_wiz:6.0\
 xilinx.com:ip:proc_sys_reset:5.0\
@@ -153,31 +147,6 @@ xilinx.com:ip:zynq_ultra_ps_e:3.4\
       set bCheckIPsPassed 0
    }
 
-}
-
-##################################################################
-# CHECK Modules
-##################################################################
-set bCheckModules 1
-if { $bCheckModules == 1 } {
-   set list_check_mods "\ 
-Led_Full\
-"
-
-   set list_mods_missing ""
-   common::send_gid_msg -ssname BD::TCL -id 2020 -severity "INFO" "Checking if the following modules exist in the project's sources: $list_check_mods ."
-
-   foreach mod_vlnv $list_check_mods {
-      if { [can_resolve_reference $mod_vlnv] == 0 } {
-         lappend list_mods_missing $mod_vlnv
-      }
-   }
-
-   if { $list_mods_missing ne "" } {
-      catch {common::send_gid_msg -ssname BD::TCL -id 2021 -severity "ERROR" "The following module(s) are not found in the project: $list_mods_missing" }
-      common::send_gid_msg -ssname BD::TCL -id 2022 -severity "INFO" "Please add source files for the missing module(s) above."
-      set bCheckIPsPassed 0
-   }
 }
 
 if { $bCheckIPsPassed != 1 } {
@@ -227,20 +196,11 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set LED_OUT [ create_bd_port -dir O -from 3 -to 0 LED_OUT ]
-  set PUL_IN [ create_bd_port -dir I -from 3 -to 0 PUL_IN ]
   set fan_en_b [ create_bd_port -dir O -from 0 -to 0 fan_en_b ]
 
-  # Create instance: Led_Full_0, and set properties
-  set block_name Led_Full
-  set block_cell_name Led_Full_0
-  if { [catch {set Led_Full_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $Led_Full_0 eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
+  # Create instance: Fab_Led_IP_0, and set properties
+  set Fab_Led_IP_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Fab_Led_IP:1.2 Fab_Led_IP_0 ]
+
   # Create instance: axi_intc_0, and set properties
   set axi_intc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_intc:4.1 axi_intc_0 ]
   set_property CONFIG.C_IRQ_CONNECTION {1} $axi_intc_0
@@ -253,8 +213,13 @@ proc create_root_design { parentCell } {
     CONFIG.CLKOUT2_PHASE_ERROR {87.181} \
     CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
     CONFIG.CLKOUT2_USED {true} \
+    CONFIG.CLKOUT3_JITTER {102.087} \
+    CONFIG.CLKOUT3_PHASE_ERROR {87.181} \
+    CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {200.000} \
+    CONFIG.CLKOUT3_USED {true} \
     CONFIG.MMCM_CLKOUT1_DIVIDE {6} \
-    CONFIG.NUM_OUT_CLKS {2} \
+    CONFIG.MMCM_CLKOUT2_DIVIDE {6} \
+    CONFIG.NUM_OUT_CLKS {3} \
     CONFIG.RESET_PORT {resetn} \
     CONFIG.RESET_TYPE {ACTIVE_LOW} \
   ] $clk_wiz_0
@@ -268,7 +233,7 @@ proc create_root_design { parentCell } {
 
   # Create instance: ps8_0_axi_periph, and set properties
   set ps8_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps8_0_axi_periph ]
-  set_property CONFIG.NUM_MI {1} $ps8_0_axi_periph
+  set_property CONFIG.NUM_MI {3} $ps8_0_axi_periph
 
 
   # Create instance: xlslice_0, and set properties
@@ -730,21 +695,23 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
 
   # Create interface connections
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M00_AXI [get_bd_intf_pins axi_intc_0/s_axi] [get_bd_intf_pins ps8_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net ps8_0_axi_periph_M01_AXI [get_bd_intf_pins Fab_Led_IP_0/S00_AXI] [get_bd_intf_pins ps8_0_axi_periph/M01_AXI]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_LPD [get_bd_intf_pins ps8_0_axi_periph/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_LPD]
 
   # Create port connections
-  connect_bd_net -net Led_Full_0_LED [get_bd_ports LED_OUT] [get_bd_pins Led_Full_0/LED]
-  connect_bd_net -net PUL_0_1 [get_bd_ports PUL_IN] [get_bd_pins Led_Full_0/PUL]
+  connect_bd_net -net Fab_Led_IP_0_out_l [get_bd_ports LED_OUT] [get_bd_pins Fab_Led_IP_0/out_ext]
   connect_bd_net -net axi_intc_0_irq [get_bd_pins axi_intc_0/irq] [get_bd_pins zynq_ultra_ps_e_0/pl_ps_irq0]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
-  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins Led_Full_0/CLK] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins Fab_Led_IP_0/s00_axi_aclk] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins proc_sys_reset_1/slowest_sync_clk] [get_bd_pins ps8_0_axi_periph/ACLK] [get_bd_pins ps8_0_axi_periph/M00_ACLK] [get_bd_pins ps8_0_axi_periph/M01_ACLK] [get_bd_pins ps8_0_axi_periph/M02_ACLK] [get_bd_pins ps8_0_axi_periph/S00_ACLK] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_lpd_aclk]
+  connect_bd_net -net clk_wiz_0_clk_out3 [get_bd_pins Fab_Led_IP_0/clk_ext] [get_bd_pins clk_wiz_0/clk_out3]
+  connect_bd_net -net proc_sys_reset_1_peripheral_aresetn [get_bd_pins Fab_Led_IP_0/s00_axi_aresetn] [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins proc_sys_reset_1/peripheral_aresetn] [get_bd_pins ps8_0_axi_periph/ARESETN] [get_bd_pins ps8_0_axi_periph/M00_ARESETN] [get_bd_pins ps8_0_axi_periph/M01_ARESETN] [get_bd_pins ps8_0_axi_periph/M02_ARESETN] [get_bd_pins ps8_0_axi_periph/S00_ARESETN]
   connect_bd_net -net xlslice_0_Dout [get_bd_ports fan_en_b] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net zynq_ultra_ps_e_0_emio_ttc0_wave_o [get_bd_pins xlslice_0/Din] [get_bd_pins zynq_ultra_ps_e_0/emio_ttc0_wave_o]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins clk_wiz_0/resetn] [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins proc_sys_reset_1/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
+  assign_bd_address -offset 0x80010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs Fab_Led_IP_0/S00_AXI/S00_AXI_reg] -force
   assign_bd_address -offset 0x80000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_intc_0/S_AXI/Reg] -force
 
 
@@ -752,9 +719,10 @@ Port;FD4A0000;FD4AFFFF;1|FPD;DPDMA;FD4C0000;FD4CFFFF;1|FPD;DDR_XMPU5_CFG;FD05000
   current_bd_instance $oldCurInst
 
   # Create PFM attributes
+  set_property PFM_NAME {xilinx:kr260_som:name:0.0} [get_files [current_bd_design].bd]
   set_property PFM.IRQ {intr { id 0 range 32 }} [get_bd_cells /axi_intc_0]
   set_property PFM.CLOCK {clk_out1 {id "4" is_default "false" proc_sys_reset "/proc_sys_reset_0" status "fixed" freq_hz "100000000"} clk_out2 {id "5" is_default "true" proc_sys_reset "/proc_sys_reset_1" status "fixed" freq_hz "200000000"}} [get_bd_cells /clk_wiz_0]
-  set_property PFM.AXI_PORT {M01_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M02_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M03_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M04_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M05_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M06_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M07_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M08_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"}} [get_bd_cells /ps8_0_axi_periph]
+  set_property PFM.AXI_PORT {M03_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } M04_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } M05_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } M06_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } M07_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } M08_AXI { memport "M_AXI_GP" sptag "" memory "" is_range "false" } } [get_bd_cells /ps8_0_axi_periph]
   set_property PFM.AXI_PORT {M_AXI_HPM0_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} M_AXI_HPM1_FPD {memport "M_AXI_GP" sptag "" memory "" is_range "false"} S_AXI_HPC0_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HPC1_FPD {memport "S_AXI_HPC" sptag "" memory "" is_range "false"} S_AXI_HP0_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP1_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP2_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"} S_AXI_HP3_FPD {memport "S_AXI_HP" sptag "" memory "" is_range "false"}} [get_bd_cells /zynq_ultra_ps_e_0]
 
 

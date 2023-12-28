@@ -80,12 +80,12 @@
   "../../../bd/design_leds/ip/design_leds_xlslice_0_0/sim/design_leds_xlslice_0_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
-  "../../../bd/design_leds/ipshared/be8f/src/Led_4count.vhd" \
-  "../../../bd/design_leds/ipshared/be8f/src/Led_Bouncing.vhd" \
-  "../../../bd/design_leds/ipshared/be8f/src/Led_Full.vhd" \
-  "../../../bd/design_leds/ipshared/be8f/src/Led_Logic.vhd" \
-  "../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/src/Led_4count.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/src/Led_Bouncing.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/src/Led_Full.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/src/Led_Logic.vhd" \
+  "../../../bd/design_leds/ipshared/6eb3/hdl/Fab_Led_IP_v1_0.vhd" \
   "../../../bd/design_leds/ip/design_leds_Fab_Led_IP_0_6/sim/design_leds_Fab_Led_IP_0_6.vhd" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \

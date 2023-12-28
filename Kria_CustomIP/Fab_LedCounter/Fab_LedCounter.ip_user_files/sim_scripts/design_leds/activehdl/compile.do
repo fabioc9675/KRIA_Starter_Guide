@@ -119,12 +119,12 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Fab_LedCounter.gen/sources
 "../../../bd/design_leds/ip/design_leds_xlslice_0_0/sim/design_leds_xlslice_0_0.v" \
 
 vcom -work xil_defaultlib -93  \
-"../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
-"../../../bd/design_leds/ipshared/be8f/src/Led_4count.vhd" \
-"../../../bd/design_leds/ipshared/be8f/src/Led_Bouncing.vhd" \
-"../../../bd/design_leds/ipshared/be8f/src/Led_Full.vhd" \
-"../../../bd/design_leds/ipshared/be8f/src/Led_Logic.vhd" \
-"../../../bd/design_leds/ipshared/be8f/hdl/Fab_Led_IP_v1_0.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/hdl/Fab_Led_IP_v1_0_S00_AXI.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/src/Led_4count.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/src/Led_Bouncing.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/src/Led_Full.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/src/Led_Logic.vhd" \
+"../../../bd/design_leds/ipshared/6eb3/hdl/Fab_Led_IP_v1_0.vhd" \
 "../../../bd/design_leds/ip/design_leds_Fab_Led_IP_0_6/sim/design_leds_Fab_Led_IP_0_6.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ipshared/ec67/hdl" "+incdir+../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ipshared/abef/hdl" "+incdir+../../../../Fab_LedCounter.gen/sources_1/bd/design_leds/ipshared/7698" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
