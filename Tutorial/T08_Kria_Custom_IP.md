@@ -231,16 +231,16 @@ begin
         if rising_edge(CLK) then
             if counter = MAX_REL_COUNT - 1 then
                 counter <= 0;
-      
+    
                 if state = GO_UP then
-                    counter_rel <= counter_rel + 1;    
+                    counter_rel <= counter_rel + 1;  
                     -- Restarting counter
                     if counter_rel = MAX_COUNT - 1 then
                         -- counter_rel <= 0;
                         state <= GO_DOWN;
                     end if;
                 elsif state = GO_DOWN then
-                    counter_rel <= counter_rel - 1;    
+                    counter_rel <= counter_rel - 1;  
                     -- Restarting counter
                     if counter_rel = 0 then
                         -- counter_rel <= 0;
@@ -789,7 +789,7 @@ begin
 	        axi_awaddr <= S_AXI_AWADDR;
 	      end if;
 	    end if;
-	  end if;             
+	  end if;           
 	end process; 
 
 	-- Implement axi_wready generation
@@ -807,7 +807,7 @@ begin
 	          -- slave is ready to accept write data when 
 	          -- there is a valid write address and write data
 	          -- on the write address and data bus. This design 
-	          -- expects no outstanding transactions.     
+	          -- expects no outstanding transactions.   
 	          axi_wready <= '1';
 	      else
 	        axi_wready <= '0';
@@ -841,7 +841,7 @@ begin
 	          when b"00" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes             
+	                -- Respective byte enables are asserted as per write strobes           
 	                -- slave registor 0
 	                slv_reg0(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -849,7 +849,7 @@ begin
 	          when b"01" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes             
+	                -- Respective byte enables are asserted as per write strobes           
 	                -- slave registor 1
 	                slv_reg1(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -857,7 +857,7 @@ begin
 	          when b"10" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes             
+	                -- Respective byte enables are asserted as per write strobes           
 	                -- slave registor 2
 	                slv_reg2(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -865,7 +865,7 @@ begin
 	          when b"11" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes             
+	                -- Respective byte enables are asserted as per write strobes           
 	                -- slave registor 3
 	                slv_reg3(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -878,7 +878,7 @@ begin
 	        end case;
 	      end if;
 	    end if;
-	  end if;             
+	  end if;           
 	end process; 
 
 	-- Implement write response logic generation
@@ -901,7 +901,7 @@ begin
 	        axi_bvalid <= '0';                                 -- (there is a possibility that bready is always asserted high)
 	      end if;
 	    end if;
-	  end if;             
+	  end if;           
 	end process; 
 
 	-- Implement axi_arready generation
@@ -922,12 +922,12 @@ begin
 	        -- indicates that the slave has acceped the valid read address
 	        axi_arready <= '1';
 	        -- Read Address latching 
-	        axi_araddr  <= S_AXI_ARADDR;     
+	        axi_araddr  <= S_AXI_ARADDR;   
 	      else
 	        axi_arready <= '0';
 	      end if;
 	    end if;
-	  end if;             
+	  end if;           
 	end process; 
 
 	-- Implement axi_arvalid generation
@@ -952,7 +952,7 @@ begin
 	      elsif (axi_rvalid = '1' and S_AXI_RREADY = '1') then
 	        -- Read data is accepted by the master
 	        axi_rvalid <= '0';
-	      end if;      
+	      end if;    
 	    end if;
 	  end if;
 	end process;

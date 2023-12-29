@@ -143,7 +143,7 @@ After the files have been successfully transferred to the KR260, create a direct
 
 ```bash
 xilinx-kr260-starterkit-20222:~$ sudo mkdir /lib/firmware/xilinx/kr260_i2c
-xilinx-kr260-starterkit-20222:~$ mv kr260_i2c.dtbo kr260_i2c.bit.bin shell.json /lib/firmware/xilinx/kr260_i2c
+xilinx-kr260-starterkit-20222:~$ sudo mv kr260_i2c.dtbo kr260_i2c.bit.bin shell.json /lib/firmware/xilinx/kr260_i2c
 ```
 
 At this point, the PL design will show up just like an accelerated application would using the xmutil commands:
