@@ -231,7 +231,7 @@ begin
         if rising_edge(CLK) then
             if counter = MAX_REL_COUNT - 1 then
                 counter <= 0;
-    
+  
                 if state = GO_UP then
                     counter_rel <= counter_rel + 1;  
                     -- Restarting counter
@@ -789,7 +789,7 @@ begin
 	        axi_awaddr <= S_AXI_AWADDR;
 	      end if;
 	    end if;
-	  end if;           
+	  end if;         
 	end process; 
 
 	-- Implement axi_wready generation
@@ -841,7 +841,7 @@ begin
 	          when b"00" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes           
+	                -- Respective byte enables are asserted as per write strobes         
 	                -- slave registor 0
 	                slv_reg0(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -849,7 +849,7 @@ begin
 	          when b"01" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes           
+	                -- Respective byte enables are asserted as per write strobes         
 	                -- slave registor 1
 	                slv_reg1(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -857,7 +857,7 @@ begin
 	          when b"10" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes           
+	                -- Respective byte enables are asserted as per write strobes         
 	                -- slave registor 2
 	                slv_reg2(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -865,7 +865,7 @@ begin
 	          when b"11" =>
 	            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
 	              if ( S_AXI_WSTRB(byte_index) = '1' ) then
-	                -- Respective byte enables are asserted as per write strobes           
+	                -- Respective byte enables are asserted as per write strobes         
 	                -- slave registor 3
 	                slv_reg3(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
 	              end if;
@@ -878,7 +878,7 @@ begin
 	        end case;
 	      end if;
 	    end if;
-	  end if;           
+	  end if;         
 	end process; 
 
 	-- Implement write response logic generation
@@ -901,7 +901,7 @@ begin
 	        axi_bvalid <= '0';                                 -- (there is a possibility that bready is always asserted high)
 	      end if;
 	    end if;
-	  end if;           
+	  end if;         
 	end process; 
 
 	-- Implement axi_arready generation
@@ -927,7 +927,7 @@ begin
 	        axi_arready <= '0';
 	      end if;
 	    end if;
-	  end if;           
+	  end if;         
 	end process; 
 
 	-- Implement axi_arvalid generation
@@ -952,7 +952,7 @@ begin
 	      elsif (axi_rvalid = '1' and S_AXI_RREADY = '1') then
 	        -- Read data is accepted by the master
 	        axi_rvalid <= '0';
-	      end if;    
+	      end if;  
 	    end if;
 	  end if;
 	end process;
@@ -1364,5 +1364,83 @@ time.sleep(2)
 ```
 
 es de anotar que tambien se pueden cambiar los permisos de los archivos ejecutables de cada IP_Core
+
+---
+
+## Agregar Logo personalizado a un IP Custom
+
+Para agregar un logo se deben seguir las instrucciones provistas en el siguiente [link](https://docs.xilinx.com/r/en-US/ug1118-vivado-creating-packaging-custom-ip/Using-File-Groups-to-Add-a-Custom-Logo-to-Packaged-IP)
+
+Para esto en la configuracion del `Package IP` en la seccion `File Groups` se agrega un nuevo grupo de archivos del tipo `Utility XIT/TTCL` y en este se agrega la imagen del logo, tal como se muestra en la siguiente imagen.
+
+![1703873371564](image/T08_Kria_Custom_IP/1703873371564.png)
+
+Luego se empaqueta el IP Core y quedará con el logo personalizado
+
+![1703873529316](image/T08_Kria_Custom_IP/1703873529316.png)
+
+---
+
+### Agregar compatibilidad de un IP Custom a diferentes plataformas
+
+Para esto, en la seccion `Compatibility` se agregan las familias necesarias para que sea compatible, en este caso se agrego compatibilidad para `zynquplus` la cual es la famila de la KRIA, y para `zynq` la cual es la familia de la PYNQ.
+
+![1703873559972](image/T08_Kria_Custom_IP/1703873559972.png)
+
+Con esta compatibilidad ya podemos agregar el IP a proyectos usando la plataforma PYNQ.
+
+![1703873686321](image/T08_Kria_Custom_IP/1703873686321.png)
+
+Se utiliza el siguiente constrain file
+
+```bash
+# Copyright (C) 2022 Xilinx, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+
+## Clock signal 125 MHz
+set_property -dict { PACKAGE_PIN H16   IOSTANDARD LVCMOS33 } [get_ports { sysclk }]; #IO_L13P_T2_MRCC_35 Sch=sysclk
+create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { sysclk }];
+
+## LEDs
+set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[0]}]
+set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[1]}]
+set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[2]}]
+set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[3]}]
+
+```
+
+Luego se genera el bitstream, se exporta el bitstream y el platform, y luego se carga a la PYNQ los archivos .bit, .hwh y .xsa
+
+Luego en la PYNQ se puede usar codigo en Python para interactuar con el IP Core.
+
+```python
+#!/usr/bin/env python
+# coding: utf-8
+
+from pynq import Overlay
+
+overlay = Overlay('/home/xilinx/jupyter_notebooks/design_leds/design_leds.bit')
+get_ipython().run_line_magic('pinfo', 'overlay')
+
+from pynq import DefaultIP
+
+class Leds_Control(DefaultIP):
+    def __init__(self, description):
+        super().__init__(description=description)
+
+    bindto = ['xilinx.com:user:Fab_Led_IP:1.3']
+
+    def Leds_Off(self):
+        self.write(0x00, 0x00)
+  
+    def Leds_On(self):
+        self.write(0x00, 0xFF)
+
+
+overlay.Fab_Led_IP_0.Leds_Off()
+overlay.Fab_Led_IP_0.Leds_On()
+overlay.Fab_Led_IP_0.write(0x00, 0x0B)
+
+```
 
 ---
