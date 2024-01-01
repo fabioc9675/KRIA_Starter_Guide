@@ -253,6 +253,8 @@ After the project has been built, build the SDK for the project to get a sysroot
 ~/Kria_KR260/linux_os$ petaliunx-build --sdk
 ```
 
+![Petalinux_download](./T04_Images/Petalinux_sdk.png)
+
 ## Empaquetar Imagen WIC para SD Card
 
 Once the project has been built, package the boot binary for the custom image:
