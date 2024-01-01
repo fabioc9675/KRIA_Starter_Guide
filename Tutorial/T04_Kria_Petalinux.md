@@ -122,6 +122,12 @@ en este menu se debe ir a Drivers y habilitar los drivers necesarios
 - Device Drivers > I2C support > I2C Hardware Bus support, habilitar
   - Cadence I2C Controller
   - Xilinx I2C Controller
+- Device Drivers > SPI support, habilitar
+  - Cadence SPI Controller
+  - Cadence Quad SPI Controller
+  - Xilinx SPI Controller common module
+  - Xilinx ZynqMP GQSPI Controller
+  - User mode SPI device driver support
 
 ---
 
@@ -170,6 +176,65 @@ Petaliunx Package Groups --> packagegroup-petalinux-x11 --> [*] packagegroup-pet
 
 ![Petalinux_download](./T04_Images/Petalinux_rootfs.png)
 
+### Modificacion del archivos config y system_user.dtsi para habilitar driver spi
+
+Para habilitar el driver SPI en petalinux, en este punto debemos modificar de forma manual los archivos de configuracion generados automaticamente por el kernel, para esto realizaremos lo siguiente:
+
+En el archivo `config` ubicado en la carpeta `./linux_os/project_spec/config/` agregaremos el siguiente bloque de codigo:
+
+```bash
+#
+# SPI Config
+#
+CONFIG_SPI_SUN4I=y
+CONFIG_SPI_SUN6I=y
+CONFIG_SPI=y
+CONFIG_SPI_MASTER=y
+CONFIG_EXPERIMENTAL=y
+CONFIG_SPI_SPIDEV=y
+```
+
+Tambien, modifica el archivo `system-user.dtsi` ubicado en la carpeta , agregando el siguiente bloque de codigo:
+
+```bash
+/include/ "system-conf.dtsi"
+/ {
+};
+&spi0{
+    status = "okay";
+    spidev@0x00 {
+        status = "okay";
+        // compatible = "xlnx,axi-quad-spi-1.00.a";
+        // compatible = "spidev";
+        compatible = "rohm,dh2228fv";
+        // compatible = "lwn,bk4";
+        spi-max-frequency = <25000000>;
+        reg = <0>;
+    };
+};
+&spi1{
+    status = "okay";
+    spi-slave;
+    slave {
+        compatible = "spi-slave-time";
+    };
+    spidev@0x01 {
+        status = "okay";
+        // compatible = "xlnx,axi-quad-spi-1.00.a";
+        // compatible = "spidev";
+        compatible = "rohm,dh2228fv";
+        // compatible = "lwn,bk4";
+        spi-max-frequency = <25000000>;
+        reg = <0>;
+    };
+};
+
+```
+
+Esto habilita el uso del driver SPIDEV para el SPI.
+
+### Construccion del sistema operativo y empaquetado de la imagen
+
 Rebuild the project after adding the packages to the root filesystem (and kernel if you choose):
 
 ```bash
@@ -187,8 +252,6 @@ After the project has been built, build the SDK for the project to get a sysroot
 ```bash
 ~/Kria_KR260/linux_os$ petaliunx-build --sdk
 ```
-
-## ![Petalinux_download](./T04_Images/Petalinux_sdk.png)
 
 ## Empaquetar Imagen WIC para SD Card
 
