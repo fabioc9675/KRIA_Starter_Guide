@@ -41,7 +41,9 @@
       "axi_uartlite_0": "",
       "xlconcat_0": "",
       "axi_iic_0": "",
-      "axi_quad_spi_0": ""
+      "axi_quad_spi_0": "",
+      "clk_wiz_1": "",
+      "proc_sys_reset_0": ""
     },
     "interface_ports": {
       "pmod2_io": {
@@ -2911,7 +2913,41 @@
         "vlnv": "xilinx.com:ip:axi_quad_spi:3.2",
         "xci_name": "kria_bd_axi_quad_spi_0_0",
         "xci_path": "ip/kria_bd_axi_quad_spi_0_0/kria_bd_axi_quad_spi_0_0.xci",
-        "inst_hier_path": "axi_quad_spi_0"
+        "inst_hier_path": "axi_quad_spi_0",
+        "parameters": {
+          "Multiples16": {
+            "value": "2"
+          }
+        }
+      },
+      "clk_wiz_1": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "kria_bd_clk_wiz_1_0",
+        "xci_path": "ip/kria_bd_clk_wiz_1_0/kria_bd_clk_wiz_1_0.xci",
+        "inst_hier_path": "clk_wiz_1",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "141.646"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "160.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "9.250"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "proc_sys_reset_0": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "kria_bd_proc_sys_reset_0_1",
+        "xci_path": "ip/kria_bd_proc_sys_reset_0_1/kria_bd_proc_sys_reset_0_1.xci",
+        "inst_hier_path": "proc_sys_reset_0"
       }
     },
     "interface_nets": {
@@ -3082,6 +3118,13 @@
           "ps8_0_axi_periph/M08_ACLK"
         ]
       },
+      "clk_wiz_1_clk_out1": {
+        "ports": [
+          "clk_wiz_1/clk_out1",
+          "axi_quad_spi_0/ext_spi_clk",
+          "proc_sys_reset_0/slowest_sync_clk"
+        ]
+      },
       "proc_sys_reset_2_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_2/peripheral_aresetn",
@@ -3129,7 +3172,7 @@
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
           "clk_wiz_0/clk_in1",
-          "axi_quad_spi_0/ext_spi_clk"
+          "clk_wiz_1/clk_in1"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {
@@ -3137,7 +3180,9 @@
           "zynq_ultra_ps_e_0/pl_resetn0",
           "clk_wiz_0/resetn",
           "proc_sys_reset_1/ext_reset_in",
-          "proc_sys_reset_2/ext_reset_in"
+          "proc_sys_reset_2/ext_reset_in",
+          "proc_sys_reset_0/ext_reset_in",
+          "clk_wiz_1/resetn"
         ]
       }
     },

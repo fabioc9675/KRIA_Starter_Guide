@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Sat Sep 16 21:19:23 2023
---Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
+--Date        : Fri Dec 29 16:18:09 2023
+--Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.3 LTS
 --Command     : generate_target kria_bd_wrapper.bd
 --Design      : kria_bd_wrapper
 --Purpose     : IP block netlist

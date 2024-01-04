@@ -130,6 +130,13 @@
   "../../../bd/kria_bd/ip/kria_bd_axi_quad_spi_0_0/sim/kria_bd_axi_quad_spi_0_0.vhd" \
   "../../../bd/kria_bd/sim/kria_bd.vhd" \
 -endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_clk_wiz_1_0/kria_bd_clk_wiz_1_0_clk_wiz.v" \
+  "../../../bd/kria_bd/ip/kria_bd_clk_wiz_1_0/kria_bd_clk_wiz_1_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_proc_sys_reset_0_1/sim/kria_bd_proc_sys_reset_0_1.vhd" \
+-endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
   "../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib

@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Sat Sep 16 21:19:23 2023
---Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.2 LTS
+--Date        : Fri Dec 29 16:18:08 2023
+--Host        : fabian-VirtualBox running 64-bit Ubuntu 22.04.3 LTS
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
 --Purpose     : IP block netlist
@@ -2712,7 +2712,7 @@ entity kria_bd is
     uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=28,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_board_cnt=8,da_clkrst_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=30,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_board_cnt=9,da_clkrst_cnt=1,da_zynq_ultra_ps_e_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of kria_bd : entity is "kria_bd.hwdef";
 end kria_bd;
@@ -3071,6 +3071,28 @@ architecture STRUCTURE of kria_bd is
     ip2intc_irpt : out STD_LOGIC
   );
   end component kria_bd_axi_quad_spi_0_0;
+  component kria_bd_clk_wiz_1_0 is
+  port (
+    resetn : in STD_LOGIC;
+    clk_in1 : in STD_LOGIC;
+    clk_out1 : out STD_LOGIC;
+    locked : out STD_LOGIC
+  );
+  end component kria_bd_clk_wiz_1_0;
+  component kria_bd_proc_sys_reset_0_1 is
+  port (
+    slowest_sync_clk : in STD_LOGIC;
+    ext_reset_in : in STD_LOGIC;
+    aux_reset_in : in STD_LOGIC;
+    mb_debug_sys_rst : in STD_LOGIC;
+    dcm_locked : in STD_LOGIC;
+    mb_reset : out STD_LOGIC;
+    bus_struct_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
+    peripheral_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
+    interconnect_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 );
+    peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component kria_bd_proc_sys_reset_0_1;
   signal axi_gpio_0_GPIO_TRI_I : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_gpio_0_GPIO_TRI_O : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_gpio_0_GPIO_TRI_T : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -3100,6 +3122,7 @@ architecture STRUCTURE of kria_bd is
   signal axi_uartlite_0_interrupt : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
+  signal clk_wiz_1_clk_out1 : STD_LOGIC;
   signal pmod_2_GPIO_TRI_I : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal pmod_2_GPIO_TRI_O : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal pmod_2_GPIO_TRI_T : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -3310,6 +3333,12 @@ architecture STRUCTURE of kria_bd is
   signal zynq_ultra_ps_e_0_pl_resetn0 : STD_LOGIC;
   signal NLW_axi_iic_0_gpo_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_clk_wiz_0_locked_UNCONNECTED : STD_LOGIC;
+  signal NLW_clk_wiz_1_locked_UNCONNECTED : STD_LOGIC;
+  signal NLW_proc_sys_reset_0_mb_reset_UNCONNECTED : STD_LOGIC;
+  signal NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_proc_sys_reset_0_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_proc_sys_reset_0_peripheral_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_proc_sys_reset_0_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_1_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_1_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_1_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3455,7 +3484,7 @@ axi_intc_0: component kria_bd_axi_intc_0_0
     );
 axi_quad_spi_0: component kria_bd_axi_quad_spi_0_0
      port map (
-      ext_spi_clk => zynq_ultra_ps_e_0_pl_clk0,
+      ext_spi_clk => clk_wiz_1_clk_out1,
       io0_i => axi_quad_spi_0_SPI_0_IO0_I,
       io0_o => axi_quad_spi_0_SPI_0_IO0_O,
       io0_t => axi_quad_spi_0_SPI_0_IO0_T,
@@ -3520,6 +3549,13 @@ clk_wiz_0: component kria_bd_clk_wiz_0_0
       clk_out1 => clk_wiz_0_clk_out1,
       clk_out2 => clk_wiz_0_clk_out2,
       locked => NLW_clk_wiz_0_locked_UNCONNECTED,
+      resetn => zynq_ultra_ps_e_0_pl_resetn0
+    );
+clk_wiz_1: component kria_bd_clk_wiz_1_0
+     port map (
+      clk_in1 => zynq_ultra_ps_e_0_pl_clk0,
+      clk_out1 => clk_wiz_1_clk_out1,
+      locked => NLW_clk_wiz_1_locked_UNCONNECTED,
       resetn => zynq_ultra_ps_e_0_pl_resetn0
     );
 pmod_2: component kria_bd_axi_gpio_0_1
@@ -3596,6 +3632,19 @@ pmod_4: component kria_bd_axi_gpio_0_3
       s_axi_wready => ps8_0_axi_periph_M04_AXI_WREADY,
       s_axi_wstrb(3 downto 0) => ps8_0_axi_periph_M04_AXI_WSTRB(3 downto 0),
       s_axi_wvalid => ps8_0_axi_periph_M04_AXI_WVALID
+    );
+proc_sys_reset_0: component kria_bd_proc_sys_reset_0_1
+     port map (
+      aux_reset_in => '1',
+      bus_struct_reset(0) => NLW_proc_sys_reset_0_bus_struct_reset_UNCONNECTED(0),
+      dcm_locked => '1',
+      ext_reset_in => zynq_ultra_ps_e_0_pl_resetn0,
+      interconnect_aresetn(0) => NLW_proc_sys_reset_0_interconnect_aresetn_UNCONNECTED(0),
+      mb_debug_sys_rst => '0',
+      mb_reset => NLW_proc_sys_reset_0_mb_reset_UNCONNECTED,
+      peripheral_aresetn(0) => NLW_proc_sys_reset_0_peripheral_aresetn_UNCONNECTED(0),
+      peripheral_reset(0) => NLW_proc_sys_reset_0_peripheral_reset_UNCONNECTED(0),
+      slowest_sync_clk => clk_wiz_1_clk_out1
     );
 proc_sys_reset_1: component kria_bd_proc_sys_reset_1_0
      port map (

@@ -6,9 +6,9 @@ echo "##########################################################################
 echo ""
 echo ""
 
-source /tools/Xilinx/Vitis/2022.2/settings64.sh
-cd /home/fabian/GitHub/KRIA_Starter_Guide/Xilinx_Prjs/Kria_SPI/
-xsct xsct_script.tcl
+# source /tools/Xilinx/Vitis/2022.2/settings64.sh
+# cd /home/fabian/GitHub/KRIA_Starter_Guide/Xilinx_Prjs/Kria_SPI/
+# xsct xsct_script.tcl
 
 echo ""
 echo ""
@@ -32,4 +32,4 @@ echo "##########################################################################
 echo ""
 echo ""
 
-echo petalinux | scp kr260_spi.bit.bin kr260_spi.dtbo shell.json petalinux@192.168.1.17:/home/petalinux
+echo petalinux | scp kr260_spi.bit.bin kr260_spi.dtbo shell.json petalinux@192.168.1.9:/home/petalinux
