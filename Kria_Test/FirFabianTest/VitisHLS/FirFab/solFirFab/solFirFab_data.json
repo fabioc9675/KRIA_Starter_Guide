@@ -1,0 +1,422 @@
+{
+  "Top": "fir",
+  "RtlTop": "fir",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "fir_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xck26",
+    "Package": "-sfvc784",
+    "Speed": "-2LV-c",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "y": {
+      "index": "0",
+      "direction": "out",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "port",
+          "interface": "y",
+          "name": "y",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "y_ap_vld",
+          "name": "y_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "x": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "x",
+          "name": "x",
+          "usage": "data",
+          "direction": "in"
+        }]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -description=FirFilter",
+      "config_export -display_name=FirFab",
+      "config_export -format=ip_catalog",
+      "config_export -output=D:\/Users\/FirFabianTest\/VitisHLS",
+      "config_export -rtl=verilog",
+      "config_export -vendor=Fabian",
+      "config_export -version=1.0"
+    ],
+    "DirectiveTcl": ["set_directive_top fir -name fir"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "fir"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "104",
+    "Latency": "103"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "Fabian",
+    "Library": "hls",
+    "Name": "fir",
+    "Version": "1.0",
+    "DisplayName": "FirFab",
+    "Revision": "2113370728",
+    "Description": "FirFilter",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "Fabian_hls_fir_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/src\/firTop.cpp"],
+    "Vhdl": [
+      "impl\/vhdl\/fir_Block_entry5_proc.vhd",
+      "impl\/vhdl\/fir_Block_for_end_proc.vhd",
+      "impl\/vhdl\/fir_fifo_w32_d2_S.vhd",
+      "impl\/vhdl\/fir_flow_control_loop_pipe.vhd",
+      "impl\/vhdl\/fir_Loop_Shift_Accum_Loop_proc.vhd",
+      "impl\/vhdl\/fir_mul_32s_32s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mux_1017_32_1_1.vhd",
+      "impl\/vhdl\/fir.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/fir_Block_entry5_proc.v",
+      "impl\/verilog\/fir_Block_for_end_proc.v",
+      "impl\/verilog\/fir_fifo_w32_d2_S.v",
+      "impl\/verilog\/fir_flow_control_loop_pipe.v",
+      "impl\/verilog\/fir_Loop_Shift_Accum_Loop_proc.v",
+      "impl\/verilog\/fir_mul_32s_32s_32_1_1.v",
+      "impl\/verilog\/fir_mux_1017_32_1_1.v",
+      "impl\/verilog\/fir.v"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/fir.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": []
+  },
+  "Interfaces": {
+    "y": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "32",
+      "portMap": {"y": "DATA"},
+      "ports": ["y"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "y"
+        }]
+    },
+    "x": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"x": "DATA"},
+      "ports": ["x"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "x"
+        }]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {"ASSOCIATED_RESET": "ap_rst"},
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_HIGH"},
+      "portMap": {"ap_rst": "RST"},
+      "ports": ["ap_rst"]
+    },
+    "ap_ctrl": {
+      "type": "ap_ctrl",
+      "busTypeName": "acc_handshake",
+      "mode": "slave",
+      "portMap": {
+        "ap_start": "start",
+        "ap_done": "done",
+        "ap_ready": "ready",
+        "ap_idle": "idle"
+      },
+      "ports": [
+        "ap_done",
+        "ap_idle",
+        "ap_ready",
+        "ap_start"
+      ]
+    }
+  },
+  "RtlPorts": {
+    "y": {
+      "dir": "out",
+      "width": "32"
+    },
+    "y_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "x": {
+      "dir": "in",
+      "width": "32"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_start": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_done": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_ready": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_idle": {
+      "dir": "out",
+      "width": "1"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "fir",
+      "Instances": [
+        {
+          "ModuleName": "Block_entry5_proc",
+          "InstanceName": "Block_entry5_proc_U0"
+        },
+        {
+          "ModuleName": "Loop_Shift_Accum_Loop_proc",
+          "InstanceName": "Loop_Shift_Accum_Loop_proc_U0"
+        },
+        {
+          "ModuleName": "Block_for_end_proc",
+          "InstanceName": "Block_for_end_proc_U0"
+        }
+      ]
+    },
+    "Info": {
+      "Block_entry5_proc": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "Loop_Shift_Accum_Loop_proc": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Block_for_end_proc": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "1"
+      },
+      "fir": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "Block_entry5_proc": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "0.000"
+        },
+        "Area": {
+          "FF": "34",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "~0",
+          "LUT": "20",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "Loop_Shift_Accum_Loop_proc": {
+        "Latency": {
+          "LatencyBest": "103",
+          "LatencyAvg": "103",
+          "LatencyWorst": "103",
+          "PipelineII": "103",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.128"
+        },
+        "Loops": [{
+            "Name": "Shift_Accum_Loop",
+            "TripCount": "101",
+            "Latency": "101",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          }],
+        "Area": {
+          "DSP": "3",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "~0",
+          "FF": "3274",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "1",
+          "LUT": "1171",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "Block_for_end_proc": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "0",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "1.838"
+        },
+        "Area": {
+          "FF": "34",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "~0",
+          "LUT": "20",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "fir": {
+        "Latency": {
+          "LatencyBest": "103",
+          "LatencyAvg": "103",
+          "LatencyWorst": "103",
+          "PipelineII": "104",
+          "PipelineDepth": "",
+          "PipelineType": "dataflow"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.128"
+        },
+        "Area": {
+          "DSP": "3",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "~0",
+          "FF": "3540",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "1",
+          "LUT": "1347",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "1",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2024-01-05 23:28:28 -0500",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2022.2"
+  }
+}
