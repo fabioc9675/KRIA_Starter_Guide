@@ -1,5 +1,3 @@
-# Agregar soporte de perifericos de comunicación a Kria KR260 usando Vivado 2022.2
-
 # Empowering DUNE: AXI_UARTLite using Petalinux 2022.2 in KRIA KR260
 
 In this tutorial, we provide the steps to create the hardware design to support the AXI UARTLite IP and interact with Petalinux 2022.2, the design is made using Vivado 2022.2 and Petalinux 2022.2
