@@ -1,0 +1,72 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.343919",
+   "Default View_TopLeft":"-800,6",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port pmod2_io -pg 1 -lvl 5 -x 1680 -y 740 -defaultsOSRD
+preplace port pmod3_io -pg 1 -lvl 5 -x 1680 -y 880 -defaultsOSRD
+preplace port pmod4_io -pg 1 -lvl 5 -x 1680 -y 1020 -defaultsOSRD
+preplace port rpi_gpio -pg 1 -lvl 5 -x 1680 -y 1400 -defaultsOSRD
+preplace port uf_leds -pg 1 -lvl 5 -x 1680 -y 1160 -defaultsOSRD
+preplace port kria_uart -pg 1 -lvl 5 -x 1680 -y 590 -defaultsOSRD
+preplace port kria_i2c -pg 1 -lvl 5 -x 1680 -y 70 -defaultsOSRD
+preplace port kria_spi -pg 1 -lvl 5 -x 1680 -y 410 -defaultsOSRD
+preplace portBus fan_en_b -pg 1 -lvl 5 -x 1680 -y 1280 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 600 -y 620 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 130 -y 840 -defaultsOSRD
+preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -x 600 -y 1040 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 2 -x 600 -y 860 -defaultsOSRD
+preplace inst axi_intc_0 -pg 1 -lvl 4 -x 1530 -y 260 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 3 -x 1150 -y 760 -defaultsOSRD
+preplace inst pmod_2 -pg 1 -lvl 4 -x 1530 -y 740 -defaultsOSRD
+preplace inst pmod_3 -pg 1 -lvl 4 -x 1530 -y 880 -defaultsOSRD
+preplace inst pmod_4 -pg 1 -lvl 4 -x 1530 -y 1020 -defaultsOSRD
+preplace inst rpi_gpio -pg 1 -lvl 4 -x 1530 -y 1400 -defaultsOSRD
+preplace inst uf_leds -pg 1 -lvl 4 -x 1530 -y 1160 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 4 -x 1530 -y 1280 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 4 -x 1530 -y 600 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 3 -x 1150 -y 290 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 4 -x 1530 -y 90 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -x 1530 -y 420 -defaultsOSRD
+preplace netloc axi_intc_0_irq 1 1 4 240 170 NJ 170 NJ 170 1660
+preplace netloc clk_wiz_0_clk_out1 1 1 1 N 820
+preplace netloc clk_wiz_0_clk_out2 1 1 3 230 480 980 460 1360
+preplace netloc proc_sys_reset_2_peripheral_aresetn 1 2 2 1000 470 1370
+preplace netloc xlconcat_0_dout 1 3 1 N 290
+preplace netloc xlslice_0_Dout 1 4 1 NJ 1280
+preplace netloc zynq_ultra_ps_e_0_emio_ttc0_wave_o 1 2 2 990J 480 1340J
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 4 20 470 NJ 470 970 450 1340
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 3 30 760 240 760 960
+preplace netloc axi_quad_spi_0_ip2intc_irpt 1 2 3 990 430 1300J 510 1660
+preplace netloc axi_iic_0_iic2intc_irpt 1 2 3 970 10 NJ 10 1660
+preplace netloc axi_uartlite_0_interrupt 1 2 3 1000 440 1390J 520 1660
+preplace netloc axi_gpio_0_GPIO 1 4 1 NJ 1160
+preplace netloc axi_iic_0_IIC 1 4 1 NJ 70
+preplace netloc axi_quad_spi_0_SPI_0 1 4 1 NJ 410
+preplace netloc axi_uartlite_0_UART 1 4 1 NJ 590
+preplace netloc pmod_2_GPIO 1 4 1 NJ 740
+preplace netloc pmod_3_GPIO 1 4 1 NJ 880
+preplace netloc pmod_4_GPIO 1 4 1 NJ 1020
+preplace netloc ps8_0_axi_periph_M00_AXI 1 3 1 1330 230n
+preplace netloc ps8_0_axi_periph_M01_AXI 1 3 1 1390 580n
+preplace netloc ps8_0_axi_periph_M02_AXI 1 3 1 N 720
+preplace netloc ps8_0_axi_periph_M03_AXI 1 3 1 1350 740n
+preplace netloc ps8_0_axi_periph_M04_AXI 1 3 1 1330 760n
+preplace netloc ps8_0_axi_periph_M05_AXI 1 3 1 1300 780n
+preplace netloc ps8_0_axi_periph_M06_AXI 1 3 1 1310 800n
+preplace netloc ps8_0_axi_periph_M07_AXI 1 3 1 1320 70n
+preplace netloc ps8_0_axi_periph_M08_AXI 1 3 1 1380 390n
+preplace netloc rpi_gpio_GPIO 1 4 1 NJ 1400
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 2 1 N 540
+levelinfo -pg 1 0 130 600 1150 1530 1680
+pagesize -pg 1 -db -bbox -sgen 0 0 1830 1480
+"
+}
+{
+   "da_axi4_cnt":"10",
+   "da_board_cnt":"8",
+   "da_clkrst_cnt":"1",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}

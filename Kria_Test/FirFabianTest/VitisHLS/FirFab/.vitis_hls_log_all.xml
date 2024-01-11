@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_99' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.552-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_98' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.512-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_97' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.501-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_96' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.489-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_95' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.480-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_94' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.470-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_93' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.461-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_92' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.452-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_91' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.441-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_90' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.432-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_89' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.422-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_88' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.415-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_87' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.405-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_86' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.396-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_85' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.383-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_84' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.372-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_83' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.362-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_82' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.354-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_81' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.345-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_80' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.333-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_79' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.323-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_78' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.314-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_77' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.304-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_76' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.295-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_75' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.286-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_74' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.279-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_73' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.271-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_72' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.262-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_71' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.253-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_70' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.243-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_69' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.234-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_68' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.223-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_67' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.213-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_66' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.202-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_65' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.193-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_64' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.183-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_63' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.176-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_62' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.165-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_61' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.156-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_60' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.148-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_59' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.138-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_58' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.130-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_57' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.122-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_56' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.111-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_55' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.101-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_54' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.089-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_53' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.079-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_52' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.069-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_51' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.059-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_50' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.050-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_49' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.043-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_48' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.032-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_47' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.023-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ3firPiS_E9shift_reg_46' is power-on initialization." projectName="FirFab" solutionName="solFirFab" date="2024-01-05T23:27:02.013-0500" type="Warning"/>
+      </synLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
