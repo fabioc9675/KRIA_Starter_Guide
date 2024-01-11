@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="/home/fabian/GitHub/KRIA_Starter_Guide/Xilinx_Prjs/Kria_KR260/Kria_KR260.xpr">
+<Project Version="7" Minor="61" Path="/home/fisica/GitHub/KRIA_Starter_Guide/Xilinx_Prjs/Kria_KR260/Kria_KR260.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="859e5c8dc2984641a6a5d59470bbed58"/>

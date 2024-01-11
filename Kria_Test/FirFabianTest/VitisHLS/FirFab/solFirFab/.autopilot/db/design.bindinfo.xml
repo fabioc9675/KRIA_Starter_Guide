@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindInfo>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op icmp" ID="" IMPL="auto" LATENCY="0" OPTYPE="icmp" PRAGMA="" RTLNAME="icmp_ln26_fu_561_p2" SOURCE="src/firTop.cpp:26" VARIABLE="icmp_ln26" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op mux" ID="" IMPL="auto" LATENCY="0" OPTYPE="mux" PRAGMA="" RTLNAME="mux_1017_32_1_1_U2" SOURCE="src/firTop.cpp:31" VARIABLE="data" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op mux" ID="" IMPL="auto" LATENCY="0" OPTYPE="mux" PRAGMA="" RTLNAME="mux_1017_32_1_1_U3" SOURCE="src/firTop.cpp:34" VARIABLE="tmp_i_i" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op mul" ID="" IMPL="auto" LATENCY="0" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_1_1_U4" SOURCE="src/firTop.cpp:34" VARIABLE="mul_ln34" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="3" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="acc_1_fu_1993_p2" SOURCE="src/firTop.cpp:34" VARIABLE="acc_1" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op add" ID="" IMPL="fabric" LATENCY="0" OPTYPE="add" PRAGMA="" RTLNAME="add_ln23_fu_1999_p2" SOURCE="src/firTop.cpp:23" VARIABLE="add_ln23" MODULE="Loop_Shift_Accum_Loop_proc" LOOP="Shift_Accum_Loop" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op fifo" ID="" IMPL="srl" LATENCY="0" OPTYPE="fifo" PRAGMA="" RTLNAME="data_loc_channel_U" SOURCE="" VARIABLE="data_loc_channel" MODULE="fir" LOOP="" BUNDLEDNAME="" DSP="0" BRAM="0" URAM="0"/>
+	<BindNode BINDTYPE="op" DISPLAY="bind_op fifo" ID="" IMPL="srl" LATENCY="0" OPTYPE="fifo" PRAGMA="" RTLNAME="acc_loc_channel_U" SOURCE="" VARIABLE="acc_loc_channel" MODULE="fir" LOOP="" BUNDLEDNAME="" DSP="3" BRAM="0" URAM="0"/>
+</BindInfo>
