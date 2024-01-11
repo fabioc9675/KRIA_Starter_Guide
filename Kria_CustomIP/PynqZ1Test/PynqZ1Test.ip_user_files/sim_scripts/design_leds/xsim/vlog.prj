@@ -1,0 +1,10 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../PynqZ1Test.gen/sources_1/bd/design_leds/ipshared/ec67/hdl" --include "../../../../PynqZ1Test.gen/sources_1/bd/design_leds/ipshared/ee60/hdl" --include "../../../../PynqZ1Test.gen/sources_1/bd/design_leds/ipshared/7698" \
+"../../../bd/design_leds/ip/design_leds_processing_system7_0_0/sim/design_leds_processing_system7_0_0.v" \
+"../../../bd/design_leds/ip/design_leds_auto_pc_0/sim/design_leds_auto_pc_0.v" \
+"../../../bd/design_leds/ip/design_leds_clk_wiz_0_0/design_leds_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/design_leds/ip/design_leds_clk_wiz_0_0/design_leds_clk_wiz_0_0.v" \
+"../../../bd/design_leds/sim/design_leds.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

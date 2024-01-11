@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1704515222886">
+  <ports id="1" name="p_read" type="PortType" coreId="622879849" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="y" type="PortType" coreId="959854137" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <edges id="11" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="14" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="19" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="22" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@ports.1"/>
+  <edges id="23" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <blocks id="8" name="Block_for.end_proc" type="BlockType">
+    <node_objs xsi:type="cdfg:CdfgNode" id="3" name="p_read_2" lineNumber="36" fileName="src/firTop.cpp" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="fir" bitwidth="32" opcode="read" m_display="0" m_delay="1.83" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="src/firTop.cpp" linenumber="36" fileDirectory="D:\Users\FirFabianTest\VitisHLS" functionName="fir"/>
+      <dataInputObjs>p_read</dataInputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="4" name="acc" lineNumber="36" originalName="acc" fileName="src/firTop.cpp" fileDirectory=".." rtlName="acc_fu_27_p4" coreId="0" contextFuncName="fir" bitwidth="16" opcode="partselect" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="src/firTop.cpp" linenumber="36" fileDirectory="D:\Users\FirFabianTest\VitisHLS" functionName="fir"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="5" name="sext_ln36" lineNumber="36" fileName="src/firTop.cpp" fileDirectory=".." rtlName="sext_ln36_fu_37_p1" coreId="0" contextFuncName="fir" bitwidth="32" opcode="sext" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="src/firTop.cpp" linenumber="36" fileDirectory="D:\Users\FirFabianTest\VitisHLS" functionName="fir"/>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="y_write_ln37" lineNumber="37" fileName="src/firTop.cpp" fileDirectory=".." coreId="10301" contextFuncName="fir" opcode="write" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="src/firTop.cpp" linenumber="37" fileDirectory="D:\Users\FirFabianTest\VitisHLS" functionName="fir"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>y</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="7" name="_ln0" coreId="4294967295" opcode="ret" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1"/>
+    <fileValidLineNumbers fileName="src/firTop.cpp">
+      <validLinenumbers>36</validLinenumbers>
+      <validLinenumbers>37</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <expressionNodes realName="sext_ln36_fu_37">
+    <nodeIds>5</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="acc_fu_27">
+    <nodeIds>4</nodeIds>
+  </expressionNodes>
+  <ioNodes realName="p_read_2_read_fu_14">
+    <nodeIds>3</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln37_write_fu_20">
+    <nodeIds>6</nodeIds>
+  </ioNodes>
+  <ioPorts name="p_read">
+    <contents name="read">
+      <nodeIds>3</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="y">
+    <contents name="write">
+      <nodeIds>6</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="3" stage="1" latency="1"/>
+      <operations id="4" stage="1" latency="1"/>
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+    </states>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="Block_for_end_proc" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>8</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>
