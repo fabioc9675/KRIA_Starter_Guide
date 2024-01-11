@@ -189,6 +189,13 @@ vcom -work xil_defaultlib -64 -93  \
 "../../../bd/kria_bd/ip/kria_bd_axi_quad_spi_0_0/sim/kria_bd_axi_quad_spi_0_0.vhd" \
 "../../../bd/kria_bd/sim/kria_bd.vhd" \
 
+vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/kria_bd/ip/kria_bd_clk_wiz_1_0/kria_bd_clk_wiz_1_0_clk_wiz.v" \
+"../../../bd/kria_bd/ip/kria_bd_clk_wiz_1_0/kria_bd_clk_wiz_1_0.v" \
+
+vcom -work xil_defaultlib -64 -93  \
+"../../../bd/kria_bd/ip/kria_bd_proc_sys_reset_0_1/sim/kria_bd_proc_sys_reset_0_1.vhd" \
+
 vlog -work axi_protocol_converter_v2_1_27 -64 -incr -mfcu  "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+/tools/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../Kria_SPI.gen/sources_1/bd/kria_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 

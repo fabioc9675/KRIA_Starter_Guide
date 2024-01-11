@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="firCoeff.h" path="D:\Users\FirFabianTest\VitisHLS\src\firCoeff.h"/>
+    <originFiles name="firTop.cpp" path="D:\Users\FirFabianTest\VitisHLS\src\firTop.cpp"/>
+    <originFiles name="firTop.h" path="D:\Users\FirFabianTest\VitisHLS\src\firTop.h"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -1,0 +1,125 @@
+<stg><name>Block_for.end_proc</name>
+
+
+<trans_list>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="2" st_id="1" stage="1" lat="1">
+<core>FIFO_SRL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+entry:0 %p_read_2 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read
+
+]]></Node>
+<StgValue><ssdm name="p_read_2"/></StgValue>
+</operation>
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="16" op_0_bw="16" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+entry:1 %acc = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %p_read_2, i32 16, i32 31
+
+]]></Node>
+<StgValue><ssdm name="acc"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="32" op_0_bw="16">
+<![CDATA[
+entry:2 %sext_ln36 = sext i16 %acc
+
+]]></Node>
+<StgValue><ssdm name="sext_ln36"/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+entry:3 %write_ln37 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %y, i32 %sext_ln36
+
+]]></Node>
+<StgValue><ssdm name="write_ln37"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="0">
+<![CDATA[
+entry:4 %ret_ln0 = ret
+
+]]></Node>
+<StgValue><ssdm name="ret_ln0"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="7" name="p_read" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_read"/></StgValue>
+</port>
+<port id="8" name="y" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="y"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="10" from="_ssdm_op_Read.ap_auto.i32" to="p_read_2" fromId="9" toId="2">
+</dataflow>
+<dataflow id="11" from="p_read" to="p_read_2" fromId="7" toId="2">
+</dataflow>
+<dataflow id="13" from="_ssdm_op_PartSelect.i16.i32.i32.i32" to="acc" fromId="12" toId="3">
+</dataflow>
+<dataflow id="14" from="p_read_2" to="acc" fromId="2" toId="3">
+</dataflow>
+<dataflow id="16" from="StgValue_15" to="acc" fromId="15" toId="3">
+</dataflow>
+<dataflow id="18" from="StgValue_17" to="acc" fromId="17" toId="3">
+</dataflow>
+<dataflow id="19" from="acc" to="sext_ln36" fromId="3" toId="4">
+</dataflow>
+<dataflow id="21" from="_ssdm_op_Write.ap_auto.i32P0A" to="write_ln37" fromId="20" toId="5">
+</dataflow>
+<dataflow id="22" from="y" to="write_ln37" fromId="8" toId="5">
+</dataflow>
+<dataflow id="23" from="sext_ln36" to="write_ln37" fromId="4" toId="5">
+</dataflow>
+</dataflows>
+
+
+</stg>

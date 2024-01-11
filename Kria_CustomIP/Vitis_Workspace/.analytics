@@ -1,0 +1,37 @@
+timestamp=[2023-12-26 18:08:35], mode=WORKBENCH_START, duration=0:00:05.036, duration_ms=5036, data={}
+timestamp=[2023-12-26 18:08:35], mode=WORKBENCH_UI_INIT, duration=0:00:00.278, duration_ms=278, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2023-12-26 18:08:36], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.434, duration_ms=434, data={}
+timestamp=[2023-12-26 18:19:34], mode=APP_CREATION, duration=0:00:42.613, duration_ms=42613, data={name=VitisKria, project_type=sdk, os=custom, processor=psu_cortexa53, runtime=cpp, platform=D:\Users\Kria_CustomIP\Vitis_Workspace\design_leds_wrapper\export\design_leds_wrapper\design_leds_wrapper.xpfm, application_type=application}
+timestamp=[2023-12-26 18:31:45], mode=WORKBENCH_START, duration=0:00:04.107, duration_ms=4107, data={}
+timestamp=[2023-12-26 18:31:45], mode=WORKBENCH_UI_INIT, duration=0:00:00.372, duration_ms=372, data={editors_count=0, platform_editors_count=0, projects_count=2, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,design_leds_wrapper}
+timestamp=[2023-12-26 18:31:46], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.293, duration_ms=293, data={}
+timestamp=[2023-12-26 18:33:06], mode=APP_CREATION, duration=0:00:22.438, duration_ms=22438, data={name=VitisKria, project_type=sdk, os=standalone, processor=psu_cortexr5, runtime=cpp, platform=design_leds_wrapper_1, application_type=application}
+timestamp=[2023-12-26 18:33:59], mode=PLATFORM_GENERATION, duration=0:00:24.069, duration_ms=24069, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:40:26], mode=PLATFORM_GENERATION, duration=0:00:11.967, duration_ms=11967, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:41:34], mode=PLATFORM_GENERATION, duration=0:00:11.659, duration_ms=11659, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:41:36], mode=PLATFORM_GENERATION, duration=0:00:02.013, duration_ms=2013, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:44:26], mode=PLATFORM_GENERATION, duration=0:00:01.610, duration_ms=1610, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:46:04], mode=PLATFORM_GENERATION, duration=0:00:12.717, duration_ms=12717, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:46:49], mode=PLATFORM_GENERATION, duration=0:00:11.121, duration_ms=11121, data={name=design_leds_wrapper_1}
+timestamp=[2023-12-26 18:48:20], mode=APP_CREATION, duration=0:00:21.115, duration_ms=21115, data={name=VitisKria, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=design_leds_wrapper, application_type=application}
+timestamp=[2023-12-26 18:51:05], mode=PLATFORM_GENERATION, duration=0:00:22.420, duration_ms=22420, data={name=design_leds_wrapper}
+timestamp=[2023-12-26 18:54:25], mode=PLATFORM_GENERATION, duration=0:00:12.194, duration_ms=12194, data={name=design_leds_wrapper}
+timestamp=[2023-12-26 19:04:53], mode=WORKBENCH_START, duration=0:00:04.780, duration_ms=4780, data={}
+timestamp=[2023-12-26 19:04:54], mode=WORKBENCH_UI_INIT, duration=0:00:00.587, duration_ms=587, data={editors_count=3, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=true, projects=RemoteSystemsTempFiles,VitisKria,VitisKria_system,design_leds_wrapper}
+timestamp=[2023-12-26 19:04:55], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.261, duration_ms=261, data={}
+timestamp=[2023-12-26 19:06:33], mode=APP_CREATION, duration=0:00:22.045, duration_ms=22045, data={name=VitisKria, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=design_leds_wrapper, application_type=application}
+timestamp=[2023-12-26 19:07:25], mode=PLATFORM_GENERATION, duration=0:00:45.964, duration_ms=45964, data={name=design_leds_wrapper}
+timestamp=[2023-12-26 19:08:37], mode=BUILD, duration=0:00:00.734, duration_ms=734, data={name=VitisKria, configuration=Debug, clean_build=false}
+timestamp=[2023-12-26 19:16:46], mode=BUILD, duration=0:00:00.361, duration_ms=361, data={name=VitisKria, configuration=Debug, clean_build=false}
+timestamp=[2023-12-26 19:23:38], mode=BUILD, duration=0:00:00.610, duration_ms=610, data={name=VitisKria, configuration=Debug, clean_build=false}
+timestamp=[2023-12-26 19:24:53], mode=BUILD, duration=0:00:00.537, duration_ms=537, data={name=VitisKria, configuration=Debug, clean_build=false}
+timestamp=[2023-12-28 10:29:59], mode=WORKBENCH_START, duration=0:00:06.284, duration_ms=6284, data={}
+timestamp=[2023-12-28 10:30:00], mode=WORKBENCH_UI_INIT, duration=0:00:00.566, duration_ms=566, data={editors_count=5, platform_editors_count=2, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,VitisKria,VitisKria_system,design_leds_wrapper}
+timestamp=[2023-12-28 10:30:01], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.463, duration_ms=463, data={}
+timestamp=[2023-12-28 10:37:02], mode=APP_CREATION, duration=0:00:39.571, duration_ms=39571, data={name=Leds_Control, project_type=sdk, os=custom, processor=psu_cortexa53, runtime=cpp, platform=D:\Users\Kria_CustomIP\Vitis_Workspace\design_leds_wrapper\export\design_leds_wrapper\design_leds_wrapper.xpfm, application_type=application}
+timestamp=[2023-12-28 10:48:25], mode=PLATFORM_CREATION, duration=0:00:36.023, duration_ms=36023, data={platform_source=dsa, os=custom, processor=psu_cortexa53, platform=null}
+timestamp=[2023-12-28 10:51:45], mode=PLATFORM_GENERATION, duration=0:00:36.327, duration_ms=36327, data={name=Leds_Control}
+timestamp=[2023-12-28 11:23:31], mode=WORKBENCH_START, duration=0:00:04.728, duration_ms=4728, data={}
+timestamp=[2023-12-28 11:23:31], mode=WORKBENCH_UI_INIT, duration=0:00:00.591, duration_ms=591, data={editors_count=3, platform_editors_count=2, projects_count=2, platform_projects_count=1, active_platform_editor=true, projects=Leds_Control,RemoteSystemsTempFiles}
+timestamp=[2023-12-28 11:23:32], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.314, duration_ms=314, data={}
+timestamp=[2023-12-28 11:24:29], mode=PLATFORM_GENERATION, duration=0:00:07.498, duration_ms=7498, data={name=Leds_Control}
