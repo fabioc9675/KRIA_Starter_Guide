@@ -1,3 +1,0 @@
-design_led_Leds_test_0_0.v,verilog,xil_defaultlib,../../../bd/design_led/ip/design_led_Leds_test_0_0/sim/design_led_Leds_test_0_0.v,
-design_led.v,verilog,xil_defaultlib,../../../bd/design_led/sim/design_led.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
