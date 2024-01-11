@@ -1,48 +1,59 @@
-# Agregar soporte de perifericos de comunicación a Kria KR260 usando Vivado 2022.2
+# Empowering DUNE: AXI_UARTLite using Petalinux 2022.2 in KRIA KR260
 
-## Tutorial paso a paso
+In this tutorial, we provide the steps to create the hardware design to support the AXI UARTLite IP and interact with Petalinux 2022.2, the design is made using Vivado 2022.2 and Petalinux 2022.2
 
-Para este proceso seguir el siguiente [tutorial](https://www.hackster.io/LogicTronix/kria-kr260-rpi-sensehat-petalinux-tutorial-part-i-42329b).
+For this process, you can follow this [tutorial](https://www.hackster.io/LogicTronix/kria-kr260-rpi-sensehat-petalinux-tutorial-part-i-42329b).
 
 ![Petalinux_download](./T05_Images/Portada.avif)
 
-Tambien visitar los siguientes links con información importante:
+## Story
 
-- Configuracion [UARTLite en Linux](https://xilinx-wiki.atlassian.net/wiki/pages/viewpage.action?pageId=63373739)
-- Configuracion [SPI en Linux](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842255/Linux+SPI+Driver)
-- Configuracion [I2C en Linux](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841974/Linux+I2C+Driver)
+En el experimento DUNE, el sistema de deteccion de fotones DAPHNE ha psado por una evolucion en la que ha llegado al uso de SOM (System on Modules) donde se espera optener mayor compactibilidad en la implementacion de las tareas de hardware y software, mayor control del sistema y segurdad en la operacion, pues en el contexto del experimento DUNE, este sistema estara 1 km bajo tierra en las cabernas de Fermilab y de dificil acceso para posteriores servicios del sistema, por lo tanto se requiere de alta seguridad y robustes en la implementacion del sistema. Aqui toma protagonismo la KRIA KR260 como el SOM elegido para gestionar la operacion del sistema de deteccion de fotones.
 
-### Resumen
+En este tutorial les mostrare los pasos necesarios para incluir el periferico AXI UARTLite en el PL, este periferico se conecta al PS a traves del puerto AXI, se le asignara una direccion en el mapa de memoria de Petalinux, pero al mismo tiempo se montara un driver gestionado por el Device Tree lo cual permitira que este hardware sea visible en la lista de dispositivos en /dev. Una vez configurado el proyecto en Vivado 2022.2, realizada la sintesis y la implementacion, creado el bitstream y exportada la plataforma, se enviara esta crando el Device Tree Overlay a la KRIA KR260, se implementara el hardware embebido y se dara control a los perifericos a traves del puerto AXI desde Petalinux 2022.2.
+
+> Tambien visitar los siguientes links con información importante:
+>
+> - Configuracion [UARTLite en Linux](https://xilinx-wiki.atlassian.net/wiki/pages/viewpage.action?pageId=63373739)
+
+## Resumen
 
 This post is a follow on to it (using that same Vivado 2022.1 project created in that post) that covers how to add some of the specific hardware IPCores for implementation of UART, SPI and I2C communication in KR260 board.
 
-## Implementación de periferico soporte UART
+## UART Peripheral implementation
 
-Para implementar el UART usando la tarjeta Kria Robotics agregaremos el IPCORE `AXI Uartlite`. Lo buscamos en el buscador de IPCORE y lo agregamos al proyecto.
+To implement the **UART** as an IP Core in the PL side and use it in the KRIA KR260 using Petalines, we need to add the **AXI UartLite** IP. We search the IP in the *IP Catalog* and add it to the block design.
 
 ![Petalinux_download](./T05_Images/uartlite_select.png)
 
-Configuramos el IPCORE dando doble clic en el bloque, en esta seleccion solo modificaremos el `Baud Rate` a `115200` o la velocidad que se requiera para realizar la comunicación.
+We can to configure the IP Core making double clic in the block. In this example we just modify the **Baud Rate** at `115200`, you can to make the changes that you consider necessary to your specific project.
 
 ![Petalinux_download](./T05_Images/Uartlite_axi_config.png)
 
-Luego realizamos la conexión del IPCORE, en este caso solo daremos clic derecho sobre la etiqueta del UART y luego `Make external`. Tambien es necesario conectar la interrupción del UART al PS side del ZYNQ UltraSCALE+.
+Afther this, perform the connections for the IP, you can to use the **Automatic connection** tool that appears in the upper part of the block design window that will connect the **AXI** Interface, but also you need to connect the **Interrupt** to the PS side in the **ZYNQ UltraScale+**.
+
+- For this connection you can to use the `Concat` block and connect it to the **AXI Interrupt Controller** IP.
+- Also, right clic on `UART` port in **AXI UartLite** IP and `Make External`, associate an appropiate name as for example `kria_uart`.
+
+> We are using a block design made on this [tutorial](https://www.hackster.io/fabioc9675/empowering-dune-support-for-hard-peripherals-rpi-pmod-kria-505ded).
+>
+> We will use two additional IPCORE blocks for this purpose. Firstly, the `Concat` block will be used to concatenate all possible interrupts into a single bus. The output of the Concat block will be connected to the `Utility Reduced Logic` block configured as a `OR` gate. The output of this block will be connected to the `AXI Interrupt Controller`, which in turn will be connected to the PS (Processing System).
+
+The block design must looks like follow:
 
 ![Petalinux_download](./T05_Images/block_diagram.png)
-
-Para esto utilizaremos dos ploques IPCORE adicionales, en primer lugar el bloque `Concat` para concatenar toas las posibles interrupciones en un unico bus. Como salida del concat colocaremos el bloque `Utility Reduced Logic` configurado como compuestra `OR`. La salida de este bloque se conectará al `AXI Interrupt Controller` que al final ira conectado al PS.
 
 ![Petalinux_download](./T05_Images/blockSelected.png)
 
 ---
 
-## Definición de Constrains
+## Constrains definition
 
-En este ejemplo utilizaremos el conector PMOD1 para realizar la conexion del Uart hacia el exterior de la KRIA.
+In this example, we will use the **PMOD1** connector to do the connection of the `UART` Peripheral to the exterior of the KRIA.
 
 ![Petalinux_download](./T03_Images/const_1.avif)
 
-Luego se crea el archivo de constrains `comm_uart.xdc` usando los siguientes pines
+Create the constrains file `comm_uart.xdc` using the following pinout
 
 ```bash
 ##################### PMOD 1 Upper ###################################
@@ -75,7 +86,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {kria_uart_txd}]
 
 ![Petalinux_download](./T05_Images/Uart_constrains.png)
 
-Una vez en este punto, se procede a realizar la sintesis, implementacion y generacion de bitstream para ser cargado en el `PL`. esto generará un mapa de direcciones para el AXI por medio de los cuales se realizará la prueba de funcionamiento en la KRIA.
+Once at this point, we can to do the **synthesis**, **implementation** and **bitstream generation** that will be load to the PL side. This generates an address map for the **AXI** interface, this address interface can be accessed from the PS side using `devmem` command from linux.
 
 ![Petalinux_download](./T05_Images/Uart_Address.png)
 
@@ -106,12 +117,6 @@ After exiting **XSCT**, use the standard Linux device tree compiler (dtc) to com
 
 ```bash
 ~/Kria_KR260$ dtc -@ -O dtb -o ./dtg_kr260_v0/dtg_kr260_v0/kria_kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtbo ./dtg_kr260_v0/dtg_kr260_v0/kria_kr260/psu_cortexa53_0/device_tree_domain/bsp/pl.dtsi
-```
-
-To visualize the Device Tree file you need to create a copy of `dtbo` file and change the extension for `dtb`, and create a readable file using the follow command
-
-```bash
-~/$ dtc -I dtb -O dts pl.dtb > pl.dts
 ```
 
 ---
@@ -184,13 +189,13 @@ xilinx-kr260-starterkit-20222:~$ sudo xmutil unloadapp
 xilinx-kr260-starterkit-20222:~$ sudo xmutil loadapp kr260_comm
 ```
 
-Una vez aqui, ya puede verificar ssi el puerto quedo agregado en PS mediante el siguiente comando:
+Once here, you an to verify the **serial port** added in the PS side using the following command:
 
 ```bash
 xilinx-kr260-starterkit-20222:~$ dmesg | grep serial
 ```
 
-Debe recibir la siguiente respuesta:
+You must to receive the follow answer in the console:
 
 ```bash
 [    4.217686] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 60, base_baud = 6249999) is a xuartps
@@ -198,9 +203,9 @@ Debe recibir la siguiente respuesta:
 [ 6683.166373] 80010000.serial: ttyUL0 at MMIO 0x80010000 (irq = 74, base_baud = 0) is a uartlite
 ```
 
-Donde `ttyUL0` corresponde al periferico agregado para controlar el Uartlite desde el PS.
+Where `ttyUL0` corresponds to the peripheral with `0x80010000` address as was indicated for the AXI address map, this is the **AXI UartLite** IP.
 
-Tambien es necesario darle los permisos necesarios para ejecutar y controlar el periferico
+Also, you need to modify the permissions for the device using the following command:
 
 ```bash
 sudo chmod 777 /dev/ttyUL0
@@ -208,21 +213,21 @@ sudo chmod 777 /dev/ttyUL0
 
 ---
 
-## Testing Uartlite
+## Testing UartLite
 
-Para realizar este test realizaremos la siguiente conexion en forma de Loop entre el `txd` y `rxd` para verificar tanto la escritura como la lectura de datos a traves del canal de comunicaciones.
+To perform this test, we will make the follow connection in loop between the `txd` and `rxd` pins, with this we can to verify the write and the read at the same time through the communication channel.
 
 ![Petalinux_download](./T05_Images/Uartlite_connection.jpeg)
 
-Para realizar este test utilizaremos el siguiente codigo en `Python`, este codigo utiliza la libreria `pyserial`, en muchas ocasiones será necesario instalar la libreria mediante el siguiente comando.
+Also, we can to use the follow `Python` code, this code use the `pyserial` library, we can to install the library with the following command.
 
 ```python
 python -m pip install pyserial
 ```
 
-### Código de Python
+### Python code
 
-Se creará el archivo `Serial_test.py` con el siguiente script.
+Create the `Serial_test.py` file and copy the follow script.
 
 ```python
 # Testing Uartlite with petalinux and python using KRIA
@@ -245,29 +250,10 @@ print(dato)
 ser.close()  # close the serial port
 ```
 
-### Configuracion automatica del periferico
+To run the script just use `python Serial_test.py` and you must to receive the follow:
 
-Para correr el codigo crearemos el siguiente archivo `serial_config.sh` de bash para configurar, montar y probar el periferico serial.
-
-```bash
-echo "################################################"
-echo " ------ Configuracion de Uartlite -----"
-echo "################################################"
-
-echo petalinux | sudo -S xmutil unloadapp  # despues del echo va el password para el "sudo" y el comando>
-echo petalinux | sudo -S xmutil loadapp kr260_comm
-echo petalinux | sudo -S chown petalinux:petalinux /dev/ttyUL0
-echo petalinux | sudo -S chmod 777 /dev/ttyUL0
-
-echo "################################################"
-echo " ------ Inicio de prueba python ------ "
-echo "################################################"
-
-python Serial_test.py
-
-echo "################################################"
-echo " ------ Finalizacion de prueba ------ "
-echo "################################################"
+```
+Hi, this is a KRIA test
 ```
 
----
+This is the first of a serie of three tutorials where we will show how to configure `UART`, `I2C` and `SPI` interfaces from the PL and use it with the PS.

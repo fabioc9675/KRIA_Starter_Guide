@@ -8,8 +8,8 @@ En nuestro proceso de instalación utilizaremos una maquina virtual de Ubunto co
 
 En este caso utilizaremos [VirtualBox 6](https://www.virtualbox.org/wiki/Download_Old_Builds_6_1), e instalaremos el [Ubuntu 20.04.5 LTS](https://releases.ubuntu.com/focal/) desde la pagina oficial de Linux, se deben seguir algunos tutoriales de Youtube para que quede bien configurada la maquina virtual:
 
--   Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
--   Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
+- Como instalar Ubuntu en la maquina virtual [link](https://youtu.be/x5MhydijWmc)
+- Como compartir archivos entre Ubuntu y Windows [link](https://youtu.be/Mzd5i48OAiU)
 
 Usar el script de comandos que esta en `documentation/commands.sh`
 
@@ -256,10 +256,10 @@ It's worth noting that a PetaLinux project can not be built offline without acce
 
 Este soporte se puede descargar desde la pagina oficial de [Xilinx](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html):
 
--   Kria K26 SOM BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-k26-som-v2022.2-10141622.bsp)
--   Kria KV260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kv260-starterkit-v2022.2-10141622.bsp)
--   Kria KR260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kr260-starterkit-v2022.2-10141622.bsp)
+- Kria K26 SOM BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-k26-som-v2022.2-10141622.bsp)
+- Kria KV260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kv260-starterkit-v2022.2-10141622.bsp)
+- Kria KR260 Starter Kit BSP [Link de descarga](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-kr260-starterkit-v2022.2-10141622.bsp)
 
 ### Nota
 
-tener especial cuidado en las versiones, si se instala el Vivado y el Vitis 2022.2, tambien se debe descargar la misma versión para Petalinux.
+> tener especial cuidado en las versiones, si se instala el Vivado y el Vitis 2022.2, tambien se debe descargar la misma versión para Petalinux.
