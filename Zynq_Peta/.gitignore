@@ -1,9 +1,0 @@
-# ignorar todos los archivos de harware
-Zynq_HW/*
-**/*.xsa
-**/*.tcl
-**/*.xdc
-**/*.vhd
-**/*.v
-**/*.bit
-**/*.bin
