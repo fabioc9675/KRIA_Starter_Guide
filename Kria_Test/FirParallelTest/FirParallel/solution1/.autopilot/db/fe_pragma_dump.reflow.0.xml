@@ -1,0 +1,8 @@
+<pragmas>
+<pragma file="firTop.cpp" line="8" pragmaType="dataflow" parentfunction="fir" disable_start_propagation="0"/>
+<pragma file="firTop.cpp" line="25" pragmaType="unroll" parentfunction="fir" factor="4" skip_exit_check="0"/>
+<pragma file="firTop.cpp" line="24" pragmaType="pipeline" parentfunction="fir" off="0" ii="1" rewind="0" style=""/>
+<pragma file="firTop.cpp" line="9" pragmaType="array_partition" parentfunction="fir" dim="1" factor="0" mode="complete" dynamic="0" variable="firCoeff"/>
+<pragma file="firTop.cpp" line="11" pragmaType="interface" parentfunction="fir" mode="ap_ctrl_hs" port="return" name=""/>
+<pragma file="firTop.cpp" line="16" pragmaType="array_partition" parentfunction="fir" dim="1" factor="0" mode="complete" dynamic="0" variable="_ZZ3firPiS_E9shift_reg"/>
+</pragmas>

@@ -1,0 +1,407 @@
+{
+  "Top": "fir",
+  "RtlTop": "fir",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "fir_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xck26",
+    "Package": "-sfvc784",
+    "Speed": "-2LV-c",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "y": {
+      "index": "0",
+      "direction": "out",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "port",
+          "interface": "y",
+          "name": "y",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "port",
+          "interface": "y_ap_vld",
+          "name": "y_ap_vld",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "x": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "x",
+          "name": "x",
+          "usage": "data",
+          "direction": "in"
+        }]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -description {Fir Filter Parallel}",
+      "config_export -display_name=fir_parallel",
+      "config_export -format=ip_catalog",
+      "config_export -library=FirFab",
+      "config_export -output=C:\/GitHub\/KRIA_Starter_Guide\/Kria_Test\/FirParallelTest\/Fir_Parallel_Vivado",
+      "config_export -rtl=verilog",
+      "config_export -taxonomy=fir_parallel",
+      "config_export -vendor=FabianCastano",
+      "config_export -version=1.0"
+    ],
+    "DirectiveTcl": ["set_directive_top fir -name fir"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "fir"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "7 ~ 32",
+    "Latency": "6"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "FabianCastano",
+    "Library": "FirFab",
+    "Name": "fir",
+    "Version": "1.0",
+    "DisplayName": "fir_parallel",
+    "Revision": "2113410735",
+    "Description": "Fir Filter Parallel",
+    "Taxonomy": "\/fir_parallel",
+    "AutoFamilySupport": "",
+    "ZipFile": "FabianCastano_FirFab_fir_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/firTop.cpp"],
+    "Vhdl": [
+      "impl\/vhdl\/fir_Loop_Shift_Accum_Loop_proc.vhd",
+      "impl\/vhdl\/fir_Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop.vhd",
+      "impl\/vhdl\/fir_mul_32s_6ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_7ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_7s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_8ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_8s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_9s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_10ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_10s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_11ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_11s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_12s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_13s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_15ns_32_1_1.vhd",
+      "impl\/vhdl\/fir_mul_32s_32s_32_1_1.vhd",
+      "impl\/vhdl\/fir_mux_1017_32_1_1.vhd",
+      "impl\/vhdl\/fir.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/fir_Loop_Shift_Accum_Loop_proc.v",
+      "impl\/verilog\/fir_Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop.v",
+      "impl\/verilog\/fir_mul_32s_6ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_7ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_7s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_8ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_8s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_9s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_10ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_10s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_11ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_11s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_12s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_13s_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_15ns_32_1_1.v",
+      "impl\/verilog\/fir_mul_32s_32s_32_1_1.v",
+      "impl\/verilog\/fir_mux_1017_32_1_1.v",
+      "impl\/verilog\/fir.v"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/fir.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": []
+  },
+  "Interfaces": {
+    "y": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_vld",
+      "mode": "master",
+      "dataWidth": "32",
+      "portMap": {"y": "DATA"},
+      "ports": ["y"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "y"
+        }]
+    },
+    "x": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"x": "DATA"},
+      "ports": ["x"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "x"
+        }]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {"ASSOCIATED_RESET": "ap_rst"},
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_HIGH"},
+      "portMap": {"ap_rst": "RST"},
+      "ports": ["ap_rst"]
+    },
+    "ap_ctrl": {
+      "type": "ap_ctrl",
+      "busTypeName": "acc_handshake",
+      "mode": "slave",
+      "portMap": {
+        "ap_start": "start",
+        "ap_done": "done",
+        "ap_ready": "ready",
+        "ap_idle": "idle"
+      },
+      "ports": [
+        "ap_done",
+        "ap_idle",
+        "ap_ready",
+        "ap_start"
+      ]
+    }
+  },
+  "RtlPorts": {
+    "y": {
+      "dir": "out",
+      "width": "32"
+    },
+    "y_ap_vld": {
+      "dir": "out",
+      "width": "1"
+    },
+    "x": {
+      "dir": "in",
+      "width": "32"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_start": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_done": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_ready": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_idle": {
+      "dir": "out",
+      "width": "1"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "fir",
+      "Instances": [{
+          "ModuleName": "Loop_Shift_Accum_Loop_proc",
+          "InstanceName": "Loop_Shift_Accum_Loop_proc_U0",
+          "Instances": [{
+              "ModuleName": "Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop",
+              "InstanceName": "grp_Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop_fu_250"
+            }]
+        }]
+    },
+    "Info": {
+      "Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Loop_Shift_Accum_Loop_proc": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "fir": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop": {
+        "Latency": {
+          "LatencyBest": "4",
+          "LatencyAvg": "17",
+          "LatencyWorst": "29",
+          "PipelineIIMin": "4",
+          "PipelineIIMax": "29",
+          "PipelineII": "4 ~ 29",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.043"
+        },
+        "Loops": [{
+            "Name": "Shift_Accum_Loop",
+            "TripCount": "",
+            "LatencyMin": "2",
+            "LatencyMax": "26",
+            "Latency": "2 ~ 26",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          }],
+        "Area": {
+          "DSP": "47",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "3",
+          "FF": "4958",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "2",
+          "LUT": "4706",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "4",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "Loop_Shift_Accum_Loop_proc": {
+        "Latency": {
+          "LatencyBest": "6",
+          "LatencyAvg": "19",
+          "LatencyWorst": "31",
+          "PipelineIIMin": "6",
+          "PipelineIIMax": "31",
+          "PipelineII": "6 ~ 31",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.043"
+        },
+        "Area": {
+          "DSP": "47",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "3",
+          "FF": "5092",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "2",
+          "LUT": "4768",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "4",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      },
+      "fir": {
+        "Latency": {
+          "LatencyBest": "6",
+          "LatencyAvg": "19",
+          "LatencyWorst": "31",
+          "PipelineIIMin": "7",
+          "PipelineIIMax": "32",
+          "PipelineII": "7 ~ 32",
+          "PipelineDepth": "",
+          "PipelineType": "dataflow"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.043"
+        },
+        "Area": {
+          "DSP": "47",
+          "AVAIL_DSP": "1248",
+          "UTIL_DSP": "3",
+          "FF": "5092",
+          "AVAIL_FF": "234240",
+          "UTIL_FF": "2",
+          "LUT": "4768",
+          "AVAIL_LUT": "117120",
+          "UTIL_LUT": "4",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "288",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "64",
+          "UTIL_URAM": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2024-02-02 18:15:46 -0500",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2022.2"
+  }
+}

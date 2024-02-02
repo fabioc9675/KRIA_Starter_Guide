@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="firTop.h" path="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest\firTop.h"/>
+    <originFiles name="firTop.cpp" path="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest\firTop.cpp"/>
+    <originFiles name="firCoeff.h" path="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest\firCoeff.h"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>
