@@ -1,0 +1,8 @@
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_fir/ip/kria_fir_fir_fab_0_0/sim/kria_fir_fir_fab_0_0.v" \
+  "../../../bd/kria_fir/sim/kria_fir.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  glbl.v
+-endlib
+
