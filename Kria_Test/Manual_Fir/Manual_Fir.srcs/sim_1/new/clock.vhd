@@ -25,7 +25,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity clock is
     generic(
-        FREQUENCY       : positive := 100000;
+        FREQUENCY       : positive := 100000000;
         PERIOD          : time := 0 sec;
         RESET_CLKS      : real := 1.5; 
         LATENCY         : positive := 31
