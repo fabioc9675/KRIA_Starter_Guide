@@ -5,18 +5,17 @@
    <db_ref_list>
       <db_ref path="top_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="glbl" />
             <top_module name="top_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
-      <ZoomEndTime time="23.607397849 ms"></ZoomEndTime>
-      <Cursor1Time time="3.656830912 ms"></Cursor1Time>
+      <ZoomEndTime time="413.780000001 ms"></ZoomEndTime>
+      <Cursor1Time time="38.840000000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="148"></NameColumnWidth>
+      <NameColumnWidth column_width="144"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />

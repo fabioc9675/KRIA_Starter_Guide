@@ -1,7 +1,7 @@
 onbreak {quit -force}
 onerror {quit -force}
 
-asim +access +r +m+kria_fir  -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -O5 xil_defaultlib.kria_fir xil_defaultlib.glbl
+asim +access +r +m+kria_fir  -L xil_defaultlib -L secureip -O5 xil_defaultlib.kria_fir
 
 set NumericStdNoWarnings 1
 set StdArithNoWarnings 1

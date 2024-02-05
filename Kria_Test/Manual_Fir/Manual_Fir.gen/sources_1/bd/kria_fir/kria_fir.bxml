@@ -2,19 +2,18 @@
 <Root MajorVersion="0" MinorVersion="40">
   <CompositeFile CompositeFileTopName="kria_fir" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1707002822"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1707002822"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1707002822"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1707002822"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1707110409"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1707110409"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1707110409"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1707110409"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="synth\kria_fir.v" Type="Verilog">
+      <File Name="synth\kria_fir.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
         <ProcessingOrder Val="NORMAL"/>
       </File>
-      <File Name="sim\kria_fir.v" Type="Verilog">
+      <File Name="sim\kria_fir.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
