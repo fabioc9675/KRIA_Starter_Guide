@@ -75,13 +75,13 @@ begin
    );
    
    test_dut : process
-        file cha_file   : text open read_mode is "signal_acc.csv";
+        file cha_file   : text open read_mode is "Trapz_data.csv";
         variable a_row  : line;
         variable a_read : t_int_array(1 to N_SAMPL);    
    begin
         rst <= '1';
         wait for 200 ns;
-        file_open(cha_file, "signal_acc.csv", READ_MODE);
+        file_open(cha_file, "Trapz_data.csv", READ_MODE);
         
         -- signal read form FILE
         while not endfile(cha_file) loop
