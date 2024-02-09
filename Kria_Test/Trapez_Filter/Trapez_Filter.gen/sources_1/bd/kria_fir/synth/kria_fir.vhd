@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Fri Feb  9 01:42:15 2024
---Host        : fabiancastano running 64-bit major release  (build 9200)
+--Date        : Fri Feb  9 13:38:10 2024
+--Host        : DESKTOP-3FHD9AF running 64-bit major release  (build 9200)
 --Command     : generate_target kria_fir.bd
 --Design      : kria_fir
 --Purpose     : IP block netlist
@@ -26,7 +26,7 @@ entity kria_fir is
 end kria_fir;
 
 architecture STRUCTURE of kria_fir is
-  component kria_fir_trapz_fab_0_1 is
+  component kria_fir_trapz_fab_0_0 is
   port (
     ap_clk : in STD_LOGIC;
     ap_rst : in STD_LOGIC;
@@ -34,7 +34,7 @@ architecture STRUCTURE of kria_fir is
     x : in STD_LOGIC_VECTOR ( 31 downto 0 );
     y : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  end component kria_fir_trapz_fab_0_1;
+  end component kria_fir_trapz_fab_0_0;
   signal ap_clk_1 : STD_LOGIC;
   signal ap_rst_1 : STD_LOGIC;
   signal ap_start_1 : STD_LOGIC;
@@ -52,7 +52,7 @@ begin
   ap_start_1 <= ap_start;
   x_0_1(31 downto 0) <= x_0(31 downto 0);
   y_0(31 downto 0) <= trapz_fab_0_y(31 downto 0);
-trapz_fab_0: component kria_fir_trapz_fab_0_1
+trapz_fab_0: component kria_fir_trapz_fab_0_0
      port map (
       ap_clk => ap_clk_1,
       ap_rst => ap_rst_1,

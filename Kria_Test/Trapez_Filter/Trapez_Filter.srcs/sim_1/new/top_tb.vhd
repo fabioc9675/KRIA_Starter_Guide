@@ -80,13 +80,13 @@ begin
         variable a_read : t_int_array(1 to N_SAMPL);    
    begin
         rst <= '0';
-        wait for 2 ns;
+        wait for 1000 ns;
         rst <= '1';
         wait for 2000 ns;
         rst <= '0';
-        wait for 2 ns;
+        wait for 1000 ns;
         rst <= '1';
-        wait for 200 ns;
+        wait for 2000 ns;
         file_open(cha_file, "Trapz_data.csv", READ_MODE);
         
         -- signal read form FILE

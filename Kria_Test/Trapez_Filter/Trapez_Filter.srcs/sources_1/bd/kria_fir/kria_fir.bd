@@ -75,8 +75,8 @@
     "components": {
       "trapz_fab_0": {
         "vlnv": "xilinx.com:module_ref:trapz_fab:1.0",
-        "xci_name": "kria_fir_trapz_fab_0_1",
-        "xci_path": "ip\\kria_fir_trapz_fab_0_1\\kria_fir_trapz_fab_0_1.xci",
+        "xci_name": "kria_fir_trapz_fab_0_0",
+        "xci_path": "ip\\kria_fir_trapz_fab_0_0\\kria_fir_trapz_fab_0_0.xci",
         "inst_hier_path": "trapz_fab_0",
         "reference_info": {
           "ref_type": "hdl",

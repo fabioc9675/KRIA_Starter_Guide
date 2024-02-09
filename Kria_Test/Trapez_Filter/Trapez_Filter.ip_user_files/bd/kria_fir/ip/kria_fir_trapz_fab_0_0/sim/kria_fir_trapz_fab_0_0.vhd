@@ -53,7 +53,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY kria_fir_trapz_fab_0_1 IS
+ENTITY kria_fir_trapz_fab_0_0 IS
   PORT (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -61,11 +61,11 @@ ENTITY kria_fir_trapz_fab_0_1 IS
     x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
-END kria_fir_trapz_fab_0_1;
+END kria_fir_trapz_fab_0_0;
 
-ARCHITECTURE kria_fir_trapz_fab_0_1_arch OF kria_fir_trapz_fab_0_1 IS
+ARCHITECTURE kria_fir_trapz_fab_0_0_arch OF kria_fir_trapz_fab_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT trapz_fab IS
     PORT (
       ap_clk : IN STD_LOGIC;
@@ -90,4 +90,4 @@ BEGIN
       x => x,
       y => y
     );
-END kria_fir_trapz_fab_0_1_arch;
+END kria_fir_trapz_fab_0_0_arch;

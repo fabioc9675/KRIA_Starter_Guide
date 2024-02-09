@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="162.709 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,167.459 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="17.668333 us"></ZoomStartTime>
+      <ZoomEndTime time="123.678334 us"></ZoomEndTime>
+      <Cursor1Time time="106.010000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="195"></NameColumnWidth>
-      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -54,6 +54,10 @@
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogYRangeMin">-8.12949e+07</obj_property>
+      <obj_property name="AnalogYRRangeMax">1.10046e+08</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/stop" type="other">
       <obj_property name="ElementShortName">stop</obj_property>
@@ -66,10 +70,5 @@
    <wvobject fp_name="/top_tb/N_SAMPL" type="other">
       <obj_property name="ElementShortName">N_SAMPL</obj_property>
       <obj_property name="ObjectShortName">N_SAMPL</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/buffy" type="array">
-      <obj_property name="ElementShortName">buffy[0:2][15:0]</obj_property>
-      <obj_property name="ObjectShortName">buffy[0:2][15:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

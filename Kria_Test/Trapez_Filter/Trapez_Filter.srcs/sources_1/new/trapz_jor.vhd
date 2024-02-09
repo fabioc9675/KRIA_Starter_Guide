@@ -4,16 +4,16 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Entity creation
-entity trapz_fab is
+entity trapz_jor is
     Port ( ap_clk     :  in  std_logic;
            ap_rst     :  in  std_logic;
            ap_start   :  in  std_logic;
            x          :  in  std_logic_vector (31 downto 0);
            y          :  out std_logic_vector (31 downto 0)
          );
-end trapz_fab;
+end trapz_jor;
 
-architecture Behavioral of trapz_fab is
+architecture Behavioral of trapz_jor is
     -- Trapezoidal filter
     signal en_trapz, en_buffx, en_buffy     : std_logic;
     -- signal en_na, en_nb, en_nc              : std_logic;

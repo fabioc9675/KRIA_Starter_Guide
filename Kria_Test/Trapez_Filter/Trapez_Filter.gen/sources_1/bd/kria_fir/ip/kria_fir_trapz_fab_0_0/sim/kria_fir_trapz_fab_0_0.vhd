@@ -53,7 +53,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY kria_fir_trapz_fab_0_1 IS
+ENTITY kria_fir_trapz_fab_0_0 IS
   PORT (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -61,11 +61,11 @@ ENTITY kria_fir_trapz_fab_0_1 IS
     x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
-END kria_fir_trapz_fab_0_1;
+END kria_fir_trapz_fab_0_0;
 
-ARCHITECTURE kria_fir_trapz_fab_0_1_arch OF kria_fir_trapz_fab_0_1 IS
+ARCHITECTURE kria_fir_trapz_fab_0_0_arch OF kria_fir_trapz_fab_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "yes";
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT trapz_fab IS
     PORT (
       ap_clk : IN STD_LOGIC;
@@ -75,14 +75,6 @@ ARCHITECTURE kria_fir_trapz_fab_0_1_arch OF kria_fir_trapz_fab_0_1 IS
       y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
   END COMPONENT trapz_fab;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "trapz_fab,Vivado 2022.2";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF kria_fir_trapz_fab_0_1_arch : ARCHITECTURE IS "kria_fir_trapz_fab_0_1,trapz_fab,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "kria_fir_trapz_fab_0_1,trapz_fab,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=trapz_fab,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
-  ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_clk: SIGNAL IS "XIL_INTERFACENAME ap_clk, ASSOCIATED_RESET ap_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN kria_fir_ap_clk_0, INSERT_VIP 0";
@@ -98,4 +90,4 @@ BEGIN
       x => x,
       y => y
     );
-END kria_fir_trapz_fab_0_1_arch;
+END kria_fir_trapz_fab_0_0_arch;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb  9 01:42:15 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb  9 13:38:10 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynquplus" BOARD="xilinx.com:kr260_som:part0:1.1" DEVICE="xck26" NAME="kria_fir" PACKAGE="sfvc784" SPEEDGRADE="-2LV"/>
 
@@ -37,7 +37,7 @@
     <MODULE COREREVISION="1" FULLNAME="/trapz_fab_0" HWVERSION="1.0" INSTANCE="trapz_fab_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="trapz_fab" VLNV="xilinx.com:module_ref:trapz_fab:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="kria_fir_trapz_fab_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="kria_fir_trapz_fab_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
