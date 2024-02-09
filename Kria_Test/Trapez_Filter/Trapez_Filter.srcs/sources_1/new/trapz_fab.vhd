@@ -23,7 +23,8 @@ architecture Behavioral of trapz_fab is
     signal en_trapz, en_buffx, en_buffy     : std_logic;
     -- signal en_na, en_nb, en_nc              : std_logic;
     -- signal cnt_na, cnt_nb, cnt_nc           : std_logic_vector (7 downto 0); -- counter to enable shift register for x
-    signal in_sample, out_sample            : std_logic_vector (15 downto 0);
+    signal in_sample                        : std_logic_vector (15 downto 0);
+    signal out_sample                       : std_logic_vector (31 downto 0);
     -- signal d, na, nb, nc                    : std_logic_vector (15 downto 0);
     constant d     : std_logic_vector (15 downto 0) := X"7F5C";       -- 0.995012*32768 = 32604
     constant na    : std_logic_vector (15 downto 0) := X"0032";       -- 50
@@ -71,14 +72,14 @@ begin
             --cnt_nc       <= (others => '0'); 
             -- var reset          
             in_sample    <= X"0000";
-            out_sample   <= X"0000";
+            out_sample   <= X"00000000";
             -- initialize buffer value
---            for i in buffx'high downto 0 loop
---                buffx(i) <= X"0000";
---            end loop;
---            for i in buffy'high downto 0 loop
---                buffy(i) <= X"0000";
---            end loop;
+            for i in buffx'high downto 0 loop
+                buffx(i) <= X"0000";
+            end loop;
+            for i in buffy'high downto 0 loop
+                buffy(i) <= X"0000";
+            end loop;
         else 
             if rising_edge(ap_clk) then
                 -- new sample
@@ -124,13 +125,13 @@ begin
             -- registering buffy
             if en_buffy = '1' then
                 -- registering buffy
-                buffy(0) <= out_sample;
+                buffy(0) <= out_sample(15 downto 0);
                 for i in buffy'high-1 downto 0 loop
                     buffy(i+1) <= buffy(i);
                 end loop;
             else 
                 for i in buffy'high downto 0 loop
-                    buffy(i) <= buffy(i);
+                    buffy(i) <= X"0000"; --buffy(i);
                 end loop;
             end if;
         end if;
@@ -142,6 +143,15 @@ begin
         if rising_edge(ap_clk) then
             if en_trapz = '1' then
                 acc0 <= conv_std_logic_vector(signed(buffx(1)), 32);
+                acc1 <= conv_std_logic_vector(signed(buffx(2)) * signed(d), 32);
+                acc2 <= conv_std_logic_vector(signed(buffx(conv_integer(na)+1)), 32);
+                acc3 <= conv_std_logic_vector(signed(buffx(conv_integer(na)+2)) * signed(d), 32);
+                acc4 <= conv_std_logic_vector(signed(buffx(conv_integer(nb)+1)), 32);
+                acc5 <= conv_std_logic_vector(signed(buffx(conv_integer(nb)+2)) * signed(d), 32);
+                acc6 <= conv_std_logic_vector(signed(buffx(conv_integer(nc)+1)), 32);
+                acc7 <= conv_std_logic_vector(signed(buffx(conv_integer(nc)+2)) * signed(d), 32);
+                acc8 <= conv_std_logic_vector(signed(buffy(1)) * signed(na) * signed(conv_std_logic_vector(2,32)), 32);
+                acc9 <= conv_std_logic_vector(signed(buffy(2)) * signed(na), 32);
             end if;
         end if;
     end process;
@@ -151,11 +161,12 @@ begin
     begin
         if rising_edge(ap_clk) then
             if en_trapz = '1' then
-                y <= acc0 ;  
-                out_sample <= acc0(15 downto 0);  
+                out_sample <= acc0-acc1-acc2+acc3-acc4+acc5+acc6-acc7+acc8-acc9;  
+                y <= out_sample ;  
+                
             else
                 y <= X"00000000";  
-                out_sample <= X"0000";       
+                out_sample <= X"00000000";       
             end if;
         end if;
     end process;
