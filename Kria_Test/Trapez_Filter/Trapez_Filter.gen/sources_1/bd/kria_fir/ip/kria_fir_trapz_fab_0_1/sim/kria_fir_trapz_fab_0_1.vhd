@@ -46,14 +46,14 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:fir_fab:1.0
+-- IP VLNV: xilinx.com:module_ref:trapz_fab:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY kria_fir_fir_fab_0_3 IS
+ENTITY kria_fir_trapz_fab_0_1 IS
   PORT (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -61,12 +61,12 @@ ENTITY kria_fir_fir_fab_0_3 IS
     x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
-END kria_fir_fir_fab_0_3;
+END kria_fir_trapz_fab_0_1;
 
-ARCHITECTURE kria_fir_fir_fab_0_3_arch OF kria_fir_fir_fab_0_3 IS
+ARCHITECTURE kria_fir_trapz_fab_0_1_arch OF kria_fir_trapz_fab_0_1 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_fir_fab_0_3_arch: ARCHITECTURE IS "yes";
-  COMPONENT fir_fab IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_1_arch: ARCHITECTURE IS "yes";
+  COMPONENT trapz_fab IS
     PORT (
       ap_clk : IN STD_LOGIC;
       ap_rst : IN STD_LOGIC;
@@ -74,7 +74,7 @@ ARCHITECTURE kria_fir_fir_fab_0_3_arch OF kria_fir_fir_fab_0_3 IS
       x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
-  END COMPONENT fir_fab;
+  END COMPONENT trapz_fab;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_clk: SIGNAL IS "XIL_INTERFACENAME ap_clk, ASSOCIATED_RESET ap_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN kria_fir_ap_clk_0, INSERT_VIP 0";
@@ -82,7 +82,7 @@ ARCHITECTURE kria_fir_fir_fab_0_3_arch OF kria_fir_fir_fab_0_3 IS
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_rst: SIGNAL IS "XIL_INTERFACENAME ap_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF ap_rst: SIGNAL IS "xilinx.com:signal:reset:1.0 ap_rst RST";
 BEGIN
-  U0 : fir_fab
+  U0 : trapz_fab
     PORT MAP (
       ap_clk => ap_clk,
       ap_rst => ap_rst,
@@ -90,4 +90,4 @@ BEGIN
       x => x,
       y => y
     );
-END kria_fir_fir_fab_0_3_arch;
+END kria_fir_trapz_fab_0_1_arch;

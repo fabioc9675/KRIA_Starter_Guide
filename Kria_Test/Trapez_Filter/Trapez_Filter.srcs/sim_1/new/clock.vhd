@@ -33,7 +33,7 @@ entity clock is
     port(
         clk_a   : out std_logic;
         clk_o   : out std_logic;
-        rst_o   : out std_logic;
+        -- rst_o   : out std_logic;
         stop_i  :  in boolean := FALSE
     );
 end clock;
@@ -73,6 +73,6 @@ begin
     
     clk_a <= clk; -- clk_aux;
     clk_o <= clk;
-    rst_o <= '1', '0' after RESET_TIME;
+    -- rst_o <= '1', '0' after RESET_TIME;
 
 end architecture Simulator;

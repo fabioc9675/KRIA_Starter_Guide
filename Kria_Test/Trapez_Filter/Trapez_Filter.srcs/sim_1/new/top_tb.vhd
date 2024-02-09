@@ -60,7 +60,7 @@ begin
    port map(
       clk_a  => clk_au,
       clk_o  => clk,
-      rst_o  => rst,
+      -- rst_o  => rst,
       stop_i => stop
    );
    n_rst <= not(rst);
@@ -79,6 +79,12 @@ begin
         variable a_row  : line;
         variable a_read : t_int_array(1 to N_SAMPL);    
    begin
+        rst <= '0';
+        wait for 2 ns;
+        rst <= '1';
+        wait for 2000 ns;
+        rst <= '0';
+        wait for 2 ns;
         rst <= '1';
         wait for 200 ns;
         file_open(cha_file, "Trapz_data.csv", READ_MODE);
