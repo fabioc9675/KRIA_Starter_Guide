@@ -156,37 +156,6 @@ begin
         end if;
     end process;
     
-    -- Multiply stage of Trapz
-    process (ap_clk)
-    begin
-        if (ap_rst = '0') then
-           acc0 <= 0.0;
-           acc1 <= 0.0;
-           acc2 <= 0.0;
-           acc3 <= 0.0;
-           acc4 <= 0.0;
-           acc5 <= 0.0;
-           acc6 <= 0.0;
-           acc7 <= 0.0;
-           acc8 <= 0.0;
-           acc9 <= 0.0;
-           
-        elsif rising_edge(ap_clk) then
-            if en_trapz = '1' then
-                acc0 <= buffx(1);
-                acc1 <= buffx(2) * d * (-1.0);
-                acc2 <= buffx(integer(na)+1) * (-1.0);
-                acc3 <= buffx(integer(na)+2) * d;
-                acc4 <= buffx(integer(nb)+1) * (-1.0);
-                acc5 <= buffx(integer(nb)+2) * d;
-                acc6 <= buffx(integer(nc)+1);
-                acc7 <= buffx(integer(nc)+2) * d * (-1.0);
-                acc8 <= buffy(1) * na * 2.0;
-                acc9 <= buffy(2) * na * (-1.0);
-            end if;
-        end if;
-    end process;
-    
      -- Perform accumulation
     process (ap_clk)
     variable NumeradorInt   : real;
@@ -195,19 +164,57 @@ begin
     variable int_sample     : std_logic_vector(31 downto 0);
     begin
         if (ap_rst = '0') then 
+            
+            -- accumulators initialization
+            acc0 <= 0.0;
+            acc1 <= 0.0;
+            acc2 <= 0.0;
+            acc3 <= 0.0;
+            acc4 <= 0.0;
+            acc5 <= 0.0;
+            acc6 <= 0.0;
+            acc7 <= 0.0;
+            acc8 <= 0.0;
+            acc9 <= 0.0;
+        
            out_real <= 0.0;
            out_sample   <= X"00000000";
         elsif rising_edge(ap_clk) then
             if en_trapz = '1' then  
-                out_real <= (acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9)/na;                              
-                --NumeradorInt   := acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9;
-                --DenominadorInt := na;
-                --CocienteInt    := NumeradorInt / DenominadorInt;
+                -- out_real <= (acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9)/na;                              
+                NumeradorInt   := acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9;
+                DenominadorInt := na;
+                CocienteInt    := NumeradorInt / DenominadorInt;
+                out_real       <= CocienteInt;
+                
+                -- accumulators calculation
+                acc0 <= buffx(0);
+                acc1 <= buffx(1) * d * (-1.0);
+                acc2 <= buffx(integer(na)) * (-1.0);
+                acc3 <= buffx(integer(na)+1) * d;
+                acc4 <= buffx(integer(nb)) * (-1.0);
+                acc5 <= buffx(integer(nb)+1) * d;
+                acc6 <= buffx(integer(nc));
+                acc7 <= buffx(integer(nc)+1) * d * (-1.0);
+                acc8 <= CocienteInt * na * 2.0;--buffy(0) * na * 2.0;
+                acc9 <= out_real * na * (-1.0);-- buffy(1) * na * (-1.0);
+                
                 --int_sample     := conv_std_logic_vector(integer(CocienteInt),32);
-                out_sample <= conv_std_logic_vector(integer(out_real),32);  
+                out_sample     <= conv_std_logic_vector(integer(out_real),32);  
                 --y <= acc0-acc1-acc2+acc3-acc4+acc5+acc6-acc7+acc8-acc9; 
                 
             else
+                acc0 <= 0.0;
+                acc1 <= 0.0;
+                acc2 <= 0.0;
+                acc3 <= 0.0;
+                acc4 <= 0.0;
+                acc5 <= 0.0;
+                acc6 <= 0.0;
+                acc7 <= 0.0;
+                acc8 <= 0.0;
+                acc9 <= 0.0;
+                
                 out_real <= 0.0;
                 --y <= X"00000000";  
                 out_sample <= X"00000000";       
