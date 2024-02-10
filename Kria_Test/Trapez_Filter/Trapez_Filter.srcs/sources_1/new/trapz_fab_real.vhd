@@ -33,6 +33,8 @@ architecture Behavioral of trapz_fab_real is
     type buffer_vector is array (integer range <>) of real;
     signal buffx : buffer_vector(0 to integer(nc)+2);
     signal buffy : buffer_vector(0 to 2);
+    
+    signal out_real : real := 0.0;
     --signal buffx0, buffx1, buffx2           : std_logic_vector (15 downto 0);
     --signal buffy0, buffy1, buffy2           : std_logic_vector (15 downto 0);
     --signal buffxna_1, buffxna_2             : std_logic_vector (15 downto 0);
@@ -142,7 +144,7 @@ begin
             -- registering buffy
             if en_buffy = '1' then
                 -- registering buffy
-                buffy(0) <= real(conv_integer(out_sample));
+                buffy(0) <= out_real; --real(conv_integer(out_sample));
                 for i in buffy'high-1 downto 0 loop
                     buffy(i+1) <= buffy(i);
                 end loop;
@@ -193,17 +195,20 @@ begin
     variable int_sample     : std_logic_vector(31 downto 0);
     begin
         if (ap_rst = '0') then 
+           out_real <= 0.0;
            out_sample   <= X"00000000";
         elsif rising_edge(ap_clk) then
-            if en_trapz = '1' then                                
-                NumeradorInt   := acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9;
-                DenominadorInt := na;
-                CocienteInt    := NumeradorInt / DenominadorInt;
-                int_sample     := conv_std_logic_vector(integer(CocienteInt),32);
-                out_sample <= int_sample;  
+            if en_trapz = '1' then  
+                out_real <= (acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9)/na;                              
+                --NumeradorInt   := acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9;
+                --DenominadorInt := na;
+                --CocienteInt    := NumeradorInt / DenominadorInt;
+                --int_sample     := conv_std_logic_vector(integer(CocienteInt),32);
+                out_sample <= conv_std_logic_vector(integer(out_real),32);  
                 --y <= acc0-acc1-acc2+acc3-acc4+acc5+acc6-acc7+acc8-acc9; 
                 
             else
+                out_real <= 0.0;
                 --y <= X"00000000";  
                 out_sample <= X"00000000";       
             end if;
