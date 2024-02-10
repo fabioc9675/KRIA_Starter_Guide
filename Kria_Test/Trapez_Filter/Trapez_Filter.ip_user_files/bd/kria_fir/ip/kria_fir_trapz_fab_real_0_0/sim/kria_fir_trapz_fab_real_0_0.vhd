@@ -46,14 +46,14 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:trapz_fab:1.0
+-- IP VLNV: xilinx.com:module_ref:trapz_fab_real:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY kria_fir_trapz_fab_0_0 IS
+ENTITY kria_fir_trapz_fab_real_0_0 IS
   PORT (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -61,12 +61,12 @@ ENTITY kria_fir_trapz_fab_0_0 IS
     x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
-END kria_fir_trapz_fab_0_0;
+END kria_fir_trapz_fab_real_0_0;
 
-ARCHITECTURE kria_fir_trapz_fab_0_0_arch OF kria_fir_trapz_fab_0_0 IS
+ARCHITECTURE kria_fir_trapz_fab_real_0_0_arch OF kria_fir_trapz_fab_real_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT trapz_fab IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF kria_fir_trapz_fab_real_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT trapz_fab_real IS
     PORT (
       ap_clk : IN STD_LOGIC;
       ap_rst : IN STD_LOGIC;
@@ -74,15 +74,7 @@ ARCHITECTURE kria_fir_trapz_fab_0_0_arch OF kria_fir_trapz_fab_0_0 IS
       x : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       y : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
-  END COMPONENT trapz_fab;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "trapz_fab,Vivado 2022.2";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF kria_fir_trapz_fab_0_0_arch : ARCHITECTURE IS "kria_fir_trapz_fab_0_0,trapz_fab,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "kria_fir_trapz_fab_0_0,trapz_fab,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=trapz_fab,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
-  ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF kria_fir_trapz_fab_0_0_arch: ARCHITECTURE IS "module_ref";
+  END COMPONENT trapz_fab_real;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_clk: SIGNAL IS "XIL_INTERFACENAME ap_clk, ASSOCIATED_RESET ap_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN kria_fir_ap_clk_0, INSERT_VIP 0";
@@ -90,7 +82,7 @@ ARCHITECTURE kria_fir_trapz_fab_0_0_arch OF kria_fir_trapz_fab_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_rst: SIGNAL IS "XIL_INTERFACENAME ap_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF ap_rst: SIGNAL IS "xilinx.com:signal:reset:1.0 ap_rst RST";
 BEGIN
-  U0 : trapz_fab
+  U0 : trapz_fab_real
     PORT MAP (
       ap_clk => ap_clk,
       ap_rst => ap_rst,
@@ -98,4 +90,4 @@ BEGIN
       x => x,
       y => y
     );
-END kria_fir_trapz_fab_0_0_arch;
+END kria_fir_trapz_fab_real_0_0_arch;

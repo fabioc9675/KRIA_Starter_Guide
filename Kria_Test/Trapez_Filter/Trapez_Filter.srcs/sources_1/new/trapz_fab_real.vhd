@@ -5,16 +5,16 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use IEEE.NUMERIC_STD.ALL;
 
 -- Entity creation
-entity trapz_fab is
+entity trapz_fab_real is
     Port ( ap_clk     :  in  std_logic;
            ap_rst     :  in  std_logic;
            ap_start   :  in  std_logic;
            x          :  in  std_logic_vector (31 downto 0);
            y          :  out std_logic_vector (31 downto 0)
          );
-end trapz_fab;
+end trapz_fab_real;
 
-architecture Behavioral of trapz_fab is
+architecture Behavioral of trapz_fab_real is
     -- Trapezoidal filter
     signal en_trapz, en_buffx, en_buffy     : std_logic;
     -- signal en_na, en_nb, en_nc              : std_logic;
@@ -22,16 +22,16 @@ architecture Behavioral of trapz_fab is
     signal in_sample                        : std_logic_vector (15 downto 0);
     signal out_sample                       : std_logic_vector (31 downto 0);
     -- signal d, na, nb, nc                    : std_logic_vector (15 downto 0);
-    constant d     : std_logic_vector (15 downto 0) := X"7F5C"; -- X"7F5C"; --4076 -- X"7F5C"; -- 0.995012*32768 = 32604
-    constant a     : std_logic_vector (15 downto 0) := X"0001"; -- X"7FFF"; --4096 -- X"7F5C";       
-    constant na    : std_logic_vector (15 downto 0) := X"0032";       -- 50
-    constant nb    : std_logic_vector (15 downto 0) := X"0096";       -- 150
-    constant nc    : std_logic_vector (15 downto 0) := X"00C8";       -- 200
+    constant d     : real := 0.995012; --std_logic_vector (15 downto 0) := X"7F5C"; -- X"7F5C"; --4076 -- X"7F5C"; -- 0.995012*32768 = 32604
+    --constant a     : std_logic_vector (15 downto 0) := X"0001"; -- X"7FFF"; --4096 -- X"7F5C";       
+    constant na    : real := 50.0; --std_logic_vector (15 downto 0) := X"0032";       -- 50
+    constant nb    : real := 150.0; --std_logic_vector (15 downto 0) := X"0096";       -- 150
+    constant nc    : real := 200.0; --std_logic_vector (15 downto 0) := X"00C8";       -- 200
     
     
     -- buffer signals instantiation
-    type buffer_vector is array (integer range <>) of std_logic_vector(15 downto 0);
-    signal buffx : buffer_vector(0 to conv_integer(nc+2));
+    type buffer_vector is array (integer range <>) of real;
+    signal buffx : buffer_vector(0 to integer(nc)+2);
     signal buffy : buffer_vector(0 to 2);
     --signal buffx0, buffx1, buffx2           : std_logic_vector (15 downto 0);
     --signal buffy0, buffy1, buffy2           : std_logic_vector (15 downto 0);
@@ -40,8 +40,8 @@ architecture Behavioral of trapz_fab is
     --signal buffxnc_1, buffxnc_2             : std_logic_vector (15 downto 0);
     
     -- accumulator signals instantiation
-    signal acc0, acc1, acc2, acc3, acc4     : std_logic_vector (31 downto 0);
-    signal acc5, acc6, acc7, acc8, acc9     : std_logic_vector (31 downto 0);
+    signal acc0, acc1, acc2, acc3, acc4     : real;
+    signal acc5, acc6, acc7, acc8, acc9     : real;
     
 begin
 
@@ -122,15 +122,15 @@ begin
         if (ap_rst = '0') then
         
            for i in buffx'high downto 0 loop
-                buffx(i) <= X"0000";
+                buffx(i) <= 0.0;
             end loop;
             for i in buffy'high downto 0 loop
-                buffy(i) <= X"0000";
+                buffy(i) <= 0.0;
             end loop;
         elsif rising_edge(ap_clk) then
             if en_buffx = '1' then
                 -- registering buffx
-                buffx(0) <= in_sample;
+                buffx(0) <= real(conv_integer(in_sample));
                 for i in buffx'high-1 downto 0 loop
                     buffx(i+1) <= buffx(i);
                 end loop;            
@@ -142,13 +142,13 @@ begin
             -- registering buffy
             if en_buffy = '1' then
                 -- registering buffy
-                buffy(0) <= out_sample(15 downto 0);
+                buffy(0) <= real(conv_integer(out_sample));
                 for i in buffy'high-1 downto 0 loop
                     buffy(i+1) <= buffy(i);
                 end loop;
             else 
                 for i in buffy'high downto 0 loop
-                    buffy(i) <= X"0000"; --buffy(i);
+                    buffy(i) <= 0.0; --buffy(i);
                 end loop;
             end if;
         end if;
@@ -158,48 +158,48 @@ begin
     process (ap_clk)
     begin
         if (ap_rst = '0') then
-           acc0 <= (others =>'0');
-           acc1 <= (others =>'0');
-           acc2 <= (others =>'0');
-           acc3 <= (others =>'0');
-           acc4 <= (others =>'0');
-           acc5 <= (others =>'0');
-           acc6 <= (others =>'0');
-           acc7 <= (others =>'0');
-           acc8 <= (others =>'0');
-           acc9 <= (others =>'0');
+           acc0 <= 0.0;
+           acc1 <= 0.0;
+           acc2 <= 0.0;
+           acc3 <= 0.0;
+           acc4 <= 0.0;
+           acc5 <= 0.0;
+           acc6 <= 0.0;
+           acc7 <= 0.0;
+           acc8 <= 0.0;
+           acc9 <= 0.0;
            
         elsif rising_edge(ap_clk) then
             if en_trapz = '1' then
-                acc0 <= conv_std_logic_vector(signed(buffx(1)) * signed(a), 32);
-                acc1 <= conv_std_logic_vector(signed(buffx(2)) * signed(d) * signed(conv_std_logic_vector(-1,32)), 32);
-                acc2 <= conv_std_logic_vector(signed(buffx(conv_integer(na)+1)) * signed(a) * signed(conv_std_logic_vector(-1,32)), 32);
-                acc3 <= conv_std_logic_vector(signed(buffx(conv_integer(na)+2)) * signed(d), 32);
-                acc4 <= conv_std_logic_vector(signed(buffx(conv_integer(nb)+1)) * signed(a) * signed(conv_std_logic_vector(-1,32)), 32);
-                acc5 <= conv_std_logic_vector(signed(buffx(conv_integer(nb)+2)) * signed(d), 32);
-                acc6 <= conv_std_logic_vector(signed(buffx(conv_integer(nc)+1)) * signed(a), 32);
-                acc7 <= conv_std_logic_vector(signed(buffx(conv_integer(nc)+2)) * signed(d) * signed(conv_std_logic_vector(-1,32)), 32);
-                acc8 <= conv_std_logic_vector(signed(buffy(1)) * signed(na) * signed(conv_std_logic_vector(2,32)) * signed(a), 32);
-                acc9 <= conv_std_logic_vector(signed(buffy(2)) * signed(na) * signed(a) * signed(conv_std_logic_vector(-1,32)), 32);
+                acc0 <= buffx(1);
+                acc1 <= buffx(2) * d * (-1.0);
+                acc2 <= buffx(integer(na)+1) * (-1.0);
+                acc3 <= buffx(integer(na)+2) * d;
+                acc4 <= buffx(integer(nb)+1) * (-1.0);
+                acc5 <= buffx(integer(nb)+2) * d;
+                acc6 <= buffx(integer(nc)+1);
+                acc7 <= buffx(integer(nc)+2) * d * (-1.0);
+                acc8 <= buffy(1) * na * 2.0;
+                acc9 <= buffy(2) * na * (-1.0);
             end if;
         end if;
     end process;
     
      -- Perform accumulation
     process (ap_clk)
-    variable NumeradorInt   : integer;
-    variable DenominadorInt : integer;
-    variable CocienteInt    : integer;
+    variable NumeradorInt   : real;
+    variable DenominadorInt : real;
+    variable CocienteInt    : real;
     variable int_sample     : std_logic_vector(31 downto 0);
     begin
         if (ap_rst = '0') then 
            out_sample   <= X"00000000";
         elsif rising_edge(ap_clk) then
             if en_trapz = '1' then                                
-                NumeradorInt   := conv_integer(conv_std_logic_vector(signed(acc0)+signed(acc1)+signed(acc2)+signed(acc3)+signed(acc4)+signed(acc5)+signed(acc6)+signed(acc7)+signed(acc8)+signed(acc9),32));
-                DenominadorInt := conv_integer(na)*conv_integer(a);
+                NumeradorInt   := acc0+acc1+acc2+acc3+acc4+acc5+acc6+acc7+acc8+acc9;
+                DenominadorInt := na;
                 CocienteInt    := NumeradorInt / DenominadorInt;
-                int_sample     := conv_std_logic_vector(CocienteInt,32);
+                int_sample     := conv_std_logic_vector(integer(CocienteInt),32);
                 out_sample <= int_sample;  
                 --y <= acc0-acc1-acc2+acc3-acc4+acc5+acc6-acc7+acc8-acc9; 
                 
