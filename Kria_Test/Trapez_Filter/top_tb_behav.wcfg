@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="126.010001 us"></ZoomEndTime>
-      <Cursor1Time time="16.050000 us"></Cursor1Time>
+      <ZoomEndTime time="10.713927 us"></ZoomEndTime>
+      <Cursor1Time time="0.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="108"></ValueColumnWidth>
+      <ValueColumnWidth column_width="104"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -70,70 +70,5 @@
    <wvobject fp_name="/top_tb/N_SAMPL" type="other">
       <obj_property name="ElementShortName">N_SAMPL</obj_property>
       <obj_property name="ObjectShortName">N_SAMPL</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/in_sample" type="array">
-      <obj_property name="ElementShortName">in_sample[15:0]</obj_property>
-      <obj_property name="ObjectShortName">in_sample[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/out_sample" type="array">
-      <obj_property name="ElementShortName">out_sample[31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_sample[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/out_real" type="array">
-      <obj_property name="ElementShortName">out_real[31:0]</obj_property>
-      <obj_property name="ObjectShortName">out_real[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc0" type="array">
-      <obj_property name="ElementShortName">acc0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc0[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc1" type="array">
-      <obj_property name="ElementShortName">acc1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc1[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc2" type="array">
-      <obj_property name="ElementShortName">acc2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc2[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc3" type="array">
-      <obj_property name="ElementShortName">acc3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc3[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc4" type="array">
-      <obj_property name="ElementShortName">acc4[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc4[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc5" type="array">
-      <obj_property name="ElementShortName">acc5[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc5[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc6" type="array">
-      <obj_property name="ElementShortName">acc6[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc6[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc7" type="array">
-      <obj_property name="ElementShortName">acc7[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc7[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc8" type="array">
-      <obj_property name="ElementShortName">acc8[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc8[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/dut/kria_fir_i/trapz_fab_0/U0/acc9" type="array">
-      <obj_property name="ElementShortName">acc9[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc9[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
