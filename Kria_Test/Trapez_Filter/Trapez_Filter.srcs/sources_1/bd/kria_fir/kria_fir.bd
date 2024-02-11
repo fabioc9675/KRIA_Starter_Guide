@@ -11,7 +11,7 @@
       "validated": "true"
     },
     "design_tree": {
-      "trapz_fab_real_0": ""
+      "trapz_fab_0": ""
     },
     "ports": {
       "ap_clk": {
@@ -73,14 +73,14 @@
       }
     },
     "components": {
-      "trapz_fab_real_0": {
-        "vlnv": "xilinx.com:module_ref:trapz_fab_real:1.0",
-        "xci_name": "kria_fir_trapz_fab_real_0_0",
-        "xci_path": "ip\\kria_fir_trapz_fab_real_0_0\\kria_fir_trapz_fab_real_0_0.xci",
-        "inst_hier_path": "trapz_fab_real_0",
+      "trapz_fab_0": {
+        "vlnv": "xilinx.com:module_ref:trapz_fab:1.0",
+        "xci_name": "kria_fir_trapz_fab_0_0",
+        "xci_path": "ip\\kria_fir_trapz_fab_0_0\\kria_fir_trapz_fab_0_0.xci",
+        "inst_hier_path": "trapz_fab_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "trapz_fab_real",
+          "ref_name": "trapz_fab",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -122,31 +122,31 @@
       "ap_clk_1": {
         "ports": [
           "ap_clk",
-          "trapz_fab_real_0/ap_clk"
+          "trapz_fab_0/ap_clk"
         ]
       },
       "ap_rst_1": {
         "ports": [
           "ap_rst",
-          "trapz_fab_real_0/ap_rst"
+          "trapz_fab_0/ap_rst"
         ]
       },
       "ap_start_1": {
         "ports": [
           "ap_start",
-          "trapz_fab_real_0/ap_start"
+          "trapz_fab_0/ap_start"
         ]
       },
-      "trapz_fab_real_0_y": {
+      "trapz_fab_0_y": {
         "ports": [
-          "trapz_fab_real_0/y",
+          "trapz_fab_0/y",
           "y_0"
         ]
       },
       "x_0_1": {
         "ports": [
           "x_0",
-          "trapz_fab_real_0/x"
+          "trapz_fab_0/x"
         ]
       }
     }
