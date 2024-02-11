@@ -25,7 +25,6 @@ architecture Behavioral of trapz_fab is
     constant nb    : std_logic_vector (15 downto 0) := X"0096";       -- 150
     constant nc    : std_logic_vector (15 downto 0) := X"00C8";       -- 200
     
-    
     -- buffer signals instantiation
     type buffer_vector is array (integer range <>) of std_logic_vector(15 downto 0);
     signal buffx        : buffer_vector(0 to conv_integer(nc+2));
@@ -90,40 +89,39 @@ begin
     variable int_sample     : std_logic_vector(31 downto 0);
     begin
         if (ap_rst = '0') then 
-
-           -- accumulators initialization
-           acc0 <= (others =>'0');
-           acc1 <= (others =>'0');
-           acc2 <= (others =>'0');
-           acc3 <= (others =>'0');
-           acc4 <= (others =>'0');
-           acc5 <= (others =>'0');
-           acc6 <= (others =>'0');
-           acc7 <= (others =>'0');
-           acc8 <= (others =>'0');
-           acc9 <= (others =>'0');
-           
-           out_real     <= X"00000000";
-                      out_sample   <= X"00000000";
+            -- accumulators initialization
+            acc0 <= (others =>'0');
+            acc1 <= (others =>'0');
+            acc2 <= (others =>'0');
+            acc3 <= (others =>'0');
+            acc4 <= (others =>'0');
+            acc5 <= (others =>'0');
+            acc6 <= (others =>'0');
+            acc7 <= (others =>'0');
+            acc8 <= (others =>'0');
+            acc9 <= (others =>'0');
+            
+            out_real     <= X"00000000";
+            out_sample   <= X"00000000";
         elsif rising_edge(ap_clk) then
-            if en_trapz = '1' then                                
+            if en_trapz = '1' then      
+                -- Calculation of the division in the equation                          
                 NumeradorInt   := conv_integer(conv_std_logic_vector(signed(acc0)+signed(acc1)+signed(acc2)+signed(acc3)+signed(acc4)+signed(acc5)+signed(acc6)+signed(acc7)+signed(acc8)+signed(acc9),32));
                 DenominadorInt := conv_integer(na)*conv_integer(a);
                 CocienteInt    := NumeradorInt / DenominadorInt;
+                -- Calculation of the residual to verify the round process
                 RestoInt       := abs(NumeradorInt) mod DenominadorInt;
                 CompareInt     := DenominadorInt / 2;
+                -- if mod > 0.5 the add 1 to the result
                 if (RestoInt > CompareInt) then
                     int_sample     := conv_std_logic_vector(CocienteInt+1,32);
                 else
                     int_sample     := conv_std_logic_vector(CocienteInt,32);
                 end if;
-                -- int_sample     := conv_std_logic_vector(CocienteInt,32);
+                -- final result
                 out_real <= int_sample;  
-                --y <= acc0-acc1-acc2+acc3-acc4+acc5+acc6-acc7+acc8-acc9; 
                 
-                
-                    -- Multiply stage of Trapz
-                
+                -- Multiply stage of Trapz
                 acc0 <= conv_std_logic_vector(signed(buffx(0)) * signed(a), 32);
                 acc1 <= conv_std_logic_vector(signed(buffx(1)) * signed(d) * signed(conv_std_logic_vector(-1,32)), 32);
                 acc2 <= conv_std_logic_vector(signed(buffx(conv_integer(na))) * signed(a) * signed(conv_std_logic_vector(-1,32)), 32);
@@ -134,31 +132,30 @@ begin
                 acc7 <= conv_std_logic_vector(signed(buffx(conv_integer(nc)+1)) * signed(d) * signed(conv_std_logic_vector(-1,32)), 32);
                 acc8 <= conv_std_logic_vector(signed(int_sample) * signed(na) * signed(conv_std_logic_vector(2,32)) * signed(a), 32);
                 acc9 <= conv_std_logic_vector(signed(out_real) * signed(na) * signed(a) * signed(conv_std_logic_vector(-1,32)), 32);
-            
                 
                 out_sample <= out_real;
                 
                 
             else
-                --y <= X"00000000";  
+                -- Initialize the values
                 out_sample <= X"00000000"; 
                 out_real     <= X"00000000";
-           
-           acc0 <= (others =>'0');
-           acc1 <= (others =>'0');
-           acc2 <= (others =>'0');
-           acc3 <= (others =>'0');
-           acc4 <= (others =>'0');
-           acc5 <= (others =>'0');
-           acc6 <= (others =>'0');
-           acc7 <= (others =>'0');
-           acc8 <= (others =>'0');
-           acc9 <= (others =>'0');      
+                
+                acc0 <= (others =>'0');
+                acc1 <= (others =>'0');
+                acc2 <= (others =>'0');
+                acc3 <= (others =>'0');
+                acc4 <= (others =>'0');
+                acc5 <= (others =>'0');
+                acc6 <= (others =>'0');
+                acc7 <= (others =>'0');
+                acc8 <= (others =>'0');
+                acc9 <= (others =>'0');      
             end if;
         end if;
     end process;
     
-    
-y <= out_sample;
+    -- assign the output
+    y <= out_sample;
 
 end Behavioral;
