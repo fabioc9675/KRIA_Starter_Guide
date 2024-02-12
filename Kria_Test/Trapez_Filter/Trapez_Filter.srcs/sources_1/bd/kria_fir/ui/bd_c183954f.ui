@@ -1,9 +1,9 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-151,-294",
+   "Default View_TopLeft":"-242,-73",
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port port-id_ap_clk -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
 preplace port port-id_ap_rst -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
@@ -11,11 +11,11 @@ preplace port port-id_ap_start -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
 preplace portBus x_0 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
 preplace portBus y_0 -pg 1 -lvl 2 -x 260 -y 90 -defaultsOSRD
 preplace inst trapz_klm_0 -pg 1 -lvl 1 -x 130 -y 90 -defaultsOSRD
-preplace netloc ap_clk_1 1 0 1 N 60
-preplace netloc ap_rst_1 1 0 1 N 80
-preplace netloc ap_start_1 1 0 1 N 100
-preplace netloc x_0_1 1 0 1 N 120
+preplace netloc ap_clk_1 1 0 1 NJ 60
+preplace netloc ap_rst_1 1 0 1 NJ 80
+preplace netloc ap_start_1 1 0 1 NJ 100
 preplace netloc trapz_klm_0_y 1 1 1 N 90
+preplace netloc x_0_1 1 0 1 NJ 120
 levelinfo -pg 1 0 130 260
 pagesize -pg 1 -db -bbox -sgen -110 0 370 180
 "
