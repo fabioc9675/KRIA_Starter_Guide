@@ -52,16 +52,16 @@ begin
 process (ap_clk)
 begin
     if rising_edge(ap_clk) then
-        if unsigned(x) > 1 then
-            led <= B"0001";
-        elsif unsigned(x) > 16 then
-            led <= B"0011";
-        elsif unsigned(x) > 256 then
-            led <= B"0111";
-        elsif unsigned(x) > 4096 then
-            led <= B"1111";
-        else
+        if unsigned(x) < 256 then
             led <= B"0000";
+        elsif unsigned(x) < 4096 then
+            led <= B"0001";
+        elsif unsigned(x) < 16500 then
+            led <= B"0011";
+        elsif unsigned(x) < 60000 then
+            led <= B"0111";
+        else
+            led <= B"1111";
         end if;
         --led <= x(5 downto 2);
     end if;

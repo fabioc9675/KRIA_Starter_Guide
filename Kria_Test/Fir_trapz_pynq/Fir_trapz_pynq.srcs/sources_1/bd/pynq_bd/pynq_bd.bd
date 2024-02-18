@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x321EEA8C616E63B0",
+      "boundary_crc": "0x94CECF995E667171",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd",
       "name": "pynq_bd",
@@ -201,6 +201,51 @@
             "direction": "I"
           }
         }
+      },
+      "Vaux6_0": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:diff_analog_io:1.0",
+        "vlnv": "xilinx.com:interface:diff_analog_io_rtl:1.0",
+        "port_maps": {
+          "V_N": {
+            "physical_name": "Vaux6_0_v_n",
+            "direction": "I"
+          },
+          "V_P": {
+            "physical_name": "Vaux6_0_v_p",
+            "direction": "I"
+          }
+        }
+      },
+      "Vaux9_0": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:diff_analog_io:1.0",
+        "vlnv": "xilinx.com:interface:diff_analog_io_rtl:1.0",
+        "port_maps": {
+          "V_N": {
+            "physical_name": "Vaux9_0_v_n",
+            "direction": "I"
+          },
+          "V_P": {
+            "physical_name": "Vaux9_0_v_p",
+            "direction": "I"
+          }
+        }
+      },
+      "Vaux15_0": {
+        "mode": "Slave",
+        "vlnv_bus_definition": "xilinx.com:interface:diff_analog_io:1.0",
+        "vlnv": "xilinx.com:interface:diff_analog_io_rtl:1.0",
+        "port_maps": {
+          "V_N": {
+            "physical_name": "Vaux15_0_v_n",
+            "direction": "I"
+          },
+          "V_P": {
+            "physical_name": "Vaux15_0_v_p",
+            "direction": "I"
+          }
+        }
       }
     },
     "ports": {
@@ -234,19 +279,19 @@
             "value": "false"
           },
           "CHANNEL_ENABLE_VAUXP15_VAUXN15": {
-            "value": "false"
+            "value": "true"
           },
           "CHANNEL_ENABLE_VAUXP1_VAUXN1": {
-            "value": "false"
+            "value": "true"
           },
           "CHANNEL_ENABLE_VAUXP6_VAUXN6": {
-            "value": "false"
+            "value": "true"
           },
           "CHANNEL_ENABLE_VAUXP9_VAUXN9": {
-            "value": "false"
+            "value": "true"
           },
           "CHANNEL_ENABLE_VP_VN": {
-            "value": "false"
+            "value": "true"
           },
           "DCLK_FREQUENCY": {
             "value": "100"
@@ -282,7 +327,7 @@
             "value": "false"
           },
           "SEQUENCER_MODE": {
-            "value": "Off"
+            "value": "Continuous"
           },
           "SINGLE_CHANNEL_SELECTION": {
             "value": "VAUXP1_VAUXN1"
@@ -297,7 +342,7 @@
             "value": "false"
           },
           "XADC_STARUP_SELECTION": {
-            "value": "single_channel"
+            "value": "channel_sequencer"
           }
         }
       },
@@ -2001,10 +2046,28 @@
       }
     },
     "interface_nets": {
+      "Vaux15_0_1": {
+        "interface_ports": [
+          "Vaux15_0",
+          "xadc_wiz_0/Vaux15"
+        ]
+      },
       "Vaux1_0_1": {
         "interface_ports": [
           "Vaux1_0",
           "xadc_wiz_0/Vaux1"
+        ]
+      },
+      "Vaux6_0_1": {
+        "interface_ports": [
+          "Vaux6_0",
+          "xadc_wiz_0/Vaux6"
+        ]
+      },
+      "Vaux9_0_1": {
+        "interface_ports": [
+          "Vaux9_0",
+          "xadc_wiz_0/Vaux9"
         ]
       },
       "processing_system7_0_DDR": {

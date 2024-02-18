@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sun Feb 18 01:45:28 2024
+--Date        : Sun Feb 18 02:25:19 2024
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd.bd
 --Design      : pynq_bd
@@ -34,8 +34,14 @@ entity pynq_bd is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
+    Vaux15_0_v_n : in STD_LOGIC;
+    Vaux15_0_v_p : in STD_LOGIC;
     Vaux1_0_v_n : in STD_LOGIC;
     Vaux1_0_v_p : in STD_LOGIC;
+    Vaux6_0_v_n : in STD_LOGIC;
+    Vaux6_0_v_p : in STD_LOGIC;
+    Vaux9_0_v_n : in STD_LOGIC;
+    Vaux9_0_v_p : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 );
     sw : in STD_LOGIC_VECTOR ( 1 downto 0 )
@@ -60,6 +66,12 @@ architecture STRUCTURE of pynq_bd is
     vn_in : in STD_LOGIC;
     vauxp1 : in STD_LOGIC;
     vauxn1 : in STD_LOGIC;
+    vauxp6 : in STD_LOGIC;
+    vauxn6 : in STD_LOGIC;
+    vauxp9 : in STD_LOGIC;
+    vauxn9 : in STD_LOGIC;
+    vauxp15 : in STD_LOGIC;
+    vauxn15 : in STD_LOGIC;
     channel_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
     eoc_out : out STD_LOGIC;
     alarm_out : out STD_LOGIC;
@@ -97,13 +109,6 @@ architecture STRUCTURE of pynq_bd is
     PS_PORB : inout STD_LOGIC
   );
   end component pynq_bd_processing_system7_0_0;
-  component pynq_bd_rgb_0_0 is
-  port (
-    ap_clk : in STD_LOGIC;
-    sw : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 )
-  );
-  end component pynq_bd_rgb_0_0;
   component pynq_bd_ila_0_0 is
   port (
     clk : in STD_LOGIC;
@@ -113,6 +118,13 @@ architecture STRUCTURE of pynq_bd is
     probe3 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component pynq_bd_ila_0_0;
+  component pynq_bd_rgb_0_0 is
+  port (
+    ap_clk : in STD_LOGIC;
+    sw : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 )
+  );
+  end component pynq_bd_rgb_0_0;
   component pynq_bd_leds_0_0 is
   port (
     x : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -124,8 +136,14 @@ architecture STRUCTURE of pynq_bd is
     d_we_en : out STD_LOGIC
   );
   end component pynq_bd_leds_0_0;
+  signal Vaux15_0_1_V_N : STD_LOGIC;
+  signal Vaux15_0_1_V_P : STD_LOGIC;
   signal Vaux1_0_1_V_N : STD_LOGIC;
   signal Vaux1_0_1_V_P : STD_LOGIC;
+  signal Vaux6_0_1_V_N : STD_LOGIC;
+  signal Vaux6_0_1_V_P : STD_LOGIC;
+  signal Vaux9_0_1_V_N : STD_LOGIC;
+  signal Vaux9_0_1_V_P : STD_LOGIC;
   signal leds_0_addr : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal leds_0_d_in : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal leds_0_d_we_en : STD_LOGIC;
@@ -181,8 +199,14 @@ architecture STRUCTURE of pynq_bd is
   attribute X_INTERFACE_INFO of FIXED_IO_ps_clk : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_porb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
+  attribute X_INTERFACE_INFO of Vaux15_0_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15_0 V_N";
+  attribute X_INTERFACE_INFO of Vaux15_0_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux15_0 V_P";
   attribute X_INTERFACE_INFO of Vaux1_0_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux1_0 V_N";
   attribute X_INTERFACE_INFO of Vaux1_0_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux1_0 V_P";
+  attribute X_INTERFACE_INFO of Vaux6_0_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6_0 V_N";
+  attribute X_INTERFACE_INFO of Vaux6_0_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux6_0 V_P";
+  attribute X_INTERFACE_INFO of Vaux9_0_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux9_0 V_N";
+  attribute X_INTERFACE_INFO of Vaux9_0_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux9_0 V_P";
   attribute X_INTERFACE_INFO of DDR_addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
   attribute X_INTERFACE_PARAMETER of DDR_addr : signal is "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250";
   attribute X_INTERFACE_INFO of DDR_ba : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
@@ -192,8 +216,14 @@ architecture STRUCTURE of pynq_bd is
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
 begin
+  Vaux15_0_1_V_N <= Vaux15_0_v_n;
+  Vaux15_0_1_V_P <= Vaux15_0_v_p;
   Vaux1_0_1_V_N <= Vaux1_0_v_n;
   Vaux1_0_1_V_P <= Vaux1_0_v_p;
+  Vaux6_0_1_V_N <= Vaux6_0_v_n;
+  Vaux6_0_1_V_P <= Vaux6_0_v_p;
+  Vaux9_0_1_V_N <= Vaux9_0_v_n;
+  Vaux9_0_1_V_P <= Vaux9_0_v_p;
   led(3 downto 0) <= leds_0_led(3 downto 0);
   rgb_led(5 downto 0) <= rgb_0_rgb_led(5 downto 0);
   sw_0_1(1 downto 0) <= sw(1 downto 0);
@@ -265,7 +295,13 @@ xadc_wiz_0: component pynq_bd_xadc_wiz_0_1
       eoc_out => xadc_wiz_0_eoc_out,
       eos_out => NLW_xadc_wiz_0_eos_out_UNCONNECTED,
       vauxn1 => Vaux1_0_1_V_N,
+      vauxn15 => Vaux15_0_1_V_N,
+      vauxn6 => Vaux6_0_1_V_N,
+      vauxn9 => Vaux9_0_1_V_N,
       vauxp1 => Vaux1_0_1_V_P,
+      vauxp15 => Vaux15_0_1_V_P,
+      vauxp6 => Vaux6_0_1_V_P,
+      vauxp9 => Vaux9_0_1_V_P,
       vn_in => '0',
       vp_in => '0'
     );
