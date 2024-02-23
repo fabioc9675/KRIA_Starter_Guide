@@ -99,7 +99,7 @@ pynq_bd_processing_system7_0_0_sc::pynq_bd_processing_system7_0_0_sc(const sc_co
     model_param_props.addLong("C_MIO_PRIMITIVE", "54");
     model_param_props.addLong("C_TRACE_INTERNAL_WIDTH", "2");
     model_param_props.addLong("C_USE_AXI_NONSECURE", "0");
-    model_param_props.addLong("C_USE_M_AXI_GP0", "0");
+    model_param_props.addLong("C_USE_M_AXI_GP0", "1");
     model_param_props.addLong("C_USE_M_AXI_GP1", "0");
     model_param_props.addLong("C_USE_S_AXI_GP0", "0");
     model_param_props.addLong("C_USE_S_AXI_GP1", "0");
@@ -120,6 +120,10 @@ pynq_bd_processing_system7_0_0_sc::pynq_bd_processing_system7_0_0_sc(const sc_co
     model_param_props.addString("COMPONENT_NAME", "pynq_bd_processing_system7_0_0");
 
   mp_impl = new processing_system7_v5_5_tlm("inst", model_param_props);
+
+  // initialize AXI sockets
+  M_AXI_GP0_rd_socket = mp_impl->M_AXI_GP0_rd_socket;
+  M_AXI_GP0_wr_socket = mp_impl->M_AXI_GP0_wr_socket;
 }
 
 pynq_bd_processing_system7_0_0_sc::~pynq_bd_processing_system7_0_0_sc()

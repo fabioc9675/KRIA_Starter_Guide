@@ -83,6 +83,45 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
   sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
   sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
+  sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_BREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_RREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_WLAST;
+  sc_core::sc_out< bool > M_AXI_GP0_WVALID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_ARID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_AWID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_WID;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARPROT;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWPROT;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_ARADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_AWADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_WDATA;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_WSTRB;
+  sc_core::sc_in< bool > M_AXI_GP0_ACLK;
+  sc_core::sc_in< bool > M_AXI_GP0_ARREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_AWREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_BVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_RLAST;
+  sc_core::sc_in< bool > M_AXI_GP0_RVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_WREADY;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_BID;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_RID;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_BRESP;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_RRESP;
+  sc_core::sc_in< sc_dt::sc_bv<32> > M_AXI_GP0_RDATA;
   sc_core::sc_out< bool > FCLK_CLK0;
   sc_core::sc_out< bool > FCLK_RESET0_N;
   sc_core::sc_out< sc_dt::sc_bv<54> > MIO;
@@ -116,6 +155,16 @@ protected:
 
 private:
 
+  xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>* mp_M_AXI_GP0_transactor;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_ARLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_ARLOCK_converter_signal;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_AWLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_AWLOCK_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_ARLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_ARLEN_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_AWLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_AWLEN_converter_signal;
+  sc_signal< bool > m_M_AXI_GP0_transactor_rst_signal;
 
 };
 #endif // XILINX_SIMULATOR
@@ -136,6 +185,45 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
   sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
   sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
+  sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_BREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_RREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_WLAST;
+  sc_core::sc_out< bool > M_AXI_GP0_WVALID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_ARID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_AWID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_WID;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARPROT;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWPROT;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_ARADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_AWADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_WDATA;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_WSTRB;
+  sc_core::sc_in< bool > M_AXI_GP0_ACLK;
+  sc_core::sc_in< bool > M_AXI_GP0_ARREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_AWREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_BVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_RLAST;
+  sc_core::sc_in< bool > M_AXI_GP0_RVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_WREADY;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_BID;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_RID;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_BRESP;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_RRESP;
+  sc_core::sc_in< sc_dt::sc_bv<32> > M_AXI_GP0_RDATA;
   sc_core::sc_out< bool > FCLK_CLK0;
   sc_core::sc_out< bool > FCLK_RESET0_N;
   sc_core::sc_inout< sc_dt::sc_bv<54> > MIO;
@@ -169,6 +257,16 @@ protected:
 
 private:
 
+  xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>* mp_M_AXI_GP0_transactor;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_ARLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_ARLOCK_converter_signal;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_AWLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_AWLOCK_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_ARLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_ARLEN_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_AWLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_AWLEN_converter_signal;
+  sc_signal< bool > m_M_AXI_GP0_transactor_rst_signal;
 
 };
 #endif // XM_SYSTEMC
@@ -189,6 +287,45 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
   sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
   sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
+  sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_BREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_RREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_WLAST;
+  sc_core::sc_out< bool > M_AXI_GP0_WVALID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_ARID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_AWID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_WID;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARPROT;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWPROT;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_ARADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_AWADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_WDATA;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_WSTRB;
+  sc_core::sc_in< bool > M_AXI_GP0_ACLK;
+  sc_core::sc_in< bool > M_AXI_GP0_ARREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_AWREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_BVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_RLAST;
+  sc_core::sc_in< bool > M_AXI_GP0_RVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_WREADY;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_BID;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_RID;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_BRESP;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_RRESP;
+  sc_core::sc_in< sc_dt::sc_bv<32> > M_AXI_GP0_RDATA;
   sc_core::sc_out< bool > FCLK_CLK0;
   sc_core::sc_out< bool > FCLK_RESET0_N;
   sc_core::sc_out< sc_dt::sc_bv<54> > MIO;
@@ -222,6 +359,16 @@ protected:
 
 private:
 
+  xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>* mp_M_AXI_GP0_transactor;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_ARLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_ARLOCK_converter_signal;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_AWLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_AWLOCK_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_ARLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_ARLEN_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_AWLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_AWLEN_converter_signal;
+  sc_signal< bool > m_M_AXI_GP0_transactor_rst_signal;
 
 };
 #endif // RIVIERA
@@ -230,6 +377,8 @@ private:
 
 
 #ifdef VCSSYSTEMC
+#include "utils/xtlm_aximm_initiator_stub.h"
+
 class DllExport pynq_bd_processing_system7_0_0 : public pynq_bd_processing_system7_0_0_sc
 {
 public:
@@ -242,6 +391,45 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
   sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
   sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
+  sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_BREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_RREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_WLAST;
+  sc_core::sc_out< bool > M_AXI_GP0_WVALID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_ARID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_AWID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_WID;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARPROT;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWPROT;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_ARADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_AWADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_WDATA;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_WSTRB;
+  sc_core::sc_in< bool > M_AXI_GP0_ACLK;
+  sc_core::sc_in< bool > M_AXI_GP0_ARREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_AWREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_BVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_RLAST;
+  sc_core::sc_in< bool > M_AXI_GP0_RVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_WREADY;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_BID;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_RID;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_BRESP;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_RRESP;
+  sc_core::sc_in< sc_dt::sc_bv<32> > M_AXI_GP0_RDATA;
   sc_core::sc_out< bool > FCLK_CLK0;
   sc_core::sc_out< bool > FCLK_RESET0_N;
   sc_core::sc_out< sc_dt::sc_bv<54> > MIO;
@@ -275,8 +463,20 @@ protected:
 
 private:
 
+  xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>* mp_M_AXI_GP0_transactor;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_ARLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_ARLOCK_converter_signal;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_AWLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_AWLOCK_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_ARLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_ARLEN_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_AWLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_AWLEN_converter_signal;
+  sc_signal< bool > m_M_AXI_GP0_transactor_rst_signal;
 
   // Transactor stubs
+  xtlm::xtlm_aximm_initiator_stub * M_AXI_GP0_transactor_initiator_rd_socket_stub;
+  xtlm::xtlm_aximm_initiator_stub * M_AXI_GP0_transactor_initiator_wr_socket_stub;
 
   // Socket stubs
 
@@ -287,6 +487,8 @@ private:
 
 
 #ifdef MTI_SYSTEMC
+#include "utils/xtlm_aximm_initiator_stub.h"
+
 class DllExport pynq_bd_processing_system7_0_0 : public pynq_bd_processing_system7_0_0_sc
 {
 public:
@@ -299,6 +501,45 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
   sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
   sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
+  sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
+  sc_core::sc_out< bool > M_AXI_GP0_BREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_RREADY;
+  sc_core::sc_out< bool > M_AXI_GP0_WLAST;
+  sc_core::sc_out< bool > M_AXI_GP0_WVALID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_ARID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_AWID;
+  sc_core::sc_out< sc_dt::sc_bv<12> > M_AXI_GP0_WID;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_ARLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWBURST;
+  sc_core::sc_out< sc_dt::sc_bv<2> > M_AXI_GP0_AWLOCK;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWSIZE;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_ARPROT;
+  sc_core::sc_out< sc_dt::sc_bv<3> > M_AXI_GP0_AWPROT;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_ARADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_AWADDR;
+  sc_core::sc_out< sc_dt::sc_bv<32> > M_AXI_GP0_WDATA;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_ARQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWCACHE;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWLEN;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_AWQOS;
+  sc_core::sc_out< sc_dt::sc_bv<4> > M_AXI_GP0_WSTRB;
+  sc_core::sc_in< bool > M_AXI_GP0_ACLK;
+  sc_core::sc_in< bool > M_AXI_GP0_ARREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_AWREADY;
+  sc_core::sc_in< bool > M_AXI_GP0_BVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_RLAST;
+  sc_core::sc_in< bool > M_AXI_GP0_RVALID;
+  sc_core::sc_in< bool > M_AXI_GP0_WREADY;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_BID;
+  sc_core::sc_in< sc_dt::sc_bv<12> > M_AXI_GP0_RID;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_BRESP;
+  sc_core::sc_in< sc_dt::sc_bv<2> > M_AXI_GP0_RRESP;
+  sc_core::sc_in< sc_dt::sc_bv<32> > M_AXI_GP0_RDATA;
   sc_core::sc_out< bool > FCLK_CLK0;
   sc_core::sc_out< bool > FCLK_RESET0_N;
   sc_core::sc_out< sc_dt::sc_bv<54> > MIO;
@@ -332,8 +573,20 @@ protected:
 
 private:
 
+  xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>* mp_M_AXI_GP0_transactor;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_ARLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_ARLOCK_converter_signal;
+  xsc::common::scalar2vectorN_converter<2>* mp_M_AXI_GP0_AWLOCK_converter;
+  sc_signal< bool > m_M_AXI_GP0_AWLOCK_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_ARLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_ARLEN_converter_signal;
+  xsc::common::vector2vector_converter<8,4>* mp_M_AXI_GP0_AWLEN_converter;
+  sc_signal< sc_bv<8> > m_M_AXI_GP0_AWLEN_converter_signal;
+  sc_signal< bool > m_M_AXI_GP0_transactor_rst_signal;
 
   // Transactor stubs
+  xtlm::xtlm_aximm_initiator_stub * M_AXI_GP0_transactor_initiator_rd_socket_stub;
+  xtlm::xtlm_aximm_initiator_stub * M_AXI_GP0_transactor_initiator_wr_socket_stub;
 
   // Socket stubs
 

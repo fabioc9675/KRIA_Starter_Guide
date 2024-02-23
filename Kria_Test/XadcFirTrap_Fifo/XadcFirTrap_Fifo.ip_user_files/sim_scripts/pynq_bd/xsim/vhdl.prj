@@ -1,5 +1,4 @@
 vhdl xil_defaultlib  \
-"../../../bd/pynq_bd/ip/pynq_bd_ila_0_0/sim/pynq_bd_ila_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_rgb_0_0/sim/pynq_bd_rgb_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_leds_0_0/sim/pynq_bd_leds_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_xadc_wiz_0_2/pynq_bd_xadc_wiz_0_2.vhd" \
@@ -8,5 +7,15 @@ vhdl xil_defaultlib  \
 "../../../bd/pynq_bd/ip/pynq_bd_proc_sys_reset_0_0/sim/pynq_bd_proc_sys_reset_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_clock_div_0_0/sim/pynq_bd_clock_div_0_0.vhd" \
 "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axil.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axif.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/tdpram.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/graysync.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/fifo.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/comblock.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axi_comblock.vhdl" \
+"../../../bd/pynq_bd/ip/pynq_bd_comblock_0_0/sim/pynq_bd_comblock_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_axi_smc_0/bd_0/ip/ip_1/sim/bd_48aa_psr_aclk_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_1/sim/pynq_bd_rst_ps7_0_100M_1.vhd" \
 
 nosort
