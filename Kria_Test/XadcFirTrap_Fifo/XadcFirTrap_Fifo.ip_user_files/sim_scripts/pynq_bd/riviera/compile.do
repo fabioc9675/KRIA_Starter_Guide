@@ -75,8 +75,6 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../XadcFirTrap_Fifo.gen/sourc
 vcom -work xil_defaultlib -93  \
 "../../../bd/pynq_bd/ip/pynq_bd_fir_fab_0_0/sim/pynq_bd_fir_fab_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_trapz_klm_0_0/sim/pynq_bd_trapz_klm_0_0.vhd" \
-"../../../bd/pynq_bd/ip/pynq_bd_rgb_0_0/sim/pynq_bd_rgb_0_0.vhd" \
-"../../../bd/pynq_bd/ip/pynq_bd_leds_0_0/sim/pynq_bd_leds_0_0.vhd" \
 "../../../bd/pynq_bd/ipshared/7b64/hdl/axil.vhdl" \
 "../../../bd/pynq_bd/ipshared/7b64/hdl/axif.vhdl" \
 "../../../bd/pynq_bd/ipshared/7b64/hdl/tdpram.vhdl" \
@@ -94,7 +92,8 @@ vcom -work proc_sys_reset_v5_0_13 -93  \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_1/sim/pynq_bd_rst_ps7_0_100M_1.vhd" \
-"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rgb_0_0/sim/pynq_bd_rgb_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_leds_0_0/sim/pynq_bd_leds_0_0.vhd" \
 
 vlog -work xlconstant_v1_1_7  -v2k5 "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -120,6 +119,8 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../XadcFirTrap_Fifo.gen/sourc
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_1M_0/sim/pynq_bd_rst_ps7_0_1M_0.vhd" \
+"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_clock_div_0_0/sim/pynq_bd_clock_div_0_0.vhd" \
 
 vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \

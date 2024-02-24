@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sat Feb 24 09:46:46 2024
+--Date        : Sat Feb 24 12:02:29 2024
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd.bd
 --Design      : pynq_bd
@@ -618,7 +618,7 @@ entity pynq_bd is
     sw : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=20,numReposBlks=18,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_axi4_s2mm_cnt=1,da_board_cnt=5,da_clkrst_cnt=14,da_ps7_cnt=3,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=21,numReposBlks=19,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_axi4_s2mm_cnt=1,da_board_cnt=5,da_clkrst_cnt=14,da_ps7_cnt=3,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of pynq_bd : entity is "pynq_bd.hwdef";
 end pynq_bd;
@@ -669,7 +669,6 @@ architecture STRUCTURE of pynq_bd is
     M_AXI_GP0_RRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M_AXI_GP0_RDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
-    FCLK_CLK1 : out STD_LOGIC;
     FCLK_RESET0_N : out STD_LOGIC;
     MIO : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     DDR_CAS_n : inout STD_LOGIC;
@@ -867,6 +866,12 @@ architecture STRUCTURE of pynq_bd is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component pynq_bd_rst_ps7_0_1M_0;
+  component pynq_bd_clock_div_0_0 is
+  port (
+    clk_in : in STD_LOGIC;
+    clk_out : out STD_LOGIC
+  );
+  end component pynq_bd_clock_div_0_0;
   signal Vaux1_0_1_V_N : STD_LOGIC;
   signal Vaux1_0_1_V_P : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
@@ -1033,6 +1038,11 @@ clk_wiz_0: component pynq_bd_clk_wiz_0_0
       locked => NLW_clk_wiz_0_locked_UNCONNECTED,
       resetn => processing_system7_0_FCLK_RESET0_N
     );
+clock_div_0: component pynq_bd_clock_div_0_0
+     port map (
+      clk_in => processing_system7_0_FCLK_CLK0,
+      clk_out => clock_div_0_clk_out
+    );
 comblock_0: component pynq_bd_comblock_0_0
      port map (
       axil_aclk => processing_system7_0_FCLK_CLK0,
@@ -1110,7 +1120,6 @@ processing_system7_0: component pynq_bd_processing_system7_0_0
       DDR_VRP => FIXED_IO_ddr_vrp,
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
-      FCLK_CLK1 => clock_div_0_clk_out,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
