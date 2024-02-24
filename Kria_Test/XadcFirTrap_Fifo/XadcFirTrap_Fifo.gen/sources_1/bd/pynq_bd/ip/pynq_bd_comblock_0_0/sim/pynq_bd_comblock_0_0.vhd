@@ -55,8 +55,14 @@ USE ieee.numeric_std.ALL;
 
 ENTITY pynq_bd_comblock_0_0 IS
   PORT (
-    reg0_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    reg1_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    reg0_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg1_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg2_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg3_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg0_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg1_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg2_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg3_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     fifo_clk_i : IN STD_LOGIC;
     fifo_clear_i : IN STD_LOGIC;
     fifo_we_i : IN STD_LOGIC;
@@ -137,22 +143,22 @@ ARCHITECTURE pynq_bd_comblock_0_0_arch OF pynq_bd_comblock_0_0 IS
       reg13_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       reg14_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       reg15_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      reg0_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg1_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg2_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg3_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg4_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg5_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg6_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg7_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg8_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg9_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg10_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg11_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg12_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg13_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg14_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      reg15_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+      reg0_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg1_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg2_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg3_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg4_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg5_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg6_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg7_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg8_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg9_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg10_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg11_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg12_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg13_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg14_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      reg15_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       ram_clk_i : IN STD_LOGIC;
       ram_we_i : IN STD_LOGIC;
       ram_addr_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -270,23 +276,29 @@ ARCHITECTURE pynq_bd_comblock_0_0_arch OF pynq_bd_comblock_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF fifo_afull_o: SIGNAL IS "ictp:user:IFIFO:1.0 IN_FIFO fifo_afull_o";
   ATTRIBUTE X_INTERFACE_PARAMETER OF fifo_clear_i: SIGNAL IS "XIL_INTERFACENAME fifo_clear_i, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_clear_i: SIGNAL IS "xilinx.com:signal:reset:1.0 fifo_clear_i RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF fifo_clk_i: SIGNAL IS "XIL_INTERFACENAME fifo_clk_i, ASSOCIATED_BUSIF IN_FIFO:OUT_FIFO, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF fifo_clk_i: SIGNAL IS "XIL_INTERFACENAME fifo_clk_i, ASSOCIATED_BUSIF IN_FIFO:OUT_FIFO, FREQ_HZ 1000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN pynq_bd_processing_system7_0_0_FCLK_CLK1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_clk_i: SIGNAL IS "xilinx.com:signal:clock:1.0 fifo_clk_i CLK";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_data_i: SIGNAL IS "ictp:user:IFIFO:1.0 IN_FIFO fifo_data_i";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_full_o: SIGNAL IS "ictp:user:IFIFO:1.0 IN_FIFO fifo_full_o";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_overflow_o: SIGNAL IS "ictp:user:IFIFO:1.0 IN_FIFO fifo_overflow_o";
   ATTRIBUTE X_INTERFACE_INFO OF fifo_we_i: SIGNAL IS "ictp:user:IFIFO:1.0 IN_FIFO fifo_we_i";
+  ATTRIBUTE X_INTERFACE_INFO OF reg0_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg0_i";
   ATTRIBUTE X_INTERFACE_INFO OF reg0_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg0_o";
+  ATTRIBUTE X_INTERFACE_INFO OF reg1_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg1_i";
   ATTRIBUTE X_INTERFACE_INFO OF reg1_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg1_o";
+  ATTRIBUTE X_INTERFACE_INFO OF reg2_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg2_i";
+  ATTRIBUTE X_INTERFACE_INFO OF reg2_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg2_o";
+  ATTRIBUTE X_INTERFACE_INFO OF reg3_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg3_i";
+  ATTRIBUTE X_INTERFACE_INFO OF reg3_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg3_o";
 BEGIN
   U0 : axi_comblock
     GENERIC MAP (
-      REGS_IN_ENA => false,
+      REGS_IN_ENA => true,
       REGS_IN_DWIDTH => 32,
       REGS_IN_DEPTH => 4,
       REGS_OUT_ENA => true,
-      REGS_OUT_DWIDTH => 1,
-      REGS_OUT_DEPTH => 2,
+      REGS_OUT_DWIDTH => 32,
+      REGS_OUT_DEPTH => 4,
       DRAM_IO_ENA => false,
       DRAM_IO_DWIDTH => 16,
       DRAM_IO_AWIDTH => 16,
@@ -309,10 +321,10 @@ BEGIN
       C_AXIF_BUSER_WIDTH => 1
     )
     PORT MAP (
-      reg0_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
-      reg1_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
-      reg2_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
-      reg3_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
+      reg0_i => reg0_i,
+      reg1_i => reg1_i,
+      reg2_i => reg2_i,
+      reg3_i => reg3_i,
       reg4_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       reg5_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       reg6_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
@@ -327,6 +339,8 @@ BEGIN
       reg15_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       reg0_o => reg0_o,
       reg1_o => reg1_o,
+      reg2_o => reg2_o,
+      reg3_o => reg3_o,
       ram_clk_i => '0',
       ram_we_i => '0',
       ram_addr_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 16)),
