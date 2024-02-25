@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sat Feb 24 12:02:29 2024
+--Date        : Sun Feb 25 14:01:02 2024
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd.bd
 --Design      : pynq_bd
@@ -327,7 +327,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity pynq_bd_ps7_0_axi_periph_0 is
+entity pynq_bd_ps7_0_axi_periph_1 is
   port (
     ACLK : in STD_LOGIC;
     ARESETN : in STD_LOGIC;
@@ -393,9 +393,9 @@ entity pynq_bd_ps7_0_axi_periph_0 is
     S00_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     S00_AXI_wvalid : in STD_LOGIC
   );
-end pynq_bd_ps7_0_axi_periph_0;
+end pynq_bd_ps7_0_axi_periph_1;
 
-architecture STRUCTURE of pynq_bd_ps7_0_axi_periph_0 is
+architecture STRUCTURE of pynq_bd_ps7_0_axi_periph_1 is
   signal S00_ACLK_1 : STD_LOGIC;
   signal S00_ARESETN_1 : STD_LOGIC;
   signal ps7_0_axi_periph_ACLK_net : STD_LOGIC;
@@ -615,10 +615,11 @@ entity pynq_bd is
     Vaux1_0_v_p : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    sw : in STD_LOGIC_VECTOR ( 1 downto 0 )
+    sw : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    sysclk : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=21,numReposBlks=19,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_axi4_s2mm_cnt=1,da_board_cnt=5,da_clkrst_cnt=14,da_ps7_cnt=3,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=20,numReposBlks=18,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=9,da_axi4_s2mm_cnt=1,da_board_cnt=6,da_clkrst_cnt=19,da_ps7_cnt=3,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of pynq_bd : entity is "pynq_bd.hwdef";
 end pynq_bd;
@@ -669,6 +670,7 @@ architecture STRUCTURE of pynq_bd is
     M_AXI_GP0_RRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M_AXI_GP0_RDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
+    FCLK_CLK1 : out STD_LOGIC;
     FCLK_RESET0_N : out STD_LOGIC;
     MIO : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     DDR_CAS_n : inout STD_LOGIC;
@@ -780,20 +782,6 @@ architecture STRUCTURE of pynq_bd is
     axil_rready : in STD_LOGIC
   );
   end component pynq_bd_comblock_0_0;
-  component pynq_bd_rst_ps7_0_100M_1 is
-  port (
-    slowest_sync_clk : in STD_LOGIC;
-    ext_reset_in : in STD_LOGIC;
-    aux_reset_in : in STD_LOGIC;
-    mb_debug_sys_rst : in STD_LOGIC;
-    dcm_locked : in STD_LOGIC;
-    mb_reset : out STD_LOGIC;
-    bus_struct_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
-    peripheral_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
-    interconnect_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 );
-    peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component pynq_bd_rst_ps7_0_100M_1;
   component pynq_bd_rgb_0_0 is
   port (
     ap_clk : in STD_LOGIC;
@@ -852,7 +840,7 @@ architecture STRUCTURE of pynq_bd is
     Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component pynq_bd_xlslice_0_0;
-  component pynq_bd_rst_ps7_0_1M_0 is
+  component pynq_bd_rst_ps7_0_100M_2 is
   port (
     slowest_sync_clk : in STD_LOGIC;
     ext_reset_in : in STD_LOGIC;
@@ -865,17 +853,24 @@ architecture STRUCTURE of pynq_bd is
     interconnect_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 );
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  end component pynq_bd_rst_ps7_0_1M_0;
-  component pynq_bd_clock_div_0_0 is
+  end component pynq_bd_rst_ps7_0_100M_2;
+  component pynq_bd_rst_ps7_0_1M_1 is
   port (
-    clk_in : in STD_LOGIC;
-    clk_out : out STD_LOGIC
+    slowest_sync_clk : in STD_LOGIC;
+    ext_reset_in : in STD_LOGIC;
+    aux_reset_in : in STD_LOGIC;
+    mb_debug_sys_rst : in STD_LOGIC;
+    dcm_locked : in STD_LOGIC;
+    mb_reset : out STD_LOGIC;
+    bus_struct_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
+    peripheral_reset : out STD_LOGIC_VECTOR ( 0 to 0 );
+    interconnect_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 );
+    peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  end component pynq_bd_clock_div_0_0;
+  end component pynq_bd_rst_ps7_0_1M_1;
   signal Vaux1_0_1_V_N : STD_LOGIC;
   signal Vaux1_0_1_V_P : STD_LOGIC;
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
-  signal clock_div_0_clk_out : STD_LOGIC;
   signal comblock_0_reg0_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal comblock_0_reg1_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal comblock_0_reg2_o : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -899,6 +894,7 @@ architecture STRUCTURE of pynq_bd is
   signal processing_system7_0_DDR_RESET_N : STD_LOGIC;
   signal processing_system7_0_DDR_WE_N : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
+  signal processing_system7_0_FCLK_CLK1 : STD_LOGIC;
   signal processing_system7_0_FCLK_RESET0_N : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRN : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRP : STD_LOGIC;
@@ -967,6 +963,7 @@ architecture STRUCTURE of pynq_bd is
   signal rst_ps7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_ps7_0_1M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal sw_0_1 : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal sys_clock_1 : STD_LOGIC;
   signal xadc_wiz_0_do_out : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal xadc_wiz_0_do_out1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal xadc_wiz_0_eoc_out : STD_LOGIC;
@@ -1017,6 +1014,8 @@ architecture STRUCTURE of pynq_bd is
   attribute X_INTERFACE_INFO of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
   attribute X_INTERFACE_INFO of Vaux1_0_v_n : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux1_0 V_N";
   attribute X_INTERFACE_INFO of Vaux1_0_v_p : signal is "xilinx.com:interface:diff_analog_io:1.0 Vaux1_0 V_P";
+  attribute X_INTERFACE_INFO of sysclk : signal is "xilinx.com:signal:clock:1.0 CLK.SYSCLK CLK";
+  attribute X_INTERFACE_PARAMETER of sysclk : signal is "XIL_INTERFACENAME CLK.SYSCLK, CLK_DOMAIN pynq_bd_sys_clock, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
   attribute X_INTERFACE_INFO of DDR_addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
   attribute X_INTERFACE_PARAMETER of DDR_addr : signal is "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250";
   attribute X_INTERFACE_INFO of DDR_ba : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
@@ -1031,17 +1030,13 @@ begin
   led(3 downto 0) <= leds_0_led(3 downto 0);
   rgb_led(5 downto 0) <= rgb_0_rgb_led(5 downto 0);
   sw_0_1(1 downto 0) <= sw(1 downto 0);
+  sys_clock_1 <= sysclk;
 clk_wiz_0: component pynq_bd_clk_wiz_0_0
      port map (
-      clk_in1 => processing_system7_0_FCLK_CLK0,
+      clk_in1 => sys_clock_1,
       clk_out1 => clk_wiz_0_clk_out1,
       locked => NLW_clk_wiz_0_locked_UNCONNECTED,
       resetn => processing_system7_0_FCLK_RESET0_N
-    );
-clock_div_0: component pynq_bd_clock_div_0_0
-     port map (
-      clk_in => processing_system7_0_FCLK_CLK0,
-      clk_out => clock_div_0_clk_out
     );
 comblock_0: component pynq_bd_comblock_0_0
      port map (
@@ -1068,7 +1063,7 @@ comblock_0: component pynq_bd_comblock_0_0
       axil_wvalid => ps7_0_axi_periph_M00_AXI_WVALID,
       fifo_afull_o => NLW_comblock_0_fifo_afull_o_UNCONNECTED,
       fifo_clear_i => xlconstant_2_dout(0),
-      fifo_clk_i => clock_div_0_clk_out,
+      fifo_clk_i => processing_system7_0_FCLK_CLK1,
       fifo_data_i(31 downto 0) => xadc_wiz_0_do_out(31 downto 0),
       fifo_full_o => NLW_comblock_0_fifo_full_o_UNCONNECTED,
       fifo_overflow_o => NLW_comblock_0_fifo_overflow_o_UNCONNECTED,
@@ -1084,7 +1079,7 @@ comblock_0: component pynq_bd_comblock_0_0
     );
 fir_fab_0: component pynq_bd_fir_fab_0_0
      port map (
-      ap_clk => clock_div_0_clk_out,
+      ap_clk => processing_system7_0_FCLK_CLK1,
       ap_rst => rst_ps7_0_1M_peripheral_aresetn(0),
       ap_start => xlconstant_2_dout(0),
       x(31 downto 0) => xadc_wiz_0_do_out(31 downto 0),
@@ -1120,6 +1115,7 @@ processing_system7_0: component pynq_bd_processing_system7_0_0
       DDR_VRP => FIXED_IO_ddr_vrp,
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
+      FCLK_CLK1 => processing_system7_0_FCLK_CLK1,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
@@ -1168,7 +1164,7 @@ processing_system7_0: component pynq_bd_processing_system7_0_0
       USB0_VBUS_PWRFAULT => '0',
       USB0_VBUS_PWRSELECT => NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED
     );
-ps7_0_axi_periph: entity work.pynq_bd_ps7_0_axi_periph_0
+ps7_0_axi_periph: entity work.pynq_bd_ps7_0_axi_periph_1
      port map (
       ACLK => processing_system7_0_FCLK_CLK0,
       ARESETN => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -1240,7 +1236,7 @@ rgb_0: component pynq_bd_rgb_0_0
       rgb_led(5 downto 0) => rgb_0_rgb_led(5 downto 0),
       sw(1 downto 0) => sw_0_1(1 downto 0)
     );
-rst_ps7_0_100M: component pynq_bd_rst_ps7_0_100M_1
+rst_ps7_0_100M: component pynq_bd_rst_ps7_0_100M_2
      port map (
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_rst_ps7_0_100M_bus_struct_reset_UNCONNECTED(0),
@@ -1253,7 +1249,7 @@ rst_ps7_0_100M: component pynq_bd_rst_ps7_0_100M_1
       peripheral_reset(0) => NLW_rst_ps7_0_100M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
     );
-rst_ps7_0_1M: component pynq_bd_rst_ps7_0_1M_0
+rst_ps7_0_1M: component pynq_bd_rst_ps7_0_1M_1
      port map (
       aux_reset_in => '1',
       bus_struct_reset(0) => NLW_rst_ps7_0_1M_bus_struct_reset_UNCONNECTED(0),
@@ -1264,11 +1260,11 @@ rst_ps7_0_1M: component pynq_bd_rst_ps7_0_1M_0
       mb_reset => NLW_rst_ps7_0_1M_mb_reset_UNCONNECTED,
       peripheral_aresetn(0) => rst_ps7_0_1M_peripheral_aresetn(0),
       peripheral_reset(0) => NLW_rst_ps7_0_1M_peripheral_reset_UNCONNECTED(0),
-      slowest_sync_clk => clock_div_0_clk_out
+      slowest_sync_clk => processing_system7_0_FCLK_CLK1
     );
 trapz_klm_0: component pynq_bd_trapz_klm_0_0
      port map (
-      ap_clk => clock_div_0_clk_out,
+      ap_clk => processing_system7_0_FCLK_CLK1,
       ap_rst => rst_ps7_0_1M_peripheral_aresetn(0),
       ap_start => xlconstant_2_dout(0),
       x(31 downto 0) => xadc_wiz_0_do_out(31 downto 0),

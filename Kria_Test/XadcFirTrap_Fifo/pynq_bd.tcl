@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# clock_div, fir_fab, leds, rgb, trapz_klm
+# fir_fab, leds, rgb, trapz_klm
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -164,7 +164,6 @@ xilinx.com:ip:xlslice:1.0\
 set bCheckModules 1
 if { $bCheckModules == 1 } {
    set list_check_mods "\ 
-clock_div\
 fir_fab\
 leds\
 rgb\
@@ -242,13 +241,17 @@ proc create_root_design { parentCell } {
   set led [ create_bd_port -dir O -from 3 -to 0 led ]
   set rgb_led [ create_bd_port -dir O -from 5 -to 0 rgb_led ]
   set sw [ create_bd_port -dir I -from 1 -to 0 sw ]
+  set sysclk [ create_bd_port -dir I -type clk -freq_hz 125000000 sysclk ]
+  set_property -dict [ list \
+   CONFIG.PHASE {0.0} \
+ ] $sysclk
 
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [list \
     CONFIG.CLKOUT1_DRIVES {BUFG} \
-    CONFIG.CLKOUT1_JITTER {129.027} \
-    CONFIG.CLKOUT1_PHASE_ERROR {99.281} \
+    CONFIG.CLKOUT1_JITTER {218.490} \
+    CONFIG.CLKOUT1_PHASE_ERROR {240.486} \
     CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {104.000} \
     CONFIG.CLKOUT2_DRIVES {BUFG} \
     CONFIG.CLKOUT2_JITTER {157.790} \
@@ -259,32 +262,23 @@ proc create_root_design { parentCell } {
     CONFIG.CLKOUT5_DRIVES {BUFG} \
     CONFIG.CLKOUT6_DRIVES {BUFG} \
     CONFIG.CLKOUT7_DRIVES {BUFG} \
+    CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
     CONFIG.ENABLE_CLOCK_MONITOR {false} \
     CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} \
     CONFIG.MMCM_BANDWIDTH {OPTIMIZED} \
-    CONFIG.MMCM_CLKFBOUT_MULT_F {9.750} \
+    CONFIG.MMCM_CLKFBOUT_MULT_F {39.000} \
     CONFIG.MMCM_CLKOUT0_DIVIDE_F {9.375} \
     CONFIG.MMCM_CLKOUT1_DIVIDE {1} \
     CONFIG.MMCM_COMPENSATION {ZHOLD} \
-    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+    CONFIG.MMCM_DIVCLK_DIVIDE {5} \
     CONFIG.NUM_OUT_CLKS {1} \
     CONFIG.PRIMITIVE {MMCM} \
     CONFIG.RESET_PORT {resetn} \
     CONFIG.RESET_TYPE {ACTIVE_LOW} \
+    CONFIG.USE_BOARD_FLOW {true} \
   ] $clk_wiz_0
 
 
-  # Create instance: clock_div_0, and set properties
-  set block_name clock_div
-  set block_cell_name clock_div_0
-  if { [catch {set clock_div_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $clock_div_0 eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
   # Create instance: comblock_0, and set properties
   set comblock_0 [ create_bd_cell -type ip -vlnv www.ictp.it:user:comblock:2.0 comblock_0 ]
   set_property -dict [list \
@@ -331,7 +325,7 @@ proc create_root_design { parentCell } {
     CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000} \
     CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
     CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
-    CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
+    CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {1.000000} \
     CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
     CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
     CONFIG.PCW_ACT_I2C_PERIPHERAL_FREQMHZ {50} \
@@ -359,7 +353,7 @@ proc create_root_design { parentCell } {
     CONFIG.PCW_CAN_PERIPHERAL_CLKSRC {IO PLL} \
     CONFIG.PCW_CAN_PERIPHERAL_VALID {0} \
     CONFIG.PCW_CLK0_FREQ {100000000} \
-    CONFIG.PCW_CLK1_FREQ {10000000} \
+    CONFIG.PCW_CLK1_FREQ {1000000} \
     CONFIG.PCW_CLK2_FREQ {10000000} \
     CONFIG.PCW_CLK3_FREQ {10000000} \
     CONFIG.PCW_CPU_CPU_6X4X_MAX_RANGE {667} \
@@ -392,7 +386,7 @@ proc create_root_design { parentCell } {
     CONFIG.PCW_EN_CAN0 {0} \
     CONFIG.PCW_EN_CAN1 {0} \
     CONFIG.PCW_EN_CLK0_PORT {1} \
-    CONFIG.PCW_EN_CLK1_PORT {0} \
+    CONFIG.PCW_EN_CLK1_PORT {1} \
     CONFIG.PCW_EN_CLK2_PORT {0} \
     CONFIG.PCW_EN_CLK3_PORT {0} \
     CONFIG.PCW_EN_CLKTRIG0_PORT {0} \
@@ -458,11 +452,13 @@ proc create_root_design { parentCell } {
     CONFIG.PCW_FCLK2_PERIPHERAL_CLKSRC {IO PLL} \
     CONFIG.PCW_FCLK3_PERIPHERAL_CLKSRC {IO PLL} \
     CONFIG.PCW_FCLK_CLK0_BUF {TRUE} \
+    CONFIG.PCW_FCLK_CLK1_BUF {TRUE} \
     CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
     CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {1} \
     CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
     CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
     CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
+    CONFIG.PCW_FPGA_FCLK1_ENABLE {1} \
     CONFIG.PCW_GPIO_BASEADDR {0xE000A000} \
     CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
     CONFIG.PCW_GPIO_HIGHADDR {0xE000AFFF} \
@@ -954,7 +950,6 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins xadc_wiz_0/dclk_in]
-  connect_bd_net -net clock_div_0_clk_out [get_bd_pins clock_div_0/clk_out] [get_bd_pins comblock_0/fifo_clk_i] [get_bd_pins fir_fab_0/ap_clk] [get_bd_pins rst_ps7_0_1M/slowest_sync_clk] [get_bd_pins trapz_klm_0/ap_clk]
   connect_bd_net -net comblock_0_reg0_o [get_bd_pins comblock_0/reg0_i] [get_bd_pins comblock_0/reg0_o] [get_bd_pins xlslice_0/Din]
   connect_bd_net -net comblock_0_reg1_o [get_bd_pins comblock_0/reg1_i] [get_bd_pins comblock_0/reg1_o]
   connect_bd_net -net comblock_0_reg2_o [get_bd_pins comblock_0/reg2_i] [get_bd_pins comblock_0/reg2_o]
@@ -962,12 +957,14 @@ proc create_root_design { parentCell } {
   connect_bd_net -net leds_0_d_in [get_bd_pins leds_0/d_in] [get_bd_pins xadc_wiz_0/di_in]
   connect_bd_net -net leds_0_d_we_en [get_bd_pins leds_0/d_we_en] [get_bd_pins xadc_wiz_0/dwe_in] [get_bd_pins xadc_wiz_0/reset_in]
   connect_bd_net -net leds_0_led [get_bd_ports led] [get_bd_pins leds_0/led]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clock_div_0/clk_in] [get_bd_pins comblock_0/axil_aclk] [get_bd_pins leds_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rgb_0/ap_clk] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins comblock_0/axil_aclk] [get_bd_pins leds_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rgb_0/ap_clk] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins comblock_0/fifo_clk_i] [get_bd_pins fir_fab_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK1] [get_bd_pins rst_ps7_0_1M/slowest_sync_clk] [get_bd_pins trapz_klm_0/ap_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins clk_wiz_0/resetn] [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in] [get_bd_pins rst_ps7_0_1M/ext_reset_in]
   connect_bd_net -net rgb_0_rgb_led [get_bd_ports rgb_led] [get_bd_pins rgb_0/rgb_led]
   connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins comblock_0/axil_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net rst_ps7_0_1M_peripheral_aresetn [get_bd_pins fir_fab_0/ap_rst] [get_bd_pins rst_ps7_0_1M/peripheral_aresetn] [get_bd_pins trapz_klm_0/ap_rst]
   connect_bd_net -net sw_0_1 [get_bd_ports sw] [get_bd_pins leds_0/sw] [get_bd_pins rgb_0/sw]
+  connect_bd_net -net sys_clock_1 [get_bd_ports sysclk] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net xadc_wiz_0_do_out [get_bd_pins comblock_0/fifo_data_i] [get_bd_pins fir_fab_0/x] [get_bd_pins trapz_klm_0/x] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xadc_wiz_0_do_out1 [get_bd_pins leds_0/x] [get_bd_pins xadc_wiz_0/do_out] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net xadc_wiz_0_eoc_out [get_bd_pins xadc_wiz_0/den_in] [get_bd_pins xadc_wiz_0/eoc_out]

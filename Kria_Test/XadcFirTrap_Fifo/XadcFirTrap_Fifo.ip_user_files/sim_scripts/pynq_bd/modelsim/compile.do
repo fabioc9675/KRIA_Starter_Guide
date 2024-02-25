@@ -7,11 +7,11 @@ vlib modelsim_lib/msim/axi_infrastructure_v1_1_0
 vlib modelsim_lib/msim/axi_vip_v1_1_13
 vlib modelsim_lib/msim/processing_system7_vip_v1_0_15
 vlib modelsim_lib/msim/xil_defaultlib
-vlib modelsim_lib/msim/lib_cdc_v1_0_2
-vlib modelsim_lib/msim/proc_sys_reset_v5_0_13
 vlib modelsim_lib/msim/xlconstant_v1_1_7
 vlib modelsim_lib/msim/xlconcat_v2_1_4
 vlib modelsim_lib/msim/xlslice_v1_0_2
+vlib modelsim_lib/msim/lib_cdc_v1_0_2
+vlib modelsim_lib/msim/proc_sys_reset_v5_0_13
 vlib modelsim_lib/msim/generic_baseblocks_v2_1_0
 vlib modelsim_lib/msim/fifo_generator_v13_2_7
 vlib modelsim_lib/msim/axi_data_fifo_v2_1_26
@@ -24,11 +24,11 @@ vmap axi_infrastructure_v1_1_0 modelsim_lib/msim/axi_infrastructure_v1_1_0
 vmap axi_vip_v1_1_13 modelsim_lib/msim/axi_vip_v1_1_13
 vmap processing_system7_vip_v1_0_15 modelsim_lib/msim/processing_system7_vip_v1_0_15
 vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
-vmap lib_cdc_v1_0_2 modelsim_lib/msim/lib_cdc_v1_0_2
-vmap proc_sys_reset_v5_0_13 modelsim_lib/msim/proc_sys_reset_v5_0_13
 vmap xlconstant_v1_1_7 modelsim_lib/msim/xlconstant_v1_1_7
 vmap xlconcat_v2_1_4 modelsim_lib/msim/xlconcat_v2_1_4
 vmap xlslice_v1_0_2 modelsim_lib/msim/xlslice_v1_0_2
+vmap lib_cdc_v1_0_2 modelsim_lib/msim/lib_cdc_v1_0_2
+vmap proc_sys_reset_v5_0_13 modelsim_lib/msim/proc_sys_reset_v5_0_13
 vmap generic_baseblocks_v2_1_0 modelsim_lib/msim/generic_baseblocks_v2_1_0
 vmap fifo_generator_v13_2_7 modelsim_lib/msim/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 modelsim_lib/msim/axi_data_fifo_v2_1_26
@@ -83,15 +83,6 @@ vcom -work xil_defaultlib  -93  \
 "../../../bd/pynq_bd/ipshared/7b64/hdl/comblock.vhdl" \
 "../../../bd/pynq_bd/ipshared/7b64/hdl/axi_comblock.vhdl" \
 "../../../bd/pynq_bd/ip/pynq_bd_comblock_0_0/sim/pynq_bd_comblock_0_0.vhd" \
-
-vcom -work lib_cdc_v1_0_2  -93  \
-"../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
-
-vcom -work proc_sys_reset_v5_0_13  -93  \
-"../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
-
-vcom -work xil_defaultlib  -93  \
-"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_1/sim/pynq_bd_rst_ps7_0_100M_1.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_rgb_0_0/sim/pynq_bd_rgb_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_leds_0_0/sim/pynq_bd_leds_0_0.vhd" \
 
@@ -118,9 +109,17 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../XadcFirTrap_Fifo.ge
 "../../../bd/pynq_bd/ip/pynq_bd_xlslice_0_0/sim/pynq_bd_xlslice_0_0.v" \
 
 vcom -work xil_defaultlib  -93  \
-"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_1M_0/sim/pynq_bd_rst_ps7_0_1M_0.vhd" \
 "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
-"../../../bd/pynq_bd/ip/pynq_bd_clock_div_0_0/sim/pynq_bd_clock_div_0_0.vhd" \
+
+vcom -work lib_cdc_v1_0_2  -93  \
+"../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
+
+vcom -work proc_sys_reset_v5_0_13  -93  \
+"../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib  -93  \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_2/sim/pynq_bd_rst_ps7_0_100M_2.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_1M_1/sim/pynq_bd_rst_ps7_0_1M_1.vhd" \
 
 vlog -work generic_baseblocks_v2_1_0  -incr -mfcu  "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XadcFirTrap_Fifo.gen/sources_1/bd/pynq_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \

@@ -1,72 +1,73 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.471006",
-   "Default View_TopLeft":"-635,586",
+   "Default View_ScaleFactor":"0.49441",
+   "Default View_TopLeft":"-593,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 4 -x 1280 -y 530 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 4 -x 1280 -y 550 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 4 -x 1300 -y 330 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 4 -x 1300 -y 470 -defaultsOSRD
 preplace port Vaux1_0 -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
-preplace portBus led -pg 1 -lvl 4 -x 1280 -y 310 -defaultsOSRD
-preplace portBus rgb_led -pg 1 -lvl 4 -x 1280 -y 380 -defaultsOSRD
+preplace port port-id_sysclk -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 4 -x 1300 -y 310 -defaultsOSRD
+preplace portBus rgb_led -pg 1 -lvl 4 -x 1300 -y 400 -defaultsOSRD
 preplace portBus sw -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -x 230 -y 580 -defaultsOSRD
-preplace inst xadc_wiz_0 -pg 1 -lvl 3 -x 1070 -y 160 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 640 -y 460 -defaultsOSRD
-preplace inst fir_fab_0 -pg 1 -lvl 3 -x 1070 -y 640 -defaultsOSRD
-preplace inst trapz_klm_0 -pg 1 -lvl 3 -x 1070 -y 800 -defaultsOSRD
-preplace inst comblock_0 -pg 1 -lvl 3 -x 1070 -y 1090 -defaultsOSRD
-preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 230 -y 790 -defaultsOSRD
-preplace inst rgb_0 -pg 1 -lvl 3 -x 1070 -y 380 -defaultsOSRD
-preplace inst leds_0 -pg 1 -lvl 2 -x 640 -y 100 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 1 -x 230 -y 1290 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 2 -x 640 -y 1280 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 2 -x 640 -y 1630 -defaultsOSRD
-preplace inst xlconstant_2 -pg 1 -lvl 2 -x 640 -y 1390 -defaultsOSRD
-preplace inst xlconcat_1 -pg 1 -lvl 2 -x 640 -y 1500 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 1 -x 230 -y 1510 -defaultsOSRD
-preplace inst xlslice_0 -pg 1 -lvl 1 -x 230 -y 1410 -defaultsOSRD
-preplace inst rst_ps7_0_1M -pg 1 -lvl 2 -x 640 -y 890 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 640 -y 670 -defaultsOSRD
-preplace inst clock_div_0 -pg 1 -lvl 1 -x 230 -y 930 -defaultsOSRD
-preplace netloc clk_wiz_0_clk_out1 1 2 1 810 230n
-preplace netloc clock_div_0_clk_out 1 1 2 450 990 870
-preplace netloc comblock_0_reg0_o 1 0 4 30 1010 NJ 1010 880 890 1260
-preplace netloc comblock_0_reg1_o 1 2 2 890 900 1250
-preplace netloc comblock_0_reg2_o 1 2 2 900 910 1240
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 230 -y 510 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 3 -x 1090 -y 160 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 650 -y 370 -defaultsOSRD
+preplace inst fir_fab_0 -pg 1 -lvl 3 -x 1090 -y 560 -defaultsOSRD
+preplace inst trapz_klm_0 -pg 1 -lvl 3 -x 1090 -y 720 -defaultsOSRD
+preplace inst comblock_0 -pg 1 -lvl 3 -x 1090 -y 1010 -defaultsOSRD
+preplace inst rgb_0 -pg 1 -lvl 3 -x 1090 -y 400 -defaultsOSRD
+preplace inst leds_0 -pg 1 -lvl 2 -x 650 -y 100 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 230 -y 1210 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -x 650 -y 1200 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 2 -x 650 -y 1550 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 2 -x 650 -y 1310 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 2 -x 650 -y 1420 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 1 -x 230 -y 1430 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 1 -x 230 -y 1330 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 650 -y 590 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 230 -y 730 -defaultsOSRD
+preplace inst rst_ps7_0_1M -pg 1 -lvl 2 -x 650 -y 820 -defaultsOSRD
+preplace netloc comblock_0_reg0_o 1 0 4 30 930 NJ 930 890 810 1280
+preplace netloc comblock_0_reg1_o 1 2 2 900 820 1270
+preplace netloc comblock_0_reg2_o 1 2 2 910 830 1260
 preplace netloc leds_0_addr 1 2 1 N 90
-preplace netloc leds_0_d_in 1 2 1 890 110n
-preplace netloc leds_0_d_we_en 1 2 1 830 130n
-preplace netloc leds_0_led 1 2 2 840J 310 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 470 450 370 840
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 690 430
-preplace netloc rgb_0_rgb_led 1 3 1 NJ 380
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 440 790 810
-preplace netloc rst_ps7_0_1M_peripheral_aresetn 1 2 1 830 630n
-preplace netloc sw_0_1 1 0 3 NJ 100 430 10 870J
-preplace netloc xadc_wiz_0_do_out 1 2 1 860 670n
-preplace netloc xadc_wiz_0_do_out1 1 1 2 470 190 810J
-preplace netloc xadc_wiz_0_eoc_out 1 2 2 900 10 1260
-preplace netloc xlconcat_1_dout 1 2 1 890 1070n
-preplace netloc xlconstant_0_dout 1 1 1 NJ 1290
-preplace netloc xlconstant_1_dout 1 2 1 900J 1110n
-preplace netloc xlconstant_2_dout 1 2 1 850 650n
-preplace netloc xlconstant_3_dout 1 1 1 NJ 1510
-preplace netloc xlslice_0_Dout 1 1 1 450J 1410n
+preplace netloc leds_0_d_in 1 2 1 900 110n
+preplace netloc leds_0_d_we_en 1 2 1 850 130n
+preplace netloc leds_0_led 1 2 2 890J 310 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 390 460
+preplace netloc rgb_0_rgb_led 1 3 1 NJ 400
+preplace netloc sw_0_1 1 0 3 NJ 100 430 10 880J
+preplace netloc xadc_wiz_0_do_out 1 2 1 880 590n
+preplace netloc xadc_wiz_0_do_out1 1 1 2 480 190 840J
+preplace netloc xadc_wiz_0_eoc_out 1 2 2 910 10 1280
+preplace netloc xlconcat_1_dout 1 2 1 900 990n
+preplace netloc xlconstant_0_dout 1 1 1 NJ 1210
+preplace netloc xlconstant_1_dout 1 2 1 910J 1030n
+preplace netloc xlconstant_2_dout 1 2 1 870 570n
+preplace netloc xlconstant_3_dout 1 1 1 NJ 1430
+preplace netloc xlslice_0_Dout 1 1 1 450J 1330n
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 630 440 290 850
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 470 720 820
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 2 430 460 840
+preplace netloc rst_ps7_0_1M_peripheral_aresetn 1 2 1 860 550n
+preplace netloc sys_clock_1 1 0 2 NJ 380 NJ
+preplace netloc clk_wiz_0_clk_out1 1 2 1 840 230n
 preplace netloc Vaux1_0_1 1 0 3 NJ 210 NJ 210 NJ
-preplace netloc processing_system7_0_DDR 1 1 3 NJ 530 NJ 530 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 550 NJ 550 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 460 590n
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 820 670n
-levelinfo -pg 1 0 230 640 1070 1280
-pagesize -pg 1 -db -bbox -sgen -110 0 1410 1690
+preplace netloc processing_system7_0_DDR 1 1 3 430J 300 860J 330 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 470 NJ 470 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 450 510n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 830 590n
+levelinfo -pg 1 0 230 650 1090 1300
+pagesize -pg 1 -db -bbox -sgen -110 0 1430 1610
 "
 }
 {
-   "da_axi4_cnt":"8",
+   "da_axi4_cnt":"9",
    "da_axi4_s2mm_cnt":"1",
-   "da_board_cnt":"5",
-   "da_clkrst_cnt":"14",
+   "da_board_cnt":"6",
+   "da_clkrst_cnt":"19",
    "da_ps7_cnt":"3"
 }

@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sat Feb 24 12:02:29 2024
+--Date        : Sun Feb 25 14:01:02 2024
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd_wrapper.bd
 --Design      : pynq_bd_wrapper
@@ -38,7 +38,8 @@ entity pynq_bd_wrapper is
     Vaux1_0_v_p : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    sw : in STD_LOGIC_VECTOR ( 1 downto 0 )
+    sw : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    sysclk : in STD_LOGIC
   );
 end pynq_bd_wrapper;
 
@@ -70,7 +71,8 @@ architecture STRUCTURE of pynq_bd_wrapper is
     Vaux1_0_v_p : in STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     rgb_led : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    sw : in STD_LOGIC_VECTOR ( 1 downto 0 )
+    sw : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    sysclk : in STD_LOGIC
   );
   end component pynq_bd;
 begin
@@ -101,6 +103,7 @@ pynq_bd_i: component pynq_bd
       Vaux1_0_v_p => Vaux1_0_v_p,
       led(3 downto 0) => led(3 downto 0),
       rgb_led(5 downto 0) => rgb_led(5 downto 0),
-      sw(1 downto 0) => sw(1 downto 0)
+      sw(1 downto 0) => sw(1 downto 0),
+      sysclk => sysclk
     );
 end STRUCTURE;
