@@ -259,37 +259,6 @@
       <RQSFiles/>
     </Run>
   </Runs>
-  <MsgRule>
-    <MsgAttr Name="RuleType" Val="0"/>
-    <MsgAttr Name="Limit" Val="-1"/>
-    <MsgAttr Name="NewSeverity" Val="ANY"/>
-    <MsgAttr Name="Id" Val="Common 17-55"/>
-    <MsgAttr Name="Severity" Val="ANY"/>
-    <MsgAttr Name="ShowRule" Val="1"/>
-    <MsgAttr Name="RuleSource" Val="8"/>
-    <MsgAttr Name="StringIsRegExp" Val="0"/>
-    <MsgAttr Name="RuleId" Val="1"/>
-    <MsgAttr Name="Note" Val=""/>
-    <MsgAttr Name="Author" Val=""/>
-    <MsgAttr Name="CreatedTimestamp" Val=""/>
-    <MsgAttr Name="StringsToMatch" Val="ERROR: [Common 17-55] &apos;get_property&apos; expects at least one object.
-Resolution: If [get_&lt;value>] was used to populate the object, check to make sure this command returns at least one valid object."/>
-  </MsgRule>
-  <MsgRule>
-    <MsgAttr Name="RuleType" Val="0"/>
-    <MsgAttr Name="Limit" Val="-1"/>
-    <MsgAttr Name="NewSeverity" Val="ANY"/>
-    <MsgAttr Name="Id" Val="BD 41-2081"/>
-    <MsgAttr Name="Severity" Val="ANY"/>
-    <MsgAttr Name="ShowRule" Val="1"/>
-    <MsgAttr Name="RuleSource" Val="8"/>
-    <MsgAttr Name="StringIsRegExp" Val="0"/>
-    <MsgAttr Name="RuleId" Val="2"/>
-    <MsgAttr Name="Note" Val=""/>
-    <MsgAttr Name="Author" Val=""/>
-    <MsgAttr Name="CreatedTimestamp" Val=""/>
-    <MsgAttr Name="StringsToMatch" Val="ERROR: [BD 41-2081] Cannot generate .hpfm file for current Block Design(pynq_bd)"/>
-  </MsgRule>
   <Board>
     <Jumpers/>
   </Board>
