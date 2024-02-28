@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDD3A49B0E86BECE5",
+      "boundary_crc": "0xDD3A49B073CE264C",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd",
       "name": "pynq_bd",
@@ -1988,6 +1988,9 @@
           },
           "ENABLE_VCCPINT_ALARM": {
             "value": "false"
+          },
+          "FIFO_DEPTH": {
+            "value": "1020"
           },
           "INTERFACE_SELECTION": {
             "value": "ENABLE_DRP"
