@@ -20,8 +20,11 @@ vlib riviera/axi_datamover_v5_1_29
 vlib riviera/axi_sg_v4_1_15
 vlib riviera/axi_dma_v7_1_28
 vlib riviera/generic_baseblocks_v2_1_0
-vlib riviera/axi_data_fifo_v2_1_26
 vlib riviera/axi_register_slice_v2_1_27
+vlib riviera/axi_data_fifo_v2_1_26
+vlib riviera/axi_crossbar_v2_1_28
+vlib riviera/axi_lite_ipif_v3_0_4
+vlib riviera/axi_intc_v4_1_17
 vlib riviera/axi_protocol_converter_v2_1_27
 vlib riviera/axi_clock_converter_v2_1_26
 vlib riviera/blk_mem_gen_v8_4_5
@@ -46,8 +49,11 @@ vmap axi_datamover_v5_1_29 riviera/axi_datamover_v5_1_29
 vmap axi_sg_v4_1_15 riviera/axi_sg_v4_1_15
 vmap axi_dma_v7_1_28 riviera/axi_dma_v7_1_28
 vmap generic_baseblocks_v2_1_0 riviera/generic_baseblocks_v2_1_0
-vmap axi_data_fifo_v2_1_26 riviera/axi_data_fifo_v2_1_26
 vmap axi_register_slice_v2_1_27 riviera/axi_register_slice_v2_1_27
+vmap axi_data_fifo_v2_1_26 riviera/axi_data_fifo_v2_1_26
+vmap axi_crossbar_v2_1_28 riviera/axi_crossbar_v2_1_28
+vmap axi_lite_ipif_v3_0_4 riviera/axi_lite_ipif_v3_0_4
+vmap axi_intc_v4_1_17 riviera/axi_intc_v4_1_17
 vmap axi_protocol_converter_v2_1_27 riviera/axi_protocol_converter_v2_1_27
 vmap axi_clock_converter_v2_1_26 riviera/axi_clock_converter_v2_1_26
 vmap blk_mem_gen_v8_4_5 riviera/blk_mem_gen_v8_4_5
@@ -164,11 +170,26 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_
 vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
 
+vlog -work axi_register_slice_v2_1_27  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+
 vlog -work axi_data_fifo_v2_1_26  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
 
-vlog -work axi_register_slice_v2_1_27  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+vlog -work axi_crossbar_v2_1_28  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/pynq_bd/ip/pynq_bd_xbar_0/sim/pynq_bd_xbar_0.v" \
+
+vcom -work axi_lite_ipif_v3_0_4 -93  \
+"../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
+
+vcom -work axi_intc_v4_1_17 -93  \
+"../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/802b/hdl/axi_intc_v4_1_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93  \
+"../../../bd/pynq_bd/ip/pynq_bd_axi_intc_0_0/sim/pynq_bd_axi_intc_0_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/7698" "+incdir+../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/8713/hdl" "+incdir+C:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../XADC_DMA_PYNQ.gen/sources_1/bd/pynq_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \

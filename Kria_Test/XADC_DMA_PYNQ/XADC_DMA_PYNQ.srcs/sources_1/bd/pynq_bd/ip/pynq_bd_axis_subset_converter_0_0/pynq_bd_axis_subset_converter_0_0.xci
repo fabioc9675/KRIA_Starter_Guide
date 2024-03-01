@@ -25,14 +25,14 @@
         "M_HAS_TKEEP": [ { "value": "0", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M_HAS_TLAST": [ { "value": "1", "value_src": "user", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HAS_ACLKEN": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "DEFAULT_TLAST": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "DEFAULT_TLAST": [ { "value": "256", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "TDATA_REMAP": [ { "value": "tdata[15:0]", "resolve_type": "user", "usage": "all" } ],
         "TUSER_REMAP": [ { "value": "1'b0", "resolve_type": "user", "usage": "all" } ],
         "TID_REMAP": [ { "value": "tid[4:0]", "resolve_type": "user", "usage": "all" } ],
         "TDEST_REMAP": [ { "value": "1'b0", "resolve_type": "user", "usage": "all" } ],
         "TKEEP_REMAP": [ { "value": "1'b0", "resolve_type": "user", "usage": "all" } ],
         "TSTRB_REMAP": [ { "value": "1'b0", "resolve_type": "user", "usage": "all" } ],
-        "TLAST_REMAP": [ { "value": "tlast[0]", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "TLAST_REMAP": [ { "value": "tlast[0]", "value_src": "user", "resolve_type": "user", "enabled": false, "usage": "all" } ],
         "Component_Name": [ { "value": "pynq_bd_axis_subset_converter_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
@@ -47,7 +47,7 @@
         "C_M_AXIS_TDEST_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_M_AXIS_SIGNAL_SET": [ { "value": "0b00000000000000000000000000110011", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
         "C_M_AXIS_TUSER_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_DEFAULT_TLAST": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "C_DEFAULT_TLAST": [ { "value": "256", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq" } ],
@@ -127,7 +127,7 @@
             "TUSER_WIDTH": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TREADY": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TSTRB": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "HAS_TKEEP": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "HAS_TKEEP": [ { "value": "0", "value_src": "propagated", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TLAST": [ { "value": "1", "value_src": "auto", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_HZ": [ { "value": "104000000", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],

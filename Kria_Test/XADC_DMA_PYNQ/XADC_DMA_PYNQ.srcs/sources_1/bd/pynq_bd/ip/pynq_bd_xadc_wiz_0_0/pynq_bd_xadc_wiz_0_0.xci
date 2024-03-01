@@ -164,7 +164,7 @@
         "ACQUISITION_TIME": [ { "value": "4", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "ENABLE_TEMP_BUS": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "ENABLE_AXI4STREAM": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "FIFO_DEPTH": [ { "value": "1020", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "FIFO_DEPTH": [ { "value": "8", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "POWER_DOWN_ADCA": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "POWER_DOWN_ADCB": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ]
       },
@@ -246,7 +246,7 @@
         "C_HAS_AXI": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_AXI4STREAM": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_HAS_TEMP_BUS": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_FIFO_DEPTH": [ { "value": "1020", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_FIFO_DEPTH": [ { "value": "8", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_INCLUDE_INTR": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {

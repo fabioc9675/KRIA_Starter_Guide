@@ -53,7 +53,7 @@
 (* X_CORE_INFO = "top_pynq_bd_axis_subset_converter_0_0,Vivado 2022.2" *)
 (* CHECK_LICENSE_TYPE = "pynq_bd_axis_subset_converter_0_0,top_pynq_bd_axis_subset_converter_0_0,{}" *)
 (* CORE_GENERATION_INFO = "pynq_bd_axis_subset_converter_0_0,top_pynq_bd_axis_subset_converter_0_0,{x_ipProduct=Vivado 2022.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_subset_converter,x_ipVersion=1.1,x_ipCoreRevision=27,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_S_AXIS_TDATA_WIDTH=16,C_S_AXIS_TID_WIDTH=5,C_S_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_S_AXIS_SIGNAL_SET=0b00000000000000000000000000100011,C_M_AXIS_TDATA_WIDTH=16,C_M_AXIS_TID_WIDTH=5,C_M_AXIS_TDEST_WIDTH=1,C_M_AXIS_SIGNAL_SET=0b0000\
-0000000000000000000000110011,C_M_AXIS_TUSER_WIDTH=1,C_DEFAULT_TLAST=0}" *)
+0000000000000000000000110011,C_M_AXIS_TUSER_WIDTH=1,C_DEFAULT_TLAST=256}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module pynq_bd_axis_subset_converter_0_0 (
   aclk,
@@ -108,7 +108,7 @@ output wire [4 : 0] m_axis_tid;
     .C_M_AXIS_TDEST_WIDTH(1),
     .C_M_AXIS_SIGNAL_SET(32'B00000000000000000000000000110011),
     .C_M_AXIS_TUSER_WIDTH(1),
-    .C_DEFAULT_TLAST(0)
+    .C_DEFAULT_TLAST(256)
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),

@@ -1766,11 +1766,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 27 22:28:42 UTC 2024</spirit:value>
+            <spirit:value>Fri Mar 01 18:28:10 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:21b083b9</spirit:value>
+            <spirit:value>9:e5c0133d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1781,7 +1781,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:21b083b9</spirit:value>
+            <spirit:value>9:e5c0133d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1797,11 +1797,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 27 22:28:42 UTC 2024</spirit:value>
+            <spirit:value>Fri Mar 01 18:28:10 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:21b083b9</spirit:value>
+            <spirit:value>9:e5c0133d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1816,11 +1816,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 27 22:28:42 UTC 2024</spirit:value>
+            <spirit:value>Fri Mar 01 18:28:10 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:88580aeb</spirit:value>
+            <spirit:value>9:c453c536</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1836,11 +1836,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Feb 27 22:28:42 UTC 2024</spirit:value>
+            <spirit:value>Fri Mar 01 18:28:10 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:88580aeb</spirit:value>
+            <spirit:value>9:c453c536</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -4158,7 +4158,7 @@
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_FIFO_DEPTH</spirit:name>
         <spirit:displayName>C FIFO Depth</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_FIFO_DEPTH" spirit:order="226" spirit:minimum="7" spirit:maximum="1020" spirit:rangeType="long">1020</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_FIFO_DEPTH" spirit:order="226" spirit:minimum="7" spirit:maximum="1020" spirit:rangeType="long">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_INCLUDE_INTR</spirit:name>
@@ -5082,7 +5082,7 @@
     <spirit:parameter>
       <spirit:name>FIFO_DEPTH</spirit:name>
       <spirit:displayName>FIFO Depth</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FIFO_DEPTH" spirit:order="226" spirit:minimum="7" spirit:maximum="1020" spirit:rangeType="long">1020</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.FIFO_DEPTH" spirit:order="226" spirit:minimum="7" spirit:maximum="1020" spirit:rangeType="long">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>POWER_DOWN_ADCA</spirit:name>

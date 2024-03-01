@@ -106,7 +106,7 @@ output wire [4 : 0] m_axis_tid;
     .C_M_AXIS_TDEST_WIDTH(1),
     .C_M_AXIS_SIGNAL_SET(32'B00000000000000000000000000110011),
     .C_M_AXIS_TUSER_WIDTH(1),
-    .C_DEFAULT_TLAST(0)
+    .C_DEFAULT_TLAST(256)
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),
