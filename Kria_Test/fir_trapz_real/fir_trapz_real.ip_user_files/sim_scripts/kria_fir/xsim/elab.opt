@@ -1,0 +1,1 @@
+--incr --debug typical --relax --mt auto  -L xil_defaultlib -L secureip -L xpm --snapshot kria_fir xil_defaultlib.kria_fir -log elaborate.log
