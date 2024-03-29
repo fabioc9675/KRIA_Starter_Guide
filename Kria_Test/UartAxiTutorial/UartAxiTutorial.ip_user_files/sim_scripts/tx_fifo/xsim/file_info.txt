@@ -1,0 +1,2 @@
+tx_fifo.v,verilog,xil_defaultlib,../../../../UartAxiTutorial.gen/sources_1/ip/tx_fifo/sim/tx_fifo.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
