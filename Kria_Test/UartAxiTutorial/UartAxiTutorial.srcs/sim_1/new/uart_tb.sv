@@ -72,14 +72,14 @@ module uart_tb(
     assign tx_last = (packet_counter == PACKET_COUNTER_MAX-1) ? 1'b1 : 1'b0;
      
     // UUT
-    uart_tx uart_i
+    uart uart_i
     (
         .clk(clk),
         .rst(rst),
         .tx_data(tx_data),
         .tx_data_valid(tx_valid),
         .tx_data_ready(tx_ready),
-        //.tx_data_last(tx_last),
+        .tx_data_last(tx_last),
         .UART_TX(tx_out)
     );
 
