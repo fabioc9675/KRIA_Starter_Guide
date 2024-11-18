@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.330968",
-   "Default View_TopLeft":"242,-426",
+   "Default View_ScaleFactor":"0.458466",
+   "Default View_TopLeft":"-124,-212",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -21,33 +21,33 @@ preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -x 1180 -y 150 -defaultsOSRD
 preplace inst rst_ps7_0_100M -pg 1 -lvl 3 -x 800 -y 190 -defaultsOSRD
 preplace inst axi_intc_0 -pg 1 -lvl 5 -x 1570 -y 190 -defaultsOSRD
 preplace inst leds_0 -pg 1 -lvl 2 -x 400 -y 420 -defaultsOSRD
-preplace netloc axi_dma_s2mm_introut 1 4 2 1390 280 1740
-preplace netloc axi_intc_0_irq 1 5 2 N 190 2060J
-preplace netloc clk_wiz_0_clk_out1 1 1 6 210 510 620 330 980 370 1350 490 1750 540 2080J
+preplace netloc axi_dma_s2mm_introut 1 4 2 1380 280 1730
+preplace netloc axi_intc_0_irq 1 5 2 N 190 2050J
+preplace netloc clk_wiz_0_clk_out1 1 1 6 220 510 620 330 980 370 1340 490 1740 540 2070J
 preplace netloc clk_wiz_0_locked 1 1 1 N 270
 preplace netloc leds_0_addr 1 2 1 N 410
 preplace netloc leds_0_d_in 1 2 1 590 430n
 preplace netloc leds_0_d_we_en 1 2 1 570 450n
-preplace netloc leds_0_led 1 2 6 590J 300 NJ 300 1340J 90 NJ 90 NJ 90 2570J
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 8 0 120 NJ 120 610 90 1010 310 1360 550 NJ 550 2070 330 2540
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 10 190 200 130 630 80 1000J 290 1350J 100 NJ 100 NJ 100 2560
-preplace netloc rst_clk_wiz_0_104M_peripheral_aresetn 1 2 4 580 290 990 380 1340J 480 1760
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 3 2 1020 320 1380
+preplace netloc leds_0_led 1 2 6 590J 300 NJ 300 1330J 90 NJ 90 NJ 90 2540J
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 8 0 120 NJ 120 610 90 1010 310 1350 550 NJ 550 2060 330 2510
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 10 190 210 130 630 80 1000J 290 1340J 100 NJ 100 NJ 100 2530
+preplace netloc rst_clk_wiz_0_104M_peripheral_aresetn 1 2 4 580 290 990 380 1330J 480 1750
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 3 2 1020 320 1370
 preplace netloc sw_0_1 1 0 2 NJ 420 NJ
-preplace netloc xadc_wiz_0_do_out 1 1 2 220 330 600
+preplace netloc xadc_wiz_0_do_out 1 1 2 230 330 600
 preplace netloc xadc_wiz_0_eoc_out 1 2 2 630 320 970
 preplace netloc Vaux1_0_1 1 0 3 NJ 530 NJ 530 NJ
 preplace netloc axi_dma_M_AXI_S2MM 1 5 1 N 360
 preplace netloc axi_mem_intercon_M00_AXI 1 6 1 N 420
-preplace netloc axis_subset_converter_0_M_AXIS 1 4 1 1370 360n
+preplace netloc axis_subset_converter_0_M_AXIS 1 4 1 1360 360n
 preplace netloc processing_system7_0_DDR 1 7 1 NJ 390
 preplace netloc processing_system7_0_FIXED_IO 1 7 1 NJ 410
-preplace netloc processing_system7_0_M_AXI_GP0 1 3 5 1010 10 NJ 10 NJ 10 NJ 10 2550
-preplace netloc ps7_0_axi_periph_M00_AXI 1 4 1 1370 140n
+preplace netloc processing_system7_0_M_AXI_GP0 1 3 5 1010 10 NJ 10 NJ 10 NJ 10 2520
+preplace netloc ps7_0_axi_periph_M00_AXI 1 4 1 1360 140n
 preplace netloc ps7_0_axi_periph_M01_AXI 1 4 1 N 160
 preplace netloc xadc_wiz_0_M_AXIS 1 3 1 N 440
 levelinfo -pg 1 -20 110 400 800 1180 1570 1910 2310 2590
-pagesize -pg 1 -db -bbox -sgen -130 0 2710 650
+pagesize -pg 1 -db -bbox -sgen -120 0 2700 650
 "
 }
 {
