@@ -1,0 +1,6 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/1b7e/hdl/verilog" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/122e/hdl/verilog" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/b205/hdl/verilog" --include "../../../../Fir_trapz_pynq.gen/sources_1/bd/pynq_bd/ipshared/fd26/hdl/verilog" \
+"../../../bd/pynq_bd/ip/pynq_bd_processing_system7_0_0/sim/pynq_bd_processing_system7_0_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

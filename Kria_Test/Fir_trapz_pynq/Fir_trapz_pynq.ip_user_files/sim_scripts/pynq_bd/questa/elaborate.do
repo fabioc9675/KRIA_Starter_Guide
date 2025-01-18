@@ -1,0 +1,1 @@
+vopt +acc=npr -l elaborate.log  -L xil_defaultlib -L xilinx_vip -L xpm -L axi_infrastructure_v1_1_0 -L axi_vip_v1_1_13 -L processing_system7_vip_v1_0_15 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.pynq_bd xil_defaultlib.glbl -o pynq_bd_opt

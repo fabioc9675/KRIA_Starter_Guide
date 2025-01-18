@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1706915654777">
+  <ports id="1" name="y" type="PortType" coreId="1702129263" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="2" name="x" type="PortType" coreId="1702129263" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <edges id="125" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="128" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="129" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="130" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="131" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="132" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="133" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.6"/>
+  <edges id="136" source_obj="//@blocks.0/@node_objs.6" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="137" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="138" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="139" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="140" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="141" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="142" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="145" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="150" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.2/@node_objs.2"/>
+  <edges id="153" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@ports.0"/>
+  <edges id="154" source_obj="//@blocks.2/@node_objs.2" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="157" source_obj="//@ports.1" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="158" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="159" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="160" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="161" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="162" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="163" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="164" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="165" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="166" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="167" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="168" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="169" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="170" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="171" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="172" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="173" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="174" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="175" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="176" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="177" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="178" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="179" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="180" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="181" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="182" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="183" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="184" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="185" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="186" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="187" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="188" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="189" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="190" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="191" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="192" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="193" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="194" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="195" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="196" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="197" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="198" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="199" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="200" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="201" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="202" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="203" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="204" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="205" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="206" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="207" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="208" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="209" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="210" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="211" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="212" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="213" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="214" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="215" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="216" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="217" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="218" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="219" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="220" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="221" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="222" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="223" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="224" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="225" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="226" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="227" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="228" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="229" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="230" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="231" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="232" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="233" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="234" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="235" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="236" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="237" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="238" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="239" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="240" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="241" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="242" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="243" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="244" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="245" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="246" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="247" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="248" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="249" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="250" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="251" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="252" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="253" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="254" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="255" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="256" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="257" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="258" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="259" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="260" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.2"/>
+  <edges id="261" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="262" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="263" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="264" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="265" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.1/@node_objs.1"/>
+  <blocks id="111" name="newFuncRoot" type="BlockType">
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>for.end</controlOutputObjs>
+    <controlOutputObjs>for.inc.0</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="103" name="acc_2_loc" coreId="0" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="104" name="acc_loc" coreId="0" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="105" name="fir_int_int_shift_reg_load" lineNumber="32" fileName="firTop.cpp" fileDirectory=".." coreId="0" contextFuncName="fir" bitwidth="32" opcode="load" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="32" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="106" name="targetBlock" lineNumber="32" fileName="firTop.cpp" fileDirectory=".." rtlName="grp_Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop_fu_250" coreId="0" contextFuncName="fir" bitwidth="2" opcode="call" nodeLatency="1" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="32" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <constName>Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="107" name="acc_loc_load" coreId="0" bitwidth="32" opcode="load" nodeLabel="2.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="108" name="acc_2_loc_load" coreId="0" bitwidth="32" opcode="load" nodeLabel="2.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="109" name="cond" lineNumber="32" fileName="firTop.cpp" fileDirectory=".." rtlName="cond_fu_460_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="fir" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.44" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="32" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="110" name="br_ln32" lineNumber="32" fileName="firTop.cpp" fileDirectory=".." coreId="1600725030" contextFuncName="fir" opcode="br" nodeLabel="2.0" m_display="0" m_delay="0.42" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="32" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>for.inc.0</controlInputObjs>
+      <controlInputObjs>for.end</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="firTop.cpp">
+      <validLinenumbers>32</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="115" name="for.inc.0" type="BlockType">
+    <controlInputObjs>newFuncRoot</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>for.end</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="112" name="data" lineNumber="28" originalName="data" fileName="firTop.cpp" fileDirectory=".." coreId="1505" contextFuncName="fir" bitwidth="32" opcode="read" nodeLabel="2.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="28" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>x</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="113" name="fir_int_int_shift_reg_write_ln28" lineNumber="28" fileName="firTop.cpp" fileDirectory=".." coreId="83" contextFuncName="fir" opcode="store" nodeLabel="2.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="28" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>read</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="114" name="br_ln0" coreId="0" opcode="br" nodeLabel="2.0" m_display="0" m_delay="0.42" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <controlInputObjs>for.end</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="firTop.cpp">
+      <validLinenumbers>28</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="121" name="for.end" type="BlockType">
+    <controlInputObjs>newFuncRoot</controlInputObjs>
+    <controlInputObjs>for.inc.0</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="116" name="acc_0_lcssa" coreId="0" bitwidth="32" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+      <controlInputObjs>for.inc.0</controlInputObjs>
+      <controlInputObjs>newFuncRoot</controlInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="117" name="acc" lineNumber="37" originalName="acc" fileName="firTop.cpp" fileDirectory=".." rtlName="acc_fu_480_p4" coreId="0" contextFuncName="fir" bitwidth="16" opcode="partselect" nodeLabel="2.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="37" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="118" name="sext_ln37" lineNumber="37" fileName="firTop.cpp" fileDirectory=".." rtlName="sext_ln37_fu_490_p1" coreId="0" contextFuncName="fir" bitwidth="32" opcode="sext" nodeLabel="2.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="37" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="119" name="y_write_ln38" lineNumber="38" fileName="firTop.cpp" fileDirectory=".." coreId="286" contextFuncName="fir" opcode="write" nodeLabel="2.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="firTop.cpp" linenumber="38" fileDirectory="C:\GitHub\KRIA_Starter_Guide\Kria_Test\FirParallelTest" functionName="fir"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>y</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="120" name="_ln0" coreId="0" opcode="ret" nodeLabel="2.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1"/>
+    <fileValidLineNumbers fileName="firTop.cpp">
+      <validLinenumbers>37</validLinenumbers>
+      <validLinenumbers>38</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <regnodes realName="cond_reg_510">
+    <nodeIds>109</nodeIds>
+  </regnodes>
+  <regnodes realName="acc_0_lcssa_reg_241">
+    <nodeIds>116</nodeIds>
+  </regnodes>
+  <regnodes realName="acc_2_loc_reg_495">
+    <nodeIds>103</nodeIds>
+  </regnodes>
+  <regnodes realName="acc_loc_reg_501">
+    <nodeIds>104</nodeIds>
+  </regnodes>
+  <expressionNodes realName="acc_fu_480">
+    <nodeIds>117</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="acc_2_loc_fu_220">
+    <nodeIds>103</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln37_fu_490">
+    <nodeIds>118</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="acc_0_lcssa_phi_fu_244">
+    <nodeIds>116</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="cond_fu_460">
+    <nodeIds>109</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="acc_loc_fu_224">
+    <nodeIds>104</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_Loop_Shift_Accum_Loop_proc_Pipeline_Shift_Accum_Loop_fu_250">
+    <nodeIds>106</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="acc_2_loc_load_load_fu_470">
+    <nodeIds>108</nodeIds>
+  </ioNodes>
+  <ioNodes realName="fir_int_int_shift_reg_load_load_fu_455">
+    <nodeIds>105</nodeIds>
+  </ioNodes>
+  <ioNodes realName="data_read_fu_228">
+    <nodeIds>112</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln38_write_fu_234">
+    <nodeIds>119</nodeIds>
+  </ioNodes>
+  <ioNodes realName="acc_loc_load_load_fu_466">
+    <nodeIds>107</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln28_store_fu_474">
+    <nodeIds>113</nodeIds>
+  </ioNodes>
+  <ioPorts name="x">
+    <contents name="read">
+      <nodeIds>112</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="y">
+    <contents name="write">
+      <nodeIds>119</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="103" stage="1" latency="1"/>
+      <operations id="104" stage="1" latency="1"/>
+      <operations id="105" stage="1" latency="1"/>
+      <operations id="106" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="106" stage="1" latency="2"/>
+      <operations id="109" stage="1" latency="1"/>
+    </states>
+    <states id="3">
+      <operations id="107" stage="1" latency="1"/>
+      <operations id="108" stage="1" latency="1"/>
+      <operations id="110" stage="1" latency="1"/>
+      <operations id="112" stage="1" latency="1"/>
+      <operations id="113" stage="1" latency="1"/>
+      <operations id="114" stage="1" latency="1"/>
+      <operations id="116" stage="1" latency="1"/>
+      <operations id="117" stage="1" latency="1"/>
+      <operations id="118" stage="1" latency="1"/>
+      <operations id="119" stage="1" latency="1"/>
+      <operations id="120" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="Loop_Shift_Accum_Loop_proc" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="6" mMaxLatency="31">
+      <basicBlocks>111</basicBlocks>
+      <basicBlocks>115</basicBlocks>
+      <basicBlocks>121</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

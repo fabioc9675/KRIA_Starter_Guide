@@ -1,0 +1,7 @@
+vhdl xil_defaultlib  \
+"../../../bd/pynq_bd/ip/pynq_bd_axi_dma_0_0/sim/pynq_bd_axi_dma_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_c_counter_binary_0_0/sim/pynq_bd_c_counter_binary_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
+"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+
+nosort
