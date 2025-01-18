@@ -4,6 +4,10 @@ vhdl xil_defaultlib  \
 "../../../bd/pynq_bd/ip/pynq_bd_axi_gpio_0_0/sim/pynq_bd_axi_gpio_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_axi_intc_0_0/sim/pynq_bd_axi_intc_0_0.vhd" \
 "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S00_AXI.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S_AXI_INTR.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_PL2PS_interrupt_0_0/sim/pynq_bd_PL2PS_interrupt_0_0.vhd" \
 "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
 
 nosort

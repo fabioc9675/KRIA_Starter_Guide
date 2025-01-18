@@ -92,17 +92,23 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/pynq_bd/ip/pynq_bd_xbar_0/sim/pynq_bd_xbar_0.v" \
 -endlib
+-makelib xcelium_lib/proc_sys_reset_v5_0_13 \
+  "../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
+  "../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S00_AXI.vhd" \
+  "../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S_AXI_INTR.vhd" \
+  "../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0.vhd" \
+  "../../../bd/pynq_bd/ip/pynq_bd_PL2PS_interrupt_0_0/sim/pynq_bd_PL2PS_interrupt_0_0.vhd" \
+-endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
   "../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/pynq_bd/ip/pynq_bd_auto_pc_0/sim/pynq_bd_auto_pc_0.v" \
 -endlib
--makelib xcelium_lib/proc_sys_reset_v5_0_13 \
-  "../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
--endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
   "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \

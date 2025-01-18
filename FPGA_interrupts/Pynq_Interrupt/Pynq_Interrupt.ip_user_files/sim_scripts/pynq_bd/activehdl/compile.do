@@ -20,8 +20,8 @@ vlib activehdl/axi_register_slice_v2_1_27
 vlib activehdl/fifo_generator_v13_2_7
 vlib activehdl/axi_data_fifo_v2_1_26
 vlib activehdl/axi_crossbar_v2_1_28
-vlib activehdl/axi_protocol_converter_v2_1_27
 vlib activehdl/proc_sys_reset_v5_0_13
+vlib activehdl/axi_protocol_converter_v2_1_27
 
 vmap xilinx_vip activehdl/xilinx_vip
 vmap xpm activehdl/xpm
@@ -42,8 +42,8 @@ vmap axi_register_slice_v2_1_27 activehdl/axi_register_slice_v2_1_27
 vmap fifo_generator_v13_2_7 activehdl/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 activehdl/axi_data_fifo_v2_1_26
 vmap axi_crossbar_v2_1_28 activehdl/axi_crossbar_v2_1_28
-vmap axi_protocol_converter_v2_1_27 activehdl/axi_protocol_converter_v2_1_27
 vmap proc_sys_reset_v5_0_13 activehdl/proc_sys_reset_v5_0_13
+vmap axi_protocol_converter_v2_1_27 activehdl/axi_protocol_converter_v2_1_27
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -139,17 +139,23 @@ vlog -work axi_crossbar_v2_1_28  -v2k5 "+incdir+../../../../Pynq_Interrupt.gen/s
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/pynq_bd/ip/pynq_bd_xbar_0/sim/pynq_bd_xbar_0.v" \
 
+vcom -work proc_sys_reset_v5_0_13 -93  \
+"../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93  \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S00_AXI.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0_S_AXI_INTR.vhd" \
+"../../../bd/pynq_bd/ipshared/1b52/hdl/PL2PS_interrupt_v1_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_PL2PS_interrupt_0_0/sim/pynq_bd_PL2PS_interrupt_0_0.vhd" \
+
 vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/pynq_bd/ip/pynq_bd_auto_pc_0/sim/pynq_bd_auto_pc_0.v" \
 
-vcom -work proc_sys_reset_v5_0_13 -93  \
-"../../../../Pynq_Interrupt.gen/sources_1/bd/pynq_bd/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
-
 vcom -work xil_defaultlib -93  \
-"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
 "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
 
 vlog -work xil_defaultlib \
