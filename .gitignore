@@ -285,7 +285,7 @@ local.properties
 *.pydevproject
 
 # CDT-specific (C/C++ Development Tooling)
-.cproject
+#.cproject
 
 # CDT- autotools
 .autotools
@@ -529,7 +529,7 @@ tests/vectors
 # Executables
 *.exe
 *.out
-*.app
+#*.app
 *.i*86
 *.x86_64
 *.hex
