@@ -1,0 +1,3 @@
+https://www.hackster.io/whitney-knitter/introduction-to-using-axi-dma-in-embedded-linux-5264ec
+
+https://www.hackster.io/yuricauwerts/slaying-the-dma-dragon-on-the-kria-kr260-a5046e

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="kria_bd_wrapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_dma_pkg" />
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="kria_bd_wrapper" />
+            <top_module name="lib_pkg" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="6,331.101 ns"></ZoomStartTime>
+      <ZoomEndTime time="6,413.780 ns"></ZoomEndTime>
+      <Cursor1Time time="6,400.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="210"></NameColumnWidth>
+      <ValueColumnWidth column_width="101"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/kria_bd_wrapper/fan_en_b" type="array">
+      <obj_property name="ElementShortName">fan_en_b[0:0]</obj_property>
+      <obj_property name="ObjectShortName">fan_en_b[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_io" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_io[1:0]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_io[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_i_0" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_i_0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_i_0[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_i_1" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_i_1[1:1]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_i_1[1:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_io_0" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_io_0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_io_0[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_io_1" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_io_1[1:1]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_io_1[1:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_o_0" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_o_0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_o_0[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_o_1" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_o_1[1:1]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_o_1[1:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_t_0" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_t_0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_t_0[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/uf_leds_tri_t_1" type="array">
+      <obj_property name="ElementShortName">uf_leds_tri_t_1[1:1]</obj_property>
+      <obj_property name="ObjectShortName">uf_leds_tri_t_1[1:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/kria_bd_i/c_counter_binary_0/Q" type="array">
+      <obj_property name="ElementShortName">Q[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/kria_bd_i/c_counter_binary_0/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/kria_bd_i/IP_PersonalFifo_0/U0/IP_PersonalFifo_v1_0_M00_AXIS_inst/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/kria_bd_wrapper/kria_bd_i/IP_PersonalFifo_0/U0/IP_PersonalFifo_v1_0_M00_AXIS_inst/activar" type="logic">
+      <obj_property name="ElementShortName">activar</obj_property>
+      <obj_property name="ObjectShortName">activar</obj_property>
+   </wvobject>
+</wave_config>

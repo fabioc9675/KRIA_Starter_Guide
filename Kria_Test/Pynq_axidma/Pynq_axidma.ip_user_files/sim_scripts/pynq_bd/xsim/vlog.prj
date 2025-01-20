@@ -1,0 +1,11 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Pynq_axidma.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" --include "../../../../Pynq_axidma.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" --include "../../../../Pynq_axidma.gen/sources_1/bd/pynq_bd/ipshared/7698" \
+"../../../bd/pynq_bd/ip/pynq_bd_processing_system7_0_0/sim/pynq_bd_processing_system7_0_0.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_clk_wiz_0_0/pynq_bd_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_clk_wiz_0_0/pynq_bd_clk_wiz_0_0.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_auto_pc_2/sim/pynq_bd_auto_pc_2.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_auto_pc_3/sim/pynq_bd_auto_pc_3.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_auto_us_1/sim/pynq_bd_auto_us_1.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

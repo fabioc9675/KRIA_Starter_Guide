@@ -1,0 +1,10 @@
+vhdl xil_defaultlib  \
+"../../../bd/pynq_bd/ipshared/7a1e/hdl/IP_PersonalFifo_v1_0_M00_AXIS.vhd" \
+"../../../bd/pynq_bd/ipshared/7a1e/hdl/IP_PersonalFifo_v1_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_IP_PersonalFifo_0_0/sim/pynq_bd_IP_PersonalFifo_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_c_counter_binary_0_0/sim/pynq_bd_c_counter_binary_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_axi_dma_0_0/sim/pynq_bd_axi_dma_0_0.vhd" \
+"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_clk_wiz_0_200M_1/sim/pynq_bd_rst_clk_wiz_0_200M_1.vhd" \
+
+nosort

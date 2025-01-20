@@ -4,7 +4,7 @@
     "xci_name": "kria_bd_IP_PersonalFifo_0_0",
     "cell_name": "IP_PersonalFifo_0",
     "component_reference": "xilinx.com:user:IP_PersonalFifo:1.0",
-    "ip_revision": "2",
+    "ip_revision": "3",
     "gen_directory": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0",
     "parameters": {
       "component_parameters": {
@@ -33,7 +33,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "2" } ],
+        "IPREVISION": [ { "value": "3" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
@@ -59,6 +59,7 @@
           "vlnv": "xilinx.com:interface:axis:1.0",
           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
           "mode": "master",
+          "address_space_ref": "M00_AXIS",
           "parameters": {
             "WIZ_DATA_WIDTH": [ { "value": "32", "value_src": "constant", "value_permission": "bd", "format": "long", "usage": "all" } ],
             "TDATA_NUM_BYTES": [ { "value": "4", "value_src": "auto", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
@@ -112,6 +113,12 @@
           "port_maps": {
             "CLK": [ { "physical_name": "m00_axis_aclk" } ]
           }
+        }
+      },
+      "address_spaces": {
+        "M00_AXIS": {
+          "range": "1",
+          "width": "1"
         }
       }
     }
