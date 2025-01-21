@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sun Jan 19 20:41:39 2025
+--Date        : Mon Jan 20 22:15:27 2025
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target kria_bd_wrapper.bd
 --Design      : kria_bd_wrapper
@@ -21,10 +21,10 @@ end kria_bd_wrapper;
 architecture STRUCTURE of kria_bd_wrapper is
   component kria_bd is
   port (
-    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 );
     uf_leds_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 );
     uf_leds_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    fan_en_b : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component kria_bd;
   component IOBUF is

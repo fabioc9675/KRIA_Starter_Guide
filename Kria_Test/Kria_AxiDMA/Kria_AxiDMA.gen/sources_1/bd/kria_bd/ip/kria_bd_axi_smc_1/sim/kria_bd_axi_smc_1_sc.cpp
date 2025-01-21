@@ -74,6 +74,8 @@ kria_bd_axi_smc_1_sc::kria_bd_axi_smc_1_sc(const sc_core::sc_module_name& nm) : 
   S01_AXI_tlm_aximm_write_socket = mp_impl->S01_AXI_tlm_aximm_write_socket;
   S02_AXI_tlm_aximm_read_socket = mp_impl->S02_AXI_tlm_aximm_read_socket;
   S02_AXI_tlm_aximm_write_socket = mp_impl->S02_AXI_tlm_aximm_write_socket;
+  S03_AXI_tlm_aximm_read_socket = mp_impl->S03_AXI_tlm_aximm_read_socket;
+  S03_AXI_tlm_aximm_write_socket = mp_impl->S03_AXI_tlm_aximm_write_socket;
   M00_AXI_tlm_aximm_read_socket = mp_impl->M00_AXI_tlm_aximm_read_socket;
   M00_AXI_tlm_aximm_write_socket = mp_impl->M00_AXI_tlm_aximm_write_socket;
 }

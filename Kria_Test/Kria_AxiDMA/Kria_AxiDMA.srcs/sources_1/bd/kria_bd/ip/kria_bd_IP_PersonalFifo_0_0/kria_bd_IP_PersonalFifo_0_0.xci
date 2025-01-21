@@ -4,7 +4,7 @@
     "xci_name": "kria_bd_IP_PersonalFifo_0_0",
     "cell_name": "IP_PersonalFifo_0",
     "component_reference": "xilinx.com:user:IP_PersonalFifo:1.0",
-    "ip_revision": "3",
+    "ip_revision": "4",
     "gen_directory": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0",
     "parameters": {
       "component_parameters": {
@@ -33,7 +33,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "3" } ],
+        "IPREVISION": [ { "value": "4" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],

@@ -150,9 +150,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_axi_dma_0_0/sim/kria_bd_axi_dma_0_0.vhd" \
-  "../../../bd/kria_bd/ipshared/7a1e/hdl/IP_PersonalFifo_v1_0_M00_AXIS.vhd" \
-  "../../../bd/kria_bd/ipshared/7a1e/hdl/IP_PersonalFifo_v1_0.vhd" \
-  "../../../bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0/sim/kria_bd_IP_PersonalFifo_0_0.vhd" \
   "../../../bd/kria_bd/ip/kria_bd_axi_dma_1_0/sim/kria_bd_axi_dma_1_0.vhd" \
 -endlib
 -makelib xcelium_lib/axis_infrastructure_v1_1_0 \
@@ -163,7 +160,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_axis_data_fifo_0_0/sim/kria_bd_axis_data_fifo_0_0.v" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
 -endlib
 -makelib xcelium_lib/xlconstant_v1_1_7 \
   "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -229,28 +225,39 @@
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_24/sim/bd_9a00_sawn_1.sv" \
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_25/sim/bd_9a00_swn_1.sv" \
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_26/sim/bd_9a00_sbn_1.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_27/sim/bd_9a00_s03mmu_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_28/sim/bd_9a00_s03tr_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_29/sim/bd_9a00_s03sic_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_30/sim/bd_9a00_s03a2s_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_31/sim/bd_9a00_sawn_2.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_32/sim/bd_9a00_swn_2.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_33/sim/bd_9a00_sbn_2.sv" \
 -endlib
 -makelib xcelium_lib/smartconnect_v1_0 -sv \
   "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/9cc5/hdl/sc_sc2axi_v1_0_vl_rfs.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_27/sim/bd_9a00_m00s2a_0.sv" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_28/sim/bd_9a00_m00arn_0.sv" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_29/sim/bd_9a00_m00rn_0.sv" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_30/sim/bd_9a00_m00awn_0.sv" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_31/sim/bd_9a00_m00wn_0.sv" \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_32/sim/bd_9a00_m00bn_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_34/sim/bd_9a00_m00s2a_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_35/sim/bd_9a00_m00arn_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_36/sim/bd_9a00_m00rn_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_37/sim/bd_9a00_m00awn_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_38/sim/bd_9a00_m00wn_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_39/sim/bd_9a00_m00bn_0.sv" \
 -endlib
 -makelib xcelium_lib/smartconnect_v1_0 -sv \
   "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/6bba/hdl/sc_exit_v1_0_vl_rfs.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib -sv \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_33/sim/bd_9a00_m00e_0.sv" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_40/sim/bd_9a00_m00e_0.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/sim/kria_bd_axi_smc_1.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ipshared/2ffb/hdl/IP_PersonalFifo_v1_0_M00_AXIS.vhd" \
+  "../../../bd/kria_bd/ipshared/2ffb/hdl/IP_PersonalFifo_v1_0.vhd" \
+  "../../../bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0/sim/kria_bd_IP_PersonalFifo_0_0.vhd" \
   "../../../bd/kria_bd/sim/kria_bd.vhd" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
@@ -258,7 +265,12 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
-  "../../../bd/kria_bd/ip/kria_bd_axis_data_fifo_1_0/sim/kria_bd_axis_data_fifo_1_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_axi_dma_0_1/sim/kria_bd_axi_dma_0_1.vhd" \
+  "../../../bd/kria_bd/ipshared/5b18/hdl/IP_Prueba_v1_0_M00_AXIS.vhd" \
+  "../../../bd/kria_bd/ipshared/5b18/hdl/IP_Prueba_v1_0.vhd" \
+  "../../../bd/kria_bd/ip/kria_bd_IP_Prueba_0_0/sim/kria_bd_IP_Prueba_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v
