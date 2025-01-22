@@ -355,6 +355,12 @@ vlog -work axi_protocol_converter_v2_1_27  -incr -mfcu  "+incdir+../../../../Kri
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/8713/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/66be/hdl/verilog" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 
+vcom -work xil_defaultlib  -93  \
+"../../../bd/kria_bd/ip/kria_bd_sine_wave_gen_0_0/sim/kria_bd_sine_wave_gen_0_0.vhd" \
+
+vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/7698" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/8713/hdl" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/66be/hdl/verilog" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/kria_bd/ip/kria_bd_xlconstant_0_0/sim/kria_bd_xlconstant_0_0.v" \
+
 vlog -work xil_defaultlib \
 "glbl.v"
 

@@ -38,7 +38,9 @@
       "axi_smc": "",
       "IP_PersonalFifo_0": "",
       "axi_dma_2": "",
-      "IP_Prueba_0": ""
+      "IP_Prueba_0": "",
+      "sine_wave_gen_0": "",
+      "xlconstant_0": ""
     },
     "interface_ports": {
       "uf_leds": {
@@ -2602,6 +2604,73 @@
         "xci_name": "kria_bd_IP_Prueba_0_0",
         "xci_path": "ip\\kria_bd_IP_Prueba_0_0\\kria_bd_IP_Prueba_0_0.xci",
         "inst_hier_path": "IP_Prueba_0"
+      },
+      "sine_wave_gen_0": {
+        "vlnv": "xilinx.com:module_ref:sine_wave_gen:1.0",
+        "xci_name": "kria_bd_sine_wave_gen_0_0",
+        "xci_path": "ip\\kria_bd_sine_wave_gen_0_0\\kria_bd_sine_wave_gen_0_0.xci",
+        "inst_hier_path": "sine_wave_gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sine_wave_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "19999800",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "kria_bd_clk_wiz_0_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sine_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": [
+                  "xilinx.com:interface:datatypes:1.0 {",
+                  "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
+                  "{} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool",
+                  "minimum {} maximum {}} value false}}}} DATA_WIDTH 16",
+                  "}"
+                ],
+                "value_src": "ip_prop"
+              }
+            }
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "kria_bd_xlconstant_0_0",
+        "xci_path": "ip\\kria_bd_xlconstant_0_0\\kria_bd_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2733,12 +2802,6 @@
           "zynq_ultra_ps_e_0/pl_ps_irq0"
         ]
       },
-      "c_counter_binary_0_Q": {
-        "ports": [
-          "c_counter_binary_0/Q",
-          "IP_PersonalFifo_0/data_in"
-        ]
-      },
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
@@ -2777,7 +2840,8 @@
         "ports": [
           "clk_wiz_0/clk_out3",
           "IP_PersonalFifo_0/clk_adc",
-          "c_counter_binary_0/CLK"
+          "c_counter_binary_0/CLK",
+          "sine_wave_gen_0/clk"
         ]
       },
       "proc_sys_reset_2_peripheral_aresetn": {
@@ -2801,10 +2865,22 @@
           "IP_Prueba_0/m00_axis_aresetn"
         ]
       },
+      "sine_wave_gen_0_sine_out": {
+        "ports": [
+          "sine_wave_gen_0/sine_out",
+          "IP_PersonalFifo_0/data_in"
+        ]
+      },
       "xlconcat_0_dout": {
         "ports": [
           "xlconcat_0/dout",
           "axi_intc_0/intr"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "sine_wave_gen_0/rst"
         ]
       },
       "xlslice_0_Dout": {

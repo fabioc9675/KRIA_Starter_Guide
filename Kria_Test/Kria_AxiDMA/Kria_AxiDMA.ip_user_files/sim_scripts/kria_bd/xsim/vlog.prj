@@ -53,6 +53,7 @@ sv xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --
 verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/7698" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/8713/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/f0b6/hdl/verilog" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/66be/hdl/verilog" \
 "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/sim/kria_bd_axi_smc_1.v" \
 "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
+"../../../bd/kria_bd/ip/kria_bd_xlconstant_0_0/sim/kria_bd_xlconstant_0_0.v" \
 
 verilog xil_defaultlib "glbl.v"
 

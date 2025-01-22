@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Tue Jan 21 16:08:20 2025
+--Date        : Wed Jan 22 00:07:17 2025
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
@@ -1730,7 +1730,7 @@ entity kria_bd is
     uf_leds_tri_t : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_clkrst_cnt=3,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of kria_bd : entity is "kria_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=kria_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=20,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_clkrst_cnt=3,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of kria_bd : entity is "kria_bd.hwdef";
 end kria_bd;
@@ -1767,8 +1767,8 @@ architecture STRUCTURE of kria_bd is
     clk_in1 : in STD_LOGIC;
     clk_out1 : out STD_LOGIC;
     clk_out2 : out STD_LOGIC;
-    locked : out STD_LOGIC;
-    clk_out3 : out STD_LOGIC
+    clk_out3 : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component kria_bd_clk_wiz_0_0;
   component kria_bd_proc_sys_reset_1_0 is
@@ -2246,6 +2246,18 @@ architecture STRUCTURE of kria_bd is
     m00_axis_aresetn : in STD_LOGIC
   );
   end component kria_bd_IP_Prueba_0_0;
+  component kria_bd_sine_wave_gen_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    sine_out : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component kria_bd_sine_wave_gen_0_0;
+  component kria_bd_xlconstant_0_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component kria_bd_xlconstant_0_0;
   signal IP_PersonalFifo_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal IP_PersonalFifo_0_M00_AXIS_TLAST : STD_LOGIC;
   signal IP_PersonalFifo_0_M00_AXIS_TREADY : STD_LOGIC;
@@ -2366,7 +2378,6 @@ architecture STRUCTURE of kria_bd is
   signal axis_data_fifo_0_M_AXIS_TLAST : STD_LOGIC;
   signal axis_data_fifo_0_M_AXIS_TREADY : STD_LOGIC;
   signal axis_data_fifo_0_M_AXIS_TVALID : STD_LOGIC;
-  signal c_counter_binary_0_Q : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
   signal clk_wiz_0_clk_out3 : STD_LOGIC;
@@ -2453,7 +2464,9 @@ architecture STRUCTURE of kria_bd is
   signal ps8_0_axi_periph_M04_AXI_WDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal ps8_0_axi_periph_M04_AXI_WREADY : STD_LOGIC;
   signal ps8_0_axi_periph_M04_AXI_WVALID : STD_LOGIC;
+  signal sine_wave_gen_0_sine_out : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2501,6 +2514,7 @@ architecture STRUCTURE of kria_bd is
   signal NLW_axi_dma_1_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_1_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_2_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_c_counter_binary_0_Q_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_clk_wiz_0_locked_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_1_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_1_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2532,7 +2546,7 @@ begin
 IP_PersonalFifo_0: component kria_bd_IP_PersonalFifo_0_0
      port map (
       clk_adc => clk_wiz_0_clk_out3,
-      data_in(15 downto 0) => c_counter_binary_0_Q(15 downto 0),
+      data_in(15 downto 0) => sine_wave_gen_0_sine_out(15 downto 0),
       m00_axis_aclk => clk_wiz_0_clk_out2,
       m00_axis_aresetn => proc_sys_reset_2_peripheral_aresetn(0),
       m00_axis_tdata(31 downto 0) => IP_PersonalFifo_0_M00_AXIS_TDATA(31 downto 0),
@@ -2856,7 +2870,7 @@ axis_data_fifo_0: component kria_bd_axis_data_fifo_0_0
 c_counter_binary_0: component kria_bd_c_counter_binary_0_0
      port map (
       CLK => clk_wiz_0_clk_out3,
-      Q(15 downto 0) => c_counter_binary_0_Q(15 downto 0)
+      Q(15 downto 0) => NLW_c_counter_binary_0_Q_UNCONNECTED(15 downto 0)
     );
 clk_wiz_0: component kria_bd_clk_wiz_0_0
      port map (
@@ -3029,6 +3043,12 @@ ps8_0_axi_periph: entity work.kria_bd_ps8_0_axi_periph_0
       S00_AXI_wstrb(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB(3 downto 0),
       S00_AXI_wvalid => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID
     );
+sine_wave_gen_0: component kria_bd_sine_wave_gen_0_0
+     port map (
+      clk => clk_wiz_0_clk_out3,
+      rst => xlconstant_0_dout(0),
+      sine_out(15 downto 0) => sine_wave_gen_0_sine_out(15 downto 0)
+    );
 uf_leds: component kria_bd_uf_leds_0
      port map (
       gpio_io_i(1 downto 0) => axi_gpio_0_GPIO_TRI_I(1 downto 0),
@@ -3061,6 +3081,10 @@ xlconcat_0: component kria_bd_xlconcat_0_0
       In2(0) => axi_dma_1_s2mm_introut,
       In3(0) => axi_dma_2_s2mm_introut,
       dout(3 downto 0) => xlconcat_0_dout(3 downto 0)
+    );
+xlconstant_0: component kria_bd_xlconstant_0_0
+     port map (
+      dout(0) => xlconstant_0_dout(0)
     );
 xlslice_0: component kria_bd_xlslice_0_0
      port map (

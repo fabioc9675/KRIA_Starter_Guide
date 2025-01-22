@@ -271,6 +271,12 @@
   "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_sine_wave_gen_0_0/sim/kria_bd_sine_wave_gen_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/kria_bd/ip/kria_bd_xlconstant_0_0/sim/kria_bd_xlconstant_0_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
   glbl.v
 -endlib
 

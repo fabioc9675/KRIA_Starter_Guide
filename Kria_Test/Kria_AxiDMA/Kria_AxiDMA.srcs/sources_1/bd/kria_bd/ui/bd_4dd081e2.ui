@@ -1,62 +1,65 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.419448",
-   "Default View_TopLeft":"-10,-236",
+   "Default View_ScaleFactor":"0.427207",
+   "Default View_TopLeft":"2,-145",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port uf_leds -pg 1 -lvl 9 -x 2970 -y 430 -defaultsOSRD
-preplace portBus fan_en_b -pg 1 -lvl 9 -x 2970 -y 550 -defaultsOSRD
-preplace inst axi_intc_0 -pg 1 -lvl 8 -x 2840 -y 680 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 120 -y 270 -defaultsOSRD
-preplace inst proc_sys_reset_1 -pg 1 -lvl 2 -x 410 -y 840 -defaultsOSRD
-preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -x 410 -y 610 -defaultsOSRD
-preplace inst ps8_0_axi_periph -pg 1 -lvl 7 -x 2520 -y 690 -defaultsOSRD
-preplace inst uf_leds -pg 1 -lvl 8 -x 2840 -y 430 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 7 -x 2520 -y 360 -defaultsOSRD
-preplace inst xlslice_0 -pg 1 -lvl 8 -x 2840 -y 550 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 6 -x 1980 -y 600 -defaultsOSRD
-preplace inst c_counter_binary_0 -pg 1 -lvl 2 -x 410 -y 60 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 4 -x 1090 -y 110 -defaultsOSRD
-preplace inst axi_dma_1 -pg 1 -lvl 4 -x 1090 -y 330 -defaultsOSRD
-preplace inst axis_data_fifo_0 -pg 1 -lvl 3 -x 750 -y 300 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 5 -x 1490 -y 570 -defaultsOSRD
-preplace inst IP_PersonalFifo_0 -pg 1 -lvl 3 -x 750 -y 90 -defaultsOSRD
-preplace inst axi_dma_2 -pg 1 -lvl 4 -x 1090 -y 600 -defaultsOSRD
-preplace inst IP_Prueba_0 -pg 1 -lvl 3 -x 750 -y 580 -defaultsOSRD
-preplace netloc axi_dma_0_s2mm_introut 1 4 3 1260 200 NJ 200 2370J
-preplace netloc axi_dma_1_mm2s_introut 1 4 3 1270 350 NJ 350 NJ
-preplace netloc axi_dma_1_s2mm_introut 1 4 3 1280 370 NJ 370 NJ
-preplace netloc axi_dma_2_s2mm_introut 1 4 3 1290 390 NJ 390 NJ
-preplace netloc axi_intc_0_irq 1 5 4 1640 890 NJ 890 NJ 890 2950
-preplace netloc c_counter_binary_0_Q 1 2 1 N 60
-preplace netloc clk_wiz_0_clk_out1 1 1 1 210 240n
-preplace netloc clk_wiz_0_clk_out2 1 1 7 230 260 590 220 910 490 1310 680 1630 750 2350 470 2720
-preplace netloc proc_sys_reset_2_peripheral_aresetn 1 2 6 600 210 890 500 1300 760 NJ 760 2360 480 2730
-preplace netloc xlconcat_0_dout 1 7 1 2690 360n
-preplace netloc xlslice_0_Dout 1 8 1 NJ 550
-preplace netloc zynq_ultra_ps_e_0_emio_ttc0_wave_o 1 6 2 2370J 490 2710J
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 7 10 180 N 180 580 200 900J 210 NJ 210 NJ 210 2330
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 7 20 590 220 740 NJ 740 NJ 740 NJ 740 NJ 740 2320
-preplace netloc clk_wiz_0_clk_out3 1 1 2 220 120 580J
-preplace netloc IP_PersonalFifo_0_M00_AXIS 1 3 1 N 90
-preplace netloc IP_Prueba_0_M00_AXIS 1 3 1 N 580
-preplace netloc axi_dma_0_M_AXI_S2MM 1 4 1 1340 90n
-preplace netloc axi_dma_1_M_AXIS_MM2S 1 2 3 610 450 NJ 450 1260
-preplace netloc axi_dma_1_M_AXI_MM2S 1 4 1 1330 270n
-preplace netloc axi_dma_1_M_AXI_S2MM 1 4 1 1320 290n
-preplace netloc axi_dma_2_M_AXI_S2MM 1 4 1 N 580
-preplace netloc axi_gpio_0_GPIO 1 8 1 NJ 430
-preplace netloc axi_smc_M00_AXI 1 5 1 N 570
-preplace netloc axis_data_fifo_0_M_AXIS 1 3 1 N 300
-preplace netloc ps8_0_axi_periph_M00_AXI 1 7 1 N 650
-preplace netloc ps8_0_axi_periph_M01_AXI 1 7 1 2700 410n
-preplace netloc ps8_0_axi_periph_M02_AXI 1 3 5 890 10 NJ 10 NJ 10 NJ 10 2680
-preplace netloc ps8_0_axi_periph_M03_AXI 1 3 5 920 460 NJ 460 NJ 460 NJ 460 2670
-preplace netloc ps8_0_axi_periph_M04_AXI 1 3 5 920 900 NJ 900 NJ 900 NJ 900 2670
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 6 1 2340 520n
-levelinfo -pg 1 -10 120 410 750 1090 1490 1980 2520 2840 2970
-pagesize -pg 1 -db -bbox -sgen -10 0 3110 940
+preplace port uf_leds -pg 1 -lvl 9 -x 3010 -y 500 -defaultsOSRD
+preplace portBus fan_en_b -pg 1 -lvl 9 -x 3010 -y 200 -defaultsOSRD
+preplace inst axi_intc_0 -pg 1 -lvl 8 -x 2880 -y 330 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 120 -y 350 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 2 -x 400 -y 180 -defaultsOSRD
+preplace inst proc_sys_reset_2 -pg 1 -lvl 2 -x 400 -y 380 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 7 -x 2550 -y 410 -defaultsOSRD
+preplace inst uf_leds -pg 1 -lvl 8 -x 2880 -y 500 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 7 -x 2550 -y 110 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 8 -x 2880 -y 200 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 6 -x 2010 -y 340 -defaultsOSRD
+preplace inst c_counter_binary_0 -pg 1 -lvl 2 -x 400 -y 750 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 4 -x 1090 -y 720 -defaultsOSRD
+preplace inst axi_dma_1 -pg 1 -lvl 4 -x 1090 -y 140 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 3 -x 740 -y 110 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 5 -x 1510 -y 310 -defaultsOSRD
+preplace inst IP_PersonalFifo_0 -pg 1 -lvl 3 -x 740 -y 700 -defaultsOSRD
+preplace inst axi_dma_2 -pg 1 -lvl 4 -x 1090 -y 340 -defaultsOSRD
+preplace inst IP_Prueba_0 -pg 1 -lvl 3 -x 740 -y 320 -defaultsOSRD
+preplace inst sine_wave_gen_0 -pg 1 -lvl 2 -x 400 -y 860 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 120 -y 870 -defaultsOSRD
+preplace netloc axi_dma_0_s2mm_introut 1 4 3 1320J 90 NJ 90 2350
+preplace netloc axi_dma_1_mm2s_introut 1 4 3 1290 100 NJ 100 NJ
+preplace netloc axi_dma_1_s2mm_introut 1 4 3 1300 120 NJ 120 NJ
+preplace netloc axi_dma_2_s2mm_introut 1 4 3 1290 420 1650J 140 NJ
+preplace netloc axi_intc_0_irq 1 5 4 1670 630 NJ 630 NJ 630 2990
+preplace netloc clk_wiz_0_clk_out1 1 1 1 220 140n
+preplace netloc clk_wiz_0_clk_out2 1 1 7 210 80 580 190 890 470 1360 430 1660 200 2370 620 2760
+preplace netloc clk_wiz_0_clk_out3 1 1 2 220 690 NJ
+preplace netloc proc_sys_reset_2_peripheral_aresetn 1 2 6 590 200 900 480 1350 190 NJ 190 2390 210 2740
+preplace netloc xlconcat_0_dout 1 7 1 2770 110n
+preplace netloc xlslice_0_Dout 1 8 1 NJ 200
+preplace netloc zynq_ultra_ps_e_0_emio_ttc0_wave_o 1 6 2 2400J 200 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 7 20 30 NJ 30 NJ 30 910J 450 1310J 170 NJ 170 2360
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 7 30 260 230 280 570J 250 880J 460 1330J 180 NJ 180 2350
+preplace netloc sine_wave_gen_0_sine_out 1 2 1 600 670n
+preplace netloc xlconstant_0_dout 1 1 1 NJ 870
+preplace netloc IP_PersonalFifo_0_M00_AXIS 1 3 1 N 700
+preplace netloc IP_Prueba_0_M00_AXIS 1 3 1 N 320
+preplace netloc axi_dma_0_M_AXI_S2MM 1 4 1 1370 260n
+preplace netloc axi_dma_1_M_AXIS_MM2S 1 2 3 590 0 NJ 0 1260
+preplace netloc axi_dma_1_M_AXI_MM2S 1 4 1 1340 80n
+preplace netloc axi_dma_1_M_AXI_S2MM 1 4 1 1280 100n
+preplace netloc axi_dma_2_M_AXI_S2MM 1 4 1 N 320
+preplace netloc axi_gpio_0_GPIO 1 8 1 NJ 500
+preplace netloc axi_smc_M00_AXI 1 5 1 N 310
+preplace netloc axis_data_fifo_0_M_AXIS 1 3 1 N 110
+preplace netloc ps8_0_axi_periph_M00_AXI 1 7 1 2750 300n
+preplace netloc ps8_0_axi_periph_M01_AXI 1 7 1 2730 390n
+preplace netloc ps8_0_axi_periph_M02_AXI 1 3 5 920 610 NJ 610 NJ 610 NJ 610 2700
+preplace netloc ps8_0_axi_periph_M03_AXI 1 3 5 920 10 NJ 10 NJ 10 NJ 10 2720
+preplace netloc ps8_0_axi_periph_M04_AXI 1 3 5 920 440 1270J 20 NJ 20 NJ 20 2710
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 6 1 2380 260n
+levelinfo -pg 1 0 120 400 740 1090 1510 2010 2550 2880 3010
+pagesize -pg 1 -db -bbox -sgen 0 -10 3150 930
 "
 }
 {
