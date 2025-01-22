@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Mon Jan 20 22:15:27 2025
+--Date        : Tue Jan 21 16:08:20 2025
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target kria_bd.bd
 --Design      : kria_bd
@@ -1767,7 +1767,8 @@ architecture STRUCTURE of kria_bd is
     clk_in1 : in STD_LOGIC;
     clk_out1 : out STD_LOGIC;
     clk_out2 : out STD_LOGIC;
-    locked : out STD_LOGIC
+    locked : out STD_LOGIC;
+    clk_out3 : out STD_LOGIC
   );
   end component kria_bd_clk_wiz_0_0;
   component kria_bd_proc_sys_reset_1_0 is
@@ -2122,6 +2123,24 @@ architecture STRUCTURE of kria_bd is
     S02_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     S02_AXI_bvalid : out STD_LOGIC;
     S02_AXI_bready : in STD_LOGIC;
+    S03_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S03_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    S03_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S03_AXI_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    S03_AXI_awlock : in STD_LOGIC_VECTOR ( 0 to 0 );
+    S03_AXI_awcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S03_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S03_AXI_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S03_AXI_awvalid : in STD_LOGIC;
+    S03_AXI_awready : out STD_LOGIC;
+    S03_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S03_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S03_AXI_wlast : in STD_LOGIC;
+    S03_AXI_wvalid : in STD_LOGIC;
+    S03_AXI_wready : out STD_LOGIC;
+    S03_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S03_AXI_bvalid : out STD_LOGIC;
+    S03_AXI_bready : in STD_LOGIC;
     M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 48 downto 0 );
     M00_AXI_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     M00_AXI_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -2154,25 +2173,7 @@ architecture STRUCTURE of kria_bd is
     M00_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M00_AXI_rlast : in STD_LOGIC;
     M00_AXI_rvalid : in STD_LOGIC;
-    M00_AXI_rready : out STD_LOGIC;
-    S03_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    S03_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    S03_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    S03_AXI_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    S03_AXI_awlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    S03_AXI_awcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    S03_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    S03_AXI_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    S03_AXI_awvalid : in STD_LOGIC;
-    S03_AXI_awready : out STD_LOGIC;
-    S03_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    S03_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    S03_AXI_wlast : in STD_LOGIC;
-    S03_AXI_wvalid : in STD_LOGIC;
-    S03_AXI_wready : out STD_LOGIC;
-    S03_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    S03_AXI_bvalid : out STD_LOGIC;
-    S03_AXI_bready : in STD_LOGIC
+    M00_AXI_rready : out STD_LOGIC
   );
   end component kria_bd_axi_smc_1;
   component kria_bd_IP_PersonalFifo_0_0 is
@@ -2368,6 +2369,7 @@ architecture STRUCTURE of kria_bd is
   signal c_counter_binary_0_Q : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal clk_wiz_0_clk_out1 : STD_LOGIC;
   signal clk_wiz_0_clk_out2 : STD_LOGIC;
+  signal clk_wiz_0_clk_out3 : STD_LOGIC;
   signal proc_sys_reset_2_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal ps8_0_axi_periph_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal ps8_0_axi_periph_M00_AXI_ARREADY : STD_LOGIC;
@@ -2529,7 +2531,7 @@ begin
   uf_leds_tri_t(1 downto 0) <= axi_gpio_0_GPIO_TRI_T(1 downto 0);
 IP_PersonalFifo_0: component kria_bd_IP_PersonalFifo_0_0
      port map (
-      clk_adc => zynq_ultra_ps_e_0_pl_clk0,
+      clk_adc => clk_wiz_0_clk_out3,
       data_in(15 downto 0) => c_counter_binary_0_Q(15 downto 0),
       m00_axis_aclk => clk_wiz_0_clk_out2,
       m00_axis_aresetn => proc_sys_reset_2_peripheral_aresetn(0),
@@ -2853,7 +2855,7 @@ axis_data_fifo_0: component kria_bd_axis_data_fifo_0_0
     );
 c_counter_binary_0: component kria_bd_c_counter_binary_0_0
      port map (
-      CLK => zynq_ultra_ps_e_0_pl_clk0,
+      CLK => clk_wiz_0_clk_out3,
       Q(15 downto 0) => c_counter_binary_0_Q(15 downto 0)
     );
 clk_wiz_0: component kria_bd_clk_wiz_0_0
@@ -2861,6 +2863,7 @@ clk_wiz_0: component kria_bd_clk_wiz_0_0
       clk_in1 => zynq_ultra_ps_e_0_pl_clk0,
       clk_out1 => clk_wiz_0_clk_out1,
       clk_out2 => clk_wiz_0_clk_out2,
+      clk_out3 => clk_wiz_0_clk_out3,
       locked => NLW_clk_wiz_0_locked_UNCONNECTED,
       resetn => zynq_ultra_ps_e_0_pl_resetn0
     );

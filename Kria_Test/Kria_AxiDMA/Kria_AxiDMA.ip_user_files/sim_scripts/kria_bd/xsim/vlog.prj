@@ -6,6 +6,7 @@ verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/includ
 "../../../bd/kria_bd/ip/kria_bd_xlslice_0_0/sim/kria_bd_xlslice_0_0.v" \
 "../../../bd/kria_bd/ip/kria_bd_zynq_ultra_ps_e_0_0/sim/kria_bd_zynq_ultra_ps_e_0_0_vip_wrapper.v" \
 "../../../bd/kria_bd/ip/kria_bd_axis_data_fifo_0_0/sim/kria_bd_axis_data_fifo_0_0.v" \
+"../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
 "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_0/sim/bd_9a00_one_0.v" \
 
 sv xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/7698" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/8713/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/f0b6/hdl/verilog" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/66be/hdl/verilog" \
@@ -50,7 +51,6 @@ sv xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --
 "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_40/sim/bd_9a00_m00e_0.sv" \
 
 verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/7698" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/ec67/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/abef/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/8713/hdl" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/f0b6/hdl/verilog" --include "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/66be/hdl/verilog" \
-"../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
 "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/sim/kria_bd_axi_smc_1.v" \
 "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
 

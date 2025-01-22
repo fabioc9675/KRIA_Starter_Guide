@@ -302,11 +302,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jan 21 03:15:34 UTC 2025</spirit:value>
+            <spirit:value>Tue Jan 21 20:35:39 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bb070bf4</spirit:value>
+            <spirit:value>9:f32b9df4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -317,7 +317,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bb070bf4</spirit:value>
+            <spirit:value>9:f32b9df4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -333,11 +333,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jan 21 03:15:34 UTC 2025</spirit:value>
+            <spirit:value>Tue Jan 21 20:35:39 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bb070bf4</spirit:value>
+            <spirit:value>9:f32b9df4</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -353,11 +353,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jan 21 03:15:34 UTC 2025</spirit:value>
+            <spirit:value>Tue Jan 21 20:35:39 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c5499c79</spirit:value>
+            <spirit:value>9:8d650a79</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -373,11 +373,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Jan 21 03:15:34 UTC 2025</spirit:value>
+            <spirit:value>Tue Jan 21 20:35:39 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c5499c79</spirit:value>
+            <spirit:value>9:8d650a79</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -508,11 +508,11 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/5b18/hdl/IP_Prueba_v1_0_M00_AXIS.vhd</spirit:name>
+        <spirit:name>../../ipshared/245d/hdl/IP_Prueba_v1_0_M00_AXIS.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5b18/hdl/IP_Prueba_v1_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/245d/hdl/IP_Prueba_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -527,11 +527,11 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/5b18/hdl/IP_Prueba_v1_0_M00_AXIS.vhd</spirit:name>
+        <spirit:name>../../ipshared/245d/hdl/IP_Prueba_v1_0_M00_AXIS.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/5b18/hdl/IP_Prueba_v1_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/245d/hdl/IP_Prueba_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -573,7 +573,7 @@
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:displayName>IP_Prueba_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreRevision>2</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M00_AXIS.CLK_DOMAIN" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M00_AXIS.FREQ_HZ" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
@@ -600,6 +600,11 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="175fd048"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="0eafb7ee"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="0075c36d"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9a194edc"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="c482fdc8"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

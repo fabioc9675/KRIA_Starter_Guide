@@ -92,6 +92,12 @@
         "xci_path": "ip\\kria_bd_clk_wiz_0_0\\kria_bd_clk_wiz_0_0.xci",
         "inst_hier_path": "clk_wiz_0",
         "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "115.833"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "87.181"
+          },
           "CLKOUT2_JITTER": {
             "value": "102.087"
           },
@@ -104,11 +110,26 @@
           "CLKOUT2_USED": {
             "value": "true"
           },
+          "CLKOUT3_JITTER": {
+            "value": "162.169"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "87.181"
+          },
+          "CLKOUT3_REQUESTED_OUT_FREQ": {
+            "value": "20"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
           "MMCM_CLKOUT1_DIVIDE": {
             "value": "6"
           },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
           "NUM_OUT_CLKS": {
-            "value": "2"
+            "value": "3"
           },
           "RESET_PORT": {
             "value": "resetn"
@@ -2752,6 +2773,13 @@
           "IP_Prueba_0/m00_axis_aclk"
         ]
       },
+      "clk_wiz_0_clk_out3": {
+        "ports": [
+          "clk_wiz_0/clk_out3",
+          "IP_PersonalFifo_0/clk_adc",
+          "c_counter_binary_0/CLK"
+        ]
+      },
       "proc_sys_reset_2_peripheral_aresetn": {
         "ports": [
           "proc_sys_reset_2/peripheral_aresetn",
@@ -2794,9 +2822,7 @@
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
-          "clk_wiz_0/clk_in1",
-          "c_counter_binary_0/CLK",
-          "IP_PersonalFifo_0/clk_adc"
+          "clk_wiz_0/clk_in1"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {

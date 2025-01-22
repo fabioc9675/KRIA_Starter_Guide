@@ -160,6 +160,7 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_axis_data_fifo_0_0/sim/kria_bd_axis_data_fifo_0_0.v" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
 -endlib
 -makelib xcelium_lib/xlconstant_v1_1_7 \
   "../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -251,13 +252,16 @@
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/ip/ip_40/sim/bd_9a00_m00e_0.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/bd_0/sim/bd_9a00.v" \
   "../../../bd/kria_bd/ip/kria_bd_axi_smc_1/sim/kria_bd_axi_smc_1.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ipshared/2ffb/hdl/IP_PersonalFifo_v1_0_M00_AXIS.vhd" \
   "../../../bd/kria_bd/ipshared/2ffb/hdl/IP_PersonalFifo_v1_0.vhd" \
   "../../../bd/kria_bd/ip/kria_bd_IP_PersonalFifo_0_0/sim/kria_bd_IP_PersonalFifo_0_0.vhd" \
+  "../../../bd/kria_bd/ip/kria_bd_axi_dma_0_1/sim/kria_bd_axi_dma_0_1.vhd" \
+  "../../../bd/kria_bd/ipshared/245d/hdl/IP_Prueba_v1_0_M00_AXIS.vhd" \
+  "../../../bd/kria_bd/ipshared/245d/hdl/IP_Prueba_v1_0.vhd" \
+  "../../../bd/kria_bd/ip/kria_bd_IP_Prueba_0_0/sim/kria_bd_IP_Prueba_0_0.vhd" \
   "../../../bd/kria_bd/sim/kria_bd.vhd" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
@@ -265,12 +269,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/kria_bd/ip/kria_bd_auto_pc_0/sim/kria_bd_auto_pc_0.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/kria_bd/ip/kria_bd_axi_dma_0_1/sim/kria_bd_axi_dma_0_1.vhd" \
-  "../../../bd/kria_bd/ipshared/5b18/hdl/IP_Prueba_v1_0_M00_AXIS.vhd" \
-  "../../../bd/kria_bd/ipshared/5b18/hdl/IP_Prueba_v1_0.vhd" \
-  "../../../bd/kria_bd/ip/kria_bd_IP_Prueba_0_0/sim/kria_bd_IP_Prueba_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

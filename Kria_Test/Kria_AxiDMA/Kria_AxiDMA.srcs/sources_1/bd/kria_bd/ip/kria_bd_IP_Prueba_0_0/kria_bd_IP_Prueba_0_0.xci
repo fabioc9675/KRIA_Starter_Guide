@@ -4,7 +4,7 @@
     "xci_name": "kria_bd_IP_Prueba_0_0",
     "cell_name": "IP_Prueba_0",
     "component_reference": "xilinx.com:user:IP_Prueba:1.0",
-    "ip_revision": "1",
+    "ip_revision": "2",
     "gen_directory": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_Prueba_0_0",
     "parameters": {
       "component_parameters": {
@@ -33,7 +33,7 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
-        "IPREVISION": [ { "value": "1" } ],
+        "IPREVISION": [ { "value": "2" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../../../Kria_AxiDMA.gen/sources_1/bd/kria_bd/ip/kria_bd_IP_Prueba_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
