@@ -1,0 +1,6 @@
+[submodule "ICTP_MachineLearning/submodules/core-comblock"]
+	path = ICTP_MachineLearning/submodules/core-comblock
+	url = https://gitlab.com/ictp-mlab/core-comblock
+[submodule "ICTP_MachineLearning/submodules/udma"]
+	path = ICTP_MachineLearning/submodules/udma
+	url = https://gitlab.com/ictp-mlab/udma
