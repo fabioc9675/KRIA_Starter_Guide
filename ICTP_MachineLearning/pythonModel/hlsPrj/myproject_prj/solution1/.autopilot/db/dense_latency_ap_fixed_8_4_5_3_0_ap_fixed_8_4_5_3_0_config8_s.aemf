@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1750828729693">
+  <ports id="1" name="p_read" type="PortType" originalName="a.V" coreId="1852142702" bitwidth="8">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="p_read1" type="PortType" originalName="a.V" coreId="0" bitwidth="8">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="12" name="ap_return" direction="DirOut">
+    <dataInputObjs>ret</dataInputObjs>
+  </ports>
+  <edges id="19" source_obj="//@ports.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="21" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="22" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="23" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="28" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="33" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="34" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="38" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <edges id="41" source_obj="//@regions.0/@basic_blocks.0/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.8"/>
+  <edges id="44" source_obj="//@regions.0/@basic_blocks.0/@node_objs.8" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.9"/>
+  <edges id="45" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.9"/>
+  <edges id="46" source_obj="//@regions.0/@basic_blocks.0/@node_objs.9" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.10"/>
+  <edges source_obj="//@regions.0/@basic_blocks.0/@node_objs.10" sink_obj="//@ports.2"/>
+  <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" iiViolation="" id="56" pipe_depth="1" RegionName="dense_latency&lt;ap_fixed&lt;8, 4, 5, 3, 0>, ap_fixed&lt;8, 4, 5, 3, 0>, config8>">
+    <basic_blocks id="16" name="dense_latency&lt;ap_fixed&lt;8, 4, 5, 3, 0>, ap_fixed&lt;8, 4, 5, 3, 0>, config8>" type="BlockType">
+      <node_objs xsi:type="cdfg:CdfgNode" id="5" name="p_read_2" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." coreId="0" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>p_read1</dataInputObjs>
+        <dataOutputObjs>sext</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="6" name="p_read_3" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." coreId="0" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="read" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>p_read</dataInputObjs>
+        <dataOutputObjs>sext</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="7" name="sext_ln1270" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." coreId="0" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="11" opcode="sext" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataOutputObjs>mul</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="8" name="mul_ln1270" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="mul_8s_7s_11_1_1_U339" coreName="Multiplier" implIndex="auto" control="no" opType="mul" coreId="3" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="11" opcode="mul" m_display="0" m_delay="4.17" m_topoIndex="4" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>sext</dataInputObjs>
+        <dataOutputObjs>partselect</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="9" name="trunc_ln" lineNumber="818" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="trunc_ln_fu_100_p4" coreId="0" contextFuncName="operator_assign_16_9_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="partselect" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="818" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator=&amp;lt;16, 9, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>mul</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="10" name="sext_ln1270_1" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." coreId="1948265521" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="11" opcode="sext" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataOutputObjs>mul</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="11" name="mul_ln1270_1" lineNumber="1270" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="mul_8s_7s_11_1_1_U340" coreName="Multiplier" implIndex="auto" control="no" opType="mul" coreId="3" contextFuncName="operator_mul_8_5_true_AP_TRN_AP_WRAP_0" bitwidth="11" opcode="mul" m_display="0" m_delay="4.17" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="1270" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator*&amp;lt;8, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>sext</dataInputObjs>
+        <dataOutputObjs>partselect</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="12" name="trunc_ln818_2" lineNumber="818" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="trunc_ln818_2_fu_115_p4" coreId="0" contextFuncName="operator_assign_16_9_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="partselect" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="818" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator=&amp;lt;16, 9, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>mul</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="13" name="add_ln813" lineNumber="813" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="add_ln813_fu_125_p2" coreName="TAddSub" implIndex="tadder" control="no" opType="all" coreId="10" contextFuncName="operator_assign_9_5_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="add" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="813" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator=&amp;lt;9, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>partselect</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="14" name="add_ln813_1" lineNumber="813" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." rtlName="ap_return" coreName="TAddSub" implIndex="tadder" control="no" opType="all" coreId="10" contextFuncName="operator_assign_9_5_true_AP_TRN_AP_WRAP_0" bitwidth="8" opcode="add" m_display="0" m_delay="3.66" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="813" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator=&amp;lt;9, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataInputObjs>partselect</dataInputObjs>
+        <dataOutputObjs>ret</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="15" name="_ln813" lineNumber="813" fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" fileDirectory=".." coreId="0" contextFuncName="operator_assign_9_5_true_AP_TRN_AP_WRAP_0" opcode="ret" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h" linenumber="813" fileDirectory="C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\pythonModel\hlsPrj" functionName="operator=&amp;lt;9, 5, true, AP_TRN, AP_WRAP, 0&amp;gt;"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataOutputObjs>ap_return</dataOutputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_fixed_base.h">
+        <validLinenumbers>1270</validLinenumbers>
+        <validLinenumbers>818</validLinenumbers>
+        <validLinenumbers>813</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
+  <ScheduleInfo time="0"/>
+  <expressionNodes realName="mul_ln1270_1_fu_47">
+    <nodeIds>11</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln813_1_fu_131">
+    <nodeIds>14</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln1270_fu_95">
+    <nodeIds>7</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln818_2_fu_115">
+    <nodeIds>12</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="mul_ln1270_fu_44">
+    <nodeIds>8</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln813_fu_125">
+    <nodeIds>13</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln1270_1_fu_110">
+    <nodeIds>10</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln_fu_100">
+    <nodeIds>9</nodeIds>
+  </expressionNodes>
+  <ioNodes realName="p_read_2_read_fu_32">
+    <nodeIds>5</nodeIds>
+  </ioNodes>
+  <ioNodes realName="p_read_3_read_fu_38">
+    <nodeIds>6</nodeIds>
+  </ioNodes>
+  <ioPorts name="p_read">
+    <contents name="read">
+      <nodeIds>6</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="p_read1">
+    <contents name="read">
+      <nodeIds>5</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="ap_return">
+    <contents name="ret">
+      <nodeIds>15</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="3" stage="1" latency="1"/>
+      <operations id="4" stage="1" latency="1"/>
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+    </states>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config8_s" mII="1" mDepth="1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>16</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

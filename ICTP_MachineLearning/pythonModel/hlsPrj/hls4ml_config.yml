@@ -1,0 +1,117 @@
+Backend: Vitis
+ClockPeriod: 5
+ClockUncertainty: 27%
+HLSConfig:
+  LayerName:
+    fc1:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc1_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc2:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc2_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc3:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc3_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc4:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc4_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc5:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    fc5_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    inputLayer:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    output:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    outputActivation:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Stable
+      Trace: false
+    output_linear:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    relu0:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    relu1:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    relu2:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    relu3:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+    relu4:
+      Precision: ap_fixed<8,4>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: false
+  Model:
+    BramFactor: 1000000000
+    Precision: ap_fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_parallel
+KerasModel: !keras_model './hlsPrj//keras_model.keras'
+OutputDir: ./hlsPrj/
+Part: xc7z020clg484-1
+ProjectName: myproject
+Stamp: f8deff40
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  WriteTar: false
+  WriteWeightsTxt: true
