@@ -1,0 +1,34 @@
+vhdl xil_defaultlib  \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axil.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axif.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/tdpram.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/graysync.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/fifo.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/comblock.vhdl" \
+"../../../bd/pynq_bd/ipshared/7b64/hdl/axi_comblock.vhdl" \
+"../../../bd/pynq_bd/ip/pynq_bd_comblock_0_0/sim/pynq_bd_comblock_0_0.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dcmp_64ns_64ns_1_2_no_dsp_1.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config5_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config8_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config11_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config14_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_config17_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_8_4_5_3_0_config2_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_8s_6s_10_1_1.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_8s_7ns_11_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_8s_7s_11_1_1.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_8s_10ns_17_1_1.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_5ns_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_5s_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_6ns_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_6s_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_7ns_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_mul_16s_7s_17_1_0.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_regslice_both.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_sigmoid_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_sigmoid_config19_s.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_sigmoid_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_sigmoid_config19_s_sigmoid_tablbkb.vhd" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference.vhd" \
+"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+
+nosort
