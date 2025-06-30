@@ -2077,11 +2077,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Jun 29 21:18:56 UTC 2025</spirit:value>
+            <spirit:value>Mon Jun 30 23:06:31 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5427b2bb</spirit:value>
+            <spirit:value>9:5aa1fb93</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2092,7 +2092,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5427b2bb</spirit:value>
+            <spirit:value>9:5aa1fb93</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2108,11 +2108,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Jun 29 21:18:56 UTC 2025</spirit:value>
+            <spirit:value>Mon Jun 30 23:20:19 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5427b2bb</spirit:value>
+            <spirit:value>9:5aa1fb93</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2127,11 +2127,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Jun 29 21:18:56 UTC 2025</spirit:value>
+            <spirit:value>Mon Jun 30 23:06:31 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:978ecada</spirit:value>
+            <spirit:value>9:6f0314b9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2147,11 +2147,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Jun 29 21:18:56 UTC 2025</spirit:value>
+            <spirit:value>Mon Jun 30 23:20:19 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:978ecada</spirit:value>
+            <spirit:value>9:6f0314b9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2165,11 +2165,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Jun 29 21:18:56 UTC 2025</spirit:value>
+            <spirit:value>Mon Jun 30 23:20:19 UTC 2025</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5427b2bb</spirit:value>
+            <spirit:value>9:5aa1fb93</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2305,7 +2305,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.reg4_i" xilinx:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_IN_ENA&apos;)) and spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_IN_DEPTH&apos;)) > 4">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.reg4_i" xilinx:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_IN_ENA&apos;)) and spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_IN_DEPTH&apos;)) > 4">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2737,7 +2737,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.reg4_o" xilinx:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_OUT_ENA&apos;)) and spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_OUT_DEPTH&apos;)) > 4">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.reg4_o" xilinx:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_OUT_ENA&apos;)) and spirit:decode(id(&apos;MODELPARAM_VALUE.REGS_OUT_DEPTH&apos;)) > 4">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4884,7 +4884,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>REGS_IN_DEPTH</spirit:name>
         <spirit:displayName>Regs In Depth</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REGS_IN_DEPTH" spirit:minimum="0" spirit:rangeType="long">4</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REGS_IN_DEPTH" spirit:minimum="0" spirit:rangeType="long">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>REGS_OUT_ENA</spirit:name>
@@ -4899,7 +4899,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>REGS_OUT_DEPTH</spirit:name>
         <spirit:displayName>Regs Out Depth</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REGS_OUT_DEPTH" spirit:minimum="0" spirit:rangeType="long">4</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REGS_OUT_DEPTH" spirit:minimum="0" spirit:rangeType="long">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>DRAM_IO_ENA</spirit:name>
@@ -5163,7 +5163,7 @@
     <spirit:parameter>
       <spirit:name>REGS_IN_DEPTH</spirit:name>
       <spirit:displayName>Quantity</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.REGS_IN_DEPTH" spirit:minimum="1" spirit:maximum="16" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.REGS_IN_DEPTH" spirit:minimum="1" spirit:maximum="16" spirit:rangeType="long">5</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -5199,7 +5199,7 @@
     <spirit:parameter>
       <spirit:name>REGS_OUT_DEPTH</spirit:name>
       <spirit:displayName>Quantity</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.REGS_OUT_DEPTH" spirit:minimum="1" spirit:maximum="16" spirit:rangeType="long">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.REGS_OUT_DEPTH" spirit:minimum="1" spirit:maximum="16" spirit:rangeType="long">5</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -5538,6 +5538,8 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FIFO_IN_DWIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FIFO_OUT_DWIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.FIFO_OUT_ENA" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.REGS_IN_DEPTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.REGS_OUT_DEPTH" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

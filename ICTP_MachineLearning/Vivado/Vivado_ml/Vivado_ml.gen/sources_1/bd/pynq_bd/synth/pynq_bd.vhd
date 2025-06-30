@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sun Jun 29 16:18:42 2025
+--Date        : Mon Jun 30 18:20:17 2025
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd.bd
 --Design      : pynq_bd
@@ -610,10 +610,11 @@ entity pynq_bd is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    led : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=8,numReposBlks=6,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_ps7_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of pynq_bd : entity is "pynq_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=pynq_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_ps7_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of pynq_bd : entity is "pynq_bd.hwdef";
 end pynq_bd;
@@ -694,10 +695,12 @@ architecture STRUCTURE of pynq_bd is
     reg1_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
     reg2_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
     reg3_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    reg4_i : in STD_LOGIC_VECTOR ( 31 downto 0 );
     reg0_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
     reg1_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
     reg2_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
     reg3_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    reg4_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
     fifo_clk_i : in STD_LOGIC;
     fifo_clear_i : in STD_LOGIC;
     fifo_we_i : in STD_LOGIC;
@@ -748,11 +751,6 @@ architecture STRUCTURE of pynq_bd is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component pynq_bd_rst_ps7_0_100M_0;
-  component pynq_bd_xlconstant_0_0 is
-  port (
-    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component pynq_bd_xlconstant_0_0;
   component pynq_bd_GN_inference_0_0 is
   port (
     result_ap_vld : out STD_LOGIC;
@@ -774,12 +772,27 @@ architecture STRUCTURE of pynq_bd is
     result : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component pynq_bd_GN_inference_0_0;
+  component pynq_bd_xlslice_0_0 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component pynq_bd_xlslice_0_0;
+  component pynq_bd_leds_reg_0_0 is
+  port (
+    reg_in : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    leds : out STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component pynq_bd_leds_reg_0_0;
   signal GN_inference_0_result : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal Net : STD_LOGIC;
   signal comblock_0_fifo_data_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal comblock_0_reg0_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal comblock_0_reg1_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal comblock_0_reg2_o : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal comblock_0_reg3_o : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal comblock_0_reg4_o : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal leds_reg_0_leds : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal processing_system7_0_DDR_CAS_N : STD_LOGIC;
@@ -861,7 +874,7 @@ architecture STRUCTURE of pynq_bd is
   signal ps7_0_axi_periph_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps7_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
   signal rst_ps7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_GN_inference_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_GN_inference_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_GN_inference_0_ap_ready_UNCONNECTED : STD_LOGIC;
@@ -873,7 +886,6 @@ architecture STRUCTURE of pynq_bd is
   signal NLW_comblock_0_fifo_full_o_UNCONNECTED : STD_LOGIC;
   signal NLW_comblock_0_fifo_overflow_o_UNCONNECTED : STD_LOGIC;
   signal NLW_comblock_0_fifo_underflow_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_comblock_0_reg3_o_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_USB0_PORT_INDCTL_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_rst_ps7_0_100M_mb_reset_UNCONNECTED : STD_LOGIC;
@@ -906,6 +918,7 @@ architecture STRUCTURE of pynq_bd is
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
 begin
+  led(3 downto 0) <= leds_reg_0_leds(3 downto 0);
 GN_inference_0: component pynq_bd_GN_inference_0_0
      port map (
       ap_clk => processing_system7_0_FCLK_CLK0,
@@ -951,7 +964,7 @@ comblock_0: component pynq_bd_comblock_0_0
       axil_wvalid => ps7_0_axi_periph_M00_AXI_WVALID,
       fifo_aempty_o => NLW_comblock_0_fifo_aempty_o_UNCONNECTED,
       fifo_afull_o => NLW_comblock_0_fifo_afull_o_UNCONNECTED,
-      fifo_clear_i => xlconstant_0_dout(0),
+      fifo_clear_i => xlslice_0_Dout(0),
       fifo_clk_i => processing_system7_0_FCLK_CLK0,
       fifo_data_i(31 downto 0) => comblock_0_fifo_data_o(31 downto 0),
       fifo_data_o(31 downto 0) => comblock_0_fifo_data_o(31 downto 0),
@@ -969,7 +982,14 @@ comblock_0: component pynq_bd_comblock_0_0
       reg2_i(31 downto 0) => GN_inference_0_result(31 downto 0),
       reg2_o(31 downto 0) => comblock_0_reg2_o(31 downto 0),
       reg3_i(31 downto 0) => B"00000000000000000000000000000000",
-      reg3_o(31 downto 0) => NLW_comblock_0_reg3_o_UNCONNECTED(31 downto 0)
+      reg3_o(31 downto 0) => comblock_0_reg3_o(31 downto 0),
+      reg4_i(31 downto 0) => B"00000000000000000000000000000000",
+      reg4_o(31 downto 0) => comblock_0_reg4_o(31 downto 0)
+    );
+leds_reg_0: component pynq_bd_leds_reg_0_0
+     port map (
+      leds(3 downto 0) => leds_reg_0_leds(3 downto 0),
+      reg_in(31 downto 0) => comblock_0_reg4_o(31 downto 0)
     );
 processing_system7_0: component pynq_bd_processing_system7_0_0
      port map (
@@ -1118,8 +1138,9 @@ rst_ps7_0_100M: component pynq_bd_rst_ps7_0_100M_0
       peripheral_reset(0) => NLW_rst_ps7_0_100M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
     );
-xlconstant_0: component pynq_bd_xlconstant_0_0
+xlslice_0: component pynq_bd_xlslice_0_0
      port map (
-      dout(0) => xlconstant_0_dout(0)
+      Din(31 downto 0) => comblock_0_reg3_o(31 downto 0),
+      Dout(0) => xlslice_0_Dout(0)
     );
 end STRUCTURE;

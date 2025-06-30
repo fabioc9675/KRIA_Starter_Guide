@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xCC6CFA539DDF0AAD",
+      "boundary_crc": "0x505ACB2FD7430CB9",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd",
       "name": "pynq_bd",
@@ -19,8 +19,9 @@
         }
       },
       "rst_ps7_0_100M": "",
-      "xlconstant_0": "",
-      "GN_inference_0": ""
+      "GN_inference_0": "",
+      "xlslice_0": "",
+      "leds_reg_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -190,6 +191,13 @@
             "direction": "IO"
           }
         }
+      }
+    },
+    "ports": {
+      "led": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
       }
     },
     "components": {
@@ -1926,6 +1934,12 @@
           },
           "FIFO_OUT_ENA": {
             "value": "true"
+          },
+          "REGS_IN_DEPTH": {
+            "value": "5"
+          },
+          "REGS_OUT_DEPTH": {
+            "value": "5"
           }
         }
       },
@@ -2148,17 +2162,40 @@
         "xci_path": "ip\\pynq_bd_rst_ps7_0_100M_0\\pynq_bd_rst_ps7_0_100M_0.xci",
         "inst_hier_path": "rst_ps7_0_100M"
       },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "pynq_bd_xlconstant_0_0",
-        "xci_path": "ip\\pynq_bd_xlconstant_0_0\\pynq_bd_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0"
-      },
       "GN_inference_0": {
         "vlnv": "xilinx.com:hls:GN_inference:1.0",
         "xci_name": "pynq_bd_GN_inference_0_0",
         "xci_path": "ip\\pynq_bd_GN_inference_0_0\\pynq_bd_GN_inference_0_0.xci",
         "inst_hier_path": "GN_inference_0"
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "pynq_bd_xlslice_0_0",
+        "xci_path": "ip\\pynq_bd_xlslice_0_0\\pynq_bd_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0"
+      },
+      "leds_reg_0": {
+        "vlnv": "xilinx.com:module_ref:leds_reg:1.0",
+        "xci_name": "pynq_bd_leds_reg_0_0",
+        "xci_path": "ip\\pynq_bd_leds_reg_0_0\\pynq_bd_leds_reg_0_0.xci",
+        "inst_hier_path": "leds_reg_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "leds_reg",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "reg_in": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "leds": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2226,6 +2263,24 @@
           "comblock_0/fifo_re_i"
         ]
       },
+      "comblock_0_reg3_o": {
+        "ports": [
+          "comblock_0/reg3_o",
+          "xlslice_0/Din"
+        ]
+      },
+      "comblock_0_reg4_o": {
+        "ports": [
+          "comblock_0/reg4_o",
+          "leds_reg_0/reg_in"
+        ]
+      },
+      "leds_reg_0_leds": {
+        "ports": [
+          "leds_reg_0/leds",
+          "led"
+        ]
+      },
       "processing_system7_0_FCLK_CLK0": {
         "ports": [
           "processing_system7_0/FCLK_CLK0",
@@ -2255,9 +2310,9 @@
           "GN_inference_0/ap_rst_n"
         ]
       },
-      "xlconstant_0_dout": {
+      "xlslice_0_Dout": {
         "ports": [
-          "xlconstant_0/dout",
+          "xlslice_0/Dout",
           "comblock_0/fifo_clear_i"
         ]
       }

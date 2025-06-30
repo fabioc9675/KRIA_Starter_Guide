@@ -20,3 +20,15 @@ domain active {zynq_fsbl}
 domain active {freertos10_xilinx_ps7_cortexa9_0}
 platform generate -quick
 platform generate
+platform create -name {pynq_bd_wrapper}\
+-hw {C:\GitHub\KRIA_Starter_Guide\ICTP_MachineLearning\Vivado\Vivado_ml\pynq_bd_wrapper.xsa}\
+-out {C:/GitHub/KRIA_Starter_Guide/ICTP_MachineLearning/Vivado/Vivado_ml}
+
+platform write
+domain create -name {freertos10_xilinx_ps7_cortexa9_0} -display-name {freertos10_xilinx_ps7_cortexa9_0} -os {freertos10_xilinx} -proc {ps7_cortexa9_0} -runtime {cpp} -arch {32-bit} -support-app {udma_server}
+platform generate -domains 
+platform active {pynq_bd_wrapper}
+domain active {zynq_fsbl}
+domain active {freertos10_xilinx_ps7_cortexa9_0}
+platform generate -quick
+platform generate

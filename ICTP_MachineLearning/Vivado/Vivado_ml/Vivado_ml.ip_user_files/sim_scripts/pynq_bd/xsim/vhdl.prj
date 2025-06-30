@@ -30,5 +30,6 @@ vhdl xil_defaultlib  \
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference_sigmoid_ap_fixed_8_4_5_3_0_ap_fixed_8_4_5_3_0_sigmoid_config19_s_sigmoid_tablbkb.vhd" \
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/vhdl/GN_inference.vhd" \
 "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+"../../../bd/pynq_bd/ip/pynq_bd_leds_reg_0_0/sim/pynq_bd_leds_reg_0_0.vhd" \
 
 nosort

@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
---Date        : Sun Jun 29 16:18:42 2025
+--Date        : Mon Jun 30 18:20:17 2025
 --Host        : fabiancastano running 64-bit major release  (build 9200)
 --Command     : generate_target pynq_bd_wrapper.bd
 --Design      : pynq_bd_wrapper
@@ -33,7 +33,8 @@ entity pynq_bd_wrapper is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    led : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
 end pynq_bd_wrapper;
 
@@ -60,7 +61,8 @@ architecture STRUCTURE of pynq_bd_wrapper is
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    led : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component pynq_bd;
 begin
@@ -86,6 +88,7 @@ pynq_bd_i: component pynq_bd
       FIXED_IO_mio(53 downto 0) => FIXED_IO_mio(53 downto 0),
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb
+      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
+      led(3 downto 0) => led(3 downto 0)
     );
 end STRUCTURE;

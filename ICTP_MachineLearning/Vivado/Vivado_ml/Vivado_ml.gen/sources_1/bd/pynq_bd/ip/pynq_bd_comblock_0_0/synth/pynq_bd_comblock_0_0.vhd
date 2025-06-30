@@ -59,10 +59,12 @@ ENTITY pynq_bd_comblock_0_0 IS
     reg1_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg2_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg3_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg4_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg0_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg1_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg2_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     reg3_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    reg4_o : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     fifo_clk_i : IN STD_LOGIC;
     fifo_clear_i : IN STD_LOGIC;
     fifo_we_i : IN STD_LOGIC;
@@ -308,15 +310,17 @@ ARCHITECTURE pynq_bd_comblock_0_0_arch OF pynq_bd_comblock_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF reg2_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg2_o";
   ATTRIBUTE X_INTERFACE_INFO OF reg3_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg3_i";
   ATTRIBUTE X_INTERFACE_INFO OF reg3_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg3_o";
+  ATTRIBUTE X_INTERFACE_INFO OF reg4_i: SIGNAL IS "ictp:user:IREGS:1.0 IN_REGS reg4_i";
+  ATTRIBUTE X_INTERFACE_INFO OF reg4_o: SIGNAL IS "ictp:user:OREGS:1.0 OUT_REGS reg4_o";
 BEGIN
   U0 : axi_comblock
     GENERIC MAP (
       REGS_IN_ENA => true,
       REGS_IN_DWIDTH => 32,
-      REGS_IN_DEPTH => 4,
+      REGS_IN_DEPTH => 5,
       REGS_OUT_ENA => true,
       REGS_OUT_DWIDTH => 32,
-      REGS_OUT_DEPTH => 4,
+      REGS_OUT_DEPTH => 5,
       DRAM_IO_ENA => false,
       DRAM_IO_DWIDTH => 16,
       DRAM_IO_AWIDTH => 16,
@@ -343,7 +347,7 @@ BEGIN
       reg1_i => reg1_i,
       reg2_i => reg2_i,
       reg3_i => reg3_i,
-      reg4_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
+      reg4_i => reg4_i,
       reg5_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       reg6_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       reg7_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
@@ -359,6 +363,7 @@ BEGIN
       reg1_o => reg1_o,
       reg2_o => reg2_o,
       reg3_o => reg3_o,
+      reg4_o => reg4_o,
       ram_clk_i => '0',
       ram_we_i => '0',
       ram_addr_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 16)),

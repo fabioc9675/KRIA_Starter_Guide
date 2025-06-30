@@ -9,7 +9,6 @@ vlib questa_lib/msim/processing_system7_vip_v1_0_15
 vlib questa_lib/msim/xil_defaultlib
 vlib questa_lib/msim/lib_cdc_v1_0_2
 vlib questa_lib/msim/proc_sys_reset_v5_0_13
-vlib questa_lib/msim/xlconstant_v1_1_7
 vlib questa_lib/msim/xbip_utils_v3_0_10
 vlib questa_lib/msim/axi_utils_v2_0_6
 vlib questa_lib/msim/xbip_pipe_v3_0_6
@@ -19,6 +18,7 @@ vlib questa_lib/msim/xbip_dsp48_multadd_v3_0_6
 vlib questa_lib/msim/xbip_bram18k_v3_0_6
 vlib questa_lib/msim/mult_gen_v12_0_18
 vlib questa_lib/msim/floating_point_v7_1_15
+vlib questa_lib/msim/xlslice_v1_0_2
 vlib questa_lib/msim/generic_baseblocks_v2_1_0
 vlib questa_lib/msim/fifo_generator_v13_2_7
 vlib questa_lib/msim/axi_data_fifo_v2_1_26
@@ -33,7 +33,6 @@ vmap processing_system7_vip_v1_0_15 questa_lib/msim/processing_system7_vip_v1_0_
 vmap xil_defaultlib questa_lib/msim/xil_defaultlib
 vmap lib_cdc_v1_0_2 questa_lib/msim/lib_cdc_v1_0_2
 vmap proc_sys_reset_v5_0_13 questa_lib/msim/proc_sys_reset_v5_0_13
-vmap xlconstant_v1_1_7 questa_lib/msim/xlconstant_v1_1_7
 vmap xbip_utils_v3_0_10 questa_lib/msim/xbip_utils_v3_0_10
 vmap axi_utils_v2_0_6 questa_lib/msim/axi_utils_v2_0_6
 vmap xbip_pipe_v3_0_6 questa_lib/msim/xbip_pipe_v3_0_6
@@ -43,6 +42,7 @@ vmap xbip_dsp48_multadd_v3_0_6 questa_lib/msim/xbip_dsp48_multadd_v3_0_6
 vmap xbip_bram18k_v3_0_6 questa_lib/msim/xbip_bram18k_v3_0_6
 vmap mult_gen_v12_0_18 questa_lib/msim/mult_gen_v12_0_18
 vmap floating_point_v7_1_15 questa_lib/msim/floating_point_v7_1_15
+vmap xlslice_v1_0_2 questa_lib/msim/xlslice_v1_0_2
 vmap generic_baseblocks_v2_1_0 questa_lib/msim/generic_baseblocks_v2_1_0
 vmap fifo_generator_v13_2_7 questa_lib/msim/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 questa_lib/msim/axi_data_fifo_v2_1_26
@@ -97,12 +97,6 @@ vcom -work proc_sys_reset_v5_0_13  -93  \
 
 vcom -work xil_defaultlib  -93  \
 "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
-
-vlog -work xlconstant_v1_1_7  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../bd/pynq_bd/ip/pynq_bd_xlconstant_0_0/sim/pynq_bd_xlconstant_0_0.v" \
 
 vcom -work xbip_utils_v3_0_10  -93  \
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/364f/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
@@ -161,6 +155,18 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sourc
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/ip/GN_inference_dcmp_64ns_64ns_1_2_no_dsp_1_ip.v" \
 "../../../bd/pynq_bd/ip/pynq_bd_GN_inference_0_0/sim/pynq_bd_GN_inference_0_0.v" \
 
+vcom -work xil_defaultlib  -93  \
+"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+
+vlog -work xlslice_v1_0_2  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/pynq_bd/ip/pynq_bd_xlslice_0_0/sim/pynq_bd_xlslice_0_0.v" \
+
+vcom -work xil_defaultlib  -93  \
+"../../../bd/pynq_bd/ip/pynq_bd_leds_reg_0_0/sim/pynq_bd_leds_reg_0_0.vhd" \
+
 vlog -work generic_baseblocks_v2_1_0  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
 
@@ -184,9 +190,6 @@ vlog -work axi_protocol_converter_v2_1_27  -incr -mfcu  "+incdir+../../../../Viv
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" "+incdir+../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" "+incdir+D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/pynq_bd/ip/pynq_bd_auto_pc_0/sim/pynq_bd_auto_pc_0.v" \
-
-vcom -work xil_defaultlib  -93  \
-"../../../bd/pynq_bd/sim/pynq_bd.vhd" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

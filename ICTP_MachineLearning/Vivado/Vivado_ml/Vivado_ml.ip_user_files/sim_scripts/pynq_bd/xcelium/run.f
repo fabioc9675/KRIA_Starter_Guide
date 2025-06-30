@@ -47,12 +47,6 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/pynq_bd/ip/pynq_bd_rst_ps7_0_100M_0/sim/pynq_bd_rst_ps7_0_100M_0.vhd" \
 -endlib
--makelib xcelium_lib/xlconstant_v1_1_7 \
-  "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/badb/hdl/xlconstant_v1_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/pynq_bd/ip/pynq_bd_xlconstant_0_0/sim/pynq_bd_xlconstant_0_0.v" \
--endlib
 -makelib xcelium_lib/xbip_utils_v3_0_10 \
   "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/364f/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
 -endlib
@@ -110,6 +104,18 @@
   "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/ip/GN_inference_dcmp_64ns_64ns_1_2_no_dsp_1_ip.v" \
   "../../../bd/pynq_bd/ip/pynq_bd_GN_inference_0_0/sim/pynq_bd_GN_inference_0_0.v" \
 -endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
+-endlib
+-makelib xcelium_lib/xlslice_v1_0_2 \
+  "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/pynq_bd/ip/pynq_bd_xlslice_0_0/sim/pynq_bd_xlslice_0_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/pynq_bd/ip/pynq_bd_leds_reg_0_0/sim/pynq_bd_leds_reg_0_0.vhd" \
+-endlib
 -makelib xcelium_lib/generic_baseblocks_v2_1_0 \
   "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
 -endlib
@@ -133,9 +139,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/pynq_bd/ip/pynq_bd_auto_pc_0/sim/pynq_bd_auto_pc_0.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/pynq_bd/sim/pynq_bd.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

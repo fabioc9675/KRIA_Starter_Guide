@@ -1,8 +1,8 @@
 verilog xil_defaultlib --include "D:/Xilinx/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ec67/hdl" --include "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/ee60/hdl" \
 "../../../bd/pynq_bd/ip/pynq_bd_processing_system7_0_0/sim/pynq_bd_processing_system7_0_0.v" \
-"../../../bd/pynq_bd/ip/pynq_bd_xlconstant_0_0/sim/pynq_bd_xlconstant_0_0.v" \
 "../../../../Vivado_ml.gen/sources_1/bd/pynq_bd/ipshared/5218/hdl/ip/GN_inference_dcmp_64ns_64ns_1_2_no_dsp_1_ip.v" \
 "../../../bd/pynq_bd/ip/pynq_bd_GN_inference_0_0/sim/pynq_bd_GN_inference_0_0.v" \
+"../../../bd/pynq_bd/ip/pynq_bd_xlslice_0_0/sim/pynq_bd_xlslice_0_0.v" \
 "../../../bd/pynq_bd/ip/pynq_bd_auto_pc_0/sim/pynq_bd_auto_pc_0.v" \
 
 verilog xil_defaultlib "glbl.v"
